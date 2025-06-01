@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator Nhôm Kính Pro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #2c3e50, #3498db, #e74c3c);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .calculator-panel {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .title {
+            text-align: center;
+            color: #fff;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        /* Basic Calculator */
+        .display {
+            width: 100%;
+            height: 70px;
+            font-size: 36px;
+            text-align: right;
+            padding: 0 20px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 12px;
+            background: rgba(0,0,0,0.8);
+            color: #00ff88;
+            font-family: 'Courier New', monospace;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        button {
+            height: 60px;
+            font-size: 18px;
+            font-weight: 500;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.2s;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .btn-number {
+            background: rgba(255,255,255,0.15);
+            color: #fff;
+        }
+
+        .btn-operator {
+            background: rgba(255,107,107,0.8);
+            color: #fff;
+        }
+
+        .btn-function {
+            background: rgba(74,144,226,0.8);
+            color: #fff;
+        }
+
+        .btn-special {
+            background: rgba(46,204,113,0.8);
+            color: #fff;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        /* Glass Calculator */
+        .glass-input {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 10px;
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            font-size: 16px;
+            backdrop-filter: blur(5px);
+        }
+
+        .glass-input:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 15px rgba(52,152,219,0.5);
+        }
+
+        .glass-result {
+            background: rgba(46,204,113,0.2);
+            border: 2px solid rgba(46,204,113,0.5);
+            color: #2ecc71;
+            font-weight: bold;
+        }
+
+        .calc-section {
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .calc-section h3 {
+            color: #fff;
+            margin-bottom: 15px;
+            font-size: 18px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .input-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 10px 0;
+        }
+
+        .input-group.single {
+            grid-template-columns: 1fr;
+        }
+
+        label {
+            color: rgba(255,255,255,0.9);
+            font-size: 14px;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .btn-calculate {
+            width: 100%;
+            padding: 15px;
+            margin: 15px 0;
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-calculate:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(52,152,219,0.4);
+        }
+
+        .price-list {
+            max-height: 200px;
+            overflow-y: auto;
+            margin: 15px 0;
+            padding: 10px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 10px;
+        }
+
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .history {
+            max-height: 150px;
+            overflow-y: auto;
+            background: rgba(0,0,0,0.3);
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        .history-item {
+            color: #bdc3c7;
+            font-size: 14px;
+            padding: 5px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Calculator Cơ Bản -->
+        <div class="calculator-panel">
+            <h2 class="title">🧮 Calculator Pro</h2>
+            
+            <input type="text" class="display" id="display" value="0" readonly>
+            
+            <div class="buttons">
+                <button class="btn-function" onclick="clearAll()">AC</button>
+                <button class="btn-function" onclick="toggleSign()">+/-</button>
+                <button class="btn-function" onclick="percentage()">%</button>
+                <button class="btn-operator" onclick="setOperator('/')">÷</button>
+                
+                <button class="btn-number" onclick="inputNumber('7')">7</button>
+                <button class="btn-number" onclick="inputNumber('8')">8</button>
+                <button class="btn-number" onclick="inputNumber('9')">9</button>
+                <button class="btn-operator" onclick="setOperator('*')">×</button>
+                
+                <button class="btn-number" onclick="inputNumber('4')">4</button>
+                <button class="btn-number" onclick="inputNumber('5')">5</button>
+                <button class="btn-number" onclick="inputNumber('6')">6</button>
+                <button class="btn-operator" onclick="setOperator('-')">−</button>
+                
+                <button class="btn-number" onclick="inputNumber('1')">1</button>
+                <button class="btn-number" onclick="inputNumber('2')">2</button>
+                <button class="btn-number" onclick="inputNumber('3')">3</button>
+                <button class="btn-operator" onclick="setOperator('+')">+</button>
+                
+                <button class="btn-number" onclick="inputNumber('0')" style="grid-column: span 2;">0</button>
+                <button class="btn-number" onclick="inputDecimal()">.</button>
+                <button class="btn-special" onclick="calculate()">=</button>
+            </div>
+
+            <div class="calc-section">
+                <h3>📊 Lịch Sử Tính Toán</h3>
+                <div class="history" id="history"></div>
+                <button class="btn-calculate" onclick="clearHistory()">Xóa Lịch Sử</button>
+            </div>
+        </div>
+
+        <!-- Calculator Chuyên Dụng Nhôm Kính -->
+        <div class="calculator-panel">
+            <h2 class="title">🪟 Calculator Nhôm Kính Pro</h2>
+
+            <!-- Tính Diện Tích Kính -->
+            <div class="calc-section">
+                <h3>📐 Tính Diện Tích & Chi Phí Kính</h3>
+                <div class="input-group">
+                    <div>
+                        <label>Chiều Rộng (m):</label>
+                        <input type="number" class="glass-input" id="glassWidth" placeholder="VD: 2.5" step="0.01">
+                    </div>
+                    <div>
+                        <label>Chiều Cao (m):</label>
+                        <input type="number" class="glass-input" id="glassHeight" placeholder="VD: 1.8" step="0.01">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <div>
+                        <label>Loại Kính:</label>
+                        <select class="glass-input" id="glassType">
+                            <option value="150000">Kính Thường (150k/m²)</option>
+                            <option value="220000">Kính Cường Lực (220k/m²)</option>
+                            <option value="380000">Kính Low-E (380k/m²)</option>
+                            <option value="450000">Kính Hộp (450k/m²)</option>
+                            <option value="650000">Kính Laminated (650k/m²)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Số Lượng:</label>
+                        <input type="number" class="glass-input" id="glassQuantity" placeholder="VD: 5" value="1" min="1">
+                    </div>
+                </div>
+                <button class="btn-calculate" onclick="calculateGlass()">Tính Diện Tích & Giá</button>
+                <input type="text" class="glass-input glass-result" id="glassResult" placeholder="Kết quả sẽ hiển thị ở đây..." readonly>
+            </div>
+
+            <!-- Tính Khung Nhôm -->
+            <div class="calc-section">
+                <h3>🔧 Tính Chi Phí Khung Nhôm</h3>
+                <div class="input-group">
+                    <div>
+                        <label>Chu Vi Khung (m):</label>
+                        <input type="number" class="glass-input" id="framePerimeter" placeholder="VD: 8.6" step="0.01">
+                    </div>
+                    <div>
+                        <label>Loại Nhôm:</label>
+                        <select class="glass-input" id="frameType">
+                            <option value="45000">Nhôm Thường (45k/m)</option>
+                            <option value="85000">Nhôm Xingfa (85k/m)</option>
+                            <option value="120000">Nhôm Cao Cấp (120k/m)</option>
+                            <option value="180000">Nhôm Hệ Mở (180k/m)</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="btn-calculate" onclick="calculateFrame()">Tính Giá Khung</button>
+                <input type="text" class="glass-input glass-result" id="frameResult" placeholder="Kết quả sẽ hiển thị ở đây..." readonly>
+            </div>
+
+            <!-- Tính Tổng Báo Giá -->
+            <div class="calc-section">
+                <h3>💰 Báo Giá Tổng Thể</h3>
+                <div class="input-group single">
+                    <div>
+                        <label>Chi Phí Phụ Kiện (VND):</label>
+                        <input type="number" class="glass-input" id="accessories" placeholder="VD: 500000" value="0">
+                    </div>
+                </div>
+                <div class="input-group single">
+                    <div>
+                        <label>Chi Phí Lắp Đặt (VND):</label>
+                        <input type="number" class="glass-input" id="installation" placeholder="VD: 800000" value="0">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <div>
+                        <label>Giảm Giá (%):</label>
+                        <input type="number" class="glass-input" id="discount" placeholder="VD: 10" value="0" min="0" max="100">
+                    </div>
+                    <div>
+                        <label>VAT (%):</label>
+                        <input type="number" class="glass-input" id="vat" placeholder="VD: 10" value="10" min="0" max="100">
+                    </div>
+                </div>
+                <button class="btn-calculate" onclick="calculateTotal()">Tính Tổng Báo Giá</button>
+                <textarea class="glass-input glass-result" id="totalResult" rows="6" placeholder="Báo giá chi tiết sẽ hiển thị ở đây..." readonly></textarea>
+            </div>
+
+            <!-- Bảng Giá Tham Khảo -->
+            <div class="calc-section">
+                <h3>💡 Bảng Giá Tham Khảo</h3>
+                <div class="price-list">
+                    <div class="price-item"><span>Kính Thường 5mm</span><span>150,000 VND/m²</span></div>
+                    <div class="price-item"><span>Kính Cường Lực 8mm</span><span>220,000 VND/m²</span></div>
+                    <div class="price-item"><span>Kính Low-E 6mm</span><span>380,000 VND/m²</span></div>
+                    <div class="price-item"><span>Nhôm Xingfa</span><span>85,000 VND/m</span></div>
+                    <div class="price-item"><span>Nhôm Cao Cấp</span><span>120,000 VND/m</span></div>
+                    <div class="price-item"><span>Phụ kiện cơ bản</span><span>300k-1M VND</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Basic Calculator Logic
+        let currentValue = '0';
+        let previousValue = null;
+        let operator = null;
+        let waitingForNewValue = false;
+        let history = [];
+
+        function updateDisplay() {
+            document.getElementById('display').value = currentValue;
+        }
+
+        function inputNumber(num) {
+            if (waitingForNewValue) {
+                currentValue = num;
+                waitingForNewValue = false;
+            } else {
+                currentValue = currentValue === '0' ? num : currentValue + num;
+            }
+            updateDisplay();
+        }
+
+        function inputDecimal() {
+            if (waitingForNewValue) {
+                currentValue = '0.';
+                waitingForNewValue = false;
+            } else if (currentValue.indexOf('.') === -1) {
+                currentValue += '.';
+            }
+            updateDisplay();
+        }
+
+        function setOperator(nextOperator) {
+            const inputValue = parseFloat(currentValue);
+            if (previousValue === null) {
+                previousValue = inputValue;
+            } else if (operator) {
+                const result = performCalculation();
+                currentValue = String(result);
+                previousValue = result;
+                updateDisplay();
+            }
+            waitingForNewValue = true;
+            operator = nextOperator;
+        }
+
+        function calculate() {
+            const inputValue = parseFloat(currentValue);
+            if (previousValue !== null && operator) {
+                const result = performCalculation();
+                const calculation = `${previousValue} ${operator} ${currentValue} = ${result}`;
+                addToHistory(calculation);
+                currentValue = String(result);
+                previousValue = null;
+                operator = null;
+                waitingForNewValue = true;
+                updateDisplay();
+            }
+        }
+
+        function performCalculation() {
+            const prev = previousValue;
+            const current = parseFloat(currentValue);
+            switch (operator) {
+                case '+': return prev + current;
+                case '-': return prev - current;
+                case '*': return prev * current;
+                case '/': return current !== 0 ? prev / current : 0;
+                default: return current;
+            }
+        }
+
+        function clearAll() {
+            currentValue = '0';
+            previousValue = null;
+            operator = null;
+            waitingForNewValue = false;
+            updateDisplay();
+        }
+
+        function toggleSign() {
+            if (currentValue !== '0') {
+                currentValue = currentValue.startsWith('-') ? currentValue.slice(1) : '-' + currentValue;
+                updateDisplay();
+            }
+        }
+
+        function percentage() {
+            currentValue = String(parseFloat(currentValue) / 100);
+            updateDisplay();
+        }
+
+        function addToHistory(calculation) {
+            history.unshift(calculation);
+            if (history.length > 10) history.pop();
+            updateHistory();
+        }
+
+        function updateHistory() {
+            const historyDiv = document.getElementById('history');
+            historyDiv.innerHTML = history.map(item => `<div class="history-item">${item}</div>`).join('');
+        }
+
+        function clearHistory() {
+            history = [];
+            updateHistory();
+        }
+
+        // Glass Calculator Functions
+        function calculateGlass() {
+            const width = parseFloat(document.getElementById('glassWidth').value) || 0;
+            const height = parseFloat(document.getElementById('glassHeight').value) || 0;
+            const pricePerM2 = parseFloat(document.getElementById('glassType').value) || 0;
+            const quantity = parseInt(document.getElementById('glassQuantity').value) || 1;
+
+            if (width <= 0 || height <= 0) {
+                document.getElementById('glassResult').value = 'Vui lòng nhập kích thước hợp lệ!';
+                return;
+            }
+
+            const area = width * height;
+            const totalArea = area * quantity;
+            const totalPrice = totalArea * pricePerM2;
+
+            const result = `Diện tích: ${area.toFixed(2)}m² × ${quantity} = ${totalArea.toFixed(2)}m²\nTổng giá: ${formatCurrency(totalPrice)}`;
+            document.getElementById('glassResult').value = result;
+        }
+
+        function calculateFrame() {
+            const perimeter = parseFloat(document.getElementById('framePerimeter').value) || 0;
+            const pricePerM = parseFloat(document.getElementById('frameType').value) || 0;
+
+            if (perimeter <= 0) {
+                document.getElementById('frameResult').value = 'Vui lòng nhập chu vi hợp lệ!';
+                return;
+            }
+
+            const totalPrice = perimeter * pricePerM;
+            const result = `Chu vi: ${perimeter}m\nTổng giá khung: ${formatCurrency(totalPrice)}`;
+            document.getElementById('frameResult').value = result;
+        }
+
+        function calculateTotal() {
+            // Get glass cost
+            const glassResult = document.getElementById('glassResult').value;
+            const glassMatch = glassResult.match(/Tổng giá: ([\d,]+)/);
+            const glassCost = glassMatch ? parseFloat(glassMatch[1].replace(/,/g, '')) : 0;
+
+            // Get frame cost
+            const frameResult = document.getElementById('frameResult').value;
+            const frameMatch = frameResult.match(/Tổng giá khung: ([\d,]+)/);
+            const frameCost = frameMatch ? parseFloat(frameMatch[1].replace(/,/g, '')) : 0;
+
+            // Get additional costs
+            const accessories = parseFloat(document.getElementById('accessories').value) || 0;
+            const installation = parseFloat(document.getElementById('installation').value) || 0;
+            const discountPercent = parseFloat(document.getElementById('discount').value) || 0;
+            const vatPercent = parseFloat(document.getElementById('vat').value) || 0;
+
+            // Calculate totals
+            const subtotal = glassCost + frameCost + accessories + installation;
+            const discountAmount = subtotal * (discountPercent / 100);
+            const afterDiscount = subtotal - discountAmount;
+            const vatAmount = afterDiscount * (vatPercent / 100);
+            const finalTotal = afterDiscount + vatAmount;
+
+            const result = `=== BÁO GIÁ CHI TIẾT ===
+Chi phí kính: ${formatCurrency(glassCost)}
+Chi phí khung nhôm: ${formatCurrency(frameCost)}
+Phụ kiện: ${formatCurrency(accessories)}
+Lắp đặt: ${formatCurrency(installation)}
+─────────────────────────
+Tạm tính: ${formatCurrency(subtotal)}
+Giảm giá (${discountPercent}%): -${formatCurrency(discountAmount)}
+Sau giảm giá: ${formatCurrency(afterDiscount)}
+VAT (${vatPercent}%): ${formatCurrency(vatAmount)}
+─────────────────────────
+TỔNG CỘNG: ${formatCurrency(finalTotal)}`;
+
+            document.getElementById('totalResult').value = result;
+        }
+
+        function formatCurrency(amount) {
+            return new Intl.NumberFormat('vi-VN').format(Math.round(amount)) + ' VND';
+        }
+
+        // Initialize
+        updateDisplay();
+        updateHistory();
+    </script>
+</body>
+</html>

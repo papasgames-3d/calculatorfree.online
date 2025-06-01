@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casio fx-570ES PLUS - Scientific Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .calculator {
+            width: 300px;
+            height: 480px;
+            background: linear-gradient(145deg, #2c2c2c, #1a1a1a);
+            border-radius: 15px;
+            padding: 12px;
+            box-shadow: 
+                0 15px 35px rgba(0,0,0,0.4),
+                inset 0 1px 0 rgba(255,255,255,0.1);
+            border: 2px solid #333;
+            position: relative;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+            padding: 0 5px;
+        }
+
+        .brand {
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .model {
+            color: #ccc;
+            font-size: 9px;
+            text-align: right;
+            line-height: 1.1;
+        }
+
+        .model-main {
+            font-weight: bold;
+            font-size: 11px;
+        }
+
+        .model-sub {
+            font-size: 8px;
+            opacity: 0.8;
+        }
+
+        /* Screen */
+        .screen-container {
+            background: #2d5016;
+            border-radius: 6px;
+            padding: 2px;
+            margin-bottom: 12px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .screen {
+            background: #9bb67a;
+            border-radius: 4px;
+            height: 70px;
+            padding: 8px;
+            position: relative;
+            font-family: 'Courier New', monospace;
+            overflow: hidden;
+        }
+
+        .display-line {
+            color: #000;
+            font-size: 10px;
+            line-height: 1.3;
+            margin-bottom: 2px;
+        }
+
+        .main-display {
+            color: #000;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: right;
+            position: absolute;
+            bottom: 5px;
+            right: 8px;
+            left: 8px;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 8px;
+            height: 12px;
+            background: #000;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        /* Button Grid */
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 2px;
+        }
+
+        button {
+            border: none;
+            border-radius: 3px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.1s;
+            position: relative;
+            height: 28px;
+            font-size: 9px;
+            box-shadow: 
+                0 2px 4px rgba(0,0,0,0.3),
+                inset 0 1px 0 rgba(255,255,255,0.1);
+        }
+
+        button:active {
+            transform: translateY(1px);
+            box-shadow: 
+                0 1px 2px rgba(0,0,0,0.3),
+                inset 0 1px 0 rgba(255,255,255,0.1);
+        }
+
+        /* Button Types */
+        .btn-shift {
+            background: linear-gradient(145deg, #ff6b35, #d84315);
+            color: white;
+        }
+
+        .btn-alpha {
+            background: linear-gradient(145deg, #ffc107, #ff8f00);
+            color: #000;
+        }
+
+        .btn-mode {
+            background: linear-gradient(145deg, #4a4a4a, #2a2a2a);
+            color: #fff;
+        }
+
+        .btn-function {
+            background: linear-gradient(145deg, #6a6a6a, #4a4a4a);
+            color: #fff;
+        }
+
+        .btn-math {
+            background: linear-gradient(145deg, #5a5a5a, #3a3a3a);
+            color: #fff;
+        }
+
+        .btn-number {
+            background: linear-gradient(145deg, #404040, #202020);
+            color: #fff;
+            font-size: 12px;
+        }
+
+        .btn-operator {
+            background: linear-gradient(145deg, #555, #333);
+            color: #fff;
+        }
+
+        .btn-equals {
+            background: linear-gradient(145deg, #ff6b35, #d84315);
+            color: white;
+            font-size: 12px;
+        }
+
+        .btn-zero {
+            grid-column: span 2;
+        }
+
+        /* Button Labels */
+        .btn-label-top {
+            position: absolute;
+            top: 1px;
+            left: 2px;
+            font-size: 6px;
+            color: #ff6b35;
+            font-weight: normal;
+        }
+
+        .btn-label-alpha {
+            position: absolute;
+            top: 1px;
+            right: 2px;
+            font-size: 6px;
+            color: #ffc107;
+            font-weight: normal;
+        }
+
+        .btn-label-main {
+            font-size: 9px;
+            margin-top: 8px;
+        }
+
+        .btn-label-bottom {
+            position: absolute;
+            bottom: 1px;
+            left: 2px;
+            font-size: 6px;
+            color: #aaa;
+        }
+
+        /* Status Indicators */
+        .status-indicators {
+            position: absolute;
+            top: 3px;
+            left: 8px;
+            font-size: 8px;
+            color: #000;
+        }
+
+        .status-dot {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+
+        .shift-indicator {
+            background: #ff6b35;
+        }
+
+        .alpha-indicator {
+            background: #ffc107;
+        }
+
+        .mode-indicator {
+            position: absolute;
+            top: 3px;
+            right: 8px;
+            font-size: 8px;
+            color: #000;
+        }
+
+        /* Responsive */
+        @media (max-width: 350px) {
+            .calculator {
+                width: 280px;
+                height: 450px;
+            }
+            
+            button {
+                height: 26px;
+                font-size: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <!-- Header -->
+        <div class="header">
+            <div class="brand">CASIO</div>
+            <div class="model">
+                <div class="model-main">fx-570ES PLUS</div>
+                <div class="model-sub">NATURAL-V.P.A.M.</div>
+            </div>
+        </div>
+
+        <!-- Screen -->
+        <div class="screen-container">
+            <div class="screen">
+                <div class="status-indicators">
+                    <span class="status-dot shift-indicator" id="shift-dot" style="display: none;"></span>
+                    <span class="status-dot alpha-indicator" id="alpha-dot" style="display: none;"></span>
+                    <span id="status-text"></span>
+                </div>
+                <div class="mode-indicator" id="mode-indicator">COMP</div>
+                
+                <div class="display-line" id="expression-display"></div>
+                <div class="main-display" id="main-display">0</div>
+                <span class="cursor" id="cursor" style="display: none;"></span>
+            </div>
+        </div>
+
+        <!-- Button Grid -->
+        <div class="button-grid">
+            <!-- Row 1 -->
+            <button class="btn-shift" onclick="toggleShift()">
+                <div class="btn-label-main">SHIFT</div>
+            </button>
+            <button class="btn-alpha" onclick="toggleAlpha()">
+                <div class="btn-label-main">ALPHA</div>
+            </button>
+            <button class="btn-mode" onclick="replay()">
+                <div class="btn-label-top">CLR</div>
+                <div class="btn-label-main">REPLAY</div>
+            </button>
+            <button class="btn-mode" onclick="mode()">
+                <div class="btn-label-top">SETUP</div>
+                <div class="btn-label-main">MODE</div>
+            </button>
+            <button class="btn-function" onclick="onAc()">
+                <div class="btn-label-top">OFF</div>
+                <div class="btn-label-main">ON</div>
+            </button>
+
+            <!-- Row 2 -->
+            <button class="btn-math" onclick="inputFunction('√')">
+                <div class="btn-label-top">x²</div>
+                <div class="btn-label-alpha">A</div>
+                <div class="btn-label-main">√</div>
+            </button>
+            <button class="btn-math" onclick="inputFunction('pow(', '^')">
+                <div class="btn-label-top">x³</div>
+                <div class="btn-label-alpha">B</div>
+                <div class="btn-label-main">^</div>
+            </button>
+            <button class="btn-math" onclick="inputFunction('log')">
+                <div class="btn-label-top">10^x</div>
+                <div class="btn-label-alpha">C</div>
+                <div class="btn-label-main">log</div>
+            </button>
+            <button class="btn-math" onclick="inputFunction('ln')">
+                <div class="btn-label-top">e^x</div>
+                <div class="btn-label-alpha">D</div>
+                <div class="btn-label-main">ln</div>
+            </button>
+            <button class="btn-function" onclick="deleteLast()">
+                <div class="btn-label-top">INS</div>
+                <div class="btn-label-alpha">E</div>
+                <div class="btn-label-main">DEL</div>
+            </button>
+
+            <!-- Row 3 -->
+            <button class="btn-math" onclick="inputFunction('sin')">
+                <div class="btn-label-top">sin⁻¹</div>
+                <div class="btn-label-alpha">F</div>
+                <div class="btn-label-main">sin</div>
+            </button>
+            <button class="btn-math" onclick="inputFunction('cos')">
+                <div class="btn-label-top">cos⁻¹</div>
+                <div class="btn-label-alpha">G</div>
+                <div class="btn-label-main">cos</div>
+            </button>
+            <button class="btn-math" onclick="inputFunction('tan')">
+                <div class="btn-label-top">tan⁻¹</div>
+                <div class="btn-label-alpha">H</div>
+                <div class="btn-label-main">tan</div>
+            </button>
+            <button class="btn-function" onclick="inputOperator('(')">
+                <div class="btn-label-top">,</div>
+                <div class="btn-label-alpha">I</div>
+                <div class="btn-label-main">(</div>
+            </button>
+            <button class="btn-function" onclick="inputOperator(')')">
+                <div class="btn-label-top">;</div>
+                <div class="btn-label-alpha">J</div>
+                <div class="btn-label-main">)</div>
+            </button>
+
+            <!-- Row 4 -->
+            <button class="btn-math" onclick="inputFunction('√3')">
+                <div class="btn-label-top">∛</div>
+                <div class="btn-label-alpha">K</div>
+                <div class="btn-label-main">∛</div>
+            </button>
+            <button class="btn-math" onclick="inputFunction('ab/c')">
+                <div class="btn-label-top">d/c</div>
+                <div class="btn-label-alpha">L</div>
+                <div class="btn-label-main">ab/c</div>
+            </button>
+            <button class="btn-math" onclick="inputFunction('|x|')">
+                <div class="btn-label-top">Ran#</div>
+                <div class="btn-label-alpha">M</div>
+                <div class="btn-label-main">|x|</div>
+            </button>
+            <button class="btn-function" onclick="inputConstant('π')">
+                <div class="btn-label-top">°'"</div>
+                <div class="btn-label-alpha">N</div>
+                <div class="btn-label-main">π</div>
+            </button>
+            <button class="btn-function" onclick="inputConstant('e')">
+                <div class="btn-label-top">ENG</div>
+                <div class="btn-label-alpha">O</div>
+                <div class="btn-label-main">e</div>
+            </button>
+
+            <!-- Row 5 -->
+            <button class="btn-math" onclick="inputFunction('x!')">
+                <div class="btn-label-top">nPr</div>
+                <div class="btn-label-alpha">P</div>
+                <div class="btn-label-main">x!</div>
+            </button>
+            <button class="btn-math" onclick="inputFunction('nCr')">
+                <div class="btn-label-top">nCr</div>
+                <div class="btn-label-alpha">Q</div>
+                <div class="btn-label-main">nCr</div>
+            </button>
+            <button class="btn-math" onclick="inputFunction('Pol(')">
+                <div class="btn-label-top">Rec(</div>
+                <div class="btn-label-alpha">R</div>
+                <div class="btn-label-main">Pol(</div>
+            </button>
+            <button class="btn-function" onclick="inputFunction('x10^')">
+                <div class="btn-label-top">Σ</div>
+                <div class="btn-label-alpha">S</div>
+                <div class="btn-label-main">×10^</div>
+            </button>
+            <button class="btn-function" onclick="inputFunction('Ans')">
+                <div class="btn-label-top">STO</div>
+                <div class="btn-label-alpha">T</div>
+                <div class="btn-label-main">Ans</div>
+            </button>
+
+            <!-- Row 6 -->
+            <button class="btn-number" onclick="inputNumber('7')">
+                <div class="btn-label-alpha">U</div>
+                <div class="btn-label-main">7</div>
+            </button>
+            <button class="btn-number" onclick="inputNumber('8')">
+                <div class="btn-label-alpha">V</div>
+                <div class="btn-label-main">8</div>
+            </button>
+            <button class="btn-number" onclick="inputNumber('9')">
+                <div class="btn-label-alpha">W</div>
+                <div class="btn-label-main">9</div>
+            </button>
+            <button class="btn-operator" onclick="inputOperator('/')">
+                <div class="btn-label-top">%</div>
+                <div class="btn-label-alpha">X</div>
+                <div class="btn-label-main">÷</div>
+            </button>
+            <button class="btn-function" onclick="clearAll()">
+                <div class="btn-label-main">AC</div>
+            </button>
+
+            <!-- Row 7 -->
+            <button class="btn-number" onclick="inputNumber('4')">
+                <div class="btn-label-alpha">Y</div>
+                <div class="btn-label-main">4</div>
+            </button>
+            <button class="btn-number" onclick="inputNumber('5')">
+                <div class="btn-label-alpha">Z</div>
+                <div class="btn-label-main">5</div>
+            </button>
+            <button class="btn-number" onclick="inputNumber('6')">
+                <div class="btn-label-alpha">:</div>
+                <div class="btn-label-main">6</div>
+            </button>
+            <button class="btn-operator" onclick="inputOperator('*')">
+                <div class="btn-label-top">←</div>
+                <div class="btn-label-alpha">*</div>
+                <div class="btn-label-main">×</div>
+            </button>
+            <button class="btn-operator" onclick="inputOperator('/')">
+                <div class="btn-label-top">→</div>
+                <div class="btn-label-main">÷</div>
+            </button>
+
+            <!-- Row 8 -->
+            <button class="btn-number" onclick="inputNumber('1')">
+                <div class="btn-label-alpha">" "</div>
+                <div class="btn-label-main">1</div>
+            </button>
+            <button class="btn-number" onclick="inputNumber('2')">
+                <div class="btn-label-alpha">?</div>
+                <div class="btn-label-main">2</div>
+            </button>
+            <button class="btn-number" onclick="inputNumber('3')">
+                <div class="btn-label-alpha">θ</div>
+                <div class="btn-label-main">3</div>
+            </button>
+            <button class="btn-operator" onclick="inputOperator('+')">
+                <div class="btn-label-top">M+</div>
+                <div class="btn-label-alpha">+</div>
+                <div class="btn-label-main">+</div>
+            </button>
+            <button class="btn-operator" onclick="inputOperator('-')">
+                <div class="btn-label-top">M-</div>
+                <div class="btn-label-alpha">-</div>
+                <div class="btn-label-main">-</div>
+            </button>
+
+            <!-- Row 9 -->
+            <button class="btn-number btn-zero" onclick="inputNumber('0')">
+                <div class="btn-label-alpha">:</div>
+                <div class="btn-label-main">0</div>
+            </button>
+            <button class="btn-number" onclick="inputDecimal()">
+                <div class="btn-label-top">=</div>
+                <div class="btn-label-alpha">,</div>
+                <div class="btn-label-main">.</div>
+            </button>
+            <button class="btn-function" onclick="toggleSign()">
+                <div class="btn-label-top">Ans</div>
+                <div class="btn-label-main">(-)</div>
+            </button>
+            <button class="btn-equals" onclick="calculate()">
+                <div class="btn-label-main">=</div>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Global Variables
+        let currentExpression = '';
+        let currentResult = '0';
+        let shiftMode = false;
+        let alphaMode = false;
+        let angleMode = 'DEG';
+        let memory = 0;
+        let ansValue = 0;
+        let history = [];
+        let calcMode = 'COMP';
+
+        // DOM Elements
+        const expressionDisplay = document.getElementById('expression-display');
+        const mainDisplay = document.getElementById('main-display');
+        const modeIndicator = document.getElementById('mode-indicator');
+        const shiftDot = document.getElementById('shift-dot');
+        const alphaDot = document.getElementById('alpha-dot');
+        const statusText = document.getElementById('status-text');
+        const cursor = document.getElementById('cursor');
+
+        // Initialize
+        updateDisplay();
+
+        // Input Functions
+        function inputNumber(num) {
+            if (alphaMode) {
+                const alphaMap = {
+                    '7': 'U', '8': 'V', '9': 'W',
+                    '4': 'Y', '5': 'Z', '6': ':',
+                    '1': '" "', '2': '?', '3': 'θ',
+                    '0': ':'
+                };
+                if (alphaMap[num]) {
+                    currentExpression += alphaMap[num];
+                    updateDisplay();
+                    resetModes();
+                    return;
+                }
+            }
+
+            if (shiftMode) {
+                handleShiftNumber(num);
+                return;
+            }
+            
+            if (currentResult !== '0' && currentExpression === '') {
+                currentExpression = num;
+            } else {
+                currentExpression += num;
+            }
+            updateDisplay();
+            resetModes();
+        }
+
+        function inputDecimal() {
+            if (shiftMode) {
+                currentExpression += '=';
+                resetModes();
+                return;
+            }
+
+            const lastNumber = currentExpression.split(/[\+\-\*\/\(\)]/).pop();
+            if (!lastNumber.includes('.')) {
+                if (currentExpression === '' || currentExpression.slice(-1).match(/[\+\-\*\/\(]/)) {
+                    currentExpression += '0.';
+                } else {
+                    currentExpression += '.';
+                }
+                updateDisplay();
+            }
+            resetModes();
+        }
+
+        function inputOperator(op) {
+            if (shiftMode && op === '/') {
+                currentExpression += '%';
+                resetModes();
+                return;
+            }
+
+            if (currentExpression === '') {
+                if (op === '-') {
+                    currentExpression = '-';
+                }
+            } else if (!currentExpression.slice(-1).match(/[\+\-\*\/]/)) {
+                currentExpression += ` ${op} `;
+            }
+            updateDisplay();
+            resetModes();
+        }
+
+        function inputFunction(func) {
+            if (shiftMode) {
+                handleShiftFunction(func);
+                return;
+            }
+
+            switch(func) {
+                case 'sin':
+                case 'cos':
+                case 'tan':
+                case 'log':
+                case 'ln':
+                case '√':
+                case '∛':
+                case '|x|':
+                    currentExpression += func + '(';
+                    break;
+                case 'pow(':
+                    currentExpression += '^';
+                    break;
+                case 'x!':
+                    currentExpression += '!';
+                    break;
+                case 'nCr':
+                    currentExpression += 'C';
+                    break;
+                case 'Pol(':
+                    currentExpression += 'Pol(';
+                    break;
+                case 'x10^':
+                    currentExpression += '×10^';
+                    break;
+                case 'Ans':
+                    currentExpression += ansValue.toString();
+                    break;
+                case 'ab/c':
+                    // Switch to fraction mode
+                    currentExpression += '⌐';
+                    break;
+                default:
+                    currentExpression += func;
+            }
+            updateDisplay();
+            resetModes();
+        }
+
+        function inputConstant(constant) {
+            if (shiftMode) {
+                if (constant === 'π') {
+                    currentExpression += '°';
+                } else if (constant === 'e') {
+                    // ENG function
+                    toggleEngineering();
+                }
+                resetModes();
+                return;
+            }
+
+            const constants = {
+                'π': Math.PI,
+                'e': Math.E
+            };
+            
+            if (constants[constant]) {
+                currentExpression += constant;
+                updateDisplay();
+            }
+            resetModes();
+        }
+
+        function handleShiftNumber(num) {
+            const shiftFunctions = {
+                '1': '" "',
+                '2': '?',
+                '3': 'θ',
+                '4': 'Y',
+                '5': 'Z',
+                '6': ':',
+                '7': 'U',
+                '8': 'V',
+                '9': 'W',
+                '0': ':'
+            };
+            
+            if (shiftFunctions[num]) {
+                currentExpression += shiftFunctions[num];
+                updateDisplay();
+            }
+        }
+
+        function handleShiftFunction(func) {
+            const shiftMap = {
+                '√': 'x²',
+                '^': 'x³',
+                'log': '10^x',
+                'ln': 'e^x',
+                'sin': 'sin⁻¹',
+                'cos': 'cos⁻¹',
+                'tan': 'tan⁻¹',
+                '∛': '∛',
+                'ab/c': 'd/c',
+                '|x|': 'Ran#',
+                'x!': 'nPr'
+            };
+            
+            if (shiftMap[func]) {
+                switch(shiftMap[func]) {
+                    case 'x²':
+                        currentExpression += '^2';
+                        break;
+                    case 'x³':
+                        currentExpression += '^3';
+                        break;
+                    case '10^x':
+                        currentExpression += '10^(';
+                        break;
+                    case 'e^x':
+                        currentExpression += 'e^(';
+                        break;
+                    case 'sin⁻¹':
+                        currentExpression += 'asin(';
+                        break;
+                    case 'cos⁻¹':
+                        currentExpression += 'acos(';
+                        break;
+                    case 'tan⁻¹':
+                        currentExpression += 'atan(';
+                        break;
+                    case 'Ran#':
+                        currentExpression += Math.random().toFixed(6);
+                        break;
+                    case 'nPr':
+                        currentExpression += 'P';
+                        break;
+                    default:
+                        currentExpression += shiftMap[func] + '(';
+                }
+                updateDisplay();
+            }
+        }
+
+        // Calculation
+        function calculate() {
+            try {
+                let expression = currentExpression
+                    .replace(/π/g, Math.PI)
+                    .replace(/e(?![x^])/g, Math.E)
+                    .replace(/×/g, '*')
+                    .replace(/÷/g, '/')
+                    .replace(/\^/g, '**');
+
+                // Handle mathematical functions
+                expression = convertMathFunctions(expression);
+
+                const result = eval(expression);
+                
+                if (isNaN(result) || !isFinite(result)) {
+                    throw new Error('Math Error');
+                }
+
+                currentResult = formatResult(result);
+                ansValue = result;
+                
+                // Add to history
+                history.unshift({
+                    expression: currentExpression,
+                    result: currentResult,
+                    timestamp: new Date().toLocaleTimeString()
+                });
+                if (history.length > 20) history.pop();
+
+                // Show result
+                showCalculationResult();
+
+            } catch (error) {
+                showError('Math Error');
+            }
+        }
+
+        function convertMathFunctions(expr) {
+            // Convert trig functions
+            const trigFunctions = ['sin', 'cos', 'tan', 'asin', 'acos', 'atan'];
+            
+            trigFunctions.forEach(func => {
+                const regex = new RegExp(`${func}\$([^)]+)\$`, 'g');
+                expr = expr.replace(regex, (match, arg) => {
+                    if (['sin', 'cos', 'tan'].includes(func) && angleMode === 'DEG') {
+                        return `Math.${func}(${arg} * Math.PI / 180)`;
+                    } else if (['asin', 'acos', 'atan'].includes(func) && angleMode === 'DEG') {
+                        return `(Math.${func}(${arg}) * 180 / Math.PI)`;
+                    }
+                    return `Math.${func}(${arg})`;
+                });
+            });
+
+            // Convert other functions
+            expr = expr
+                .replace(/√\(/g, 'Math.sqrt(')
+                .replace(/∛\(/g, 'Math.cbrt(')
+                .replace(/log\(/g, 'Math.log10(')
+                .replace(/ln\(/g, 'Math.log(')
+                .replace(/\|x\|\(/g, 'Math.abs(')
+                .replace(/!/g, ''); // Factorial needs special handling
+
+            return expr;
+        }
+
+        function formatResult(num) {
+            if (Math.abs(num) < 0.000001 && num !== 0) {
+                return num.toExponential(6);
+            } else if (Math.abs(num) > 999999999) {
+                return num.toExponential(6);
+            } else {
+                return parseFloat(num.toPrecision(10)).toString();
+            }
+        }
+
+        function showCalculationResult() {
+            expressionDisplay.textContent = currentExpression;
+            mainDisplay.textContent = currentResult;
+            currentExpression = '';
+        }
+
+        // Clear Functions
+        function clearAll() {
+            currentExpression = '';
+            currentResult = '0';
+            updateDisplay();
+        }
+
+        function deleteLast() {
+            if (shiftMode) {
+                // INS function
+                cursor.style.display = cursor.style.display === 'none' ? 'inline-block' : 'none';
+                resetModes();
+                return;
+            }
+
+            if (currentExpression.length > 0) {
+                currentExpression = currentExpression.slice(0, -1);
+                updateDisplay();
+            }
+        }
+
+        function toggleSign() {
+            if (shiftMode) {
+                // Ans function
+                currentExpression += ansValue.toString();
+                updateDisplay();
+                resetModes();
+                return;
+            }
+
+            if (currentExpression) {
+                if (currentExpression.startsWith('-')) {
+                    currentExpression = currentExpression.slice(1);
+                } else {
+                    currentExpression = '(-' + currentExpression + ')';
+                }
+                updateDisplay();
+            }
+        }
+
+        // Mode Functions
+        function toggleShift() {
+            shiftMode = !shiftMode;
+            updateModeIndicators();
+        }
+
+        function toggleAlpha() {
+            alphaMode = !alphaMode;
+            updateModeIndicators();
+        }
+
+        function mode() {
+            if (shiftMode) {
+                // SETUP function
+                showMessage('SETUP');
+                resetModes();
+                return;
+            }
+
+            // Cycle through modes
+            const modes = ['COMP', 'STAT', 'REG', 'BASE', 'EQN', 'MAT', 'VCT'];
+            const currentIndex = modes.indexOf(calcMode);
+            calcMode = modes[(currentIndex + 1) % modes.length];
+            modeIndicator.textContent = calcMode;
+            showMessage(`Mode: ${calcMode}`);
+        }
+
+        function replay() {
+            if (shiftMode) {
+                // CLR function
+                clearAll();
+                showMessage('Memory Cleared');
+                resetModes();
+                return;
+            }
+
+            if (history.length > 0) {
+                currentExpression = history[0].expression;
+                updateDisplay();
+                showMessage('Replay');
+            }
+        }
+
+        function onAc() {
+            if (shiftMode) {
+                // OFF function
+                showMessage('Calculator OFF');
+                setTimeout(() => {
+                    clearAll();
+                    showMessage('Calculator ON');
+                }, 1000);
+                resetModes();
+                return;
+            }
+
+            // All Clear
+            clearAll();
+            showMessage('All Clear');
+        }
+
+        function updateModeIndicators() {
+            shiftDot.style.display = shiftMode ? 'inline-block' : 'none';
+            alphaDot.style.display = alphaMode ? 'inline-block' : 'none';
+            
+            let statusText = angleMode;
+            if (shiftMode) statusText += ' SHIFT';
+            if (alphaMode) statusText += ' ALPHA';
+            document.getElementById('status-text').textContent = statusText;
+        }
+
+        function resetModes() {
+            shiftMode = false;
+            alphaMode = false;
+            updateModeIndicators();
+        }
+
+        function toggleEngineering() {
+            // Toggle between normal and engineering notation
+            if (currentResult !== '0') {
+                const num = parseFloat(currentResult);
+                currentResult = num.toExponential(6);
+                updateDisplay();
+            }
+            showMessage('ENG Mode');
+        }
+
+        // Utility Functions
+        function showError(error) {
+            currentResult = error;
+            updateDisplay();
+            setTimeout(() => {
+                currentResult = '0';
+                updateDisplay();
+            }, 2000);
+        }
+
+        function showMessage(msg) {
+            const originalExpr = expressionDisplay.textContent;
+            expressionDisplay.textContent = msg;
+            setTimeout(() => {
+                expressionDisplay.textContent = originalExpr;
+            }, 1000);
+        }
+
+        function updateDisplay() {
+            expressionDisplay.textContent = currentExpression;
+            mainDisplay.textContent = currentResult;
+            updateModeIndicators();
+        }
+
+        // Keyboard Support
+        document.addEventListener('keydown', function(event) {
+            const key = event.key;
+            
+            if (key >= '0' && key <= '9') {
+                inputNumber(key);
+            } else if (key === '.') {
+                inputDecimal();
+            } else if (['+', '-', '*', '/'].includes(key)) {
+                inputOperator(key);
+            } else if (key === 'Enter' || key === '=') {
+                event.preventDefault();
+                calculate();
+            } else if (key === 'Escape') {
+                clearAll();
+            } else if (key === 'Backspace') {
+                deleteLast();
+            } else if (key === '(') {
+                inputOperator('(');
+            } else if (key === ')') {
+                inputOperator(')');
+            }
+        });
+
+        // Initialize
+        updateModeIndicators();
+    </script>
+</body>
+</html>

@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casio FX-9860GIII Simulator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .calculator {
+            width: 400px;
+            background: linear-gradient(145deg, #1a252f, #2c3e50);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 
+                0 20px 60px rgba(0,0,0,0.4),
+                inset 0 1px 0 rgba(255,255,255,0.1);
+            border: 2px solid #34495e;
+        }
+
+        /* Casio Logo & Model */
+        .header {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .logo {
+            color: #ecf0f1;
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+
+        .model {
+            color: #bdc3c7;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        /* Screen Area */
+        .screen-area {
+            background: #2c5aa0;
+            border-radius: 8px;
+            padding: 3px;
+            margin-bottom: 20px;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .screen {
+            background: #1a1a1a;
+            border-radius: 5px;
+            padding: 15px;
+            min-height: 120px;
+            position: relative;
+            border: 1px solid #333;
+        }
+
+        .screen-display {
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.4;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .main-display {
+            color: #00ff00;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: right;
+            margin-top: 10px;
+            border-top: 1px solid #333;
+            padding-top: 5px;
+        }
+
+        .mode-indicator {
+            position: absolute;
+            top: 5px;
+            left: 10px;
+            color: #00ff00;
+            font-size: 10px;
+        }
+
+        .cursor {
+            color: #00ff00;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        /* Menu Bar */
+        .menu-bar {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .menu-item {
+            background: linear-gradient(145deg, #34495e, #2c3e50);
+            color: #ecf0f1;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 10px;
+            border: 1px solid #4a5f7a;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .menu-item:hover {
+            background: linear-gradient(145deg, #4a5f7a, #34495e);
+        }
+
+        .menu-item.active {
+            background: #e74c3c;
+            box-shadow: 0 2px 8px rgba(231,76,60,0.3);
+        }
+
+        /* Button Grid */
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 5px;
+        }
+
+        button {
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.1s;
+            position: relative;
+            min-height: 35px;
+            font-size: 11px;
+            box-shadow: 
+                0 2px 4px rgba(0,0,0,0.3),
+                inset 0 1px 0 rgba(255,255,255,0.1);
+        }
+
+        button:active {
+            transform: translateY(1px);
+            box-shadow: 
+                0 1px 2px rgba(0,0,0,0.3),
+                inset 0 1px 0 rgba(255,255,255,0.1);
+        }
+
+        /* Button Types - Casio Style */
+        .btn-function {
+            background: linear-gradient(145deg, #e74c3c, #c0392b);
+            color: white;
+        }
+
+        .btn-mode {
+            background: linear-gradient(145deg, #f39c12, #e67e22);
+            color: white;
+        }
+
+        .btn-shift {
+            background: linear-gradient(145deg, #9b59b6, #8e44ad);
+            color: white;
+        }
+
+        .btn-alpha {
+            background: linear-gradient(145deg, #e67e22, #d35400);
+            color: white;
+        }
+
+        .btn-number {
+            background: linear-gradient(145deg, #34495e, #2c3e50);
+            color: #ecf0f1;
+        }
+
+        .btn-operator {
+            background: linear-gradient(145deg, #2980b9, #2471a3);
+            color: white;
+        }
+
+        .btn-special {
+            background: linear-gradient(145deg, #27ae60, #229954);
+            color: white;
+        }
+
+        .btn-memory {
+            background: linear-gradient(145deg, #8e44ad, #7d3c98);
+            color: white;
+        }
+
+        .btn-cursor {
+            background: linear-gradient(145deg, #95a5a6, #7f8c8d);
+            color: #2c3e50;
+        }
+
+        /* Button Labels */
+        .btn-label-top {
+            position: absolute;
+            top: -2px;
+            left: 2px;
+            font-size: 8px;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .btn-label-main {
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .btn-wide {
+            grid-column: span 2;
+        }
+
+        .btn-tall {
+            grid-row: span 2;
+        }
+
+        /* Special Styling */
+        .screen-grid {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(0,255,0,0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,255,0,0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .graph-mode .screen-grid {
+            display: block;
+        }
+
+        /* Status Indicators */
+        .status-bar {
+            position: absolute;
+            bottom: 5px;
+            right: 10px;
+            color: #00ff00;
+            font-size: 8px;
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .calculator {
+                width: 350px;
+            }
+            
+            button {
+                min-height: 30px;
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">CASIO</div>
+            <div class="model">fx-9860GIII</div>
+        </div>
+
+        <!-- Screen -->
+        <div class="screen-area">
+            <div class="screen" id="screen">
+                <div class="mode-indicator" id="mode-indicator">RUN</div>
+                <div class="screen-display" id="expression-display"></div>
+                <div class="main-display" id="main-display">0</div>
+                <div class="screen-grid"></div>
+                <div class="status-bar" id="status-bar">DEG</div>
+                <span class="cursor" id="cursor">█</span>
+            </div>
+        </div>
+
+        <!-- Menu Bar -->
+        <div class="menu-bar">
+            <div class="menu-item active" onclick="setMode('RUN')">RUN</div>
+            <div class="menu-item" onclick="setMode('GRAPH')">GRAPH</div>
+            <div class="menu-item" onclick="setMode('TABLE')">TABLE</div>
+            <div class="menu-item" onclick="setMode('STAT')">STAT</div>
+            <div class="menu-item" onclick="setMode('EQUA')">EQUA</div>
+        </div>
+
+        <!-- Button Grid -->
+        <div class="button-grid">
+            <!-- Row 1: Function Keys -->
+            <button class="btn-function" onclick="inputFunction('F1')">
+                <div class="btn-label-main">F1</div>
+            </button>
+            <button class="btn-function" onclick="inputFunction('F2')">
+                <div class="btn-label-main">F2</div>
+            </button>
+            <button class="btn-function" onclick="inputFunction('F3')">
+                <div class="btn-label-main">F3</div>
+            </button>
+            <button class="btn-function" onclick="inputFunction('F4')">
+                <div class="btn-label-main">F4</div>
+            </button>
+            <button class="btn-function" onclick="inputFunction('F5')">
+                <div class="btn-label-main">F5</div>
+            </button>
+            <button class="btn-function" onclick="inputFunction('F6')">
+                <div class="btn-label-main">F6</div>
+            </button>
+
+            <!-- Row 2: Mode & Special -->
+            <button class="btn-shift" onclick="toggleShift()">
+                <div class="btn-label-main">SHIFT</div>
+            </button>
+            <button class="btn-alpha" onclick="toggleAlpha()">
+                <div class="btn-label-main">ALPHA</div>
+            </button>
+            <button class="btn-mode" onclick="openMenu()">
+                <div class="btn-label-main">MENU</div>
+            </button>
+            <button class="btn-mode" onclick="setup()">
+                <div class="btn-label-main">SETUP</div>
+            </button>
+            <button class="btn-special" onclick="clearAll()">
+                <div class="btn-label-main">AC</div>
+            </button>
+            <button class="btn-special" onclick="deleteLast()">
+                <div class="btn-label-main">DEL</div>
+            </button>
+
+            <!-- Row 3: Math Functions -->
+            <button class="btn-operator" onclick="inputFunction('x²')">
+                <div class="btn-label-top">x³</div>
+                <div class="btn-label-main">x²</div>
+            </button>
+            <button class="btn-operator" onclick="inputFunction('√')">
+                <div class="btn-label-top">∛</div>
+                <div class="btn-label-main">√</div>
+            </button>
+            <button class="btn-operator" onclick="inputFunction('^')">
+                <div class="btn-label-top">^</div>
+                <div class="btn-label-main">^</div>
+            </button>
+            <button class="btn-operator" onclick="inputFunction('log')">
+                <div class="btn-label-top">10ˣ</div>
+                <div class="btn-label-main">log</div>
+            </button>
+            <button class="btn-operator" onclick="inputFunction('ln')">
+                <div class="btn-label-top">eˣ</div>
+                <div class="btn-label-main">ln</div>
+            </button>
+            <button class="btn-operator" onclick="inputOperator('/')">
+                <div class="btn-label-main">÷</div>
+            </button>
+
+            <!-- Row 4: Trig Functions -->
+            <button class="btn-operator" onclick="inputFunction('sin')">
+                <div class="btn-label-top">sin⁻¹</div>
+                <div class="btn-label-main">sin</div>
+            </button>
+            <button class="btn-operator" onclick="inputFunction('cos')">
+                <div class="btn-label-top">cos⁻¹</div>
+                <div class="btn-label-main">cos</div>
+            </button>
+            <button class="btn-operator" onclick="inputFunction('tan')">
+                <div class="btn-label-top">tan⁻¹</div>
+                <div class="btn-label-main">tan</div>
+            </button>
+            <button class="btn-special" onclick="inputOperator('(')" >
+                <div class="btn-label-main">(</div>
+            </button>
+            <button class="btn-special" onclick="inputOperator(')')">
+                <div class="btn-label-main">)</div>
+            </button>
+            <button class="btn-operator" onclick="inputOperator('*')">
+                <div class="btn-label-main">×</div>
+            </button>
+
+            <!-- Row 5: Numbers 7-9 -->
+            <button class="btn-number" onclick="inputNumber('7')">
+                <div class="btn-label-main">7</div>
+            </button>
+            <button class="btn-number" onclick="inputNumber('8')">
+                <div class="btn-label-main">8</div>
+            </button>
+            <button class="btn-number" onclick="inputNumber('9')">
+                <div class="btn-label-main">9</div>
+            </button>
+            <button class="btn-memory" onclick="memoryClear()">
+                <div class="btn-label-main">MC</div>
+            </button>
+            <button class="btn-memory" onclick="memoryRecall()">
+                <div class="btn-label-main">MR</div>
+            </button>
+            <button class="btn-operator" onclick="inputOperator('-')">
+                <div class="btn-label-main">-</div>
+            </button>
+
+            <!-- Row 6: Numbers 4-6 -->
+            <button class="btn-number" onclick="inputNumber('4')">
+                <div class="btn-label-main">4</div>
+            </button>
+            <button class="btn-number" onclick="inputNumber('5')">
+                <div class="btn-label-main">5</div>
+            </button>
+            <button class="btn-number" onclick="inputNumber('6')">
+                <div class="btn-label-main">6</div>
+            </button>
+            <button class="btn-memory" onclick="memoryAdd()">
+                <div class="btn-label-main">M+</div>
+            </button>
+            <button class="btn-memory" onclick="memorySubtract()">
+                <div class="btn-label-main">M-</div>
+            </button>
+            <button class="btn-operator" onclick="inputOperator('+')">
+                <div class="btn-label-main">+</div>
+            </button>
+
+            <!-- Row 7: Numbers 1-3 -->
+            <button class="btn-number" onclick="inputNumber('1')">
+                <div class="btn-label-main">1</div>
+            </button>
+            <button class="btn-number" onclick="inputNumber('2')">
+                <div class="btn-label-main">2</div>
+            </button>
+            <button class="btn-number" onclick="inputNumber('3')">
+                <div class="btn-label-main">3</div>
+            </button>
+            <button class="btn-special" onclick="inputConstant('π')">
+                <div class="btn-label-main">π</div>
+            </button>
+            <button class="btn-special" onclick="inputConstant('e')">
+                <div class="btn-label-main">e</div>
+            </button>
+            <button class="btn-special btn-tall" onclick="calculate()">
+                <div class="btn-label-main">EXE</div>
+            </button>
+
+            <!-- Row 8: Bottom Row -->
+            <button class="btn-number btn-wide" onclick="inputNumber('0')">
+                <div class="btn-label-main">0</div>
+            </button>
+            <button class="btn-number" onclick="inputDecimal()">
+                <div class="btn-label-main">•</div>
+            </button>
+            <button class="btn-special" onclick="inputFunction('Ans')">
+                <div class="btn-label-main">Ans</div>
+            </button>
+            <button class="btn-cursor" onclick="toggleSign()">
+                <div class="btn-label-main">(-)</div>
+            </button>
+
+            <!-- Row 9: Cursor Keys -->
+            <button class="btn-cursor" onclick="replay()">
+                <div class="btn-label-main">REPLAY</div>
+            </button>
+            <button class="btn-cursor" onclick="cursorMove('up')">
+                <div class="btn-label-main">▲</div>
+            </button>
+            <button class="btn-cursor" onclick="cursorMove('down')">
+                <div class="btn-label-main">▼</div>
+            </button>
+            <button class="btn-cursor" onclick="cursorMove('left')">
+                <div class="btn-label-main">◄</div>
+            </button>
+            <button class="btn-cursor" onclick="cursorMove('right')">
+                <div class="btn-label-main">►</div>
+            </button>
+            <button class="btn-special" onclick="vars()">
+                <div class="btn-label-main">VARS</div>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Global Variables
+        let currentExpression = '';
+        let currentResult = '0';
+        let currentMode = 'RUN';
+        let shiftMode = false;
+        let alphaMode = false;
+        let angleMode = 'DEG';
+        let memory = 0;
+        let ansValue = 0;
+        let cursorPosition = 0;
+        let history = [];
+
+        // DOM Elements
+        const expressionDisplay = document.getElementById('expression-display');
+        const mainDisplay = document.getElementById('main-display');
+        const modeIndicator = document.getElementById('mode-indicator');
+        const statusBar = document.getElementById('status-bar');
+        const screen = document.getElementById('screen');
+        const cursor = document.getElementById('cursor');
+
+        // Initialize
+        updateDisplay();
+
+        // Input Functions
+        function inputNumber(num) {
+            if (shiftMode) {
+                // Shift functions for numbers
+                const shiftFunctions = {
+                    '1': 'Rec(',
+                    '2': 'Pol(',
+                    '3': 'And',
+                    '4': 'Or',
+                    '5': 'Not',
+                    '6': 'Xor',
+                    '7': 'Rnd',
+                    '8': 'Abs(',
+                    '9': 'Int(',
+                    '0': 'Frac('
+                };
+                if (shiftFunctions[num]) {
+                    inputFunction(shiftFunctions[num]);
+                    return;
+                }
+            }
+
+            currentExpression += num;
+            updateDisplay();
+            resetModes();
+        }
+
+        function inputDecimal() {
+            if (currentExpression === '' || currentExpression.slice(-1) === ' ') {
+                currentExpression += '0.';
+            } else if (!currentExpression.split(/[\+\-\*\/]/).pop().includes('.')) {
+                currentExpression += '.';
+            }
+            updateDisplay();
+            resetModes();
+        }
+
+        function inputOperator(op) {
+            if (currentExpression && !isNaN(currentExpression.slice(-1))) {
+                currentExpression += ` ${op} `;
+                updateDisplay();
+            }
+            resetModes();
+        }
+
+        function inputFunction(func) {
+            if (shiftMode) {
+                // Handle shift functions
+                const shiftMap = {
+                    'sin': 'asin(',
+                    'cos': 'acos(',
+                    'tan': 'atan(',
+                    'log': 'pow(10,',
+                    'ln': 'exp(',
+                    'x²': 'x³',
+                    '√': '∛('
+                };
+                if (shiftMap[func]) {
+                    currentExpression += shiftMap[func];
+                } else {
+                    currentExpression += func;
+                }
+            } else {
+                switch(func) {
+                    case 'sin':
+                    case 'cos':
+                    case 'tan':
+                    case 'log':
+                    case 'ln':
+                        currentExpression += func + '(';
+                        break;
+                    case 'x²':
+                        currentExpression += '^2';
+                        break;
+                    case '√':
+                        currentExpression += 'sqrt(';
+                        break;
+                    case '^':
+                        currentExpression += '^';
+                        break;
+                    case 'Ans':
+                        currentExpression += ansValue;
+                        break;
+                    default:
+                        if (func.startsWith('F')) {
+                            handleFunctionKey(func);
+                        } else {
+                            currentExpression += func;
+                        }
+                }
+            }
+            updateDisplay();
+            resetModes();
+        }
+
+        function inputConstant(constant) {
+            const constants = {
+                'π': Math.PI,
+                'e': Math.E
+            };
+            
+            if (constants[constant]) {
+                currentExpression += constant;
+            }
+            updateDisplay();
+            resetModes();
+        }
+
+        // Calculation
+        function calculate() {
+            try {
+                let expression = currentExpression
+                    .replace(/π/g, Math.PI)
+                    .replace(/e/g, Math.E)
+                    .replace(/×/g, '*')
+                    .replace(/÷/g, '/')
+                    .replace(/\^/g, '**');
+
+                // Handle trigonometric functions
+                expression = convertTrigFunctions(expression);
+
+                // Handle other math functions
+                expression = expression
+                    .replace(/sqrt\(/g, 'Math.sqrt(')
+                    .replace(/log\(/g, 'Math.log10(')
+                    .replace(/ln\(/g, 'Math.log(')
+                    .replace(/abs\(/g, 'Math.abs(');
+
+                const result = eval(expression);
+                
+                if (isNaN(result) || !isFinite(result)) {
+                    throw new Error('Math Error');
+                }
+
+                currentResult = formatResult(result);
+                ansValue = result;
+                
+                // Add to history
+                history.unshift(`${currentExpression} = ${currentResult}`);
+                if (history.length > 10) history.pop();
+
+                // Display result
+                currentExpression = '';
+                updateDisplay();
+
+            } catch (error) {
+                showError('Math Error');
+            }
+        }
+
+        function convertTrigFunctions(expr) {
+            const trigFunctions = ['sin', 'cos', 'tan', 'asin', 'acos', 'atan'];
+            
+            trigFunctions.forEach(func => {
+                const regex = new RegExp(`${func}\$([^)]+)\$`, 'g');
+                expr = expr.replace(regex, (match, arg) => {
+                    if (['sin', 'cos', 'tan'].includes(func) && angleMode === 'DEG') {
+                        return `Math.${func}(${arg} * Math.PI / 180)`;
+                    } else if (['asin', 'acos', 'atan'].includes(func) && angleMode === 'DEG') {
+                        return `(Math.${func}(${arg}) * 180 / Math.PI)`;
+                    }
+                    return `Math.${func}(${arg})`;
+                });
+            });
+            
+            return expr;
+        }
+
+        function formatResult(num) {
+            if (Math.abs(num) < 0.000001 && num !== 0) {
+                return num.toExponential(6);
+            } else if (Math.abs(num) > 999999999) {
+                return num.toExponential(6);
+            } else {
+                return parseFloat(num.toPrecision(10)).toString();
+            }
+        }
+
+        // Clear Functions
+        function clearAll() {
+            currentExpression = '';
+            currentResult = '0';
+            updateDisplay();
+        }
+
+        function deleteLast() {
+            if (currentExpression.length > 0) {
+                currentExpression = currentExpression.slice(0, -1);
+                updateDisplay();
+            }
+        }
+
+        function toggleSign() {
+            if (currentExpression) {
+                if (currentExpression.startsWith('-')) {
+                    currentExpression = currentExpression.slice(1);
+                } else {
+                    currentExpression = '-' + currentExpression;
+                }
+                updateDisplay();
+            }
+        }
+
+        // Mode Functions
+        function setMode(mode) {
+            currentMode = mode;
+            modeIndicator.textContent = mode;
+            
+            // Update active menu item
+            document.querySelectorAll('.menu-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Change screen appearance for different modes
+            if (mode === 'GRAPH') {
+                screen.classList.add('graph-mode');
+            } else {
+                screen.classList.remove('graph-mode');
+            }
+
+            clearAll();
+        }
+
+        function toggleShift() {
+            shiftMode = !shiftMode;
+            updateStatusIndicators();
+        }
+
+        function toggleAlpha() {
+            alphaMode = !alphaMode;
+            updateStatusIndicators();
+        }
+
+        function updateStatusIndicators() {
+            let status = angleMode;
+            if (shiftMode) status += ' SHIFT';
+            if (alphaMode) status += ' ALPHA';
+            statusBar.textContent = status;
+        }
+
+        // Memory Functions
+        function memoryClear() {
+            memory = 0;
+            showMessage('Memory Cleared');
+        }
+
+        function memoryRecall() {
+            currentExpression += memory.toString();
+            updateDisplay();
+        }
+
+        function memoryAdd() {
+            memory += parseFloat(currentResult) || 0;
+            showMessage('Memory +');
+        }
+
+        function memorySubtract() {
+            memory -= parseFloat(currentResult) || 0;
+            showMessage('Memory -');
+        }
+
+        // Navigation
+        function cursorMove(direction) {
+            // Cursor movement logic
+            console.log(`Cursor moved ${direction}`);
+        }
+
+        function replay() {
+            if (history.length > 0) {
+                const lastCalc = history[0].split(' = ')[0];
+                currentExpression = lastCalc;
+                updateDisplay();
+            }
+        }
+
+        // Menu Functions
+        function openMenu() {
+            showMessage('MENU');
+            // In a real implementation, this would open a menu system
+        }
+
+        function setup() {
+            showMessage('SETUP');
+            // Toggle angle mode for demo
+            angleMode = angleMode === 'DEG' ? 'RAD' : 'DEG';
+            updateStatusIndicators();
+        }
+
+        function vars() {
+            showMessage('VARS');
+        }
+
+        function handleFunctionKey(key) {
+            const functions = {
+                'F1': () => showMessage('F1: Graph'),
+                'F2': () => showMessage('F2: Table'),
+                'F3': () => showMessage('F3: Statistics'),
+                'F4': () => showMessage('F4: Matrix'),
+                'F5': () => showMessage('F5: Program'),
+                'F6': () => showMessage('F6: Settings')
+            };
+
+            if (functions[key]) {
+                functions[key]();
+            }
+        }
+
+        // Utility Functions
+        function resetModes() {
+            shiftMode = false;
+            alphaMode = false;
+            updateStatusIndicators();
+        }
+
+        function showMessage(msg) {
+            const originalText = expressionDisplay.textContent;
+            expressionDisplay.textContent = msg;
+            setTimeout(() => {
+                expressionDisplay.textContent = originalText;
+            }, 1000);
+        }
+
+        function showError(error) {
+            currentResult = error;
+            updateDisplay();
+            setTimeout(() => {
+                currentResult = '0';
+                updateDisplay();
+            }, 2000);
+        }
+
+        function updateDisplay() {
+            expressionDisplay.textContent = currentExpression || '';
+            mainDisplay.textContent = currentResult;
+            
+            // Update cursor position
+            cursor.style.display = currentExpression ? 'inline' : 'none';
+        }
+
+        // Keyboard Support
+        document.addEventListener('keydown', function(event) {
+            const key = event.key;
+            
+            if (key >= '0' && key <= '9') {
+                inputNumber(key);
+            } else if (key === '.') {
+                inputDecimal();
+            } else if (['+', '-', '*', '/'].includes(key)) {
+                inputOperator(key);
+            } else if (key === 'Enter' || key === '=') {
+                event.preventDefault();
+                calculate();
+            } else if (key === 'Escape') {
+                clearAll();
+            } else if (key === 'Backspace') {
+                deleteLast();
+            } else if (key === '(') {
+                inputFunction('(');
+            } else if (key === ')') {
+                inputFunction(')');
+            }
+        });
+
+        // Initialize status
+        updateStatusIndicators();
+    </script>
+</body>
+</html>
