@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Age Calculator Online - Calculate Your Exact Age Free 2024</title>
+    <meta name="description" content="Free online age calculator to calculate your exact age in years, months, days, hours from birth date. Accurate age calculation tool with detailed breakdown and age at specific date feature.">
+    <meta name="keywords" content="age calculator, calculate age online, age calculator from birth date, how old am I, age in days calculator, birth date calculator, exact age calculator">
+    <meta name="author" content="Age Calculator Tool">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Age Calculator Online - Calculate Your Exact Age Free">
+    <meta property="og:description" content="Calculate your exact age from birth date with detailed breakdown in years, months, days, hours, and minutes. Free and accurate age calculator tool.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://calculatorfree.online/en/age-calculator-en">
+    <meta property="og:image" content="https://calculatorfree.online/favico.png">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Age Calculator - Calculate Your Exact Age Online">
+    <meta name="twitter:description" content="Free age calculator tool to calculate exact age from birth date">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://calculatorfree.online/en/age-calculator-en">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favico.png">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="../assets/css/common.css">
+    <link rel="stylesheet" href="../assets/css/age-calculator.css">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Age Calculator",
+        "description": "Free online age calculator for exact age calculations from birth date",
+        "url": "https://calculatorfree.online/en/age-calculator-en",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Web Browser",
+        "inLanguage": "en",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "creator": {
+            "@type": "Organization",
+            "name": "Calculator Free Online"
+        },
+        "featureList": [
+            "Calculate current age from birth date",
+            "Calculate age at specific date",
+            "Detailed age breakdown in years, months, days",
+            "Age in total days, hours, minutes calculation",
+            "Responsive design for all devices",
+            "No registration required"
+        ]
+    }
+    </script>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="language-switch">
+            <a href="../index.html">🏠 Home</a>
+            <a href="age-calculator-en.html" class="active">🇺🇸 English</a>
+            <a href="../vi/may-tinh-tuoi.html">🇻🇳 Tiếng Việt</a>
+        </div>
+        
+        <h1>Age Calculator Online</h1>
+        <p>Calculate your exact age from birth date with detailed breakdown</p>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Calculator Grid -->
+        <div class="calculator-grid">
+            <!-- Current Age Calculator -->
+            <div class="calculator-section">
+                <h2 class="section-title">Calculate Current Age</h2>
+                
+                <div class="input-group">
+                    <label>Your Birth Date:</label>
+                    <div class="date-input-group">
+                        <div class="date-field">
+                            <select id="birthDay">
+                                <option value="">Day</option>
+                            </select>
+                            <span>Day</span>
+                        </div>
+                        <div class="date-field">
+                            <select id="birthMonth">
+                                <option value="">Month</option>
+                                <option value="1">January</option>
+                                <option value="2">February</option>
+                                <option value="3">March</option>
+                                <option value="4">April</option>
+                                <option value="5">May</option>
+                                <option value="6">June</option>
+                                <option value="7">July</option>
+                                <option value="8">August</option>
+                                <option value="9">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select>
+                            <span>Month</span>
+                        </div>
+                        <div class="date-field">
+                            <select id="birthYear">
+                                <option value="">Year</option>
+                            </select>
+                            <span>Year</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="calculateCurrentAge" class="btn btn-primary">Calculate Age</button>
+                    <button id="clearCurrent" class="btn btn-secondary">Clear</button>
+                </div>
+
+                <div id="currentAgeResults" class="results-container" style="display: none;"></div>
+            </div>
+
+            <!-- Age at Specific Date Calculator -->
+            <div class="calculator-section">
+                <h2 class="section-title">Age at Specific Date</h2>
+                
+                <div class="input-group">
+                    <label>Your Birth Date:</label>
+                    <div class="date-input-group">
+                        <div class="date-field">
+                            <select id="birthAtDateDay">
+                                <option value="">Day</option>
+                            </select>
+                            <span>Day</span>
+                        </div>
+                        <div class="date-field">
+                            <select id="birthAtDateMonth">
+                                <option value="">Month</option>
+                                <option value="1">January</option>
+                                <option value="2">February</option>
+                                <option value="3">March</option>
+                                <option value="4">April</option>
+                                <option value="5">May</option>
+                                <option value="6">June</option>
+                                <option value="7">July</option>
+                                <option value="8">August</option>
+                                <option value="9">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select>
+                            <span>Month</span>
+                        </div>
+                        <div class="date-field">
+                            <select id="birthAtDateYear">
+                                <option value="">Year</option>
+                            </select>
+                            <span>Year</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="targetDate">Target Date:</label>
+                    <input type="date" id="targetDate">
+                </div>
+
+                <div class="action-buttons">
+                    <button id="calculateAgeAtDate" class="btn btn-primary">Calculate Age</button>
+                    <button id="clearDate" class="btn btn-secondary">Clear</button>
+                </div>
+
+                <div id="ageAtDateResults" class="results-container" style="display: none;"></div>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon">🎂</div>
+                <h3 class="feature-title">Exact Age Calculation</h3>
+                <p class="feature-description">Calculate your exact age in years, months, days, hours, and minutes from your birth date.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">📅</div>
+                <h3 class="feature-title">Age at Any Date</h3>
+                <p class="feature-description">Find out how old you were or will be on any specific date in the past or future.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">⭐</div>
+                <h3 class="feature-title">Zodiac Signs</h3>
+                <p class="feature-description">Discover your zodiac sign and learn interesting facts about your astrological profile.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🔒</div>
+                <h3 class="feature-title">Privacy Protected</h3>
+                <p class="feature-description">All calculations are done locally in your browser. No data is stored or transmitted.</p>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    How do I calculate my exact age?
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    Simply enter your complete birth date (day, month, year) in the first calculator. The tool will automatically compute and display your current age in years, months, and days, along with a detailed breakdown.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    Can I calculate my age at a specific date?
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    Yes! Use the second calculator to enter your birth date and select any target date. This will show you exactly how old you were or will be on that specific date.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    Is my personal information stored or shared?
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    No, absolutely not. All calculations are performed locally in your browser. We don't store, collect, or share any personal information including your birth date. Your privacy is completely protected.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    What zodiac sign information is provided?
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    The calculator automatically determines your zodiac sign based on your birth date and displays it along with your age results. This includes both the symbol and name of your astrological sign.
+                </div>
+            </div>
+        </div>
+
+        <!-- Info Cards -->
+        <div class="info-cards">
+            <div class="info-card">
+                <h3>How Age Calculation Works</h3>
+                <p>Our age calculator uses precise mathematical algorithms to determine your exact age. It accounts for leap years, varying month lengths, and provides accurate results down to the day.</p>
+                <ul>
+                    <li>Accurate leap year calculations</li>
+                    <li>Precise month and day counting</li>
+                    <li>Real-time age updates</li>
+                    <li>Multiple format displays</li>
+                </ul>
+            </div>
+            
+            <div class="info-card">
+                <h3>Age Calculator Uses</h3>
+                <p>This tool is perfect for various personal and professional needs:</p>
+                <ul>
+                    <li>Birthday planning and celebrations</li>
+                    <li>Official document applications</li>
+                    <li>Health and fitness tracking</li>
+                    <li>Educational purposes</li>
+                    <li>Genealogy research</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Calculator Free Online. All rights reserved.</p>
+        <p>
+            <a href="../index.html">Home</a> |
+            <a href="../en/date-calculator-en.html">Date Calculator</a> |
+            <a href="../en/time-calculator-en.html">Time Calculator</a> |
+            <a href="../en/hours-calculator-en.html">Hours Calculator</a>
+        </p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../assets/js/age-calculator.js"></script>
+    
+    <!-- Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_TRACKING_ID');
+    </script>
+</body>
+</html>

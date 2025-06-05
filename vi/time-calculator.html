@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Công Cụ Tính Toán Thời Gian Online - Time Calculator Miễn Phí</title>
+    <meta name="description" content="Máy tính thời gian online miễn phí giúp cộng, trừ thời gian theo giờ, phút, giây. Tính toán khoảng cách thời gian, thời gian làm việc chính xác và nhanh chóng.">
+    <meta name="keywords" content="time calculator, máy tính thời gian, tính toán thời gian, cộng trừ thời gian, giờ phút giây">
+    <meta name="author" content="Time Calculator Tool">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Công Cụ Tính Toán Thời Gian Online - Time Calculator">
+    <meta property="og:description" content="Máy tính thời gian online miễn phí, tính toán chính xác giờ, phút, giây">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdomain.com/time-calculator">
+    <meta property="og:image" content="https://yourdomain.com/images/time-calculator-og.jpg">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Time Calculator - Máy Tính Thời Gian Online">
+    <meta name="twitter:description" content="Công cụ tính toán thời gian miễn phí, cộng trừ giờ phút giây">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://yourdomain.com/time-calculator">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Time Calculator",
+        "description": "Công cụ tính toán thời gian online miễn phí",
+        "url": "https://yourdomain.com/time-calculator",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "VND"
+        }
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            color: #333;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .header p {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+        
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .calculator-section {
+            background: #fff;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e0e0;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+        }
+        
+        .time-input {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .time-field {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 80px;
+        }
+        
+        .time-field input {
+            width: 80px;
+            padding: 12px 8px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .time-field input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .time-field span {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 5px;
+            font-weight: 500;
+        }
+        
+        .operation-buttons {
+            display: flex;
+            gap: 10px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .btn {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            min-width: 80px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-secondary {
+            background: #f8f9fa;
+            color: #333;
+            border: 2px solid #ddd;
+        }
+        
+        .btn-secondary:hover {
+            background: #e9ecef;
+            border-color: #adb5bd;
+        }
+        
+        .result {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 20px;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .features {
+            margin-top: 40px;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 15px;
+        }
+        
+        .features h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .feature-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-item h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .faq {
+            margin-top: 40px;
+        }
+        
+        .faq h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+        
+        .faq-item {
+            background: white;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .faq-question {
+            padding: 20px;
+            background: #667eea;
+            color: white;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            padding: 20px;
+            display: none;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .faq-answer.active {
+            display: block;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .calculator-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .time-input {
+                justify-content: center;
+            }
+            
+            .operation-buttons {
+                justify-content: center;
+            }
+            
+            .container {
+                padding: 20px;
+            }
+        }
+        
+        /* Loading animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Accessibility improvements */
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        
+        /* Focus styles for better accessibility */
+        button:focus, input:focus {
+            outline: 3px solid #667eea;
+            outline-offset: 2px;
+        }
+        
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            .container {
+                background: white;
+                border: 2px solid black;
+            }
+            
+            .btn-primary {
+                background: black;
+                color: white;
+                border: 2px solid black;
+            }
+        }
+        
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Máy Tính Thời Gian Online</h1>
+            <p>Công cụ tính toán thời gian chính xác và dễ sử dụng</p>
+        </header>
+        
+        <main>
+            <div class="calculator-grid">
+                <!-- Time Addition/Subtraction Calculator -->
+                <section class="calculator-section">
+                    <h2 class="section-title">Cộng/Trừ Thời Gian</h2>
+                    
+                    <div class="input-group">
+                        <label>Thời gian thứ nhất:</label>
+                        <div class="time-input">
+                            <div class="time-field">
+                                <input type="number" id="time1-hours" min="0" max="23" value="0" aria-label="Giờ thứ nhất">
+                                <span>Giờ</span>
+                            </div>
+                            <div class="time-field">
+                                <input type="number" id="time1-minutes" min="0" max="59" value="0" aria-label="Phút thứ nhất">
+                                <span>Phút</span>
+                            </div>
+                            <div class="time-field">
+                                <input type="number" id="time1-seconds" min="0" max="59" value="0" aria-label="Giây thứ nhất">
+                                <span>Giây</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>Thời gian thứ hai:</label>
+                        <div class="time-input">
+                            <div class="time-field">
+                                <input type="number" id="time2-hours" min="0" max="23" value="0" aria-label="Giờ thứ hai">
+                                <span>Giờ</span>
+                            </div>
+                            <div class="time-field">
+                                <input type="number" id="time2-minutes" min="0" max="59" value="0" aria-label="Phút thứ hai">
+                                <span>Phút</span>
+                            </div>
+                            <div class="time-field">
+                                <input type="number" id="time2-seconds" min="0" max="59" value="0" aria-label="Giây thứ hai">
+                                <span>Giây</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="operation-buttons">
+                        <button class="btn btn-primary" onclick="addTime()" aria-label="Cộng thời gian">+ Cộng</button>
+                        <button class="btn btn-primary" onclick="subtractTime()" aria-label="Trừ thời gian">- Trừ</button>
+                        <button class="btn btn-secondary" onclick="clearTimeCalculator()" aria-label="Xóa dữ liệu">Xóa</button>
+                    </div>
+                    
+                    <div class="result" id="time-result">
+                        Kết quả sẽ hiển thị ở đây
+                    </div>
+                </section>
+                
+                <!-- Time Format Converter -->
+                <section class="calculator-section">
+                    <h2 class="section-title">Chuyển Đổi Định Dạng</h2>
+                    
+                    <div class="input-group">
+                        <label>Nhập thời gian:</label>
+                        <div class="time-input">
+                            <div class="time-field">
+                                <input type="number" id="convert-hours" min="0" value="0" aria-label="Giờ để chuyển đổi">
+                                <span>Giờ</span>
+                            </div>
+                            <div class="time-field">
+                                <input type="number" id="convert-minutes" min="0" value="0" aria-label="Phút để chuyển đổi">
+                                <span>Phút</span>
+                            </div>
+                            <div class="time-field">
+                                <input type="number" id="convert-seconds" min="0" value="0" aria-label="Giây để chuyển đổi">
+                                <span>Giây</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="operation-buttons">
+                        <button class="btn btn-primary" onclick="convertTime()" aria-label="Chuyển đổi thời gian">Chuyển Đổi</button>
+                        <button class="btn btn-secondary" onclick="clearConverter()" aria-label="Xóa dữ liệu chuyển đổi">Xóa</button>
+                    </div>
+                    
+                    <div class="result" id="convert-result">
+                        Kết quả chuyển đổi sẽ hiển thị ở đây
+                    </div>
+                </section>
+            </div>
+            
+            <!-- Features Section -->
+            <section class="features">
+                <h2>Tính Năng Nổi Bật</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <h3>🕐 Tính Toán Chính Xác</h3>
+                        <p>Tính toán thời gian với độ chính xác cao, hỗ trợ giờ, phút, giây</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>📱 Responsive Design</h3>
+                        <p>Giao diện thân thiện, tối ưu cho mọi thiết bị</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>⚡ Nhanh Chóng</h3>
+                        <p>Xử lý tính toán tức thì, không cần tải lại trang</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>🆓 Hoàn Toàn Miễn Phí</h3>
+                        <p>Sử dụng không giới hạn, không cần đăng ký</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- FAQ Section -->
+            <section class="faq">
+                <h2>Câu Hỏi Thường Gặp</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        Làm thế nào để cộng hai khoảng thời gian?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Nhập thời gian thứ nhất và thứ hai vào các ô tương ứng (giờ, phút, giây), sau đó nhấn nút "Cộng". Kết quả sẽ được hiển thị ngay lập tức.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        Công cụ có hỗ trợ tính toán thời gian âm không?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Có, khi trừ thời gian mà kết quả âm, công cụ sẽ hiển thị kết quả với dấu âm để bạn biết thời gian thứ hai lớn hơn thời gian thứ nhất.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        Tôi có thể sử dụng công cụ này trên điện thoại không?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Có, công cụ được thiết kế responsive và hoạt động tốt trên mọi thiết bị: máy tính, tablet, và điện thoại di động.
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #ddd; color: #666;">
+            <p>&copy; 2024 Time Calculator. Công cụ tính toán thời gian online miễn phí.</p>
+        </footer>
+    </div>
+    
+    <script>
+        // Time calculation functions
+        function addTime() {
+            const time1 = getTimeInputs('time1');
+            const time2 = getTimeInputs('time2');
+            
+            const totalSeconds1 = timeToSeconds(time1);
+            const totalSeconds2 = timeToSeconds(time2);
+            const resultSeconds = totalSeconds1 + totalSeconds2;
+            
+            const result = secondsToTime(resultSeconds);
+            displayTimeResult(`${result.hours} giờ ${result.minutes} phút ${result.seconds} giây`);
+        }
+        
+        function subtractTime() {
+            const time1 = getTimeInputs('time1');
+            const time2 = getTimeInputs('time2');
+            
+            const totalSeconds1 = timeToSeconds(time1);
+            const totalSeconds2 = timeToSeconds(time2);
+            const resultSeconds = totalSeconds1 - totalSeconds2;
+            
+            const result = secondsToTime(Math.abs(resultSeconds));
+            const sign = resultSeconds >= 0 ? '' : '-';
+            displayTimeResult(`${sign}${result.hours} giờ ${result.minutes} phút ${result.seconds} giây`);
+        }
+        
+        function convertTime() {
+            const time = getTimeInputs('convert');
+            const totalSeconds = timeToSeconds(time);
+            const totalMinutes = Math.floor(totalSeconds / 60);
+            const totalHours = Math.floor(totalSeconds / 3600);
+            
+            let result = `
+                <strong>Tổng cộng:</strong><br>
+                ${totalSeconds} giây<br>
+                ${totalMinutes} phút<br>
+                ${totalHours} giờ
+            `;
+            
+            document.getElementById('convert-result').innerHTML = result;
+        }
+        
+        function getTimeInputs(prefix) {
+            return {
+                hours: parseInt(document.getElementById(`${prefix}-hours`).value) || 0,
+                minutes: parseInt(document.getElementById(`${prefix}-minutes`).value) || 0,
+                seconds: parseInt(document.getElementById(`${prefix}-seconds`).value) || 0
+            };
+        }
+        
+        function timeToSeconds(time) {
+            return time.hours * 3600 + time.minutes * 60 + time.seconds;
+        }
+        
+        function secondsToTime(totalSeconds) {
+            const hours = Math.floor(totalSeconds / 3600);
+            const minutes = Math.floor((totalSeconds % 3600) / 60);
+            const seconds = totalSeconds % 60;
+            
+            return { hours, minutes, seconds };
+        }
+        
+        function displayTimeResult(result) {
+            const resultElement = document.getElementById('time-result');
+            resultElement.innerHTML = '<div class="loading"></div>';
+            
+            setTimeout(() => {
+                resultElement.innerHTML = result;
+            }, 500);
+        }
+        
+        function clearTimeCalculator() {
+            ['time1-hours', 'time1-minutes', 'time1-seconds', 
+             'time2-hours', 'time2-minutes', 'time2-seconds'].forEach(id => {
+                document.getElementById(id).value = 0;
+            });
+            document.getElementById('time-result').innerHTML = 'Kết quả sẽ hiển thị ở đây';
+        }
+        
+        function clearConverter() {
+            ['convert-hours', 'convert-minutes', 'convert-seconds'].forEach(id => {
+                document.getElementById(id).value = 0;
+            });
+            document.getElementById('convert-result').innerHTML = 'Kết quả chuyển đổi sẽ hiển thị ở đây';
+        }
+        
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const isActive = answer.classList.contains('active');
+            
+            // Close all FAQ answers
+            document.querySelectorAll('.faq-answer').forEach(el => {
+                el.classList.remove('active');
+            });
+            document.querySelectorAll('.faq-question span').forEach(el => {
+                el.textContent = '+';
+            });
+            
+            // Toggle current FAQ
+            if (!isActive) {
+                answer.classList.add('active');
+                element.querySelector('span').textContent = '-';
+            }
+        }
+        
+        // Input validation
+        document.addEventListener('DOMContentLoaded', function() {
+            const inputs = document.querySelectorAll('input[type="number"]');
+            inputs.forEach(input => {
+                input.addEventListener('input', function() {
+                    if (this.value < 0) this.value = 0;
+                    if (this.id.includes('minutes') || this.id.includes('seconds')) {
+                        if (this.value > 59) this.value = 59;
+                    }
+                    if (this.id.includes('hours') && !this.id.includes('convert')) {
+                        if (this.value > 23) this.value = 23;
+                    }
+                });
+                
+                // Add keyboard support
+                input.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        if (this.id.includes('time1') || this.id.includes('time2')) {
+                            addTime();
+                        } else if (this.id.includes('convert')) {
+                            convertTime();
+                        }
+                    }
+                });
+            });
+        });
+        
+        // Performance optimization: Lazy loading for non-critical features
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            });
+            
+            document.querySelectorAll('.feature-item, .faq-item').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+        }
+        
+        // Service Worker for offline functionality
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(function(registration) {
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(function(err) {
+                        console.log('ServiceWorker registration failed');
+                    });
+            });
+        }
+    </script>
+    
+    <!-- Google Analytics (replace with your tracking ID) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_TRACKING_ID');
+    </script>
+</body>
+</html>

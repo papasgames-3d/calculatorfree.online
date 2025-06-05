@@ -1,0 +1,108 @@
+{
+  "name": "Calculator Free Online - Free Calculator Tools",
+  "short_name": "Calculator Free",
+  "description": "Free online calculator tools including age calculator, date calculator, time calculator, percentage calculator and more. Fast, accurate, and mobile-friendly.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#667eea",
+  "theme_color": "#667eea",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["utilities", "productivity", "tools"],
+  "screenshots": [
+    {
+      "src": "/assets/images/screenshot-desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Calculator Free Online Desktop View"
+    },
+    {
+      "src": "/assets/images/screenshot-mobile.png", 
+      "sizes": "360x640",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Calculator Free Online Mobile View"
+    }
+  ],
+  "icons": [
+    {
+      "src": "/favico.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favico.png",
+      "sizes": "512x512", 
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Age Calculator",
+      "short_name": "Age Calc",
+      "description": "Calculate your exact age from birth date",
+      "url": "/en/age-calculator-en.html",
+      "icons": [
+        {
+          "src": "/favico.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Date Calculator", 
+      "short_name": "Date Calc",
+      "description": "Calculate difference between dates",
+      "url": "/en/date-calculator-en.html",
+      "icons": [
+        {
+          "src": "/favico.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Percentage Calculator",
+      "short_name": "% Calc", 
+      "description": "Calculate percentages, tips, discounts",
+      "url": "/vi/tinh-phan-tram.html",
+      "icons": [
+        {
+          "src": "/favico.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Time Calculator",
+      "short_name": "Time Calc",
+      "description": "Calculate time differences and durations", 
+      "url": "/en/time-calculator-en.html",
+      "icons": [
+        {
+          "src": "/favico.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "handle_links": "preferred",
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  }
+} 

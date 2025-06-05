@@ -1,0 +1,47 @@
+User-agent: *
+Allow: /
+
+# Disallow non-essential directories
+Disallow: /.vscode/
+Disallow: /assets/js/
+Disallow: /assets/css/
+Disallow: /node_modules/
+Disallow: /.git/
+
+# Allow important assets for rendering
+Allow: /assets/css/common.css
+Allow: /assets/css/index.css
+Allow: /favico.png
+Allow: /favicon.ico
+
+# XML Sitemap
+Sitemap: https://calculatorfree.online/sitemap.xml
+
+# Crawl-delay for better server performance
+Crawl-delay: 1
+
+# Special instructions for major search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 2
+
+# Block common bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: / 
