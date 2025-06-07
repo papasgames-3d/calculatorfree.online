@@ -1,272 +1,246 @@
-const CACHE_NAME = 'calculator-free-v1.2.0';
-const STATIC_CACHE = 'calculator-static-v1.2.0';
-const DYNAMIC_CACHE = 'calculator-dynamic-v1.2.0';
+const CACHE_NAME = 'calculatorfree-v1.0.0';
+const STATIC_CACHE_NAME = 'calculatorfree-static-v1.0.0';
 
-// Files to cache immediately
-const STATIC_FILES = [
+// Core files to cache for offline functionality
+const CORE_CACHE_FILES = [
   '/',
   '/index.html',
-  '/vi/index.html',
-  '/assets/css/common.css',
-  '/assets/css/index.css',
-  '/assets/js/index.js',
-  '/favico.png',
-  '/favicon.ico',
-  '/manifest.json'
+  '/styles.css',
+  '/script.js',
+  '/manifest.json',
+  '/favicon.ico'
 ];
 
-// Cache essential calculator pages
-const CALCULATOR_PAGES = [
-  '/en/age-calculator-en.html',
-  '/vi/may-tinh-tuoi.html',
-  '/en/date-calculator-en.html',
-  '/vi/may-tinh-ngay-thang.html',
-  '/en/time-calculator-en.html',
-  '/vi/time-calculator.html',
-  '/vi/tinh-phan-tram.html',
-  '/assets/css/age-calculator.css',
-  '/assets/css/date-calculator.css',
-  '/assets/css/time-calculator.css',
-  '/assets/css/percentage-calculator.css',
-  '/assets/js/age-calculator.js',
-  '/assets/js/date-calculator.js',
-  '/assets/js/percentage-calculator.js'
+// Popular calculators to cache for offline use
+const CALCULATOR_CACHE_FILES = [
+  '/finance-calculator.html',
+  '/mortgage-calculator.html',
+  '/bmi-calculator.html',
+  '/scientific-calculator.html',
+  '/ip-subnet-calculator.html',
+  '/conversion-calculator.html',
+  '/standard-deviation-calculator.html',
+  '/quadratic-formula-calculator.html',
+  '/sitemap.html'
 ];
 
-// Install event - cache static files
+// External resources to cache
+const EXTERNAL_CACHE_FILES = [
+  'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap',
+  'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css'
+];
+
+const ALL_CACHE_FILES = [
+  ...CORE_CACHE_FILES,
+  ...CALCULATOR_CACHE_FILES,
+  ...EXTERNAL_CACHE_FILES
+];
+
+// Install Service Worker
 self.addEventListener('install', event => {
   console.log('Service Worker installing...');
   
   event.waitUntil(
     Promise.all([
-      caches.open(STATIC_CACHE).then(cache => {
-        console.log('Caching static files...');
-        return cache.addAll(STATIC_FILES);
+      // Cache core files
+      caches.open(STATIC_CACHE_NAME).then(cache => {
+        console.log('Caching core files...');
+        return cache.addAll(CORE_CACHE_FILES);
       }),
-      caches.open(DYNAMIC_CACHE).then(cache => {
-        console.log('Caching calculator pages...');
-        return cache.addAll(CALCULATOR_PAGES.map(url => new Request(url, {
-          credentials: 'same-origin'
-        })));
+      // Cache calculator files
+      caches.open(CACHE_NAME).then(cache => {
+        console.log('Caching calculator files...');
+        return cache.addAll(CALCULATOR_CACHE_FILES);
+      }),
+      // Cache external resources
+      caches.open(STATIC_CACHE_NAME).then(cache => {
+        console.log('Caching external resources...');
+        return Promise.allSettled(
+          EXTERNAL_CACHE_FILES.map(url => 
+            cache.add(url).catch(err => console.log('Failed to cache:', url))
+          )
+        );
       })
     ]).then(() => {
-      console.log('All files cached successfully');
+      console.log('Service Worker installation complete');
       return self.skipWaiting();
-    }).catch(error => {
-      console.error('Cache installation failed:', error);
     })
   );
 });
 
-// Activate event - clean up old caches
+// Activate Service Worker
 self.addEventListener('activate', event => {
   console.log('Service Worker activating...');
   
   event.waitUntil(
     caches.keys().then(cacheNames => {
       return Promise.all(
-        cacheNames.map(cacheName => {
-          if (cacheName !== STATIC_CACHE && 
-              cacheName !== DYNAMIC_CACHE &&
-              cacheName !== CACHE_NAME) {
+        cacheNames
+          .filter(cacheName => {
+            // Delete old caches
+            return cacheName !== CACHE_NAME && cacheName !== STATIC_CACHE_NAME;
+          })
+          .map(cacheName => {
             console.log('Deleting old cache:', cacheName);
             return caches.delete(cacheName);
-          }
-        })
+          })
       );
     }).then(() => {
-      console.log('Service Worker activated');
+      console.log('Service Worker activation complete');
       return self.clients.claim();
     })
   );
 });
 
-// Fetch event - serve from cache with fallback
+// Fetch Strategy: Cache First with Network Fallback
 self.addEventListener('fetch', event => {
-  const { request } = event;
+  const request = event.request;
   const url = new URL(request.url);
-  
-  // Skip cross-origin requests
-  if (url.origin !== location.origin) {
-    return;
-  }
   
   // Skip non-GET requests
   if (request.method !== 'GET') {
     return;
   }
-
+  
+  // Skip chrome-extension and other non-http(s) requests
+  if (!url.protocol.startsWith('http')) {
+    return;
+  }
+  
   event.respondWith(
-    caches.match(request).then(response => {
-      if (response) {
-        console.log('Serving from cache:', request.url);
-        return response;
+    caches.match(request).then(cachedResponse => {
+      // Return cached version if available
+      if (cachedResponse) {
+        // For HTML files, update cache in background
+        if (request.headers.get('accept')?.includes('text/html')) {
+          event.waitUntil(updateCache(request));
+        }
+        return cachedResponse;
       }
-
-      // Clone the request for cache storage
-      const fetchRequest = request.clone();
       
-      return fetch(fetchRequest).then(response => {
-        // Check if response is valid
+      // Not in cache, fetch from network
+      return fetch(request).then(response => {
+        // Don't cache non-successful responses
         if (!response || response.status !== 200 || response.type !== 'basic') {
           return response;
         }
-
-        // Clone the response for cache storage
-        const responseToCache = response.clone();
         
-        // Determine which cache to use
-        let cacheName = DYNAMIC_CACHE;
-        if (STATIC_FILES.includes(url.pathname) || 
-            CALCULATOR_PAGES.includes(url.pathname)) {
-          cacheName = STATIC_CACHE;
-        }
-
         // Cache the response
-        caches.open(cacheName).then(cache => {
-          console.log('Caching new resource:', request.url);
+        const responseToCache = response.clone();
+        caches.open(CACHE_NAME).then(cache => {
           cache.put(request, responseToCache);
         });
-
+        
         return response;
       }).catch(error => {
-        console.error('Fetch failed:', error);
+        console.log('Network request failed:', error);
         
         // Return offline page for HTML requests
-        if (request.headers.get('accept').includes('text/html')) {
-          return caches.match('/offline.html').then(response => {
-            return response || new Response('Offline - Please check your connection', {
-              status: 200,
-              headers: { 'Content-Type': 'text/plain' }
-            });
-          });
+        if (request.headers.get('accept')?.includes('text/html')) {
+          return caches.match('/index.html');
         }
         
-        // Return cached version or empty response
-        return new Response('Resource unavailable offline', {
-          status: 200,
-          headers: { 'Content-Type': 'text/plain' }
+        // Return generic offline response for other requests
+        return new Response('Offline', {
+          status: 503,
+          statusText: 'Service Unavailable'
         });
       });
     })
   );
 });
 
-// Background sync for form submissions
-self.addEventListener('sync', event => {
-  if (event.tag === 'calculator-sync') {
-    event.waitUntil(syncCalculatorData());
+// Update cache in background
+async function updateCache(request) {
+  try {
+    const response = await fetch(request);
+    if (response && response.status === 200) {
+      const cache = await caches.open(CACHE_NAME);
+      cache.put(request, response);
+    }
+  } catch (error) {
+    console.log('Background cache update failed:', error);
   }
-});
+}
 
-// Push notifications
+// Handle push notifications (future feature)
 self.addEventListener('push', event => {
+  if (!event.data) return;
+  
+  const data = event.data.json();
   const options = {
-    body: event.data ? event.data.text() : 'New calculator features available!',
-    icon: '/favico.png',
-    badge: '/favico.png',
+    body: data.body,
+    icon: '/icons/icon-192x192.png',
+    badge: '/icons/icon-72x72.png',
     vibrate: [100, 50, 100],
-    data: {
-      dateOfArrival: Date.now(),
-      primaryKey: 1
-    },
+    data: data.data,
     actions: [
       {
-        action: 'explore',
-        title: 'Explore Calculators',
-        icon: '/favico.png'
+        action: 'open',
+        title: 'Open Calculator',
+        icon: '/icons/icon-72x72.png'
       },
       {
         action: 'close',
         title: 'Close',
-        icon: '/favico.png'
+        icon: '/icons/icon-72x72.png'
       }
     ]
   };
-
+  
   event.waitUntil(
-    self.registration.showNotification('Calculator Free Online', options)
+    self.registration.showNotification(data.title, options)
   );
 });
 
-// Notification click handler
+// Handle notification clicks
 self.addEventListener('notificationclick', event => {
   event.notification.close();
-
-  if (event.action === 'explore') {
-    event.waitUntil(
-      clients.openWindow('/')
-    );
-  }
-});
-
-// Message handler for client communication
-self.addEventListener('message', event => {
-  if (event.data && event.data.type === 'SKIP_WAITING') {
-    self.skipWaiting();
-  }
   
-  if (event.data && event.data.type === 'GET_VERSION') {
-    event.ports[0].postMessage({
-      version: CACHE_NAME
-    });
-  }
-});
-
-// Helper function for syncing data
-async function syncCalculatorData() {
-  try {
-    // Sync any pending calculator data
-    console.log('Syncing calculator data...');
-    
-    // Get stored calculation history if any
-    const calculatorData = await getStoredCalculatorData();
-    
-    if (calculatorData.length > 0) {
-      // Send data to server if needed
-      await sendCalculatorAnalytics(calculatorData);
-      
-      // Clear stored data after successful sync
-      await clearStoredCalculatorData();
-    }
-    
-    console.log('Calculator data sync completed');
-  } catch (error) {
-    console.error('Sync failed:', error);
-    throw error;
-  }
-}
-
-// Helper functions for data management
-async function getStoredCalculatorData() {
-  // Implementation for getting stored data
-  return [];
-}
-
-async function sendCalculatorAnalytics(data) {
-  // Implementation for sending analytics
-  console.log('Sending analytics:', data);
-}
-
-async function clearStoredCalculatorData() {
-  // Implementation for clearing stored data
-  console.log('Clearing stored data');
-}
-
-// Performance monitoring
-self.addEventListener('fetch', event => {
-  if (event.request.url.includes('/assets/')) {
-    // Track asset loading performance
-    const start = performance.now();
-    
-    event.respondWith(
-      caches.match(event.request).then(response => {
-        const end = performance.now();
-        console.log(`Asset load time: ${end - start}ms for ${event.request.url}`);
-        return response || fetch(event.request);
-      })
+  if (event.action === 'open') {
+    event.waitUntil(
+      clients.openWindow(event.notification.data.url || '/')
     );
   }
 });
 
-console.log('Service Worker script loaded successfully'); 
+// Handle background sync (future feature)
+self.addEventListener('sync', event => {
+  if (event.tag === 'background-sync') {
+    event.waitUntil(doBackgroundSync());
+  }
+});
+
+async function doBackgroundSync() {
+  // Implement background sync logic here
+  console.log('Background sync triggered');
+}
+
+// Share Target API (future feature)
+self.addEventListener('message', event => {
+  if (event.data && event.data.type === 'SHARE_TARGET') {
+    // Handle shared content
+    console.log('Shared content received:', event.data);
+  }
+});
+
+// Periodic background sync (future feature)
+self.addEventListener('periodicsync', event => {
+  if (event.tag === 'update-calculators') {
+    event.waitUntil(updateCalculatorCache());
+  }
+});
+
+async function updateCalculatorCache() {
+  // Update calculator files in background
+  const cache = await caches.open(CACHE_NAME);
+  const updatePromises = CALCULATOR_CACHE_FILES.map(url => 
+    fetch(url).then(response => {
+      if (response.status === 200) {
+        return cache.put(url, response);
+      }
+    }).catch(err => console.log('Failed to update:', url))
+  );
+  
+  return Promise.allSettled(updatePromises);
+} 

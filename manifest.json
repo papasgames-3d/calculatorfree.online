@@ -1,108 +1,94 @@
 {
-  "name": "Calculator Free Online - Free Calculator Tools",
-  "short_name": "Calculator Free",
-  "description": "Free online calculator tools including age calculator, date calculator, time calculator, percentage calculator and more. Fast, accurate, and mobile-friendly.",
+  "name": "CalculatorFree.Online - Free Calculator Tools",
+  "short_name": "CalculatorFree",
+  "description": "75+ free online calculators for finance, math, health, and utilities. Professional-grade calculator tools with step-by-step explanations.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#667eea",
-  "theme_color": "#667eea",
+  "background_color": "#ffffff",
+  "theme_color": "#007bff",
   "orientation": "portrait-primary",
   "scope": "/",
-  "lang": "en",
-  "dir": "ltr",
-  "categories": ["utilities", "productivity", "tools"],
-  "screenshots": [
-    {
-      "src": "/assets/images/screenshot-desktop.png",
-      "sizes": "1280x720",
-      "type": "image/png",
-      "form_factor": "wide",
-      "label": "Calculator Free Online Desktop View"
-    },
-    {
-      "src": "/assets/images/screenshot-mobile.png", 
-      "sizes": "360x640",
-      "type": "image/png",
-      "form_factor": "narrow",
-      "label": "Calculator Free Online Mobile View"
-    }
-  ],
   "icons": [
     {
-      "src": "/favico.png",
+      "src": "icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "icons/icon-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "maskable any"
     },
     {
-      "src": "/favico.png",
-      "sizes": "512x512", 
+      "src": "icons/icon-384x384.png",
+      "sizes": "384x384",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "maskable any"
     },
     {
-      "src": "/favicon.ico",
-      "sizes": "48x48",
-      "type": "image/x-icon"
+      "src": "icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
     }
   ],
   "shortcuts": [
     {
-      "name": "Age Calculator",
-      "short_name": "Age Calc",
-      "description": "Calculate your exact age from birth date",
-      "url": "/en/age-calculator-en.html",
-      "icons": [
-        {
-          "src": "/favico.png",
-          "sizes": "96x96"
-        }
-      ]
+      "name": "Finance Calculator",
+      "short_name": "Finance",
+      "description": "All-in-one financial calculator",
+      "url": "/finance-calculator.html",
+      "icons": [{ "src": "icons/finance-icon.png", "sizes": "96x96" }]
     },
     {
-      "name": "Date Calculator", 
-      "short_name": "Date Calc",
-      "description": "Calculate difference between dates",
-      "url": "/en/date-calculator-en.html",
-      "icons": [
-        {
-          "src": "/favico.png",
-          "sizes": "96x96"
-        }
-      ]
+      "name": "BMI Calculator",
+      "short_name": "BMI",
+      "description": "Body Mass Index calculator",
+      "url": "/bmi-calculator.html",
+      "icons": [{ "src": "icons/health-icon.png", "sizes": "96x96" }]
     },
     {
-      "name": "Percentage Calculator",
-      "short_name": "% Calc", 
-      "description": "Calculate percentages, tips, discounts",
-      "url": "/vi/tinh-phan-tram.html",
-      "icons": [
-        {
-          "src": "/favico.png",
-          "sizes": "96x96"
-        }
-      ]
+      "name": "Scientific Calculator",
+      "short_name": "Scientific",
+      "description": "Advanced mathematical calculator",
+      "url": "/scientific-calculator.html",
+      "icons": [{ "src": "icons/math-icon.png", "sizes": "96x96" }]
     },
     {
-      "name": "Time Calculator",
-      "short_name": "Time Calc",
-      "description": "Calculate time differences and durations", 
-      "url": "/en/time-calculator-en.html",
-      "icons": [
-        {
-          "src": "/favico.png",
-          "sizes": "96x96"
-        }
-      ]
+      "name": "Mortgage Calculator",
+      "short_name": "Mortgage",
+      "description": "Calculate mortgage payments",
+      "url": "/mortgage-calculator.html",
+      "icons": [{ "src": "icons/finance-icon.png", "sizes": "96x96" }]
     }
   ],
-  "related_applications": [],
-  "prefer_related_applications": false,
-  "edge_side_panel": {
-    "preferred_width": 400
-  },
-  "handle_links": "preferred",
-  "launch_handler": {
-    "client_mode": "navigate-existing"
-  }
+  "categories": ["productivity", "finance", "education", "utilities"],
+  "lang": "en",
+  "dir": "ltr"
 } 

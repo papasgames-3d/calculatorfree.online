@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Calculator - Advanced Math Calculator | CalculatorFree.Online</title>
+    <meta name="description" content="Free online scientific calculator with advanced math functions including trigonometry, logarithms, exponentials and more.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .scientific-calculator {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: 2rem auto;
+        }
+        
+        .calculator-display {
+            background: #1a1a1a;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .display-screen {
+            text-align: right;
+            color: white;
+        }
+        
+        .previous-operand {
+            font-size: 1rem;
+            opacity: 0.6;
+            min-height: 1.5rem;
+        }
+        
+        .current-operand {
+            font-size: 2.5rem;
+            font-weight: 600;
+            word-wrap: break-word;
+            word-break: break-all;
+        }
+        
+        .calculator-buttons {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0.8rem;
+        }
+        
+        .btn {
+            border: none;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            height: 50px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+        }
+        
+        .btn-number {
+            background: #f8f9fa;
+            color: #333;
+            border: 2px solid #e9ecef;
+        }
+        
+        .btn-number:hover {
+            background: #e9ecef;
+        }
+        
+        .btn-operator {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+        
+        .btn-operator:hover {
+            background: linear-gradient(135deg, #5a6fd8, #6a4190);
+        }
+        
+        .btn-function {
+            background: #6c757d;
+            color: white;
+            font-size: 0.8rem;
+        }
+        
+        .btn-function:hover {
+            background: #5a6268;
+        }
+        
+        .btn-scientific {
+            background: #17a2b8;
+            color: white;
+            font-size: 0.8rem;
+        }
+        
+        .btn-scientific:hover {
+            background: #138496;
+        }
+        
+        .btn-equals {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+        }
+        
+        .btn-equals:hover {
+            background: linear-gradient(135deg, #218838, #1ba085);
+        }
+        
+        .btn-wide {
+            grid-column: span 2;
+        }
+        
+        .mode-display {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            font-size: 0.9rem;
+        }
+        
+        .angle-mode {
+            font-weight: 600;
+            color: #667eea;
+        }
+        
+        .memory-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .btn-history {
+            background: #17a2b8;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            padding: 5px 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 0.9rem;
+        }
+        
+        .btn-history:hover {
+            background: #138496;
+            transform: translateY(-1px);
+        }
+        
+        /* History Modal Styles */
+        .history-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+        }
+        
+        .history-modal-content {
+            background: white;
+            margin: 5% auto;
+            padding: 0;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 80vh;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            animation: modalSlideIn 0.3s ease;
+        }
+        
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .history-modal-header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .history-modal-header h3 {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+        
+        .history-modal-controls {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn-clear-history, .btn-close-modal {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 5px;
+            color: white;
+            padding: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .btn-clear-history:hover, .btn-close-modal:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+        
+        .history-modal-body {
+            padding: 1.5rem;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .history-item {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        
+        .history-item:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .history-item:last-child {
+            border-bottom: none;
+        }
+        
+        .history-calculation {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .history-result {
+            color: #667eea;
+            font-size: 1.1rem;
+        }
+        
+        .history-time {
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: 5px;
+        }
+        
+        .no-history {
+            text-align: center;
+            color: #888;
+            font-style: italic;
+            padding: 2rem;
+        }
+        
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-calculator"></i>
+                <span>CalculatorFree.Online</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#financial" class="nav-link">Financial</a>
+                <a href="index.html#health" class="nav-link">Health & Fitness</a>
+                <a href="index.html#math" class="nav-link active">Math</a>
+                <a href="index.html#other" class="nav-link">Other Tools</a>
+            </nav>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Scientific Calculator</h1>
+                    <p>Advanced mathematical calculations with scientific functions</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="calculator-wrapper-scientific">
+                    <div class="scientific-calculator">
+                        <div class="mode-display">
+                            <span>Mode: <span class="angle-mode" id="angleMode">DEG</span></span>
+                            <div class="memory-controls">
+                                <span>Memory: <span id="memoryValue">0</span></span>
+                                <button class="btn-history" onclick="sciCalc.toggleHistory()" title="Show History">
+                                    <i class="fas fa-history"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="calculator-display">
+                            <div class="display-screen">
+                                <div class="previous-operand" id="previousOperand"></div>
+                                <div class="current-operand" id="currentOperand">0</div>
+                            </div>
+                        </div>
+                        
+                        <div class="calculator-buttons">
+                            <!-- Row 1 -->
+                            <button class="btn btn-function" onclick="sciCalc.toggleMode()">DEG</button>
+                            <button class="btn btn-function" onclick="sciCalc.clearMemory()">MC</button>
+                            <button class="btn btn-function" onclick="sciCalc.recallMemory()">MR</button>
+                            <button class="btn btn-function" onclick="sciCalc.addToMemory()">M+</button>
+                            <button class="btn btn-function" onclick="sciCalc.subtractFromMemory()">M-</button>
+                            
+                            <!-- Row 2 -->
+                            <button class="btn btn-scientific" onclick="sciCalc.calculateFunction('sin')">sin</button>
+                            <button class="btn btn-scientific" onclick="sciCalc.calculateFunction('cos')">cos</button>
+                            <button class="btn btn-scientific" onclick="sciCalc.calculateFunction('tan')">tan</button>
+                            <button class="btn btn-scientific" onclick="sciCalc.calculateFunction('log')">log</button>
+                            <button class="btn btn-scientific" onclick="sciCalc.calculateFunction('ln')">ln</button>
+                            
+                            <!-- Row 3 -->
+                            <button class="btn btn-scientific" onclick="sciCalc.calculateFunction('asin')">asin</button>
+                            <button class="btn btn-scientific" onclick="sciCalc.calculateFunction('acos')">acos</button>
+                            <button class="btn btn-scientific" onclick="sciCalc.calculateFunction('atan')">atan</button>
+                            <button class="btn btn-scientific" onclick="sciCalc.calculateFunction('sqrt')">√</button>
+                            <button class="btn btn-scientific" onclick="sciCalc.chooseOperation('^')">x^y</button>
+                            
+                            <!-- Row 4 -->
+                            <button class="btn btn-function" onclick="sciCalc.clear()">AC</button>
+                            <button class="btn btn-function" onclick="sciCalc.delete()">DEL</button>
+                            <button class="btn btn-function" onclick="sciCalc.chooseOperation('%')">%</button>
+                            <button class="btn btn-operator" onclick="sciCalc.chooseOperation('÷')">÷</button>
+                            <button class="btn btn-scientific" onclick="sciCalc.appendNumber('3.14159')">π</button>
+                            
+                            <!-- Row 5 -->
+                            <button class="btn btn-number" onclick="sciCalc.appendNumber('7')">7</button>
+                            <button class="btn btn-number" onclick="sciCalc.appendNumber('8')">8</button>
+                            <button class="btn btn-number" onclick="sciCalc.appendNumber('9')">9</button>
+                            <button class="btn btn-operator" onclick="sciCalc.chooseOperation('×')">×</button>
+                            <button class="btn btn-scientific" onclick="sciCalc.appendNumber('2.71828')">e</button>
+                            
+                            <!-- Row 6 -->
+                            <button class="btn btn-number" onclick="sciCalc.appendNumber('4')">4</button>
+                            <button class="btn btn-number" onclick="sciCalc.appendNumber('5')">5</button>
+                            <button class="btn btn-number" onclick="sciCalc.appendNumber('6')">6</button>
+                            <button class="btn btn-operator" onclick="sciCalc.chooseOperation('-')">-</button>
+                            <button class="btn btn-scientific" onclick="sciCalc.calculateFunction('factorial')">x!</button>
+                            
+                            <!-- Row 7 -->
+                            <button class="btn btn-number" onclick="sciCalc.appendNumber('1')">1</button>
+                            <button class="btn btn-number" onclick="sciCalc.appendNumber('2')">2</button>
+                            <button class="btn btn-number" onclick="sciCalc.appendNumber('3')">3</button>
+                            <button class="btn btn-operator" onclick="sciCalc.chooseOperation('+')">+</button>
+                            <button class="btn btn-scientific" onclick="sciCalc.calculateFunction('reciprocal')">1/x</button>
+                            
+                            <!-- Row 8 -->
+                            <button class="btn btn-number btn-wide" onclick="sciCalc.appendNumber('0')">0</button>
+                            <button class="btn btn-number" onclick="sciCalc.appendNumber('.')">.</button>
+                            <button class="btn btn-equals btn-wide" onclick="sciCalc.compute()">=</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- History Popup Modal -->
+                <div class="history-modal" id="historyModal">
+                    <div class="history-modal-content">
+                        <div class="history-modal-header">
+                            <h3><i class="fas fa-history"></i> Calculation History</h3>
+                            <div class="history-modal-controls">
+                                <button class="btn-clear-history" onclick="sciCalc.clearHistory()" title="Clear History">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                                <button class="btn-close-modal" onclick="sciCalc.toggleHistory()" title="Close">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="history-modal-body" id="historyList">
+                            <div class="no-history">No calculations yet</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Financial Calculators</h4>
+                    <ul>
+                        <li><a href="mortgage-calculator.html">Mortgage Calculator</a></li>
+                        <li><a href="loan-calculator.html">Loan Calculator</a></li>
+                        <li><a href="auto-loan-calculator.html">Auto Loan Calculator</a></li>
+                        <li><a href="interest-calculator.html">Interest Calculator</a></li>
+                        <li><a href="retirement-calculator.html">Retirement Calculator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Health & Fitness</h4>
+                    <ul>
+                        <li><a href="bmi-calculator.html">BMI Calculator</a></li>
+                        <li><a href="calorie-calculator.html">Calorie Calculator</a></li>
+                        <li><a href="body-fat-calculator.html">Body Fat Calculator</a></li>
+                        <li><a href="bmr-calculator.html">BMR Calculator</a></li>
+                        <li><a href="pregnancy-calculator.html">Pregnancy Calculator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Math Calculators</h4>
+                    <ul>
+                        <li><a href="scientific-calculator.html">Scientific Calculator</a></li>
+                        <li><a href="fraction-calculator.html">Fraction Calculator</a></li>
+                        <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
+                        <li><a href="triangle-calculator.html">Triangle Calculator</a></li>
+                        <li><a href="random-number-generator.html">Random Number Generator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Other Tools</h4>
+                    <ul>
+                        <li><a href="age-calculator.html">Age Calculator</a></li>
+                        <li><a href="date-calculator.html">Date Calculator</a></li>
+                        <li><a href="time-calculator.html">Time Calculator</a></li>
+                        <li><a href="gpa-calculator.html">GPA Calculator</a></li>
+                        <li><a href="password-generator.html">Password Generator</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 CalculatorFree.Online. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        class ScientificCalculator {
+            constructor() {
+                this.previousOperandTextElement = document.getElementById('previousOperand');
+                this.currentOperandTextElement = document.getElementById('currentOperand');
+                this.angleModeElement = document.getElementById('angleMode');
+                this.memoryValueElement = document.getElementById('memoryValue');
+                this.historyListElement = document.getElementById('historyList');
+                this.clear();
+                this.angleMode = 'DEG'; // DEG or RAD
+                this.memory = 0;
+                this.history = [];
+            }
+
+            clear() {
+                this.currentOperand = '';
+                this.previousOperand = '';
+                this.operation = undefined;
+                this.updateDisplay();
+            }
+
+            delete() {
+                this.currentOperand = this.currentOperand.toString().slice(0, -1);
+                if (this.currentOperand === '') {
+                    this.currentOperand = '0';
+                }
+                this.updateDisplay();
+            }
+
+            appendNumber(number) {
+                if (number === '.' && this.currentOperand.includes('.')) return;
+                if (this.currentOperand === '0' && number !== '.') {
+                    this.currentOperand = number.toString();
+                } else {
+                    this.currentOperand = this.currentOperand.toString() + number.toString();
+                }
+                this.updateDisplay();
+            }
+
+            chooseOperation(operation) {
+                if (this.currentOperand === '') return;
+                if (this.previousOperand !== '') {
+                    this.compute();
+                }
+                this.operation = operation;
+                this.previousOperand = this.currentOperand;
+                this.currentOperand = '';
+                this.updateDisplay();
+            }
+
+            compute() {
+                let computation;
+                const prev = parseFloat(this.previousOperand);
+                const current = parseFloat(this.currentOperand);
+                if (isNaN(prev) || isNaN(current)) return;
+
+                const calculation = `${this.getDisplayNumber(this.previousOperand)} ${this.operation} ${this.getDisplayNumber(this.currentOperand)}`;
+
+                switch (this.operation) {
+                    case '+':
+                        computation = prev + current;
+                        break;
+                    case '-':
+                        computation = prev - current;
+                        break;
+                    case '×':
+                        computation = prev * current;
+                        break;
+                    case '÷':
+                        if (current === 0) {
+                            alert('Cannot divide by zero!');
+                            return;
+                        }
+                        computation = prev / current;
+                        break;
+                    case '%':
+                        computation = (prev * current) / 100;
+                        break;
+                    case '^':
+                        computation = Math.pow(prev, current);
+                        break;
+                    default:
+                        return;
+                }
+
+                // Add to history
+                this.addToHistory(calculation, computation);
+
+                this.currentOperand = computation;
+                this.operation = undefined;
+                this.previousOperand = '';
+                this.updateDisplay();
+            }
+
+            calculateFunction(func) {
+                const current = parseFloat(this.currentOperand);
+                if (isNaN(current)) return;
+
+                let result;
+                let calculation;
+                const toRadians = this.angleMode === 'DEG' ? Math.PI / 180 : 1;
+
+                switch (func) {
+                    case 'sin':
+                        result = Math.sin(current * toRadians);
+                        calculation = `sin(${this.getDisplayNumber(current)})`;
+                        break;
+                    case 'cos':
+                        result = Math.cos(current * toRadians);
+                        calculation = `cos(${this.getDisplayNumber(current)})`;
+                        break;
+                    case 'tan':
+                        result = Math.tan(current * toRadians);
+                        calculation = `tan(${this.getDisplayNumber(current)})`;
+                        break;
+                    case 'asin':
+                        result = Math.asin(current) / toRadians;
+                        calculation = `asin(${this.getDisplayNumber(current)})`;
+                        break;
+                    case 'acos':
+                        result = Math.acos(current) / toRadians;
+                        calculation = `acos(${this.getDisplayNumber(current)})`;
+                        break;
+                    case 'atan':
+                        result = Math.atan(current) / toRadians;
+                        calculation = `atan(${this.getDisplayNumber(current)})`;
+                        break;
+                    case 'log':
+                        result = Math.log10(current);
+                        calculation = `log(${this.getDisplayNumber(current)})`;
+                        break;
+                    case 'ln':
+                        result = Math.log(current);
+                        calculation = `ln(${this.getDisplayNumber(current)})`;
+                        break;
+                    case 'sqrt':
+                        result = Math.sqrt(current);
+                        calculation = `√(${this.getDisplayNumber(current)})`;
+                        break;
+                    case 'factorial':
+                        result = this.factorial(current);
+                        calculation = `${this.getDisplayNumber(current)}!`;
+                        break;
+                    case 'reciprocal':
+                        if (current === 0) {
+                            alert('Cannot divide by zero!');
+                            return;
+                        }
+                        result = 1 / current;
+                        calculation = `1/${this.getDisplayNumber(current)}`;
+                        break;
+                    default:
+                        return;
+                }
+
+                // Add to history
+                this.addToHistory(calculation, result);
+
+                this.currentOperand = result;
+                this.updateDisplay();
+            }
+
+            factorial(n) {
+                if (n < 0 || n !== Math.floor(n)) return NaN;
+                if (n === 0 || n === 1) return 1;
+                let result = 1;
+                for (let i = 2; i <= n; i++) {
+                    result *= i;
+                }
+                return result;
+            }
+
+            toggleMode() {
+                this.angleMode = this.angleMode === 'DEG' ? 'RAD' : 'DEG';
+                this.angleModeElement.textContent = this.angleMode;
+                document.querySelector('.btn-function').textContent = this.angleMode;
+            }
+
+            clearMemory() {
+                this.memory = 0;
+                this.updateMemoryDisplay();
+            }
+
+            recallMemory() {
+                this.currentOperand = this.memory.toString();
+                this.updateDisplay();
+            }
+
+            addToMemory() {
+                const current = parseFloat(this.currentOperand);
+                if (!isNaN(current)) {
+                    this.memory += current;
+                    this.updateMemoryDisplay();
+                }
+            }
+
+            subtractFromMemory() {
+                const current = parseFloat(this.currentOperand);
+                if (!isNaN(current)) {
+                    this.memory -= current;
+                    this.updateMemoryDisplay();
+                }
+            }
+
+            updateMemoryDisplay() {
+                this.memoryValueElement.textContent = this.memory.toString();
+            }
+
+            getDisplayNumber(number) {
+                const stringNumber = number.toString();
+                const integerDigits = parseFloat(stringNumber.split('.')[0]);
+                const decimalDigits = stringNumber.split('.')[1];
+                let integerDisplay;
+                if (isNaN(integerDigits)) {
+                    integerDisplay = '';
+                } else {
+                    integerDisplay = integerDigits.toLocaleString('en', { maximumFractionDigits: 0 });
+                }
+                if (decimalDigits != null) {
+                    return `${integerDisplay}.${decimalDigits}`;
+                } else {
+                    return integerDisplay;
+                }
+            }
+
+            updateDisplay() {
+                if (this.currentOperand === '') {
+                    this.currentOperandTextElement.innerText = '0';
+                } else {
+                    this.currentOperandTextElement.innerText = this.getDisplayNumber(this.currentOperand);
+                }
+                
+                if (this.operation != null) {
+                    this.previousOperandTextElement.innerText = 
+                        `${this.getDisplayNumber(this.previousOperand)} ${this.operation}`;
+                } else {
+                    this.previousOperandTextElement.innerText = '';
+                }
+            }
+
+            toggleHistory() {
+                const historyModal = document.getElementById('historyModal');
+                if (historyModal.style.display === 'none' || historyModal.style.display === '') {
+                    historyModal.style.display = 'block';
+                    this.updateHistoryDisplay();
+                } else {
+                    historyModal.style.display = 'none';
+                }
+            }
+
+            addToHistory(calculation, result) {
+                const historyItem = {
+                    calculation: calculation,
+                    result: result,
+                    time: new Date().toLocaleTimeString()
+                };
+                this.history.unshift(historyItem); // Add to beginning of array
+                
+                // Limit history to 50 items
+                if (this.history.length > 50) {
+                    this.history.pop();
+                }
+            }
+
+            updateHistoryDisplay() {
+                if (this.history.length === 0) {
+                    this.historyListElement.innerHTML = '<div class="no-history">No calculations yet</div>';
+                    return;
+                }
+
+                let historyHTML = '';
+                this.history.forEach((item, index) => {
+                    historyHTML += `
+                        <div class="history-item" onclick="sciCalc.useHistoryResult('${item.result}')">
+                            <div class="history-calculation">${item.calculation}</div>
+                            <div class="history-result">= ${this.getDisplayNumber(item.result)}</div>
+                            <div class="history-time">${item.time}</div>
+                        </div>
+                    `;
+                });
+                this.historyListElement.innerHTML = historyHTML;
+            }
+
+            useHistoryResult(result) {
+                this.currentOperand = result.toString();
+                this.updateDisplay();
+                this.toggleHistory(); // Close the modal
+            }
+
+            clearHistory() {
+                if (confirm('Are you sure you want to clear all history?')) {
+                    this.history = [];
+                    this.updateHistoryDisplay();
+                }
+            }
+        }
+
+        const sciCalc = new ScientificCalculator();
+        
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const historyModal = document.getElementById('historyModal');
+            if (event.target === historyModal) {
+                historyModal.style.display = 'none';
+            }
+        }
+        
+        // Keyboard support
+        document.addEventListener('keydown', function(event) {
+            // ESC key to close modal
+            if (event.key === 'Escape') {
+                const historyModal = document.getElementById('historyModal');
+                if (historyModal.style.display === 'block') {
+                    historyModal.style.display = 'none';
+                }
+            }
+        });
+    </script>
+</body>
+</html> 

@@ -1,26 +1,46 @@
+# CalculatorFree.Online - Robots.txt
+# Professional calculator tools for finance, math, health & utilities
+# Last updated: 2024-12-01
+
+# Allow all web crawlers access to the website
 User-agent: *
 Allow: /
 
-# Disallow non-essential directories
-Disallow: /.vscode/
-Disallow: /assets/js/
-Disallow: /assets/css/
-Disallow: /node_modules/
+# Disallow private and system directories
+Disallow: /admin/
+Disallow: /private/
+Disallow: /test/
+Disallow: /staging/
+Disallow: /_temp/
+Disallow: /.env
+Disallow: /config/
+Disallow: /logs/
+Disallow: /backup/
+Disallow: /tmp/
 Disallow: /.git/
+Disallow: /node_modules/
 
-# Allow important assets for rendering
-Allow: /assets/css/common.css
-Allow: /assets/css/index.css
-Allow: /favico.png
+# Allow important static resources
+Allow: /styles.css
+Allow: /script.js
+Allow: /manifest.json
+Allow: /sw.js
 Allow: /favicon.ico
+Allow: /icons/
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.gif$
+Allow: /*.svg$
+Allow: /*.webp$
+Allow: /*.html$
 
-# XML Sitemap
+# Sitemap locations for search engines
 Sitemap: https://calculatorfree.online/sitemap.xml
+Sitemap: https://calculatorfree.online/sitemap.html
 
-# Crawl-delay for better server performance
-Crawl-delay: 1
-
-# Special instructions for major search engines
+# Search engine specific configurations
 User-agent: Googlebot
 Allow: /
 Crawl-delay: 0
@@ -31,9 +51,31 @@ Crawl-delay: 1
 
 User-agent: Slurp
 Allow: /
+Crawl-delay: 1
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Baiduspider
+Allow: /
 Crawl-delay: 2
 
-# Block common bad bots
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 1
+
+# Social media crawlers
+User-agent: facebookexternalhit/1.1
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# Block aggressive crawlers and scrapers
 User-agent: AhrefsBot
 Disallow: /
 
@@ -43,5 +85,11 @@ Disallow: /
 User-agent: DotBot
 Disallow: /
 
-User-agent: BLEXBot
-Disallow: / 
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MegaIndex
+Disallow: /
+
+# General crawl delay to prevent server overload
+Crawl-delay: 1 

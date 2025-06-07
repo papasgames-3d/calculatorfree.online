@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator - Calculate Your Body Mass Index | CalculatorFree.Online</title>
+    <meta name="description" content="Free BMI calculator to determine your body mass index. Calculate BMI using height and weight with instant results and health recommendations.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .bmi-calculator {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 2rem auto;
+        }
+        
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .input-group input:focus, .input-group select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .calculate-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 2rem;
+            transition: transform 0.2s ease;
+        }
+        
+        .calculate-btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .result {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            display: none;
+        }
+        
+        .bmi-value {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .bmi-category {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .bmi-info {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .bmi-ranges {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .bmi-range {
+            background: white;
+            border-radius: 10px;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .underweight { border-left: 5px solid #17a2b8; }
+        .normal { border-left: 5px solid #28a745; }
+        .overweight { border-left: 5px solid #ffc107; }
+        .obese { border-left: 5px solid #dc3545; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-calculator"></i>
+                <span>CalculatorFree.Online</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#financial" class="nav-link">Financial</a>
+                <a href="index.html#health" class="nav-link active">Health & Fitness</a>
+                <a href="index.html#math" class="nav-link">Math</a>
+                <a href="index.html#other" class="nav-link">Other Tools</a>
+            </nav>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>BMI Calculator</h1>
+                    <p>Calculate your Body Mass Index to assess your weight status</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="calculator-section">
+            <div class="container">
+                <div class="bmi-calculator">
+                    <form id="bmiForm">
+                        <div class="input-group">
+                            <label for="height">Height</label>
+                            <input type="number" id="height" step="0.1" min="0" placeholder="Enter your height" required>
+                            <select id="heightUnit" style="margin-top: 0.5rem;">
+                                <option value="cm">Centimeters (cm)</option>
+                                <option value="ft">Feet & Inches</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="weight">Weight</label>
+                            <input type="number" id="weight" step="0.1" min="0" placeholder="Enter your weight" required>
+                            <select id="weightUnit" style="margin-top: 0.5rem;">
+                                <option value="kg">Kilograms (kg)</option>
+                                <option value="lbs">Pounds (lbs)</option>
+                            </select>
+                        </div>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <div class="input-group">
+                                <label for="age">Age</label>
+                                <input type="number" id="age" min="1" max="120" placeholder="Your age" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="gender">Gender</label>
+                                <select id="gender" required>
+                                    <option value="">Select Gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="calculate-btn">Calculate BMI</button>
+                    </form>
+
+                    <div id="result" class="result">
+                        <div class="bmi-value" id="bmiValue"></div>
+                        <div class="bmi-category" id="bmiCategory"></div>
+                        <div class="bmi-info">
+                            <p id="bmiDescription"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bmi-info">
+                    <h2 style="text-align: center; margin-bottom: 2rem; color: white;">BMI Categories</h2>
+                    <div class="bmi-ranges">
+                        <div class="bmi-range underweight">
+                            <h3>Underweight</h3>
+                            <p>BMI less than 18.5</p>
+                        </div>
+                        <div class="bmi-range normal">
+                            <h3>Normal Weight</h3>
+                            <p>BMI 18.5 - 24.9</p>
+                        </div>
+                        <div class="bmi-range overweight">
+                            <h3>Overweight</h3>
+                            <p>BMI 25 - 29.9</p>
+                        </div>
+                        <div class="bmi-range obese">
+                            <h3>Obese</h3>
+                            <p>BMI 30 or greater</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Financial Calculators</h4>
+                    <ul>
+                        <li><a href="mortgage-calculator.html">Mortgage Calculator</a></li>
+                        <li><a href="loan-calculator.html">Loan Calculator</a></li>
+                        <li><a href="auto-loan-calculator.html">Auto Loan Calculator</a></li>
+                        <li><a href="interest-calculator.html">Interest Calculator</a></li>
+                        <li><a href="retirement-calculator.html">Retirement Calculator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Health & Fitness</h4>
+                    <ul>
+                        <li><a href="bmi-calculator.html">BMI Calculator</a></li>
+                        <li><a href="calorie-calculator.html">Calorie Calculator</a></li>
+                        <li><a href="body-fat-calculator.html">Body Fat Calculator</a></li>
+                        <li><a href="bmr-calculator.html">BMR Calculator</a></li>
+                        <li><a href="pregnancy-calculator.html">Pregnancy Calculator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Math Calculators</h4>
+                    <ul>
+                        <li><a href="scientific-calculator.html">Scientific Calculator</a></li>
+                        <li><a href="fraction-calculator.html">Fraction Calculator</a></li>
+                        <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
+                        <li><a href="triangle-calculator.html">Triangle Calculator</a></li>
+                        <li><a href="random-number-generator.html">Random Number Generator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Other Tools</h4>
+                    <ul>
+                        <li><a href="age-calculator.html">Age Calculator</a></li>
+                        <li><a href="date-calculator.html">Date Calculator</a></li>
+                        <li><a href="time-calculator.html">Time Calculator</a></li>
+                        <li><a href="gpa-calculator.html">GPA Calculator</a></li>
+                        <li><a href="password-generator.html">Password Generator</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 CalculatorFree.Online. All rights reserved.</p>
+                <p>Designed & Developed by <strong>Long Thái Bảo</strong> | Unauthorized copying is strictly prohibited</p>
+                <p><small>All content, design, and code are protected by copyright law - <a href="copyright.html" style="color: #6c757d;">View Copyright Notice</a></small></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('bmiForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            let height, weight;
+            const heightUnit = document.getElementById('heightUnit').value;
+            const weightUnit = document.getElementById('weightUnit').value;
+            
+            // Get height in meters
+            if (heightUnit === 'cm') {
+                height = parseFloat(document.getElementById('height').value) / 100;
+            } else {
+                const heightFeet = parseFloat(document.getElementById('height').value);
+                height = heightFeet * 0.3048;
+            }
+            
+            // Get weight in kg
+            if (weightUnit === 'kg') {
+                weight = parseFloat(document.getElementById('weight').value);
+            } else {
+                weight = parseFloat(document.getElementById('weight').value) * 0.453592;
+            }
+            
+            if (height > 0 && weight > 0) {
+                const bmi = weight / (height * height);
+                displayBMIResult(bmi);
+            }
+        });
+
+        function displayBMIResult(bmi) {
+            const bmiValue = document.getElementById('bmiValue');
+            const bmiCategory = document.getElementById('bmiCategory');
+            const bmiDescription = document.getElementById('bmiDescription');
+            const result = document.getElementById('result');
+            const age = parseInt(document.getElementById('age').value);
+            const gender = document.getElementById('gender').value;
+            
+            bmiValue.textContent = bmi.toFixed(1);
+            
+            let category, description, color, advice;
+            
+            if (bmi < 18.5) {
+                category = 'Underweight';
+                color = '#17a2b8';
+                description = 'Your BMI indicates that you are underweight.';
+                advice = getAdvice('underweight', age, gender);
+            } else if (bmi < 25) {
+                category = 'Normal Weight';
+                color = '#28a745';
+                description = 'Your BMI indicates that you have a normal weight.';
+                advice = getAdvice('normal', age, gender);
+            } else if (bmi < 30) {
+                category = 'Overweight';
+                color = '#ffc107';
+                description = 'Your BMI indicates that you are overweight.';
+                advice = getAdvice('overweight', age, gender);
+            } else {
+                category = 'Obese';
+                color = '#dc3545';
+                description = 'Your BMI indicates obesity.';
+                advice = getAdvice('obese', age, gender);
+            }
+            
+            bmiCategory.textContent = category;
+            bmiCategory.style.color = color;
+            bmiValue.style.color = color;
+            bmiDescription.innerHTML = `${description}<br><br><strong>Personalized Advice:</strong><br>${advice}`;
+            
+            result.style.display = 'block';
+            result.scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function getAdvice(category, age, gender) {
+            let advice = '';
+            
+            switch(category) {
+                case 'underweight':
+                    advice = `• Increase caloric intake with healthy, nutrient-dense foods<br>
+                             • Focus on protein-rich foods like lean meats, fish, eggs, and legumes<br>
+                             • Consider strength training to build muscle mass<br>
+                             • Consult with a nutritionist for a personalized meal plan`;
+                    if (age < 18) {
+                        advice += `<br>• As a growing teenager, ensure adequate nutrition for development`;
+                    }
+                    break;
+                    
+                case 'normal':
+                    advice = `• Maintain your current healthy lifestyle<br>
+                             • Continue balanced nutrition with variety of foods<br>
+                             • Aim for 150 minutes of moderate aerobic activity weekly<br>
+                             • Include strength training exercises 2-3 times per week`;
+                    if (age > 50) {
+                        advice += `<br>• Focus on bone health with calcium and vitamin D<br>
+                                  • Consider balance and flexibility exercises`;
+                    }
+                    break;
+                    
+                case 'overweight':
+                    advice = `• Create a moderate caloric deficit (300-500 calories/day)<br>
+                             • Increase physical activity to 200-300 minutes per week<br>
+                             • Focus on portion control and mindful eating<br>
+                             • Choose whole foods over processed options`;
+                    if (gender === 'female' && age > 40) {
+                        advice += `<br>• Consider hormonal changes affecting metabolism<br>
+                                  • Focus on strength training to maintain muscle mass`;
+                    }
+                    break;
+                    
+                case 'obese':
+                    advice = `• Consult with healthcare provider for personalized plan<br>
+                             • Consider working with registered dietitian<br>
+                             • Start with low-impact exercises like walking or swimming<br>
+                             • Focus on sustainable lifestyle changes, not quick fixes<br>
+                             • Monitor progress with regular check-ups`;
+                    if (age > 35) {
+                        advice += `<br>• Screen for related health conditions (diabetes, hypertension)<br>
+                                  • Consider medical supervision for weight loss program`;
+                    }
+                    break;
+            }
+            
+            return advice;
+        }
+    </script>
+</body>
+</html> 

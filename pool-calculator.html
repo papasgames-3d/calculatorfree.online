@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pool Calculator - Calculate Pool Volume & Chemical Dosage | CalculatorFree.Online</title>
+    <meta name="description" content="Calculate pool volume, water capacity, and chemical treatments for rectangular, circular, and oval pools.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .pool-calculator {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            max-width: 1200px;
+            margin: 2rem auto;
+        }
+
+        .tab-container {
+            display: flex;
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 0.5rem;
+            margin-bottom: 2rem;
+            overflow-x: auto;
+        }
+
+        .tab-button {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: none;
+            background: transparent;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            min-width: 120px;
+        }
+
+        .tab-button.active {
+            background: linear-gradient(135deg, #00bcd4 0%, #0097a7 100%);
+            color: white;
+            box-shadow: 0 2px 10px rgba(0, 188, 212, 0.3);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .input-panel {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 2rem;
+        }
+
+        .result-panel {
+            background: linear-gradient(135deg, #00bcd4 0%, #0097a7 100%);
+            border-radius: 15px;
+            padding: 2rem;
+            color: white;
+        }
+
+        .panel-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .result-panel label {
+            color: white;
+            opacity: 0.9;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: #00bcd4;
+            box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.1);
+        }
+
+        .dimension-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .tri-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .result-field {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            font-weight: 600;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        .pool-visual {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .pool-shape {
+            width: 100%;
+            height: 200px;
+            border: 3px solid #00bcd4;
+            background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 100%);
+            margin: 1rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pool-rectangular {
+            border-radius: 10px;
+        }
+
+        .pool-circular {
+            border-radius: 50%;
+        }
+
+        .pool-oval {
+            border-radius: 50%;
+        }
+
+        .pool-kidney {
+            border-radius: 40% 60% 60% 40% / 60% 30% 70% 40%;
+        }
+
+        .pool-dimensions {
+            position: absolute;
+            font-size: 12px;
+            font-weight: 600;
+            color: #00695c;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .chemical-section {
+            background: #e8f5e8;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .chemical-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .chemical-item {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            border-left: 4px solid #4caf50;
+        }
+
+        .chemical-amount {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2e7d32;
+            margin-bottom: 0.5rem;
+        }
+
+        .chemical-name {
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .chemical-purpose {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+
+        .maintenance-tips {
+            background: #fff3cd;
+            border-radius: 15px;
+            padding: 2rem;
+            border-left: 4px solid #ffc107;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .tip-item {
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .calculator-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .dimension-grid, .tri-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tab-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-calculator"></i>
+                <span>CalculatorFree.Online</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#financial" class="nav-link">Financial</a>
+                <a href="index.html#health" class="nav-link">Health & Fitness</a>
+                <a href="index.html#math" class="nav-link">Math</a>
+                <a href="index.html#other" class="nav-link active">Other Tools</a>
+            </nav>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1><i class="fas fa-swimming-pool"></i> Pool Calculator</h1>
+                    <p>Calculate pool volume, water capacity, and chemical treatment requirements</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="pool-calculator">
+                    <div class="tab-container">
+                        <button class="tab-button active" onclick="switchTab('rectangular')">🏊 Rectangular</button>
+                        <button class="tab-button" onclick="switchTab('circular')">⭕ Circular</button>
+                        <button class="tab-button" onclick="switchTab('oval')">🥚 Oval</button>
+                        <button class="tab-button" onclick="switchTab('kidney')">🫘 Kidney</button>
+                        <button class="tab-button" onclick="switchTab('chemical')">🧪 Chemical</button>
+                    </div>
+
+                    <!-- Rectangular Pool Tab -->
+                    <div id="rectangular" class="tab-content active">
+                        <div class="calculator-grid">
+                            <div class="input-panel">
+                                <h3 class="panel-title"><i class="fas fa-ruler"></i> Pool Dimensions</h3>
+                                
+                                <div class="input-group">
+                                    <label for="rect-length">Length (feet)</label>
+                                    <input type="number" id="rect-length" class="input-field" placeholder="30" min="0" step="0.1">
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="rect-width">Width (feet)</label>
+                                    <input type="number" id="rect-width" class="input-field" placeholder="15" min="0" step="0.1">
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="rect-depth">Average Depth (feet)</label>
+                                    <input type="number" id="rect-depth" class="input-field" placeholder="5" min="0" step="0.1">
+                                    <small style="color: #6c757d;">For variable depth: (shallow + deep) ÷ 2</small>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="rect-shallow">Shallow End (feet)</label>
+                                    <input type="number" id="rect-shallow" class="input-field" placeholder="3" min="0" step="0.1">
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="rect-deep">Deep End (feet)</label>
+                                    <input type="number" id="rect-deep" class="input-field" placeholder="7" min="0" step="0.1">
+                                </div>
+                            </div>
+
+                            <div class="result-panel">
+                                <h3 class="panel-title"><i class="fas fa-tint"></i> Volume Results</h3>
+                                
+                                <div class="input-group">
+                                    <label for="rect-volume-cubic">Volume (cubic feet)</label>
+                                    <input type="text" id="rect-volume-cubic" class="input-field result-field" placeholder="0 cu ft" readonly>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="rect-volume-gallons">Volume (gallons)</label>
+                                    <input type="text" id="rect-volume-gallons" class="input-field result-field" placeholder="0 gallons" readonly>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="rect-volume-liters">Volume (liters)</label>
+                                    <input type="text" id="rect-volume-liters" class="input-field result-field" placeholder="0 liters" readonly>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="rect-surface-area">Surface Area</label>
+                                    <input type="text" id="rect-surface-area" class="input-field result-field" placeholder="0 sq ft" readonly>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="rect-fill-time">Fill Time (hours)</label>
+                                    <input type="text" id="rect-fill-time" class="input-field result-field" placeholder="0 hours" readonly>
+                                    <small style="color: rgba(255,255,255,0.8);">At 10 GPM flow rate</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pool-visual">
+                            <h3>Rectangular Pool Visualization</h3>
+                            <div class="pool-shape pool-rectangular" id="rect-visual">
+                                <div class="pool-dimensions" style="top: 10px; left: 50%; transform: translateX(-50%);" id="rect-length-display">30 ft</div>
+                                <div class="pool-dimensions" style="left: 10px; top: 50%; transform: translateY(-50%);" id="rect-width-display">15 ft</div>
+                                <div class="pool-dimensions" style="bottom: 10px; right: 10px;" id="rect-depth-display">5 ft deep</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Circular Pool Tab -->
+                    <div id="circular" class="tab-content">
+                        <div class="calculator-grid">
+                            <div class="input-panel">
+                                <h3 class="panel-title"><i class="fas fa-circle"></i> Pool Dimensions</h3>
+                                
+                                <div class="input-group">
+                                    <label for="circ-diameter">Diameter (feet)</label>
+                                    <input type="number" id="circ-diameter" class="input-field" placeholder="20" min="0" step="0.1">
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="circ-depth">Average Depth (feet)</label>
+                                    <input type="number" id="circ-depth" class="input-field" placeholder="4" min="0" step="0.1">
+                                </div>
+                            </div>
+
+                            <div class="result-panel">
+                                <h3 class="panel-title"><i class="fas fa-tint"></i> Volume Results</h3>
+                                
+                                <div class="input-group">
+                                    <label for="circ-volume-cubic">Volume (cubic feet)</label>
+                                    <input type="text" id="circ-volume-cubic" class="input-field result-field" placeholder="0 cu ft" readonly>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="circ-volume-gallons">Volume (gallons)</label>
+                                    <input type="text" id="circ-volume-gallons" class="input-field result-field" placeholder="0 gallons" readonly>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="circ-volume-liters">Volume (liters)</label>
+                                    <input type="text" id="circ-volume-liters" class="input-field result-field" placeholder="0 liters" readonly>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="circ-surface-area">Surface Area</label>
+                                    <input type="text" id="circ-surface-area" class="input-field result-field" placeholder="0 sq ft" readonly>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pool-visual">
+                            <h3>Circular Pool Visualization</h3>
+                            <div class="pool-shape pool-circular" id="circ-visual">
+                                <div class="pool-dimensions" style="top: 50%; left: 50%; transform: translate(-50%, -50%);" id="circ-diameter-display">20 ft ⌀</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Oval Pool Tab -->
+                    <div id="oval" class="tab-content">
+                        <div class="calculator-grid">
+                            <div class="input-panel">
+                                <h3 class="panel-title"><i class="fas fa-egg"></i> Pool Dimensions</h3>
+                                
+                                <div class="input-group">
+                                    <label for="oval-length">Length (feet)</label>
+                                    <input type="number" id="oval-length" class="input-field" placeholder="25" min="0" step="0.1">
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="oval-width">Width (feet)</label>
+                                    <input type="number" id="oval-width" class="input-field" placeholder="15" min="0" step="0.1">
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="oval-depth">Average Depth (feet)</label>
+                                    <input type="number" id="oval-depth" class="input-field" placeholder="4" min="0" step="0.1">
+                                </div>
+                            </div>
+
+                            <div class="result-panel">
+                                <h3 class="panel-title"><i class="fas fa-tint"></i> Volume Results</h3>
+                                
+                                <div class="input-group">
+                                    <label for="oval-volume-cubic">Volume (cubic feet)</label>
+                                    <input type="text" id="oval-volume-cubic" class="input-field result-field" placeholder="0 cu ft" readonly>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="oval-volume-gallons">Volume (gallons)</label>
+                                    <input type="text" id="oval-volume-gallons" class="input-field result-field" placeholder="0 gallons" readonly>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="oval-volume-liters">Volume (liters)</label>
+                                    <input type="text" id="oval-volume-liters" class="input-field result-field" placeholder="0 liters" readonly>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="oval-surface-area">Surface Area</label>
+                                    <input type="text" id="oval-surface-area" class="input-field result-field" placeholder="0 sq ft" readonly>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pool-visual">
+                            <h3>Oval Pool Visualization</h3>
+                            <div class="pool-shape pool-oval" id="oval-visual">
+                                <div class="pool-dimensions" style="top: 10px; left: 50%; transform: translateX(-50%);" id="oval-length-display">25 ft</div>
+                                <div class="pool-dimensions" style="left: 10px; top: 50%; transform: translateY(-50%);" id="oval-width-display">15 ft</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Kidney Pool Tab -->
+                    <div id="kidney" class="tab-content">
+                        <div class="calculator-grid">
+                            <div class="input-panel">
+                                <h3 class="panel-title"><i class="fas fa-shapes"></i> Pool Dimensions</h3>
+                                
+                                <div class="input-group">
+                                    <label for="kidney-length">Length (feet)</label>
+                                    <input type="number" id="kidney-length" class="input-field" placeholder="28" min="0" step="0.1">
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="kidney-width">Width (feet)</label>
+                                    <input type="number" id="kidney-width" class="input-field" placeholder="16" min="0" step="0.1">
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="kidney-depth">Average Depth (feet)</label>
+                                    <input type="number" id="kidney-depth" class="input-field" placeholder="5" min="0" step="0.1">
+                                </div>
+                            </div>
+
+                            <div class="result-panel">
+                                <h3 class="panel-title"><i class="fas fa-tint"></i> Volume Results</h3>
+                                
+                                <div class="input-group">
+                                    <label for="kidney-volume-cubic">Volume (cubic feet)</label>
+                                    <input type="text" id="kidney-volume-cubic" class="input-field result-field" placeholder="0 cu ft" readonly>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="kidney-volume-gallons">Volume (gallons)</label>
+                                    <input type="text" id="kidney-volume-gallons" class="input-field result-field" placeholder="0 gallons" readonly>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="kidney-volume-liters">Volume (liters)</label>
+                                    <input type="text" id="kidney-volume-liters" class="input-field result-field" placeholder="0 liters" readonly>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="kidney-surface-area">Surface Area</label>
+                                    <input type="text" id="kidney-surface-area" class="input-field result-field" placeholder="0 sq ft" readonly>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pool-visual">
+                            <h3>Kidney Pool Visualization</h3>
+                            <div class="pool-shape pool-kidney" id="kidney-visual">
+                                <div class="pool-dimensions" style="top: 20%; left: 50%; transform: translateX(-50%);" id="kidney-length-display">28 ft</div>
+                                <div class="pool-dimensions" style="left: 20%; top: 50%; transform: translateY(-50%);" id="kidney-width-display">16 ft</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chemical Calculator Tab -->
+                    <div id="chemical" class="tab-content">
+                        <div class="calculator-grid">
+                            <div class="input-panel">
+                                <h3 class="panel-title"><i class="fas fa-flask"></i> Pool Volume</h3>
+                                
+                                <div class="input-group">
+                                    <label for="chem-volume">Pool Volume (gallons)</label>
+                                    <input type="number" id="chem-volume" class="input-field" placeholder="20000" min="0" step="1">
+                                    <small style="color: #6c757d;">Use calculated volume from other tabs</small>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="treatment-type">Treatment Type</label>
+                                    <select id="treatment-type" class="input-field">
+                                        <option value="startup">Pool Startup</option>
+                                        <option value="weekly" selected>Weekly Maintenance</option>
+                                        <option value="shock">Pool Shock Treatment</option>
+                                        <option value="algae">Algae Treatment</option>
+                                    </select>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="current-chlorine">Current Chlorine (ppm)</label>
+                                    <input type="number" id="current-chlorine" class="input-field" placeholder="1.5" min="0" step="0.1">
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="target-chlorine">Target Chlorine (ppm)</label>
+                                    <input type="number" id="target-chlorine" class="input-field" placeholder="3.0" min="0" step="0.1">
+                                </div>
+                            </div>
+
+                            <div class="result-panel">
+                                <h3 class="panel-title"><i class="fas fa-eyedropper"></i> Chemical Dosage</h3>
+                                
+                                <div class="input-group">
+                                    <label for="chlorine-needed">Chlorine Needed</label>
+                                    <input type="text" id="chlorine-needed" class="input-field result-field" placeholder="0 oz" readonly>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="shock-needed">Pool Shock</label>
+                                    <input type="text" id="shock-needed" class="input-field result-field" placeholder="0 lbs" readonly>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="ph-increaser">pH Increaser</label>
+                                    <input type="text" id="ph-increaser" class="input-field result-field" placeholder="0 oz" readonly>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="alkalinity-increaser">Alkalinity Increaser</label>
+                                    <input type="text" id="alkalinity-increaser" class="input-field result-field" placeholder="0 oz" readonly>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="chemical-section">
+                            <h3><i class="fas fa-flask"></i> Chemical Requirements</h3>
+                            <div class="chemical-grid" id="chemical-grid">
+                                <!-- Chemical requirements will be generated here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="maintenance-tips">
+                        <h3><i class="fas fa-lightbulb"></i> Pool Maintenance Tips</h3>
+                        <div class="tips-grid">
+                            <div class="tip-item">
+                                <h4>🧪 Chemical Balance</h4>
+                                <p>Maintain pH 7.2-7.6, total alkalinity 80-120 ppm, and chlorine 1-3 ppm for optimal water quality.</p>
+                            </div>
+                            <div class="tip-item">
+                                <h4>🌊 Water Testing</h4>
+                                <p>Test water 2-3 times per week during swimming season. Test more frequently in hot weather.</p>
+                            </div>
+                            <div class="tip-item">
+                                <h4>🧽 Regular Cleaning</h4>
+                                <p>Skim debris daily, vacuum weekly, and brush walls to prevent algae buildup.</p>
+                            </div>
+                            <div class="tip-item">
+                                <h4>🔄 Circulation</h4>
+                                <p>Run pool pump 8-12 hours daily to ensure proper water circulation and filtration.</p>
+                            </div>
+                            <div class="tip-item">
+                                <h4>🍃 Seasonal Care</h4>
+                                <p>Shock pool weekly during peak season. Reduce chemical usage and runtime in cooler months.</p>
+                            </div>
+                            <div class="tip-item">
+                                <h4>⚗️ Chemical Storage</h4>
+                                <p>Store chemicals in cool, dry place away from direct sunlight. Never mix different chemicals.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Financial Calculators</h4>
+                    <ul>
+                        <li><a href="mortgage-calculator.html">Mortgage Calculator</a></li>
+                        <li><a href="loan-calculator.html">Loan Calculator</a></li>
+                        <li><a href="auto-loan-calculator.html">Auto Loan Calculator</a></li>
+                        <li><a href="interest-calculator.html">Interest Calculator</a></li>
+                        <li><a href="investment-calculator.html">Investment Calculator</a></li>
+                        <li><a href="compound-interest-calculator.html">Compound Interest Calculator</a></li>
+                        <li><a href="retirement-calculator.html">Retirement Calculator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Health & Fitness</h4>
+                    <ul>
+                        <li><a href="bmi-calculator.html">BMI Calculator</a></li>
+                        <li><a href="calorie-calculator.html">Calorie Calculator</a></li>
+                        <li><a href="body-fat-calculator.html">Body Fat Calculator</a></li>
+                        <li><a href="bmr-calculator.html">BMR Calculator</a></li>
+                        <li><a href="pregnancy-calculator.html">Pregnancy Calculator</a></li>
+                        <li><a href="water-calculator.html">Water Calculator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Math Calculators</h4>
+                    <ul>
+                        <li><a href="scientific-calculator.html">Scientific Calculator</a></li>
+                        <li><a href="basic-calculator.html">Basic Calculator</a></li>
+                        <li><a href="area-calculator.html">Area Calculator</a></li>
+                        <li><a href="volume-calculator.html">Volume Calculator</a></li>
+                        <li><a href="average-calculator.html">Average Calculator</a></li>
+                        <li><a href="fraction-calculator.html">Fraction Calculator</a></li>
+                        <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
+                        <li><a href="triangle-calculator.html">Triangle Calculator</a></li>
+                        <li><a href="random-number-generator.html">Random Number Generator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Other Tools</h4>
+                    <ul>
+                        <li><a href="age-calculator.html">Age Calculator</a></li>
+                        <li><a href="date-calculator.html">Date Calculator</a></li>
+                        <li><a href="time-calculator.html">Time Calculator</a></li>
+                        <li><a href="gpa-calculator.html">GPA Calculator</a></li>
+                        <li><a href="grade-calculator.html">Grade Calculator</a></li>
+                        <li><a href="hours-calculator.html">Hours Calculator</a></li>
+                        <li><a href="password-generator.html">Password Generator</a></li>
+                        <li><a href="tip-calculator.html">Tip Calculator</a></li>
+                        <li><a href="unit-converter.html">Unit Converter</a></li>
+                        <li><a href="pool-calculator.html">Pool Calculator</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 CalculatorFree.Online. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function switchTab(tabName) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active class from all buttons
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            // Show selected tab content
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+
+            // Calculate for the active tab
+            if (tabName === 'rectangular') calculateRectangular();
+            else if (tabName === 'circular') calculateCircular();
+            else if (tabName === 'oval') calculateOval();
+            else if (tabName === 'kidney') calculateKidney();
+            else if (tabName === 'chemical') calculateChemicals();
+        }
+
+        function calculateRectangular() {
+            const length = parseFloat(document.getElementById('rect-length').value) || 0;
+            const width = parseFloat(document.getElementById('rect-width').value) || 0;
+            const depth = parseFloat(document.getElementById('rect-depth').value) || 0;
+            const shallow = parseFloat(document.getElementById('rect-shallow').value) || 0;
+            const deep = parseFloat(document.getElementById('rect-deep').value) || 0;
+
+            if (length === 0 || width === 0 || depth === 0) return;
+
+            // Calculate average depth if shallow and deep ends are specified
+            const averageDepth = (shallow > 0 && deep > 0) ? (shallow + deep) / 2 : depth;
+
+            const volumeCubic = length * width * averageDepth;
+            const volumeGallons = volumeCubic * 7.48; // 1 cubic foot = 7.48 gallons
+            const volumeLiters = volumeGallons * 3.785; // 1 gallon = 3.785 liters
+            const surfaceArea = length * width;
+            const fillTime = volumeGallons / 600; // 10 GPM = 600 gallons per hour
+
+            document.getElementById('rect-volume-cubic').value = volumeCubic.toFixed(1) + ' cu ft';
+            document.getElementById('rect-volume-gallons').value = volumeGallons.toFixed(0) + ' gallons';
+            document.getElementById('rect-volume-liters').value = volumeLiters.toFixed(0) + ' liters';
+            document.getElementById('rect-surface-area').value = surfaceArea.toFixed(1) + ' sq ft';
+            document.getElementById('rect-fill-time').value = fillTime.toFixed(1) + ' hours';
+
+            // Update visual dimensions
+            document.getElementById('rect-length-display').textContent = length + ' ft';
+            document.getElementById('rect-width-display').textContent = width + ' ft';
+            document.getElementById('rect-depth-display').textContent = averageDepth.toFixed(1) + ' ft deep';
+        }
+
+        function calculateCircular() {
+            const diameter = parseFloat(document.getElementById('circ-diameter').value) || 0;
+            const depth = parseFloat(document.getElementById('circ-depth').value) || 0;
+
+            if (diameter === 0 || depth === 0) return;
+
+            const radius = diameter / 2;
+            const volumeCubic = Math.PI * radius * radius * depth;
+            const volumeGallons = volumeCubic * 7.48;
+            const volumeLiters = volumeGallons * 3.785;
+            const surfaceArea = Math.PI * radius * radius;
+
+            document.getElementById('circ-volume-cubic').value = volumeCubic.toFixed(1) + ' cu ft';
+            document.getElementById('circ-volume-gallons').value = volumeGallons.toFixed(0) + ' gallons';
+            document.getElementById('circ-volume-liters').value = volumeLiters.toFixed(0) + ' liters';
+            document.getElementById('circ-surface-area').value = surfaceArea.toFixed(1) + ' sq ft';
+
+            // Update visual dimensions
+            document.getElementById('circ-diameter-display').textContent = diameter + ' ft ⌀';
+        }
+
+        function calculateOval() {
+            const length = parseFloat(document.getElementById('oval-length').value) || 0;
+            const width = parseFloat(document.getElementById('oval-width').value) || 0;
+            const depth = parseFloat(document.getElementById('oval-depth').value) || 0;
+
+            if (length === 0 || width === 0 || depth === 0) return;
+
+            // Oval volume approximation: π × a × b × depth (where a and b are semi-axes)
+            const a = length / 2;
+            const b = width / 2;
+            const volumeCubic = Math.PI * a * b * depth;
+            const volumeGallons = volumeCubic * 7.48;
+            const volumeLiters = volumeGallons * 3.785;
+            const surfaceArea = Math.PI * a * b;
+
+            document.getElementById('oval-volume-cubic').value = volumeCubic.toFixed(1) + ' cu ft';
+            document.getElementById('oval-volume-gallons').value = volumeGallons.toFixed(0) + ' gallons';
+            document.getElementById('oval-volume-liters').value = volumeLiters.toFixed(0) + ' liters';
+            document.getElementById('oval-surface-area').value = surfaceArea.toFixed(1) + ' sq ft';
+
+            // Update visual dimensions
+            document.getElementById('oval-length-display').textContent = length + ' ft';
+            document.getElementById('oval-width-display').textContent = width + ' ft';
+        }
+
+        function calculateKidney() {
+            const length = parseFloat(document.getElementById('kidney-length').value) || 0;
+            const width = parseFloat(document.getElementById('kidney-width').value) || 0;
+            const depth = parseFloat(document.getElementById('kidney-depth').value) || 0;
+
+            if (length === 0 || width === 0 || depth === 0) return;
+
+            // Kidney shape approximation: ~0.75 × length × width × depth
+            const volumeCubic = 0.75 * length * width * depth;
+            const volumeGallons = volumeCubic * 7.48;
+            const volumeLiters = volumeGallons * 3.785;
+            const surfaceArea = 0.75 * length * width;
+
+            document.getElementById('kidney-volume-cubic').value = volumeCubic.toFixed(1) + ' cu ft';
+            document.getElementById('kidney-volume-gallons').value = volumeGallons.toFixed(0) + ' gallons';
+            document.getElementById('kidney-volume-liters').value = volumeLiters.toFixed(0) + ' liters';
+            document.getElementById('kidney-surface-area').value = surfaceArea.toFixed(1) + ' sq ft';
+
+            // Update visual dimensions
+            document.getElementById('kidney-length-display').textContent = length + ' ft';
+            document.getElementById('kidney-width-display').textContent = width + ' ft';
+        }
+
+        function calculateChemicals() {
+            const volume = parseFloat(document.getElementById('chem-volume').value) || 0;
+            const treatmentType = document.getElementById('treatment-type').value;
+            const currentChlorine = parseFloat(document.getElementById('current-chlorine').value) || 0;
+            const targetChlorine = parseFloat(document.getElementById('target-chlorine').value) || 3;
+
+            if (volume === 0) return;
+
+            // Chemical calculations (approximate)
+            const chlorineDiff = Math.max(0, targetChlorine - currentChlorine);
+            const chlorineNeeded = (chlorineDiff * volume) / 10000 * 1.5; // oz of liquid chlorine
+            const shockNeeded = volume / 10000 * 1; // lbs of calcium hypochlorite
+            const phIncreaser = volume / 10000 * 6; // oz of sodium carbonate
+            const alkalinityIncreaser = volume / 10000 * 1.5; // lbs of sodium bicarbonate
+
+            document.getElementById('chlorine-needed').value = chlorineNeeded.toFixed(1) + ' oz';
+            document.getElementById('shock-needed').value = shockNeeded.toFixed(1) + ' lbs';
+            document.getElementById('ph-increaser').value = phIncreaser.toFixed(1) + ' oz';
+            document.getElementById('alkalinity-increaser').value = alkalinityIncreaser.toFixed(1) + ' lbs';
+
+            // Generate chemical grid
+            generateChemicalGrid(volume, treatmentType);
+        }
+
+        function generateChemicalGrid(volume, treatmentType) {
+            const chemicals = {
+                startup: [
+                    { name: 'Chlorine Shock', amount: (volume / 10000 * 2) + ' lbs', purpose: 'Initial sanitization' },
+                    { name: 'pH Increaser', amount: (volume / 10000 * 8) + ' oz', purpose: 'Raise pH to 7.2-7.6' },
+                    { name: 'Alkalinity Increaser', amount: (volume / 10000 * 2) + ' lbs', purpose: 'Stabilize pH' },
+                    { name: 'Cyanuric Acid', amount: (volume / 10000 * 1.3) + ' lbs', purpose: 'Chlorine stabilizer' }
+                ],
+                weekly: [
+                    { name: 'Liquid Chlorine', amount: (volume / 10000 * 1.5) + ' oz', purpose: 'Weekly sanitization' },
+                    { name: 'pH Adjuster', amount: (volume / 10000 * 4) + ' oz', purpose: 'Maintain pH balance' },
+                    { name: 'Algaecide', amount: (volume / 10000 * 0.5) + ' oz', purpose: 'Prevent algae growth' }
+                ],
+                shock: [
+                    { name: 'Calcium Hypochlorite', amount: (volume / 10000 * 1.5) + ' lbs', purpose: 'Shock treatment' },
+                    { name: 'Pool Shock', amount: (volume / 10000 * 1) + ' lbs', purpose: 'Oxidize contaminants' }
+                ],
+                algae: [
+                    { name: 'Algaecide', amount: (volume / 10000 * 2) + ' oz', purpose: 'Kill existing algae' },
+                    { name: 'Pool Shock', amount: (volume / 10000 * 2) + ' lbs', purpose: 'Oxidize dead algae' },
+                    { name: 'Clarifier', amount: (volume / 10000 * 1) + ' oz', purpose: 'Clear cloudy water' }
+                ]
+            };
+
+            const chemicalGrid = document.getElementById('chemical-grid');
+            const selectedChemicals = chemicals[treatmentType] || chemicals.weekly;
+
+            chemicalGrid.innerHTML = selectedChemicals.map(chemical => `
+                <div class="chemical-item">
+                    <div class="chemical-amount">${chemical.amount}</div>
+                    <div class="chemical-name">${chemical.name}</div>
+                    <div class="chemical-purpose">${chemical.purpose}</div>
+                </div>
+            `).join('');
+        }
+
+        // Event listeners for real-time calculation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Rectangular pool listeners
+            ['rect-length', 'rect-width', 'rect-depth', 'rect-shallow', 'rect-deep'].forEach(id => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.addEventListener('input', calculateRectangular);
+                }
+            });
+
+            // Circular pool listeners
+            ['circ-diameter', 'circ-depth'].forEach(id => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.addEventListener('input', calculateCircular);
+                }
+            });
+
+            // Oval pool listeners
+            ['oval-length', 'oval-width', 'oval-depth'].forEach(id => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.addEventListener('input', calculateOval);
+                }
+            });
+
+            // Kidney pool listeners
+            ['kidney-length', 'kidney-width', 'kidney-depth'].forEach(id => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.addEventListener('input', calculateKidney);
+                }
+            });
+
+            // Chemical listeners
+            ['chem-volume', 'treatment-type', 'current-chlorine', 'target-chlorine'].forEach(id => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.addEventListener('input', calculateChemicals);
+                    element.addEventListener('change', calculateChemicals);
+                }
+            });
+
+            // Set default values
+            document.getElementById('rect-length').value = 30;
+            document.getElementById('rect-width').value = 15;
+            document.getElementById('rect-depth').value = 5;
+            document.getElementById('rect-shallow').value = 3;
+            document.getElementById('rect-deep').value = 7;
+            
+            // Initial calculation
+            calculateRectangular();
+        });
+    </script>
+</body>
+</html> 

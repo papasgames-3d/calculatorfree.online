@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumber Calculator - Calculate Wood & Framing Materials | CalculatorFree.Online</title>
+    <meta name="description" content="Calculate lumber quantities for framing, decking, and construction projects. Estimate board feet, costs, and material lists.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .lumber-calculator {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            max-width: 1200px;
+            margin: 2rem auto;
+        }
+
+        .calculator-tabs {
+            display: flex;
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 0.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 1rem;
+            border: none;
+            background: transparent;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 120px;
+        }
+
+        .tab-btn.active {
+            background: white;
+            color: #8d6e63;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .input-panel {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 2rem;
+        }
+
+        .result-panel {
+            background: linear-gradient(135deg, #8d6e63 0%, #5d4037 100%);
+            border-radius: 15px;
+            padding: 2rem;
+            color: white;
+        }
+
+        .panel-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .result-panel label {
+            color: white;
+            opacity: 0.9;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: #8d6e63;
+            box-shadow: 0 0 0 3px rgba(141, 110, 99, 0.1);
+        }
+
+        .dimension-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .triple-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .currency-input {
+            position: relative;
+        }
+
+        .currency-symbol {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-weight: 600;
+            color: #6c757d;
+        }
+
+        .result-panel .currency-symbol {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .currency-input input {
+            padding-left: 2.5rem;
+        }
+
+        .result-field {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            font-weight: 600;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        .lumber-types {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .types-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .type-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            border-left: 4px solid #8d6e63;
+        }
+
+        .type-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .type-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #8d6e63;
+            margin-bottom: 0.5rem;
+        }
+
+        .type-details {
+            color: #6c757d;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .board-feet-guide {
+            background: #e3f2fd;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .guide-content {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .formula {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1976d2;
+            margin: 1rem 0;
+        }
+
+        .tips-section {
+            background: #fff3cd;
+            border-radius: 15px;
+            padding: 2rem;
+            border-left: 4px solid #ffc107;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .tip-item {
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .calculator-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .dimension-grid, .triple-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .calculator-tabs {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-calculator"></i>
+                <span>CalculatorFree.Online</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#financial" class="nav-link">Financial</a>
+                <a href="index.html#health" class="nav-link">Health & Fitness</a>
+                <a href="index.html#math" class="nav-link">Math</a>
+                <a href="index.html#other" class="nav-link active">Other Tools</a>
+            </nav>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1><i class="fas fa-tree"></i> Lumber Calculator</h1>
+                    <p>Calculate lumber quantities, board feet, and costs for construction and woodworking projects</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="lumber-calculator">
+                    <div class="calculator-tabs">
+                        <button class="tab-btn active" onclick="switchTab('framing')">Framing</button>
+                        <button class="tab-btn" onclick="switchTab('decking')">Decking</button>
+                        <button class="tab-btn" onclick="switchTab('board-feet')">Board Feet</button>
+                        <button class="tab-btn" onclick="switchTab('studs')">Wall Studs</button>
+                    </div>
+
+                    <!-- Framing Tab -->
+                    <div id="framing" class="tab-content active">
+                        <div class="calculator-grid">
+                            <div class="input-panel">
+                                <h3 class="panel-title"><i class="fas fa-home"></i> Framing Project</h3>
+                                
+                                <div class="input-group">
+                                    <label>Wall Dimensions</label>
+                                    <div class="dimension-grid">
+                                        <input type="number" id="wall-length" class="input-field" placeholder="Length (ft)" min="0" step="0.1">
+                                        <input type="number" id="wall-height" class="input-field" placeholder="Height (ft)" min="0" step="0.1">
+                                    </div>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="stud-spacing">Stud Spacing</label>
+                                    <select id="stud-spacing" class="input-field">
+                                        <option value="16" selected>16" on center</option>
+                                        <option value="24">24" on center</option>
+                                        <option value="12">12" on center</option>
+                                    </select>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="stud-size">Stud Size</label>
+                                    <select id="stud-size" class="input-field">
+                                        <option value="2x4" selected>2x4</option>
+                                        <option value="2x6">2x6</option>
+                                        <option value="2x8">2x8</option>
+                                    </select>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="plate-length">Plate Length (Top/Bottom)</label>
+                                    <input type="number" id="plate-length" class="input-field" placeholder="Wall length" min="0" step="0.1">
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="lumber-grade">Lumber Grade</label>
+                                    <select id="lumber-grade" class="input-field">
+                                        <option value="construction">Construction Grade</option>
+                                        <option value="stud" selected>Stud Grade</option>
+                                        <option value="utility">Utility Grade</option>
+                                        <option value="premium">Premium Grade</option>
+                                    </select>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="lumber-price">Price per Board Foot</label>
+                                    <div class="currency-input">
+                                        <span class="currency-symbol">$</span>
+                                        <input type="number" id="lumber-price" class="input-field" placeholder="0.85" min="0" step="0.01">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="result-panel">
+                                <h3 class="panel-title"><i class="fas fa-clipboard-list"></i> Materials Needed</h3>
+                                
+                                <div class="input-group">
+                                    <label for="studs-needed">Studs Needed</label>
+                                    <input type="text" id="studs-needed" class="input-field result-field" placeholder="0 pieces" readonly>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="plates-needed">Plates (Top/Bottom)</label>
+                                    <input type="text" id="plates-needed" class="input-field result-field" placeholder="0 pieces" readonly>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="total-board-feet">Total Board Feet</label>
+                                    <input type="text" id="total-board-feet" class="input-field result-field" placeholder="0 BF" readonly>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="lumber-cost">Lumber Cost</label>
+                                    <div class="currency-input">
+                                        <span class="currency-symbol">$</span>
+                                        <input type="text" id="lumber-cost" class="input-field result-field" placeholder="0" readonly>
+                                    </div>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="waste-allowance">With 10% Waste</label>
+                                    <div class="currency-input">
+                                        <span class="currency-symbol">$</span>
+                                        <input type="text" id="waste-allowance" class="input-field result-field" placeholder="0" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Decking Tab -->
+                    <div id="decking" class="tab-content">
+                        <div class="calculator-grid">
+                            <div class="input-panel">
+                                <h3 class="panel-title"><i class="fas fa-grip-horizontal"></i> Decking Project</h3>
+                                
+                                <div class="input-group">
+                                    <label>Deck Dimensions</label>
+                                    <div class="dimension-grid">
+                                        <input type="number" id="deck-length" class="input-field" placeholder="Length (ft)" min="0" step="0.1">
+                                        <input type="number" id="deck-width" class="input-field" placeholder="Width (ft)" min="0" step="0.1">
+                                    </div>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="deck-board-width">Deck Board Width</label>
+                                    <select id="deck-board-width" class="input-field">
+                                        <option value="3.5">2x4 (3.5" actual width)</option>
+                                        <option value="5.5" selected>2x6 (5.5" actual width)</option>
+                                        <option value="7.25">2x8 (7.25" actual width)</option>
+                                        <option value="9.25">2x10 (9.25" actual width)</option>
+                                    </select>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="deck-board-length">Board Length</label>
+                                    <select id="deck-board-length" class="input-field">
+                                        <option value="8">8 feet</option>
+                                        <option value="10">10 feet</option>
+                                        <option value="12" selected>12 feet</option>
+                                        <option value="16">16 feet</option>
+                                        <option value="20">20 feet</option>
+                                    </select>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="gap-spacing">Gap Between Boards</label>
+                                    <select id="gap-spacing" class="input-field">
+                                        <option value="0.125">1/8" gap</option>
+                                        <option value="0.1875" selected>3/16" gap</option>
+                                        <option value="0.25">1/4" gap</option>
+                                    </select>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="joist-spacing">Joist Spacing</label>
+                                    <select id="joist-spacing" class="input-field">
+                                        <option value="12">12" on center</option>
+                                        <option value="16" selected>16" on center</option>
+                                        <option value="24">24" on center</option>
+                                    </select>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="deck-lumber-price">Price per Linear Foot</label>
+                                    <div class="currency-input">
+                                        <span class="currency-symbol">$</span>
+                                        <input type="number" id="deck-lumber-price" class="input-field" placeholder="3.50" min="0" step="0.01">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="result-panel">
+                                <h3 class="panel-title"><i class="fas fa-grip-horizontal"></i> Decking Materials</h3>
+                                
+                                <div class="input-group">
+                                    <label for="deck-area">Deck Area</label>
+                                    <input type="text" id="deck-area" class="input-field result-field" placeholder="0 sq ft" readonly>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="deck-boards-needed">Deck Boards</label>
+                                    <input type="text" id="deck-boards-needed" class="input-field result-field" placeholder="0 boards" readonly>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="linear-feet">Linear Feet</label>
+                                    <input type="text" id="linear-feet" class="input-field result-field" placeholder="0 ft" readonly>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="deck-cost">Decking Cost</label>
+                                    <div class="currency-input">
+                                        <span class="currency-symbol">$</span>
+                                        <input type="text" id="deck-cost" class="input-field result-field" placeholder="0" readonly>
+                                    </div>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="deck-waste">With 10% Waste</label>
+                                    <div class="currency-input">
+                                        <span class="currency-symbol">$</span>
+                                        <input type="text" id="deck-waste" class="input-field result-field" placeholder="0" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Board Feet Tab -->
+                    <div id="board-feet" class="tab-content">
+                        <div class="calculator-grid">
+                            <div class="input-panel">
+                                <h3 class="panel-title"><i class="fas fa-ruler-combined"></i> Board Feet Calculator</h3>
+                                
+                                <div class="input-group">
+                                    <label>Board Dimensions</label>
+                                    <div class="triple-grid">
+                                        <input type="number" id="board-thickness" class="input-field" placeholder="Thickness (in)" min="0" step="0.25">
+                                        <input type="number" id="board-width" class="input-field" placeholder="Width (in)" min="0" step="0.25">
+                                        <input type="number" id="board-length" class="input-field" placeholder="Length (ft)" min="0" step="0.1">
+                                    </div>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="quantity">Quantity</label>
+                                    <input type="number" id="quantity" class="input-field" placeholder="1" min="1" step="1">
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="bf-price">Price per Board Foot</label>
+                                    <div class="currency-input">
+                                        <span class="currency-symbol">$</span>
+                                        <input type="number" id="bf-price" class="input-field" placeholder="2.50" min="0" step="0.01">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="result-panel">
+                                <h3 class="panel-title"><i class="fas fa-calculator"></i> Board Feet Results</h3>
+                                
+                                <div class="input-group">
+                                    <label for="single-bf">Board Feet (Single)</label>
+                                    <input type="text" id="single-bf" class="input-field result-field" placeholder="0 BF" readonly>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="total-bf">Total Board Feet</label>
+                                    <input type="text" id="total-bf" class="input-field result-field" placeholder="0 BF" readonly>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="bf-cost">Total Cost</label>
+                                    <div class="currency-input">
+                                        <span class="currency-symbol">$</span>
+                                        <input type="text" id="bf-cost" class="input-field result-field" placeholder="0" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Wall Studs Tab -->
+                    <div id="studs" class="tab-content">
+                        <div class="calculator-grid">
+                            <div class="input-panel">
+                                <h3 class="panel-title"><i class="fas fa-arrows-alt-v"></i> Wall Studs Calculator</h3>
+                                
+                                <div class="input-group">
+                                    <label for="wall-length-studs">Wall Length (ft)</label>
+                                    <input type="number" id="wall-length-studs" class="input-field" placeholder="16" min="0" step="0.1">
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="stud-spacing-calc">Stud Spacing</label>
+                                    <select id="stud-spacing-calc" class="input-field">
+                                        <option value="12">12" on center</option>
+                                        <option value="16" selected>16" on center</option>
+                                        <option value="24">24" on center</option>
+                                    </select>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="end-studs">Include End Studs</label>
+                                    <select id="end-studs" class="input-field">
+                                        <option value="true" selected>Yes</option>
+                                        <option value="false">No</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="result-panel">
+                                <h3 class="panel-title"><i class="fas fa-arrows-alt-v"></i> Stud Count</h3>
+                                
+                                <div class="input-group">
+                                    <label for="studs-count">Number of Studs</label>
+                                    <input type="text" id="studs-count" class="input-field result-field" placeholder="0 studs" readonly>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="stud-spacing-actual">Actual Spacing</label>
+                                    <input type="text" id="stud-spacing-actual" class="input-field result-field" placeholder="0 inches" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="board-feet-guide">
+                        <div class="guide-content">
+                            <h3><i class="fas fa-info-circle"></i> Board Feet Formula</h3>
+                            <p>Board feet is a volume measurement for lumber</p>
+                            <div class="formula">
+                                Board Feet = (Thickness × Width × Length) ÷ 144
+                            </div>
+                            <p>Where: Thickness and Width are in inches, Length is in feet</p>
+                        </div>
+                    </div>
+
+                    <div class="lumber-types">
+                        <h3><i class="fas fa-tree"></i> Common Lumber Sizes & Prices</h3>
+                        <div class="types-grid">
+                            <div class="type-card">
+                                <div class="type-name">2x4 SPF</div>
+                                <div class="type-price">$0.65-1.20/BF</div>
+                                <div class="type-details">
+                                    <strong>Actual:</strong> 1.5" × 3.5"<br>
+                                    <strong>Uses:</strong> Framing, studs<br>
+                                    <strong>Lengths:</strong> 8', 10', 12', 16'
+                                </div>
+                            </div>
+                            <div class="type-card">
+                                <div class="type-name">2x6 SPF</div>
+                                <div class="type-price">$0.75-1.40/BF</div>
+                                <div class="type-details">
+                                    <strong>Actual:</strong> 1.5" × 5.5"<br>
+                                    <strong>Uses:</strong> Joists, rafters<br>
+                                    <strong>Lengths:</strong> 8', 10', 12', 16'
+                                </div>
+                            </div>
+                            <div class="type-card">
+                                <div class="type-name">2x8 SPF</div>
+                                <div class="type-price">$0.85-1.60/BF</div>
+                                <div class="type-details">
+                                    <strong>Actual:</strong> 1.5" × 7.25"<br>
+                                    <strong>Uses:</strong> Floor joists, beams<br>
+                                    <strong>Lengths:</strong> 8', 10', 12', 16'
+                                </div>
+                            </div>
+                            <div class="type-card">
+                                <div class="type-name">2x10 SPF</div>
+                                <div class="type-price">$1.00-1.80/BF</div>
+                                <div class="type-details">
+                                    <strong>Actual:</strong> 1.5" × 9.25"<br>
+                                    <strong>Uses:</strong> Floor joists, headers<br>
+                                    <strong>Lengths:</strong> 8', 10', 12', 16'
+                                </div>
+                            </div>
+                            <div class="type-card">
+                                <div class="type-name">2x12 SPF</div>
+                                <div class="type-price">$1.20-2.00/BF</div>
+                                <div class="type-details">
+                                    <strong>Actual:</strong> 1.5" × 11.25"<br>
+                                    <strong>Uses:</strong> Large spans, beams<br>
+                                    <strong>Lengths:</strong> 8', 10', 12', 16'
+                                </div>
+                            </div>
+                            <div class="type-card">
+                                <div class="type-name">Pressure Treated</div>
+                                <div class="type-price">$0.80-1.50/BF</div>
+                                <div class="type-details">
+                                    <strong>Uses:</strong> Decks, outdoor projects<br>
+                                    <strong>Treatment:</strong> Ground contact rated<br>
+                                    <strong>Premium:</strong> 20-40% over regular
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tips-section">
+                        <h3><i class="fas fa-graduation-cap"></i> Lumber Selection & Tips</h3>
+                        <div class="tips-grid">
+                            <div class="tip-item">
+                                <h4>📏 Actual vs Nominal</h4>
+                                <p>Lumber dimensions are nominal. A 2x4 actually measures 1.5" × 3.5". Always use actual dimensions for calculations.</p>
+                            </div>
+                            <div class="tip-item">
+                                <h4>🌲 Wood Species</h4>
+                                <p>SPF (Spruce-Pine-Fir) is most common for framing. Southern Pine and Douglas Fir are stronger but cost more.</p>
+                            </div>
+                            <div class="tip-item">
+                                <h4>💧 Moisture Content</h4>
+                                <p>Kiln-dried (KD) lumber is more stable but costs 10-15% more. Green lumber shrinks as it dries.</p>
+                            </div>
+                            <div class="tip-item">
+                                <h4>📊 Lumber Grades</h4>
+                                <p>Stud grade is sufficient for most framing. Construction grade has fewer defects but costs more.</p>
+                            </div>
+                            <div class="tip-item">
+                                <h4>📦 Ordering Tips</h4>
+                                <p>Order 10% extra for waste. Buy from the same lot when possible to ensure consistent color and grain.</p>
+                            </div>
+                            <div class="tip-item">
+                                <h4>🏪 Cost Savings</h4>
+                                <p>Bulk purchasing, off-season buying, and shopping multiple suppliers can save 20-30% on costs.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Financial Calculators</h4>
+                    <ul>
+                        <li><a href="mortgage-calculator.html">Mortgage Calculator</a></li>
+                        <li><a href="loan-calculator.html">Loan Calculator</a></li>
+                        <li><a href="auto-loan-calculator.html">Auto Loan Calculator</a></li>
+                        <li><a href="interest-calculator.html">Interest Calculator</a></li>
+                        <li><a href="investment-calculator.html">Investment Calculator</a></li>
+                        <li><a href="compound-interest-calculator.html">Compound Interest Calculator</a></li>
+                        <li><a href="retirement-calculator.html">Retirement Calculator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Health & Fitness</h4>
+                    <ul>
+                        <li><a href="bmi-calculator.html">BMI Calculator</a></li>
+                        <li><a href="calorie-calculator.html">Calorie Calculator</a></li>
+                        <li><a href="body-fat-calculator.html">Body Fat Calculator</a></li>
+                        <li><a href="bmr-calculator.html">BMR Calculator</a></li>
+                        <li><a href="pregnancy-calculator.html">Pregnancy Calculator</a></li>
+                        <li><a href="water-calculator.html">Water Calculator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Math Calculators</h4>
+                    <ul>
+                        <li><a href="scientific-calculator.html">Scientific Calculator</a></li>
+                        <li><a href="basic-calculator.html">Basic Calculator</a></li>
+                        <li><a href="area-calculator.html">Area Calculator</a></li>
+                        <li><a href="volume-calculator.html">Volume Calculator</a></li>
+                        <li><a href="average-calculator.html">Average Calculator</a></li>
+                        <li><a href="fraction-calculator.html">Fraction Calculator</a></li>
+                        <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
+                        <li><a href="triangle-calculator.html">Triangle Calculator</a></li>
+                        <li><a href="random-number-generator.html">Random Number Generator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Other Tools</h4>
+                    <ul>
+                        <li><a href="age-calculator.html">Age Calculator</a></li>
+                        <li><a href="date-calculator.html">Date Calculator</a></li>
+                        <li><a href="time-calculator.html">Time Calculator</a></li>
+                        <li><a href="gpa-calculator.html">GPA Calculator</a></li>
+                        <li><a href="grade-calculator.html">Grade Calculator</a></li>
+                        <li><a href="hours-calculator.html">Hours Calculator</a></li>
+                        <li><a href="password-generator.html">Password Generator</a></li>
+                        <li><a href="tip-calculator.html">Tip Calculator</a></li>
+                        <li><a href="unit-converter.html">Unit Converter</a></li>
+                        <li><a href="lumber-calculator.html">Lumber Calculator</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 CalculatorFree.Online. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function switchTab(tabName) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Remove active class from all tab buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected tab content
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        function calculateFraming() {
+            const wallLength = parseFloat(document.getElementById('wall-length').value) || 0;
+            const wallHeight = parseFloat(document.getElementById('wall-height').value) || 0;
+            const studSpacing = parseFloat(document.getElementById('stud-spacing').value) || 16;
+            const studSize = document.getElementById('stud-size').value;
+            const plateLength = parseFloat(document.getElementById('plate-length').value) || wallLength;
+            const lumberPrice = parseFloat(document.getElementById('lumber-price').value) || 0.85;
+
+            if (wallLength === 0 || wallHeight === 0) return;
+
+            // Calculate number of studs
+            const studCount = Math.floor(wallLength * 12 / studSpacing) + 1;
+            
+            // Calculate plates (top and bottom)
+            const platesNeeded = Math.ceil(plateLength / 8) * 2; // Assuming 8ft lengths
+
+            // Calculate board feet
+            const studDimensions = {
+                '2x4': { thickness: 2, width: 4 },
+                '2x6': { thickness: 2, width: 6 },
+                '2x8': { thickness: 2, width: 8 }
+            };
+            
+            const { thickness, width } = studDimensions[studSize];
+            const studBoardFeet = (thickness * width * wallHeight) / 12;
+            const plateBoardFeet = (thickness * width * plateLength) / 12;
+            
+            const totalBoardFeet = (studCount * studBoardFeet) + (platesNeeded * plateBoardFeet);
+            const lumberCost = totalBoardFeet * lumberPrice;
+            const wasteAllowance = lumberCost * 1.1;
+
+            // Update results
+            document.getElementById('studs-needed').value = studCount + ' pieces';
+            document.getElementById('plates-needed').value = platesNeeded + ' pieces';
+            document.getElementById('total-board-feet').value = totalBoardFeet.toFixed(1) + ' BF';
+            document.getElementById('lumber-cost').value = lumberCost.toFixed(0);
+            document.getElementById('waste-allowance').value = wasteAllowance.toFixed(0);
+        }
+
+        function calculateDecking() {
+            const deckLength = parseFloat(document.getElementById('deck-length').value) || 0;
+            const deckWidth = parseFloat(document.getElementById('deck-width').value) || 0;
+            const boardWidth = parseFloat(document.getElementById('deck-board-width').value) || 5.5;
+            const boardLength = parseFloat(document.getElementById('deck-board-length').value) || 12;
+            const gapSpacing = parseFloat(document.getElementById('gap-spacing').value) || 0.1875;
+            const deckPrice = parseFloat(document.getElementById('deck-lumber-price').value) || 3.50;
+
+            if (deckLength === 0 || deckWidth === 0) return;
+
+            const deckArea = deckLength * deckWidth;
+            const boardCoverage = (boardWidth + gapSpacing) / 12; // Convert to feet
+            
+            // Calculate boards needed
+            const boardsNeeded = Math.ceil(deckWidth / boardCoverage);
+            const boardsPerLength = Math.ceil(deckLength / boardLength);
+            const totalBoards = boardsNeeded * boardsPerLength;
+            
+            const linearFeet = totalBoards * boardLength;
+            const deckCost = linearFeet * deckPrice;
+            const deckWaste = deckCost * 1.1;
+
+            // Update results
+            document.getElementById('deck-area').value = deckArea.toFixed(0) + ' sq ft';
+            document.getElementById('deck-boards-needed').value = totalBoards + ' boards';
+            document.getElementById('linear-feet').value = linearFeet.toFixed(0) + ' ft';
+            document.getElementById('deck-cost').value = deckCost.toFixed(0);
+            document.getElementById('deck-waste').value = deckWaste.toFixed(0);
+        }
+
+        function calculateBoardFeet() {
+            const thickness = parseFloat(document.getElementById('board-thickness').value) || 0;
+            const width = parseFloat(document.getElementById('board-width').value) || 0;
+            const length = parseFloat(document.getElementById('board-length').value) || 0;
+            const quantity = parseFloat(document.getElementById('quantity').value) || 1;
+            const price = parseFloat(document.getElementById('bf-price').value) || 2.50;
+
+            if (thickness === 0 || width === 0 || length === 0) return;
+
+            const singleBF = (thickness * width * length) / 12;
+            const totalBF = singleBF * quantity;
+            const cost = totalBF * price;
+
+            document.getElementById('single-bf').value = singleBF.toFixed(2) + ' BF';
+            document.getElementById('total-bf').value = totalBF.toFixed(2) + ' BF';
+            document.getElementById('bf-cost').value = cost.toFixed(0);
+        }
+
+        function calculateStuds() {
+            const wallLength = parseFloat(document.getElementById('wall-length-studs').value) || 0;
+            const spacing = parseFloat(document.getElementById('stud-spacing-calc').value) || 16;
+            const includeEnds = document.getElementById('end-studs').value === 'true';
+
+            if (wallLength === 0) return;
+
+            const wallLengthInches = wallLength * 12;
+            let studCount = Math.floor(wallLengthInches / spacing);
+            
+            if (includeEnds) {
+                studCount += 1;
+            }
+
+            const actualSpacing = wallLengthInches / (studCount - (includeEnds ? 1 : 0));
+
+            document.getElementById('studs-count').value = studCount + ' studs';
+            document.getElementById('stud-spacing-actual').value = actualSpacing.toFixed(2) + ' inches';
+        }
+
+        // Event listeners for real-time calculation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Framing tab
+            ['wall-length', 'wall-height', 'stud-spacing', 'stud-size', 'plate-length', 'lumber-price'].forEach(id => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.addEventListener('input', calculateFraming);
+                    element.addEventListener('change', calculateFraming);
+                }
+            });
+
+            // Decking tab
+            ['deck-length', 'deck-width', 'deck-board-width', 'deck-board-length', 'gap-spacing', 'deck-lumber-price'].forEach(id => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.addEventListener('input', calculateDecking);
+                    element.addEventListener('change', calculateDecking);
+                }
+            });
+
+            // Board feet tab
+            ['board-thickness', 'board-width', 'board-length', 'quantity', 'bf-price'].forEach(id => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.addEventListener('input', calculateBoardFeet);
+                    element.addEventListener('change', calculateBoardFeet);
+                }
+            });
+
+            // Studs tab
+            ['wall-length-studs', 'stud-spacing-calc', 'end-studs'].forEach(id => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.addEventListener('input', calculateStuds);
+                    element.addEventListener('change', calculateStuds);
+                }
+            });
+
+            // Set default values
+            document.getElementById('lumber-price').value = 0.85;
+            document.getElementById('deck-lumber-price').value = 3.50;
+            document.getElementById('bf-price').value = 2.50;
+        });
+    </script>
+</body>
+</html> 

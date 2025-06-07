@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Calculator - Calculate Monthly Payments | CalculatorFree.Online</title>
+    <meta name="description" content="Free online loan calculator to estimate monthly payments, total interest, and total cost of your loan.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .loan-calculator {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: 2rem auto;
+        }
+
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .input-section {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .input-group label {
+            font-weight: 500;
+            color: #333;
+        }
+
+        .input-group input {
+            padding: 0.8rem;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .input-group input:focus {
+            border-color: #667eea;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .input-group .input-with-icon {
+            position: relative;
+        }
+
+        .input-group .input-with-icon input {
+            padding-left: 2.5rem;
+        }
+
+        .input-group .input-with-icon i {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #6c757d;
+        }
+
+        .results-section {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 1.5rem;
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .result-item:last-child {
+            border-bottom: none;
+        }
+
+        .result-label {
+            font-weight: 500;
+            color: #495057;
+        }
+
+        .result-value {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #667eea;
+        }
+
+        .btn-calculate {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 1rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .btn-calculate:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-calculate:active {
+            transform: translateY(0);
+        }
+
+        .amortization-table {
+            margin-top: 2rem;
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .amortization-table th,
+        .amortization-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .amortization-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #495057;
+        }
+
+        .amortization-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .amortization-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        @media (max-width: 768px) {
+            .calculator-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-calculator"></i>
+                <span>CalculatorFree.Online</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#financial" class="nav-link active">Financial</a>
+                <a href="index.html#health" class="nav-link">Health & Fitness</a>
+                <a href="index.html#math" class="nav-link">Math</a>
+                <a href="index.html#other" class="nav-link">Other Tools</a>
+            </nav>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Loan Calculator</h1>
+                    <p>Calculate your monthly payments and total loan cost</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="loan-calculator">
+                    <div class="calculator-grid">
+                        <div class="input-section">
+                            <div class="input-group">
+                                <label for="loanAmount">Loan Amount</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-dollar-sign"></i>
+                                    <input type="number" id="loanAmount" placeholder="Enter loan amount" min="0" step="1000">
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="interestRate">Annual Interest Rate (%)</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-percent"></i>
+                                    <input type="number" id="interestRate" placeholder="Enter interest rate" min="0" step="0.1">
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="loanTerm">Loan Term (Years)</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <input type="number" id="loanTerm" placeholder="Enter loan term" min="1" max="30">
+                                </div>
+                            </div>
+
+                            <button class="btn-calculate" onclick="calculateLoan()">
+                                Calculate
+                            </button>
+                        </div>
+
+                        <div class="results-section">
+                            <div class="result-item">
+                                <span class="result-label">Monthly Payment</span>
+                                <span class="result-value" id="monthlyPayment">$0.00</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Total Interest</span>
+                                <span class="result-value" id="totalInterest">$0.00</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Total Payment</span>
+                                <span class="result-value" id="totalPayment">$0.00</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Number of Payments</span>
+                                <span class="result-value" id="numberOfPayments">0</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="amortizationTable" style="display: none;">
+                        <h3>Amortization Schedule</h3>
+                        <div style="overflow-x: auto;">
+                            <table class="amortization-table">
+                                <thead>
+                                    <tr>
+                                        <th>Payment #</th>
+                                        <th>Payment Amount</th>
+                                        <th>Principal</th>
+                                        <th>Interest</th>
+                                        <th>Remaining Balance</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="amortizationBody">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Financial Calculators</h4>
+                    <ul>
+                        <li><a href="mortgage-calculator.html">Mortgage Calculator</a></li>
+                        <li><a href="loan-calculator.html">Loan Calculator</a></li>
+                        <li><a href="auto-loan-calculator.html">Auto Loan Calculator</a></li>
+                        <li><a href="interest-calculator.html">Interest Calculator</a></li>
+                        <li><a href="retirement-calculator.html">Retirement Calculator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Health & Fitness</h4>
+                    <ul>
+                        <li><a href="bmi-calculator.html">BMI Calculator</a></li>
+                        <li><a href="calorie-calculator.html">Calorie Calculator</a></li>
+                        <li><a href="body-fat-calculator.html">Body Fat Calculator</a></li>
+                        <li><a href="bmr-calculator.html">BMR Calculator</a></li>
+                        <li><a href="pregnancy-calculator.html">Pregnancy Calculator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Math Calculators</h4>
+                    <ul>
+                        <li><a href="scientific-calculator.html">Scientific Calculator</a></li>
+                        <li><a href="fraction-calculator.html">Fraction Calculator</a></li>
+                        <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
+                        <li><a href="triangle-calculator.html">Triangle Calculator</a></li>
+                        <li><a href="random-number-generator.html">Random Number Generator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Other Tools</h4>
+                    <ul>
+                        <li><a href="age-calculator.html">Age Calculator</a></li>
+                        <li><a href="date-calculator.html">Date Calculator</a></li>
+                        <li><a href="time-calculator.html">Time Calculator</a></li>
+                        <li><a href="gpa-calculator.html">GPA Calculator</a></li>
+                        <li><a href="password-generator.html">Password Generator</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 CalculatorFree.Online. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function calculateLoan() {
+            // Get input values
+            const loanAmount = parseFloat(document.getElementById('loanAmount').value);
+            const interestRate = parseFloat(document.getElementById('interestRate').value) / 100 / 12; // Monthly interest rate
+            const loanTerm = parseInt(document.getElementById('loanTerm').value) * 12; // Total number of payments
+
+            // Validate inputs
+            if (isNaN(loanAmount) || isNaN(interestRate) || isNaN(loanTerm)) {
+                alert('Please enter valid values for all fields');
+                return;
+            }
+
+            // Calculate monthly payment
+            const monthlyPayment = (loanAmount * interestRate * Math.pow(1 + interestRate, loanTerm)) / 
+                                 (Math.pow(1 + interestRate, loanTerm) - 1);
+
+            // Calculate total payment and interest
+            const totalPayment = monthlyPayment * loanTerm;
+            const totalInterest = totalPayment - loanAmount;
+
+            // Update results
+            document.getElementById('monthlyPayment').textContent = formatCurrency(monthlyPayment);
+            document.getElementById('totalInterest').textContent = formatCurrency(totalInterest);
+            document.getElementById('totalPayment').textContent = formatCurrency(totalPayment);
+            document.getElementById('numberOfPayments').textContent = loanTerm;
+
+            // Generate amortization schedule
+            generateAmortizationSchedule(loanAmount, interestRate, loanTerm, monthlyPayment);
+        }
+
+        function generateAmortizationSchedule(loanAmount, monthlyRate, numberOfPayments, monthlyPayment) {
+            let balance = loanAmount;
+            let schedule = '';
+            
+            for (let i = 1; i <= numberOfPayments; i++) {
+                const interest = balance * monthlyRate;
+                const principal = monthlyPayment - interest;
+                balance -= principal;
+
+                schedule += `
+                    <tr>
+                        <td>${i}</td>
+                        <td>${formatCurrency(monthlyPayment)}</td>
+                        <td>${formatCurrency(principal)}</td>
+                        <td>${formatCurrency(interest)}</td>
+                        <td>${formatCurrency(Math.max(0, balance))}</td>
+                    </tr>
+                `;
+            }
+
+            document.getElementById('amortizationBody').innerHTML = schedule;
+            document.getElementById('amortizationTable').style.display = 'block';
+        }
+
+        function formatCurrency(amount) {
+            return '$' + amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+        }
+    </script>
+</body>
+</html> 

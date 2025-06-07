@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary SEO Meta Tags -->
+    <title>Finance Calculator - Loan, Investment, Interest & Savings Calculator | CalculatorFree.Online</title>
+    <meta name="title" content="Finance Calculator - Loan, Investment, Interest & Savings Calculator | CalculatorFree.Online">
+    <meta name="description" content="All-in-one finance calculator: Calculate loans, compound interest, investment returns, savings goals, present value & mortgage payments. Free professional financial tools.">
+    <meta name="keywords" content="finance calculator, loan calculator, investment calculator, compound interest, savings calculator, financial planning, mortgage calculator">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="CalculatorFree.Online">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://calculatorfree.online/finance-calculator.html">
+    <meta property="og:title" content="Finance Calculator - Loan, Investment, Interest & Savings Calculator">
+    <meta property="og:description" content="All-in-one finance calculator: Calculate loans, compound interest, investment returns, savings goals, present value & mortgage payments. Free professional financial tools.">
+    <meta property="og:image" content="https://calculatorfree.online/finance-calculator-preview.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://calculatorfree.online/finance-calculator.html">
+    <meta property="twitter:title" content="Finance Calculator - Loan, Investment, Interest & Savings Calculator">
+    <meta property="twitter:description" content="All-in-one finance calculator: Calculate loans, compound interest, investment returns, savings goals, present value & mortgage payments. Free professional financial tools.">
+    <meta property="twitter:image" content="https://calculatorfree.online/finance-calculator-preview.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://calculatorfree.online/finance-calculator.html">
+    
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://calculatorfree.online/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Financial Calculators",
+        "item": "https://calculatorfree.online/#financial"
+      },{
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Finance Calculator",
+        "item": "https://calculatorfree.online/finance-calculator.html"
+      }]
+    }
+    </script>
+
+    <!-- Calculator Tool Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Finance Calculator",
+      "applicationCategory": "FinanceApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "operatingSystem": "All",
+      "description": "All-in-one financial calculator for loan payments, compound interest, investment returns, savings goals, and present value calculations",
+      "featureList": [
+        "Simple Interest Calculator",
+        "Compound Interest Calculator", 
+        "Loan Payment Calculator",
+        "Savings Goal Calculator",
+        "Investment Return Calculator",
+        "Present Value Calculator"
+      ],
+      "screenshot": "https://calculatorfree.online/finance-calculator-screenshot.jpg",
+      "url": "https://calculatorfree.online/finance-calculator.html"
+    }
+    </script>
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .finance-calculator {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            max-width: 1200px;
+            margin: 2rem auto;
+        }
+
+        .finance-tabs {
+            display: flex;
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 0.5rem;
+            margin-bottom: 2rem;
+            overflow-x: auto;
+            gap: 0.5rem;
+        }
+
+        .tab-button {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: none;
+            background: transparent;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            min-width: 120px;
+        }
+
+        .tab-button.active {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            box-shadow: 0 2px 10px rgba(40, 167, 69, 0.3);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .input-panel {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 2rem;
+        }
+
+        .result-panel {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            border-radius: 15px;
+            padding: 2rem;
+            color: white;
+        }
+
+        .panel-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .result-panel label {
+            color: white;
+            opacity: 0.9;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: #28a745;
+            box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.1);
+        }
+
+        .result-field {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            font-weight: 600;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        .summary-section {
+            background: #e8f5e8;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .summary-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .summary-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #28a745;
+        }
+
+        .related-calculators {
+            background: #f8f9fa;
+            padding: 4rem 0;
+            margin-top: 2rem;
+        }
+
+        .related-calculators h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #333;
+            font-size: 2.5rem;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .related-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .related-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            border-color: #007bff;
+        }
+
+        .related-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .related-card h3 {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .related-card h3 a {
+            text-decoration: none;
+            color: #333;
+            transition: color 0.3s ease;
+        }
+
+        .related-card h3 a:hover {
+            color: #007bff;
+        }
+
+        .related-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .calculator-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-calculator"></i>
+                <span>CalculatorFree.Online</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#financial" class="nav-link active">Financial</a>
+                <a href="index.html#health" class="nav-link">Health & Fitness</a>
+                <a href="index.html#math" class="nav-link">Math</a>
+                <a href="index.html#other" class="nav-link">Other Tools</a>
+            </nav>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1><i class="fas fa-chart-line"></i> Finance Calculator</h1>
+                    <p>All-in-one financial calculator for loans, investments, savings, and more</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="finance-calculator">
+                    <div class="finance-tabs">
+                        <button class="tab-button active" onclick="switchTab('simple-interest')">Simple Interest</button>
+                        <button class="tab-button" onclick="switchTab('compound-interest')">Compound Interest</button>
+                        <button class="tab-button" onclick="switchTab('loan-payment')">Loan Payment</button>
+                        <button class="tab-button" onclick="switchTab('savings')">Savings Goal</button>
+                        <button class="tab-button" onclick="switchTab('investment')">Investment Return</button>
+                        <button class="tab-button" onclick="switchTab('present-value')">Present Value</button>
+                    </div>
+
+                    <!-- Simple Interest -->
+                    <div id="simple-interest" class="tab-content active">
+                        <div class="calculator-grid">
+                            <div class="input-panel">
+                                <h3 class="panel-title"><i class="fas fa-percent"></i> Simple Interest</h3>
+                                <div class="input-group">
+                                    <label for="si-principal">Principal Amount ($)</label>
+                                    <input type="number" id="si-principal" class="input-field" placeholder="10000" step="100">
+                                </div>
+                                <div class="input-group">
+                                    <label for="si-rate">Annual Interest Rate (%)</label>
+                                    <input type="number" id="si-rate" class="input-field" placeholder="5" step="0.1">
+                                </div>
+                                <div class="input-group">
+                                    <label for="si-time">Time Period (years)</label>
+                                    <input type="number" id="si-time" class="input-field" placeholder="5" step="0.5">
+                                </div>
+                            </div>
+
+                            <div class="result-panel">
+                                <h3 class="panel-title"><i class="fas fa-calculator"></i> Results</h3>
+                                <div class="input-group">
+                                    <label for="si-interest">Interest Earned</label>
+                                    <input type="text" id="si-interest" class="input-field result-field" readonly>
+                                </div>
+                                <div class="input-group">
+                                    <label for="si-total">Total Amount</label>
+                                    <input type="text" id="si-total" class="input-field result-field" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Compound Interest -->
+                    <div id="compound-interest" class="tab-content">
+                        <div class="calculator-grid">
+                            <div class="input-panel">
+                                <h3 class="panel-title"><i class="fas fa-chart-line"></i> Compound Interest</h3>
+                                <div class="input-group">
+                                    <label for="ci-principal">Principal Amount ($)</label>
+                                    <input type="number" id="ci-principal" class="input-field" placeholder="10000" step="100">
+                                </div>
+                                <div class="input-group">
+                                    <label for="ci-rate">Annual Interest Rate (%)</label>
+                                    <input type="number" id="ci-rate" class="input-field" placeholder="5" step="0.1">
+                                </div>
+                                <div class="input-group">
+                                    <label for="ci-compound">Compounding Frequency</label>
+                                    <select id="ci-compound" class="input-field">
+                                        <option value="1">Annually</option>
+                                        <option value="2">Semi-annually</option>
+                                        <option value="4">Quarterly</option>
+                                        <option value="12" selected>Monthly</option>
+                                        <option value="365">Daily</option>
+                                    </select>
+                                </div>
+                                <div class="input-group">
+                                    <label for="ci-time">Time Period (years)</label>
+                                    <input type="number" id="ci-time" class="input-field" placeholder="5" step="0.5">
+                                </div>
+                            </div>
+
+                            <div class="result-panel">
+                                <h3 class="panel-title"><i class="fas fa-chart-area"></i> Results</h3>
+                                <div class="input-group">
+                                    <label for="ci-interest">Interest Earned</label>
+                                    <input type="text" id="ci-interest" class="input-field result-field" readonly>
+                                </div>
+                                <div class="input-group">
+                                    <label for="ci-total">Final Amount</label>
+                                    <input type="text" id="ci-total" class="input-field result-field" readonly>
+                                </div>
+                                <div class="input-group">
+                                    <label for="ci-growth">Growth Factor</label>
+                                    <input type="text" id="ci-growth" class="input-field result-field" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Loan Payment -->
+                    <div id="loan-payment" class="tab-content">
+                        <div class="calculator-grid">
+                            <div class="input-panel">
+                                <h3 class="panel-title"><i class="fas fa-home"></i> Loan Payment</h3>
+                                <div class="input-group">
+                                    <label for="lp-amount">Loan Amount ($)</label>
+                                    <input type="number" id="lp-amount" class="input-field" placeholder="200000" step="1000">
+                                </div>
+                                <div class="input-group">
+                                    <label for="lp-rate">Annual Interest Rate (%)</label>
+                                    <input type="number" id="lp-rate" class="input-field" placeholder="4.5" step="0.01">
+                                </div>
+                                <div class="input-group">
+                                    <label for="lp-term">Loan Term (years)</label>
+                                    <input type="number" id="lp-term" class="input-field" placeholder="30" step="1">
+                                </div>
+                            </div>
+
+                            <div class="result-panel">
+                                <h3 class="panel-title"><i class="fas fa-credit-card"></i> Payment Details</h3>
+                                <div class="input-group">
+                                    <label for="lp-payment">Monthly Payment</label>
+                                    <input type="text" id="lp-payment" class="input-field result-field" readonly>
+                                </div>
+                                <div class="input-group">
+                                    <label for="lp-total-interest">Total Interest</label>
+                                    <input type="text" id="lp-total-interest" class="input-field result-field" readonly>
+                                </div>
+                                <div class="input-group">
+                                    <label for="lp-total-paid">Total Amount Paid</label>
+                                    <input type="text" id="lp-total-paid" class="input-field result-field" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Savings Goal -->
+                    <div id="savings" class="tab-content">
+                        <div class="calculator-grid">
+                            <div class="input-panel">
+                                <h3 class="panel-title"><i class="fas fa-piggy-bank"></i> Savings Goal</h3>
+                                <div class="input-group">
+                                    <label for="sg-goal">Savings Goal ($)</label>
+                                    <input type="number" id="sg-goal" class="input-field" placeholder="50000" step="1000">
+                                </div>
+                                <div class="input-group">
+                                    <label for="sg-current">Current Savings ($)</label>
+                                    <input type="number" id="sg-current" class="input-field" placeholder="5000" step="100">
+                                </div>
+                                <div class="input-group">
+                                    <label for="sg-monthly">Monthly Contribution ($)</label>
+                                    <input type="number" id="sg-monthly" class="input-field" placeholder="500" step="50">
+                                </div>
+                                <div class="input-group">
+                                    <label for="sg-rate">Annual Interest Rate (%)</label>
+                                    <input type="number" id="sg-rate" class="input-field" placeholder="3" step="0.1">
+                                </div>
+                            </div>
+
+                            <div class="result-panel">
+                                <h3 class="panel-title"><i class="fas fa-target"></i> Goal Timeline</h3>
+                                <div class="input-group">
+                                    <label for="sg-time">Time to Goal</label>
+                                    <input type="text" id="sg-time" class="input-field result-field" readonly>
+                                </div>
+                                <div class="input-group">
+                                    <label for="sg-total-contributions">Total Contributions</label>
+                                    <input type="text" id="sg-total-contributions" class="input-field result-field" readonly>
+                                </div>
+                                <div class="input-group">
+                                    <label for="sg-interest-earned">Interest Earned</label>
+                                    <input type="text" id="sg-interest-earned" class="input-field result-field" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Investment Return -->
+                    <div id="investment" class="tab-content">
+                        <div class="calculator-grid">
+                            <div class="input-panel">
+                                <h3 class="panel-title"><i class="fas fa-chart-pie"></i> Investment Return</h3>
+                                <div class="input-group">
+                                    <label for="ir-initial">Initial Investment ($)</label>
+                                    <input type="number" id="ir-initial" class="input-field" placeholder="10000" step="100">
+                                </div>
+                                <div class="input-group">
+                                    <label for="ir-final">Final Value ($)</label>
+                                    <input type="number" id="ir-final" class="input-field" placeholder="15000" step="100">
+                                </div>
+                                <div class="input-group">
+                                    <label for="ir-years">Investment Period (years)</label>
+                                    <input type="number" id="ir-years" class="input-field" placeholder="5" step="0.5">
+                                </div>
+                            </div>
+
+                            <div class="result-panel">
+                                <h3 class="panel-title"><i class="fas fa-trending-up"></i> Return Analysis</h3>
+                                <div class="input-group">
+                                    <label for="ir-total-return">Total Return (%)</label>
+                                    <input type="text" id="ir-total-return" class="input-field result-field" readonly>
+                                </div>
+                                <div class="input-group">
+                                    <label for="ir-annual-return">Annual Return (%)</label>
+                                    <input type="text" id="ir-annual-return" class="input-field result-field" readonly>
+                                </div>
+                                <div class="input-group">
+                                    <label for="ir-profit">Total Profit ($)</label>
+                                    <input type="text" id="ir-profit" class="input-field result-field" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Present Value -->
+                    <div id="present-value" class="tab-content">
+                        <div class="calculator-grid">
+                            <div class="input-panel">
+                                <h3 class="panel-title"><i class="fas fa-money-bill"></i> Present Value</h3>
+                                <div class="input-group">
+                                    <label for="pv-future">Future Value ($)</label>
+                                    <input type="number" id="pv-future" class="input-field" placeholder="20000" step="100">
+                                </div>
+                                <div class="input-group">
+                                    <label for="pv-rate">Discount Rate (%)</label>
+                                    <input type="number" id="pv-rate" class="input-field" placeholder="5" step="0.1">
+                                </div>
+                                <div class="input-group">
+                                    <label for="pv-years">Time Period (years)</label>
+                                    <input type="number" id="pv-years" class="input-field" placeholder="10" step="0.5">
+                                </div>
+                            </div>
+
+                            <div class="result-panel">
+                                <h3 class="panel-title"><i class="fas fa-clock"></i> Present Value</h3>
+                                <div class="input-group">
+                                    <label for="pv-present">Present Value</label>
+                                    <input type="text" id="pv-present" class="input-field result-field" readonly>
+                                </div>
+                                <div class="input-group">
+                                    <label for="pv-discount">Total Discount</label>
+                                    <input type="text" id="pv-discount" class="input-field result-field" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="related-calculators">
+            <div class="container">
+                <h2><i class="fas fa-link"></i> Related Financial Calculators</h2>
+                <div class="related-grid">
+                    <div class="related-card">
+                        <div class="related-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h3><a href="mortgage-calculator.html">Mortgage Calculator</a></h3>
+                        <p>Calculate monthly mortgage payments, total interest, and amortization schedules</p>
+                    </div>
+                    <div class="related-card">
+                        <div class="related-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <h3><a href="auto-loan-calculator.html">Auto Loan Calculator</a></h3>
+                        <p>Calculate car loan payments, compare financing options, and total costs</p>
+                    </div>
+                    <div class="related-card">
+                        <div class="related-icon">
+                            <i class="fas fa-piggy-bank"></i>
+                        </div>
+                        <h3><a href="retirement-calculator.html">Retirement Calculator</a></h3>
+                        <p>Plan your retirement savings and calculate future retirement income</p>
+                    </div>
+                    <div class="related-card">
+                        <div class="related-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3><a href="investment-calculator.html">Investment Calculator</a></h3>
+                        <p>Calculate investment returns, portfolio growth, and compound interest</p>
+                    </div>
+                    <div class="related-card">
+                        <div class="related-icon">
+                            <i class="fas fa-credit-card"></i>
+                        </div>
+                        <h3><a href="credit-card-calculator.html">Credit Card Calculator</a></h3>
+                        <p>Calculate credit card payments, payoff time, and interest costs</p>
+                    </div>
+                    <div class="related-card">
+                        <div class="related-icon">
+                            <i class="fas fa-percentage"></i>
+                        </div>
+                        <h3><a href="tax-calculator.html">Tax Calculator</a></h3>
+                        <p>Calculate income tax, deductions, and take-home pay</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Financial Calculators</h4>
+                    <ul>
+                        <li><a href="finance-calculator.html">Finance Calculator</a></li>
+                        <li><a href="mortgage-calculator.html">Mortgage Calculator</a></li>
+                        <li><a href="loan-calculator.html">Loan Calculator</a></li>
+                        <li><a href="payment-calculator.html">Payment Calculator</a></li>
+                        <li><a href="401k-calculator.html">401K Calculator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Other Tools</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="sitemap.html">Sitemap</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let currentTab = 'simple-interest';
+
+        function switchTab(tab) {
+            currentTab = tab;
+            
+            // Update tab buttons
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Update tab content
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.getElementById(tab).classList.add('active');
+
+            // Calculate for new tab
+            calculate(tab);
+        }
+
+        function calculate(tab) {
+            switch(tab) {
+                case 'simple-interest':
+                    calculateSimpleInterest();
+                    break;
+                case 'compound-interest':
+                    calculateCompoundInterest();
+                    break;
+                case 'loan-payment':
+                    calculateLoanPayment();
+                    break;
+                case 'savings':
+                    calculateSavingsGoal();
+                    break;
+                case 'investment':
+                    calculateInvestmentReturn();
+                    break;
+                case 'present-value':
+                    calculatePresentValue();
+                    break;
+            }
+        }
+
+        function calculateSimpleInterest() {
+            const principal = parseFloat(document.getElementById('si-principal').value) || 0;
+            const rate = parseFloat(document.getElementById('si-rate').value) / 100 || 0;
+            const time = parseFloat(document.getElementById('si-time').value) || 0;
+
+            const interest = principal * rate * time;
+            const total = principal + interest;
+
+            document.getElementById('si-interest').value = `$${interest.toLocaleString()}`;
+            document.getElementById('si-total').value = `$${total.toLocaleString()}`;
+        }
+
+        function calculateCompoundInterest() {
+            const principal = parseFloat(document.getElementById('ci-principal').value) || 0;
+            const rate = parseFloat(document.getElementById('ci-rate').value) / 100 || 0;
+            const compound = parseFloat(document.getElementById('ci-compound').value) || 12;
+            const time = parseFloat(document.getElementById('ci-time').value) || 0;
+
+            const amount = principal * Math.pow((1 + rate/compound), compound * time);
+            const interest = amount - principal;
+            const growth = amount / principal;
+
+            document.getElementById('ci-interest').value = `$${interest.toLocaleString()}`;
+            document.getElementById('ci-total').value = `$${amount.toLocaleString()}`;
+            document.getElementById('ci-growth').value = `${growth.toFixed(2)}x`;
+        }
+
+        function calculateLoanPayment() {
+            const amount = parseFloat(document.getElementById('lp-amount').value) || 0;
+            const rate = parseFloat(document.getElementById('lp-rate').value) / 100 / 12 || 0;
+            const term = parseFloat(document.getElementById('lp-term').value) * 12 || 0;
+
+            const payment = amount * (rate * Math.pow(1 + rate, term)) / (Math.pow(1 + rate, term) - 1);
+            const totalPaid = payment * term;
+            const totalInterest = totalPaid - amount;
+
+            document.getElementById('lp-payment').value = `$${payment.toLocaleString()}`;
+            document.getElementById('lp-total-interest').value = `$${totalInterest.toLocaleString()}`;
+            document.getElementById('lp-total-paid').value = `$${totalPaid.toLocaleString()}`;
+        }
+
+        function calculateSavingsGoal() {
+            const goal = parseFloat(document.getElementById('sg-goal').value) || 0;
+            const current = parseFloat(document.getElementById('sg-current').value) || 0;
+            const monthly = parseFloat(document.getElementById('sg-monthly').value) || 0;
+            const rate = parseFloat(document.getElementById('sg-rate').value) / 100 / 12 || 0;
+
+            let balance = current;
+            let months = 0;
+            
+            while (balance < goal && months < 600) {
+                balance = balance * (1 + rate) + monthly;
+                months++;
+            }
+
+            const years = Math.floor(months / 12);
+            const remainingMonths = months % 12;
+            const totalContributions = monthly * months;
+            const interestEarned = goal - current - totalContributions;
+
+            document.getElementById('sg-time').value = `${years}y ${remainingMonths}m`;
+            document.getElementById('sg-total-contributions').value = `$${totalContributions.toLocaleString()}`;
+            document.getElementById('sg-interest-earned').value = `$${interestEarned.toLocaleString()}`;
+        }
+
+        function calculateInvestmentReturn() {
+            const initial = parseFloat(document.getElementById('ir-initial').value) || 0;
+            const final = parseFloat(document.getElementById('ir-final').value) || 0;
+            const years = parseFloat(document.getElementById('ir-years').value) || 1;
+
+            const totalReturn = ((final - initial) / initial) * 100;
+            const annualReturn = (Math.pow(final / initial, 1 / years) - 1) * 100;
+            const profit = final - initial;
+
+            document.getElementById('ir-total-return').value = `${totalReturn.toFixed(2)}%`;
+            document.getElementById('ir-annual-return').value = `${annualReturn.toFixed(2)}%`;
+            document.getElementById('ir-profit').value = `$${profit.toLocaleString()}`;
+        }
+
+        function calculatePresentValue() {
+            const future = parseFloat(document.getElementById('pv-future').value) || 0;
+            const rate = parseFloat(document.getElementById('pv-rate').value) / 100 || 0;
+            const years = parseFloat(document.getElementById('pv-years').value) || 0;
+
+            const present = future / Math.pow(1 + rate, years);
+            const discount = future - present;
+
+            document.getElementById('pv-present').value = `$${present.toLocaleString()}`;
+            document.getElementById('pv-discount').value = `$${discount.toLocaleString()}`;
+        }
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            const inputs = document.querySelectorAll('.input-field');
+            inputs.forEach(input => {
+                input.addEventListener('input', () => calculate(currentTab));
+                input.addEventListener('change', () => calculate(currentTab));
+            });
+
+            // Set default values and calculate
+            document.getElementById('si-principal').value = 10000;
+            document.getElementById('si-rate').value = 5;
+            document.getElementById('si-time').value = 5;
+            calculateSimpleInterest();
+        });
+    </script>
+</body>
+</html> 

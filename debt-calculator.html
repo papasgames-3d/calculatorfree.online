@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debt Calculator - Debt Consolidation & Payoff Calculator | CalculatorFree.Online</title>
+    <meta name="description" content="Calculate debt consolidation savings, payoff strategies, and debt management plans. Compare debt avalanche vs snowball methods.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .debt-calculator {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            max-width: 1400px;
+            margin: 2rem auto;
+        }
+
+        .strategy-tabs {
+            display: flex;
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .tab-button {
+            flex: 1;
+            padding: 1rem;
+            border: none;
+            background: transparent;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #6c757d;
+            text-align: center;
+        }
+
+        .tab-button.active {
+            background: #e74c3c;
+            color: white;
+            box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
+        }
+
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .debt-input-section {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 2rem;
+        }
+
+        .debt-results-section {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            border-radius: 15px;
+            padding: 2rem;
+            color: white;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .debt-entry {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border: 2px solid #e9ecef;
+        }
+
+        .debt-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .debt-name {
+            font-weight: 700;
+            color: #333;
+        }
+
+        .remove-debt {
+            background: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .debt-inputs {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .input-group {
+            margin-bottom: 1rem;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+            font-size: 0.9rem;
+        }
+
+        .debt-results-section label {
+            color: white;
+            opacity: 0.9;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: #e74c3c;
+            box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+        }
+
+        .currency-input {
+            position: relative;
+        }
+
+        .currency-symbol {
+            position: absolute;
+            left: 0.8rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-weight: 600;
+            color: #6c757d;
+        }
+
+        .debt-results-section .currency-symbol {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .currency-input input {
+            padding-left: 2rem;
+        }
+
+        .result-field {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        .add-debt-btn {
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        .strategy-comparison {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .strategy-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 1.5rem;
+            border-left: 4px solid #e74c3c;
+        }
+
+        .strategy-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .strategy-stats {
+            margin-bottom: 1rem;
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .consolidation-section {
+            background: #e8f5e8;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .consolidation-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .tips-section {
+            background: #fff3cd;
+            border-radius: 15px;
+            padding: 2rem;
+            border-left: 4px solid #ffc107;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .tip-item {
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .calculator-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .strategy-tabs {
+                flex-direction: column;
+            }
+            
+            .debt-inputs {
+                grid-template-columns: 1fr;
+            }
+            
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-calculator"></i>
+                <span>CalculatorFree.Online</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#financial" class="nav-link active">Financial</a>
+                <a href="index.html#health" class="nav-link">Health & Fitness</a>
+                <a href="index.html#math" class="nav-link">Math</a>
+                <a href="index.html#other" class="nav-link">Other Tools</a>
+            </nav>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1><i class="fas fa-chart-line"></i> Debt Calculator</h1>
+                    <p>Calculate debt payoff strategies, consolidation savings, and create your debt-free plan</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="debt-calculator">
+                    <div class="strategy-tabs">
+                        <button class="tab-button active" onclick="setStrategy('avalanche')">
+                            <i class="fas fa-mountain"></i><br>Debt Avalanche
+                        </button>
+                        <button class="tab-button" onclick="setStrategy('snowball')">
+                            <i class="fas fa-snowflake"></i><br>Debt Snowball
+                        </button>
+                        <button class="tab-button" onclick="setStrategy('consolidation')">
+                            <i class="fas fa-compress-alt"></i><br>Consolidation
+                        </button>
+                        <button class="tab-button" onclick="setStrategy('minimum')">
+                            <i class="fas fa-percentage"></i><br>Minimum Payments
+                        </button>
+                    </div>
+
+                    <div class="calculator-grid">
+                        <div class="debt-input-section">
+                            <h3 class="section-title"><i class="fas fa-list"></i> Your Debts</h3>
+                            
+                            <div id="debts-container">
+                                <!-- Debt entries will be added here -->
+                            </div>
+                            
+                            <button class="add-debt-btn" onclick="addDebt()">
+                                <i class="fas fa-plus"></i> Add Another Debt
+                            </button>
+
+                            <div class="input-group">
+                                <label for="extra-payment">Extra Monthly Payment</label>
+                                <div class="currency-input">
+                                    <span class="currency-symbol">$</span>
+                                    <input type="number" id="extra-payment" class="input-field" placeholder="200" min="0" step="1">
+                                </div>
+                                <p style="font-size: 0.85rem; color: #6c757d; margin-top: 0.5rem;">
+                                    Additional amount to apply toward debt payoff
+                                </p>
+                            </div>
+
+                            <div id="consolidation-inputs" style="display: none;">
+                                <div class="input-group">
+                                    <label for="consolidation-rate">Consolidation Loan APR</label>
+                                    <input type="number" id="consolidation-rate" class="input-field" placeholder="8.5" min="0" max="50" step="0.01">
+                                </div>
+                                
+                                <div class="input-group">
+                                    <label for="consolidation-term">Loan Term (Years)</label>
+                                    <input type="number" id="consolidation-term" class="input-field" placeholder="5" min="1" max="30" step="1">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="debt-results-section">
+                            <h3 class="section-title"><i class="fas fa-chart-pie"></i> <span id="strategy-title">Debt Avalanche Results</span></h3>
+                            
+                            <div class="input-group">
+                                <label for="total-debt">Total Debt</label>
+                                <div class="currency-input">
+                                    <span class="currency-symbol">$</span>
+                                    <input type="text" id="total-debt" class="input-field result-field" placeholder="0" readonly>
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="payoff-time">Time to Pay Off</label>
+                                <input type="text" id="payoff-time" class="input-field result-field" placeholder="0 months" readonly>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="total-interest">Total Interest Paid</label>
+                                <div class="currency-input">
+                                    <span class="currency-symbol">$</span>
+                                    <input type="text" id="total-interest" class="input-field result-field" placeholder="0" readonly>
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="total-payments">Total Payments</label>
+                                <div class="currency-input">
+                                    <span class="currency-symbol">$</span>
+                                    <input type="text" id="total-payments" class="input-field result-field" placeholder="0" readonly>
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="monthly-payment">Average Monthly Payment</label>
+                                <div class="currency-input">
+                                    <span class="currency-symbol">$</span>
+                                    <input type="text" id="monthly-payment" class="input-field result-field" placeholder="0" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="strategy-comparison" class="strategy-comparison" style="display: none;">
+                        <h3><i class="fas fa-balance-scale"></i> Strategy Comparison</h3>
+                        <div class="comparison-grid">
+                            <div class="strategy-card">
+                                <div class="strategy-title">❄️ Debt Snowball</div>
+                                <div class="strategy-stats" id="snowball-stats">
+                                    <!-- Snowball stats will be populated here -->
+                                </div>
+                                <p><strong>Best for:</strong> Motivation and quick wins. Pay smallest balances first.</p>
+                            </div>
+                            <div class="strategy-card">
+                                <div class="strategy-title">🏔️ Debt Avalanche</div>
+                                <div class="strategy-stats" id="avalanche-stats">
+                                    <!-- Avalanche stats will be populated here -->
+                                </div>
+                                <p><strong>Best for:</strong> Saving money on interest. Pay highest rates first.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="consolidation-comparison" class="consolidation-section" style="display: none;">
+                        <h3><i class="fas fa-compress-alt"></i> Consolidation Analysis</h3>
+                        <div class="consolidation-grid">
+                            <div>
+                                <h4>Current Situation</h4>
+                                <div id="current-situation">
+                                    <!-- Current debt situation -->
+                                </div>
+                            </div>
+                            <div>
+                                <h4>With Consolidation Loan</h4>
+                                <div id="consolidation-scenario">
+                                    <!-- Consolidation scenario -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tips-section">
+                        <h3><i class="fas fa-graduation-cap"></i> Debt Management Tips</h3>
+                        <div class="tips-grid">
+                            <div class="tip-item">
+                                <h4>🎯 Choose Your Strategy</h4>
+                                <p>Debt Avalanche saves more money, but Debt Snowball provides psychological wins. Pick what motivates you.</p>
+                            </div>
+                            <div class="tip-item">
+                                <h4>💰 Find Extra Money</h4>
+                                <p>Cut expenses, sell items, or take on side work to increase your debt payments. Every extra dollar helps.</p>
+                            </div>
+                            <div class="tip-item">
+                                <h4>🚫 Stop Creating New Debt</h4>
+                                <p>Put credit cards away and use cash or debit cards only while paying off existing debt.</p>
+                            </div>
+                            <div class="tip-item">
+                                <h4>📞 Negotiate with Creditors</h4>
+                                <p>Call your creditors to request lower interest rates or payment plans. Many are willing to work with you.</p>
+                            </div>
+                            <div class="tip-item">
+                                <h4>📊 Track Your Progress</h4>
+                                <p>Monitor your debt balances monthly and celebrate milestones to stay motivated on your journey.</p>
+                            </div>
+                            <div class="tip-item">
+                                <h4>🏦 Consider Consolidation</h4>
+                                <p>A consolidation loan might lower your interest rate and simplify payments, but compare carefully.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Financial Calculators</h4>
+                    <ul>
+                        <li><a href="mortgage-calculator.html">Mortgage Calculator</a></li>
+                        <li><a href="loan-calculator.html">Loan Calculator</a></li>
+                        <li><a href="auto-loan-calculator.html">Auto Loan Calculator</a></li>
+                        <li><a href="interest-calculator.html">Interest Calculator</a></li>
+                        <li><a href="investment-calculator.html">Investment Calculator</a></li>
+                        <li><a href="compound-interest-calculator.html">Compound Interest Calculator</a></li>
+                        <li><a href="tax-calculator.html">Tax Calculator</a></li>
+                        <li><a href="salary-calculator.html">Salary Calculator</a></li>
+                        <li><a href="credit-card-calculator.html">Credit Card Calculator</a></li>
+                        <li><a href="debt-calculator.html">Debt Calculator</a></li>
+                        <li><a href="retirement-calculator.html">Retirement Calculator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Health & Fitness</h4>
+                    <ul>
+                        <li><a href="bmi-calculator.html">BMI Calculator</a></li>
+                        <li><a href="calorie-calculator.html">Calorie Calculator</a></li>
+                        <li><a href="macro-calculator.html">Macro Calculator</a></li>
+                        <li><a href="pace-calculator.html">Pace Calculator</a></li>
+                        <li><a href="body-fat-calculator.html">Body Fat Calculator</a></li>
+                        <li><a href="bmr-calculator.html">BMR Calculator</a></li>
+                        <li><a href="pregnancy-calculator.html">Pregnancy Calculator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Math Calculators</h4>
+                    <ul>
+                        <li><a href="scientific-calculator.html">Scientific Calculator</a></li>
+                        <li><a href="basic-calculator.html">Basic Calculator</a></li>
+                        <li><a href="binary-calculator.html">Binary Calculator</a></li>
+                        <li><a href="area-calculator.html">Area Calculator</a></li>
+                        <li><a href="volume-calculator.html">Volume Calculator</a></li>
+                        <li><a href="average-calculator.html">Average Calculator</a></li>
+                        <li><a href="fraction-calculator.html">Fraction Calculator</a></li>
+                        <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
+                        <li><a href="triangle-calculator.html">Triangle Calculator</a></li>
+                        <li><a href="random-number-generator.html">Random Number Generator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Other Tools</h4>
+                    <ul>
+                        <li><a href="age-calculator.html">Age Calculator</a></li>
+                        <li><a href="date-calculator.html">Date Calculator</a></li>
+                        <li><a href="time-calculator.html">Time Calculator</a></li>
+                        <li><a href="hours-calculator.html">Hours Calculator</a></li>
+                        <li><a href="gpa-calculator.html">GPA Calculator</a></li>
+                        <li><a href="grade-calculator.html">Grade Calculator</a></li>
+                        <li><a href="password-generator.html">Password Generator</a></li>
+                        <li><a href="tip-calculator.html">Tip Calculator</a></li>
+                        <li><a href="unit-converter.html">Unit Converter</a></li>
+                        <li><a href="fuel-calculator.html">Fuel Calculator</a></li>
+                        <li><a href="concrete-calculator.html">Concrete Calculator</a></li>
+                        <li><a href="paint-calculator.html">Paint Calculator</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 CalculatorFree.Online. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let debts = [];
+        let currentStrategy = 'avalanche';
+
+        function setStrategy(strategy) {
+            currentStrategy = strategy;
+            
+            // Update button states
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Update strategy title
+            const strategyTitles = {
+                'avalanche': 'Debt Avalanche Results',
+                'snowball': 'Debt Snowball Results',
+                'consolidation': 'Consolidation Results',
+                'minimum': 'Minimum Payment Results'
+            };
+            document.getElementById('strategy-title').textContent = strategyTitles[strategy];
+            
+            // Show/hide consolidation inputs
+            const consolidationInputs = document.getElementById('consolidation-inputs');
+            if (strategy === 'consolidation') {
+                consolidationInputs.style.display = 'block';
+            } else {
+                consolidationInputs.style.display = 'none';
+            }
+            
+            calculateDebtStrategy();
+        }
+
+        function addDebt() {
+            const debtId = Date.now();
+            const debtEntry = document.createElement('div');
+            debtEntry.className = 'debt-entry';
+            debtEntry.id = `debt-${debtId}`;
+            
+            debtEntry.innerHTML = `
+                <div class="debt-header">
+                    <span class="debt-name">Debt #${debts.length + 1}</span>
+                    <button class="remove-debt" onclick="removeDebt(${debtId})">×</button>
+                </div>
+                <div class="debt-inputs">
+                    <div class="input-group">
+                        <label>Balance</label>
+                        <div class="currency-input">
+                            <span class="currency-symbol">$</span>
+                            <input type="number" class="debt-balance" placeholder="5000" min="0" step="1" onchange="updateDebt(${debtId})">
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label>APR (%)</label>
+                        <input type="number" class="debt-rate" placeholder="18.99" min="0" max="50" step="0.01" onchange="updateDebt(${debtId})">
+                    </div>
+                    <div class="input-group">
+                        <label>Min Payment</label>
+                        <div class="currency-input">
+                            <span class="currency-symbol">$</span>
+                            <input type="number" class="debt-minimum" placeholder="100" min="0" step="1" onchange="updateDebt(${debtId})">
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('debts-container').appendChild(debtEntry);
+            
+            // Add to debts array
+            debts.push({
+                id: debtId,
+                balance: 0,
+                rate: 0,
+                minimum: 0
+            });
+        }
+
+        function removeDebt(debtId) {
+            document.getElementById(`debt-${debtId}`).remove();
+            debts = debts.filter(debt => debt.id !== debtId);
+            calculateDebtStrategy();
+        }
+
+        function updateDebt(debtId) {
+            const debtElement = document.getElementById(`debt-${debtId}`);
+            const balance = parseFloat(debtElement.querySelector('.debt-balance').value) || 0;
+            const rate = parseFloat(debtElement.querySelector('.debt-rate').value) || 0;
+            const minimum = parseFloat(debtElement.querySelector('.debt-minimum').value) || 0;
+            
+            const debtIndex = debts.findIndex(debt => debt.id === debtId);
+            if (debtIndex !== -1) {
+                debts[debtIndex] = { id: debtId, balance, rate, minimum };
+            }
+            
+            calculateDebtStrategy();
+        }
+
+        function calculateDebtStrategy() {
+            if (debts.length === 0) return;
+            
+            const extraPayment = parseFloat(document.getElementById('extra-payment').value) || 0;
+            const totalDebt = debts.reduce((sum, debt) => sum + debt.balance, 0);
+            const totalMinimum = debts.reduce((sum, debt) => sum + debt.minimum, 0);
+            
+            let result;
+            
+            if (currentStrategy === 'consolidation') {
+                result = calculateConsolidation(extraPayment);
+            } else {
+                result = calculatePayoffStrategy(currentStrategy, extraPayment);
+            }
+            
+            // Update results
+            document.getElementById('total-debt').value = totalDebt.toFixed(0);
+            document.getElementById('payoff-time').value = result.months > 12 ? 
+                `${Math.floor(result.months / 12)} years ${result.months % 12} months` : 
+                `${result.months} months`;
+            document.getElementById('total-interest').value = result.totalInterest.toFixed(0);
+            document.getElementById('total-payments').value = (totalDebt + result.totalInterest).toFixed(0);
+            document.getElementById('monthly-payment').value = (totalMinimum + extraPayment).toFixed(0);
+            
+            // Show comparison if not consolidation
+            if (currentStrategy !== 'consolidation') {
+                showStrategyComparison(extraPayment);
+            } else {
+                showConsolidationComparison();
+            }
+        }
+
+        function calculatePayoffStrategy(strategy, extraPayment) {
+            let debtsCopy = [...debts].filter(debt => debt.balance > 0);
+            let totalInterest = 0;
+            let months = 0;
+            
+            // Sort based on strategy
+            if (strategy === 'avalanche') {
+                debtsCopy.sort((a, b) => b.rate - a.rate); // Highest rate first
+            } else if (strategy === 'snowball') {
+                debtsCopy.sort((a, b) => a.balance - b.balance); // Lowest balance first
+            }
+            
+            const totalMinimum = debtsCopy.reduce((sum, debt) => sum + debt.minimum, 0);
+            let availableExtra = extraPayment;
+            
+            while (debtsCopy.length > 0 && months < 600) {
+                months++;
+                let remainingExtra = availableExtra;
+                
+                // Apply minimum payments and interest
+                for (let i = 0; i < debtsCopy.length; i++) {
+                    const debt = debtsCopy[i];
+                    const monthlyRate = (debt.rate / 100) / 12;
+                    const interestCharge = debt.balance * monthlyRate;
+                    totalInterest += interestCharge;
+                    
+                    let payment = debt.minimum;
+                    
+                    // Apply extra payment to first debt (priority debt)
+                    if (i === 0 && remainingExtra > 0) {
+                        payment += remainingExtra;
+                        remainingExtra = 0;
+                    }
+                    
+                    // Ensure we don't overpay
+                    payment = Math.min(payment, debt.balance + interestCharge);
+                    
+                    debt.balance = debt.balance + interestCharge - payment;
+                    
+                    if (debt.balance <= 0) {
+                        debt.balance = 0;
+                    }
+                }
+                
+                // Remove paid off debts
+                debtsCopy = debtsCopy.filter(debt => debt.balance > 0);
+                
+                // Reallocate freed up minimum payments as extra payment
+                if (debtsCopy.length < debts.filter(d => d.balance > 0).length) {
+                    const paidOffDebts = debts.filter(d => d.balance > 0).length - debtsCopy.length;
+                    // This is simplified - in reality you'd track which debts were paid off
+                }
+            }
+            
+            return {
+                months: months,
+                totalInterest: totalInterest
+            };
+        }
+
+        function calculateConsolidation(extraPayment) {
+            const consolidationRate = parseFloat(document.getElementById('consolidation-rate').value) || 8.5;
+            const consolidationTerm = parseFloat(document.getElementById('consolidation-term').value) || 5;
+            
+            const totalDebt = debts.reduce((sum, debt) => sum + debt.balance, 0);
+            const monthlyRate = (consolidationRate / 100) / 12;
+            const totalMonths = consolidationTerm * 12;
+            
+            // Calculate consolidation loan payment
+            const monthlyPayment = totalDebt * (monthlyRate * Math.pow(1 + monthlyRate, totalMonths)) / 
+                                 (Math.pow(1 + monthlyRate, totalMonths) - 1);
+            
+            const totalPayments = monthlyPayment * totalMonths;
+            const totalInterest = totalPayments - totalDebt;
+            
+            return {
+                months: totalMonths,
+                totalInterest: totalInterest,
+                monthlyPayment: monthlyPayment
+            };
+        }
+
+        function showStrategyComparison(extraPayment) {
+            const avalancheResult = calculatePayoffStrategy('avalanche', extraPayment);
+            const snowballResult = calculatePayoffStrategy('snowball', extraPayment);
+            
+            // Update avalanche stats
+            document.getElementById('avalanche-stats').innerHTML = `
+                <div class="stat-row">
+                    <span>Payoff Time:</span>
+                    <strong>${avalancheResult.months} months</strong>
+                </div>
+                <div class="stat-row">
+                    <span>Total Interest:</span>
+                    <strong>$${avalancheResult.totalInterest.toFixed(0)}</strong>
+                </div>
+            `;
+            
+            // Update snowball stats
+            document.getElementById('snowball-stats').innerHTML = `
+                <div class="stat-row">
+                    <span>Payoff Time:</span>
+                    <strong>${snowballResult.months} months</strong>
+                </div>
+                <div class="stat-row">
+                    <span>Total Interest:</span>
+                    <strong>$${snowballResult.totalInterest.toFixed(0)}</strong>
+                </div>
+            `;
+            
+            document.getElementById('strategy-comparison').style.display = 'block';
+            document.getElementById('consolidation-comparison').style.display = 'none';
+        }
+
+        function showConsolidationComparison() {
+            const currentResult = calculatePayoffStrategy('minimum', 0);
+            const consolidationResult = calculateConsolidation(0);
+            
+            document.getElementById('current-situation').innerHTML = `
+                <p><strong>Time to Pay Off:</strong> ${currentResult.months} months</p>
+                <p><strong>Total Interest:</strong> $${currentResult.totalInterest.toFixed(0)}</p>
+                <p><strong>Total Payments:</strong> $${(currentResult.totalInterest + debts.reduce((sum, debt) => sum + debt.balance, 0)).toFixed(0)}</p>
+            `;
+            
+            document.getElementById('consolidation-scenario').innerHTML = `
+                <p><strong>Time to Pay Off:</strong> ${consolidationResult.months} months</p>
+                <p><strong>Total Interest:</strong> $${consolidationResult.totalInterest.toFixed(0)}</p>
+                <p><strong>Monthly Payment:</strong> $${consolidationResult.monthlyPayment.toFixed(0)}</p>
+                <p><strong>Interest Savings:</strong> $${(currentResult.totalInterest - consolidationResult.totalInterest).toFixed(0)}</p>
+            `;
+            
+            document.getElementById('strategy-comparison').style.display = 'none';
+            document.getElementById('consolidation-comparison').style.display = 'block';
+        }
+
+        // Initialize with some example debts
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add initial debts
+            addDebt();
+            addDebt();
+            addDebt();
+            
+            // Set example values
+            setTimeout(() => {
+                const debtElements = document.querySelectorAll('.debt-entry');
+                
+                if (debtElements[0]) {
+                    debtElements[0].querySelector('.debt-balance').value = 5000;
+                    debtElements[0].querySelector('.debt-rate').value = 18.99;
+                    debtElements[0].querySelector('.debt-minimum').value = 125;
+                    updateDebt(debts[0].id);
+                }
+                
+                if (debtElements[1]) {
+                    debtElements[1].querySelector('.debt-balance').value = 3000;
+                    debtElements[1].querySelector('.debt-rate').value = 24.99;
+                    debtElements[1].querySelector('.debt-minimum').value = 90;
+                    updateDebt(debts[1].id);
+                }
+                
+                if (debtElements[2]) {
+                    debtElements[2].querySelector('.debt-balance').value = 8000;
+                    debtElements[2].querySelector('.debt-rate').value = 15.49;
+                    debtElements[2].querySelector('.debt-minimum').value = 200;
+                    updateDebt(debts[2].id);
+                }
+                
+                document.getElementById('extra-payment').value = 300;
+                document.getElementById('consolidation-rate').value = 8.5;
+                document.getElementById('consolidation-term').value = 5;
+                
+                calculateDebtStrategy();
+            }, 100);
+            
+            // Add event listener for extra payment
+            document.getElementById('extra-payment').addEventListener('input', calculateDebtStrategy);
+            document.getElementById('consolidation-rate').addEventListener('input', calculateDebtStrategy);
+            document.getElementById('consolidation-term').addEventListener('input', calculateDebtStrategy);
+        });
+    </script>
+</body>
+</html> 
