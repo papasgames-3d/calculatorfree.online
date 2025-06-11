@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        /* Base styles */
         .bmi-calculator {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -19,6 +20,7 @@
             margin: 2rem auto;
         }
         
+        /* Form styles */
         .input-group {
             margin-bottom: 1.5rem;
         }
@@ -30,7 +32,8 @@
             color: #333;
         }
         
-        .input-group input, .input-group select {
+        .input-group input, 
+        .input-group select {
             width: 100%;
             padding: 1rem;
             border: 2px solid #e9ecef;
@@ -39,11 +42,13 @@
             transition: border-color 0.3s ease;
         }
         
-        .input-group input:focus, .input-group select:focus {
+        .input-group input:focus, 
+        .input-group select:focus {
             outline: none;
             border-color: #667eea;
         }
         
+        /* Button styles */
         .calculate-btn {
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
@@ -62,24 +67,12 @@
             transform: translateY(-2px);
         }
         
+        /* Result section styles */
         .result {
-            background: #f8f9fa;
-            border-radius: 15px;
-            padding: 2rem;
-            text-align: center;
             display: none;
         }
         
-        /* BMI Gauge Styles */
-        .bmi-gauge-container {
-            background: white;
-            border-radius: 15px;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .result-header {
+        .h2result {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -88,460 +81,457 @@
             background: #7cb342;
             color: white;
             border-radius: 10px;
-        }
-        
-        .result-header h3 {
-            margin: 0;
             font-size: 1.5rem;
             font-weight: 600;
         }
         
-        .save-btn {
-            background: rgba(255, 255, 255, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .save-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-1px);
-        }
-        
-        .bmi-main-result {
+        .bigtext {
+            margin-top: 5px;
+            font-size: 1.5rem;
+            font-weight: bold;
             text-align: center;
-            margin: 1.5rem 0;
         }
         
-        .bmi-value-large {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: #333;
-        }
-        
-        .bmi-category-large {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
+        /* BMI Gauge styles */
+        .bmi-gauge-container {
+            margin: 1rem 0 2rem;
+            position: relative;
+            display: flex;
+            justify-content: center;
         }
         
         .bmi-gauge {
-            display: flex;
-            justify-content: center;
-            margin: 2rem 0;
             position: relative;
-            padding: 1rem;
-            background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(248,249,250,0.4) 100%);
-            border-radius: 15px;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
+            width: 300px;
+            height: 163px;
+            margin: 0 auto;
         }
         
-        .gauge-label {
-            font-size: 12px;
-            font-weight: 600;
-            fill: #333;
+        .bmi-gauge svg {
+            width: 100%;
+            height: 100%;
+            display: block;
         }
         
-        .category-label {
-            font-size: 11px;
-            font-weight: 500;
-            fill: #666;
-        }
-        
-        .gauge-center-value {
-            font-size: 18px;
-            font-weight: 700;
-            fill: #333;
-        }
-        
+        /* Update needle styles for correct positioning */
         #bmiNeedle {
-            transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            transform-origin: 200px 150px;
+            transform-origin: 140px 140px;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            stroke: #333;
+            stroke-width: 2px;
         }
         
-        #bmiNeedle:hover {
-            filter: url(#needleShadow) brightness(1.1);
+        /* Ensure gauge text is readable */
+        .bmi-gauge text {
+            fill: currentColor;
+            font-weight: 500;
         }
         
-        .bmi-details {
-            background: #f8f9fa;
-            border-radius: 10px;
-            padding: 1.5rem;
-            margin-top: 1rem;
+        .bmi-gauge .value-text {
+            font-size: 30px;
+            font-weight: bold;
+            fill: #000;
         }
         
+        /* BMI Details styles */
         .bmi-details ul {
+            margin-left: 8px;
+            padding-left: 8px;
             list-style: none;
-            padding: 0;
-            margin: 0;
         }
         
         .bmi-details li {
-            padding: 0.7rem 0;
-            border-bottom: 1px solid #e9ecef;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            margin: 0.5rem 0;
         }
         
-        .bmi-details li:last-child {
-            border-bottom: none;
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .bmi-calculator {
+                padding: 1rem;
+                margin: 1rem;
+            }
+            
+            .h2result {
+                font-size: 1.2rem;
+                padding: 0.8rem;
+            }
+            
+            .bigtext {
+                font-size: 1.2rem;
+            }
+            
+            .bmi-gauge {
+                width: 250px;
+                height: 136px;
+            }
         }
         
-        .bmi-details strong {
+        /* New styles for BMI advice section */
+        .bmi-advice {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            border-radius: 10px;
+            background: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .bmi-advice h3 {
+            color: #333;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .nutrition-advice {
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            border-left: 4px solid;
+        }
+        
+        .nutrition-advice.underweight {
+            background: #fff3e0;
+            border-left-color: #bc2020;
+        }
+        
+        .nutrition-advice.normal {
+            background: #e8f5e9;
+            border-left-color: #008137;
+        }
+        
+        .nutrition-advice.overweight {
+            background: #fff8e1;
+            border-left-color: #ffe400;
+        }
+        
+        .nutrition-advice.obese {
+            background: #ffebee;
+            border-left-color: #bc2020;
+        }
+        
+        .nutrition-advice h4 {
+            margin-bottom: 0.8rem;
             color: #333;
         }
         
-        .bmi-details span {
-            color: #667eea;
-            font-weight: 600;
+        .nutrition-advice ul {
+            margin: 0;
+            padding-left: 1.2rem;
         }
         
-        .bmi-value {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
+        .nutrition-advice li {
+            margin: 0.5rem 0;
+            color: #555;
         }
         
-        .bmi-category {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-        
-        .bmi-info {
-            background: white;
-            border-radius: 10px;
-            padding: 1.5rem;
-            margin-top: 2rem;
-        }
-        
-        .bmi-ranges {
+        .nutrition-tips {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1rem;
-            margin-top: 2rem;
+            margin-top: 1rem;
         }
         
-        .bmi-range {
-            background: white;
-            border-radius: 10px;
+        .tip-card {
+            background: #fff;
             padding: 1rem;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
         
-        .underweight { border-left: 5px solid #17a2b8; }
-        .normal { border-left: 5px solid #28a745; }
-        .overweight { border-left: 5px solid #ffc107; }
-        .obese { border-left: 5px solid #dc3545; }
+        .tip-card i {
+            color: #667eea;
+            margin-right: 0.5rem;
+        }
         
+        @media (max-width: 768px) {
+            .nutrition-tips {
+                grid-template-columns: 1fr;
+            }
+            
+            .bmi-advice {
+                padding: 1rem;
+            }
+        }
+
         /* BMI Information Section Styles */
         .bmi-info-section {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 2rem;
-            margin-top: 2rem;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            border-radius: 15px;
+            margin: 2rem 0;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
-        
+
         .bmi-info-section h3 {
-            color: #333;
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 2.5rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .bmi-info-section h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: #4CAF50;
+            border-radius: 2px;
+        }
+
+        /* BMI Categories Grid */
+        .bmi-ranges {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .bmi-range {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .bmi-range:hover {
+            transform: translateY(-5px);
+        }
+
+        .bmi-range h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #fff;
+            text-align: center;
+        }
+
+        .bmi-range p {
+            color: rgba(255, 255, 255, 0.9);
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        .bmi-range.underweight { border-left: 4px solid #bc2020; }
+        .bmi-range.normal { border-left: 4px solid #4CAF50; }
+        .bmi-range.overweight { border-left: 4px solid #FFC107; }
+        .bmi-range.obese { border-left: 4px solid #f44336; }
+
+        /* BMI Table Styles */
+        .bmi-detailed-table {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+
+        .bmi-detailed-table h3 {
+            font-size: 1.5rem;
             margin-bottom: 1.5rem;
             text-align: center;
-            font-size: 1.5rem;
         }
-        
-        /* BMI Detailed Table */
-        .bmi-detailed-table {
-            margin: 2rem 0;
-            overflow-x: auto;
-        }
-        
+
         .bmi-table {
             width: 100%;
             border-collapse: collapse;
             margin: 1rem 0;
-            background: white;
-            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
-        
-        .bmi-table th, .bmi-table td {
+
+        .bmi-table th,
+        .bmi-table td {
             padding: 1rem;
             text-align: left;
-            border-bottom: 1px solid #e9ecef;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
+
         .bmi-table th {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
+            background: rgba(255, 255, 255, 0.1);
             font-weight: 600;
         }
-        
+
         .bmi-table tr:hover {
-            background: #f8f9fa;
+            background: rgba(255, 255, 255, 0.05);
         }
-        
-        .severe-thin { border-left: 4px solid #6c757d; }
-        .moderate-thin { border-left: 4px solid #17a2b8; }
-        .mild-thin { border-left: 4px solid #20c997; }
-        .normal-bmi { border-left: 4px solid #28a745; }
-        .overweight-bmi { border-left: 4px solid #ffc107; }
-        .obese-1 { border-left: 4px solid #fd7e14; }
-        .obese-2 { border-left: 4px solid #dc3545; }
-        .obese-3 { border-left: 4px solid #6f42c1; }
-        
-        /* Formula Section */
+
+        /* BMI Formula Section */
         .bmi-formula-section {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 10px;
             margin: 2rem 0;
         }
-        
+
         .formula-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
         }
-        
+
         .formula-item {
-            background: white;
-            border-radius: 15px;
             padding: 1.5rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            border: 2px solid #e9ecef;
-        }
-        
-        .formula-item h4 {
-            color: #667eea;
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-        
-        .formula {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #333;
-            background: #f8f9fa;
-            padding: 0.8rem;
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 8px;
-            margin-bottom: 0.5rem;
-            font-family: 'Courier New', monospace;
+            border-left: 4px solid #4CAF50;
         }
-        
+
+        .formula-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .formula {
+            font-family: 'Courier New', monospace;
+            font-size: 1.1rem;
+            margin: 1rem 0;
+            padding: 0.5rem;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+        }
+
         .example {
             font-size: 0.9rem;
-            color: #6c757d;
+            color: rgba(255, 255, 255, 0.8);
             font-style: italic;
         }
-        
+
         /* Health Risks Section */
         .health-risks-section {
             margin: 2rem 0;
         }
-        
+
         .risk-categories {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin-top: 1rem;
         }
-        
+
         .risk-category {
-            background: white;
-            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.05);
             padding: 1.5rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            border-top: 4px solid #f44336;
         }
-        
+
         .risk-category h3 {
-            color: #dc3545;
-            margin-bottom: 1rem;
             font-size: 1.2rem;
-            text-align: left;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
-        
-        .risk-category h3 i {
-            margin-right: 0.5rem;
-        }
-        
+
         .risk-category ul {
-            list-style: none;
+            list-style-type: none;
             padding: 0;
         }
-        
+
         .risk-category li {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #f8f9fa;
-            position: relative;
+            margin: 0.5rem 0;
             padding-left: 1.5rem;
+            position: relative;
         }
-        
+
         .risk-category li:before {
-            content: "•";
-            color: #dc3545;
-            font-weight: bold;
+            content: '•';
             position: absolute;
             left: 0;
+            color: #f44336;
         }
-        
+
         /* BMI Limitations */
         .bmi-limitations {
             margin: 2rem 0;
         }
-        
+
         .limitations-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1.5rem;
-            margin-top: 1rem;
         }
-        
+
         .limitation-item {
-            background: white;
-            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.05);
             padding: 1.5rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            border: 2px solid #e9ecef;
-            transition: transform 0.3s ease;
+            border-radius: 10px;
+            border-left: 4px solid #2196F3;
         }
-        
-        .limitation-item:hover {
-            transform: translateY(-3px);
-            border-color: #667eea;
-        }
-        
+
         .limitation-item h4 {
-            color: #667eea;
-            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
             font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #fff;
         }
-        
-        .limitation-item h4 i {
-            margin-right: 0.5rem;
-        }
-        
+
         .limitation-item p {
-            color: #666;
+            color: rgba(255, 255, 255, 0.9);
             line-height: 1.6;
         }
-        
+
         /* Additional Metrics */
         .additional-metrics {
             margin: 2rem 0;
         }
-        
+
         .metrics-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1.5rem;
-            margin-top: 1rem;
         }
-        
+
         .metric-item {
-            background: white;
-            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.05);
             padding: 1.5rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            border-left: 4px solid #9C27B0;
         }
-        
+
         .metric-item h4 {
-            color: #667eea;
+            font-size: 1.1rem;
             margin-bottom: 1rem;
-            font-size: 1.2rem;
+            color: #fff;
         }
-        
+
         .metric-item p {
-            margin-bottom: 0.5rem;
-            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+            margin: 0.5rem 0;
         }
-        
-        .metric-item p:first-of-type {
-            font-family: 'Courier New', monospace;
-            background: #f8f9fa;
-            padding: 0.5rem;
-            border-radius: 5px;
-            font-weight: 600;
-        }
-        
-        /* Mobile Responsive */
+
+        /* Responsive Adjustments */
         @media (max-width: 768px) {
             .bmi-info-section {
-                padding: 1.5rem;
-                margin-top: 1.5rem;
+                padding: 2rem 1rem;
             }
-            
+
+            .bmi-info-section h3 {
+                font-size: 1.5rem;
+            }
+
             .formula-container,
             .risk-categories,
             .limitations-grid,
             .metrics-grid {
                 grid-template-columns: 1fr;
-                gap: 1rem;
             }
-            
-            .bmi-table th, .bmi-table td {
-                padding: 0.75rem 0.5rem;
+
+            .bmi-table {
                 font-size: 0.9rem;
             }
-            
-                         .formula-item,
-             .risk-category,
-             .limitation-item,
-             .metric-item {
-                 padding: 1rem;
-             }
-             
-             .bmi-gauge-container {
-                 padding: 1rem;
-             }
-             
-             .result-header {
-                 flex-direction: column;
-                 gap: 1rem;
-                 text-align: center;
-             }
-             
-             .bmi-value-large {
-                 font-size: 2rem;
-             }
-             
-             .bmi-category-large {
-                 font-size: 1.1rem;
-             }
-             
-             .bmi-gauge svg {
-                 height: 150px;
-             }
-             
-             .gauge-label,
-             .category-label {
-                 font-size: 10px;
-             }
-             
-             .gauge-center-value {
-                 font-size: 14px;
-             }
-             
-             .bmi-details {
-                 padding: 1rem;
-             }
-             
-             .bmi-details li {
-                 flex-direction: column;
-                 align-items: flex-start;
-                 gap: 0.3rem;
-             }
-         }
+
+            .bmi-table th,
+            .bmi-table td {
+                padding: 0.75rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -614,130 +604,207 @@
                         <button type="submit" class="calculate-btn">Calculate BMI</button>
                     </form>
 
-                    <div id="result" class="result">
-                        <!-- BMI Gauge Chart -->
-                        <div class="bmi-gauge-container">
-                            <div class="result-header">
-                                <h3>Result</h3>
-                                <button class="save-btn">
-                                    <i class="fas fa-save"></i>
-                                    Save
-                                </button>
-                            </div>
-                            
-                            <div class="bmi-main-result">
-                                <div class="bmi-value-large" id="bmiValueLarge"></div>
-                                <div class="bmi-category-large" id="bmiCategoryLarge"></div>
-                            </div>
-                            
+                    <div id="result" class="result" style="display:none;">
+                        <h2 class="h2result">Result
+                            <img src="//d26tpo4cm8sb6k.cloudfront.net/img/save.svg" width="19" height="20" 
+                                 title="Save this calculation" style="float:right;padding-top:3px;cursor:pointer;"
+                                 onclick="saveBMIResult()">
+                        </h2>
+                        <div class="bigtext" style="margin-top:5px;">
+                            <b>BMI = <span id="bmiValueLarge">0</span> kg/m<sup>2</sup></b> &nbsp; 
+                            (<span id="bmiCategoryLarge" style="color:green">Normal</span>)
+                        </div>
+                        <div style="padding-top:10px;text-align:center;">
                             <div class="bmi-gauge">
-                                <svg width="100%" height="200" viewBox="0 0 400 200">
-                                    <!-- Background semicircle -->
-                                    <defs>
-                                        <linearGradient id="backgroundGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                                            <stop offset="0%" style="stop-color:#f8f9fa;stop-opacity:1" />
-                                            <stop offset="100%" style="stop-color:#e9ecef;stop-opacity:1" />
-                                        </linearGradient>
-                                    </defs>
-                                    <!-- Main background arc -->
-                                    <path id="gaugeBackground" d="M 50 150 A 150 150 0 0 1 350 150" 
-                                          fill="none" stroke="url(#backgroundGradient)" stroke-width="30"/>
-                                    
-                                    <!-- Colored segments with adjusted angles -->
-                                    <!-- Underweight: BMI 16-18.5 -->
-                                    <path d="M 50 150 A 150 150 0 0 1 125 82" 
-                                          fill="none" stroke="#dc3545" stroke-width="30"/>
-                                    
-                                    <!-- Normal: BMI 18.5-25 -->
-                                    <path d="M 125 82 A 150 150 0 0 1 200 65" 
-                                          fill="none" stroke="#28a745" stroke-width="30"/>
-                                    
-                                    <!-- Overweight: BMI 25-30 -->
-                                    <path d="M 200 65 A 150 150 0 0 1 275 82" 
-                                          fill="none" stroke="#ffc107" stroke-width="30"/>
-                                    
-                                    <!-- Obese: BMI 30-40 -->
-                                    <path d="M 275 82 A 150 150 0 0 1 350 150" 
-                                          fill="none" stroke="#dc3545" stroke-width="30"/>
-                                    
-                                    <!-- BMI value markers with adjusted positions -->
-                                    <text x="50" y="170" text-anchor="middle" class="gauge-label">16</text>
-                                    <text x="125" y="102" text-anchor="middle" class="gauge-label">18.5</text>
-                                    <text x="200" y="85" text-anchor="middle" class="gauge-label">22</text>
-                                    <text x="275" y="102" text-anchor="middle" class="gauge-label">25</text>
-                                    <text x="312" y="127" text-anchor="middle" class="gauge-label">30</text>
-                                    <text x="350" y="170" text-anchor="middle" class="gauge-label">40</text>
-                                    
-                                    <!-- Category labels with adjusted positions -->
-                                    <text x="87" y="130" text-anchor="middle" class="category-label">Underweight</text>
-                                    <text x="200" y="45" text-anchor="middle" class="category-label">Normal</text>
-                                    <text x="312" y="130" text-anchor="middle" class="category-label">Overweight</text>
-                                    <text x="350" y="127" text-anchor="middle" class="category-label" transform="rotate(45 350 127)">Obesity</text>
-                                    
-                                    <!-- Needle with improved styling -->
-                                    <defs>
-                                        <linearGradient id="needleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                                            <stop offset="0%" style="stop-color:#2c3e50;stop-opacity:1" />
-                                            <stop offset="50%" style="stop-color:#34495e;stop-opacity:1" />
-                                            <stop offset="100%" style="stop-color:#2c3e50;stop-opacity:1" />
-                                        </linearGradient>
-                                        <radialGradient id="centerGradient" cx="50%" cy="50%" r="50%">
-                                            <stop offset="0%" style="stop-color:#ecf0f1;stop-opacity:1" />
-                                            <stop offset="70%" style="stop-color:#bdc3c7;stop-opacity:1" />
-                                            <stop offset="100%" style="stop-color:#95a5a6;stop-opacity:1" />
-                                        </radialGradient>
-                                        <filter id="needleShadow" x="-50%" y="-50%" width="200%" height="200%">
-                                            <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
-                                        </filter>
-                                    </defs>
-                                    
-                                    <g id="bmiNeedle" transform-origin="200 150" filter="url(#needleShadow)">
-                                        <!-- Needle shadow -->
-                                        <polygon points="200,150 197,145 197,70 200,65 203,70 203,145" 
-                                                fill="rgba(0,0,0,0.2)" transform="translate(1,1)"/>
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="300" height="163" viewBox="0 0 300 163">
+                                    <g transform="translate(18,18)" style="font-family:arial,helvetica,sans-serif;font-size: 12px;">
+                                        <defs>
+                                            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+                                                <polygon points="0 0, 10 3.5, 0 7" />
+                                            </marker>
+                                            <path id="curvetxt1" d="M-4 140 A140 140, 0, 0, 1, 284 140" style="fill: none;"/>
+                                            <path id="curvetxt2" d="M33 43.6 A140 140, 0, 0, 1, 280 140" style="fill: none;"/>
+                                            <path id="curvetxt3" d="M95 3 A140 140, 0, 0, 1, 284 140" style="fill: none;"/>
+                                            <path id="curvetxt4" d="M235.4 33 A140 140, 0, 0, 1, 284 140" style="fill: none;"/>
+                                        </defs>
                                         
-                                        <!-- Main needle body -->
-                                        <polygon points="200,150 197,145 197,70 200,65 203,70 203,145" 
-                                                fill="url(#needleGradient)" stroke="#2c3e50" stroke-width="0.5"/>
+                                        <!-- BMI Range Segments -->
+                                        <path d="M0 140 A140 140, 0, 0, 1, 6.9 96.7 L140 140 Z" fill="#bc2020" />
+                                        <path d="M6.9 96.7 A140 140, 0, 0, 1, 12.1 83.1 L140 140 Z" fill="#d38888" />
+                                        <path d="M12.1 83.1 A140 140, 0, 0, 1, 22.6 63.8 L140 140 Z" fill="#ffe400" />
+                                        <path d="M22.6 63.8 A140 140, 0, 0, 1, 96.7 6.9 L140 140 Z" fill="#008137" />
+                                        <path d="M96.7 6.9 A140 140, 0, 0, 1, 169.1 3.1 L140 140 Z" fill="#ffe400" />
+                                        <path d="M169.1 3.1 A140 140, 0, 0, 1, 233.7 36 L140 140 Z" fill="#d38888" />
+                                        <path d="M233.7 36 A140 140, 0, 0, 1, 273.1 96.7 L140 140 Z" fill="#bc2020" />
+                                        <path d="M273.1 96.7 A140 140, 0, 0, 1, 280 140 L140 140 Z" fill="#8a0101" />
                                         
-                                        <!-- Needle tip highlight -->
-                                        <polygon points="200,65 198,67 202,67" fill="#ecf0f1"/>
+                                        <!-- White center circle -->
+                                        <path d="M45 140 A90 90, 0, 0, 1, 230 140 Z" fill="#fff" />
                                         
-                                        <!-- Center hub -->
-                                        <circle cx="200" cy="150" r="12" fill="#34495e" stroke="#2c3e50" stroke-width="1"/>
-                                        <circle cx="200" cy="150" r="9" fill="url(#centerGradient)" stroke="#7f8c8d" stroke-width="0.5"/>
-                                        <circle cx="200" cy="150" r="4" fill="#ecf0f1" opacity="0.8"/>
-                                        <circle cx="200" cy="150" r="6" fill="none" stroke="#bdc3c7" stroke-width="0.5"/>
+                                        <!-- Center dot -->
+                                        <circle cx="140" cy="140" r="3" fill="#333" />
+                                        
+                                        <!-- BMI value markers -->
+                                        <g style="paint-order: stroke;stroke: #fff;stroke-width: 2px;">
+                                            <text x="25" y="111" transform="rotate(-72, 25, 111)">16</text>
+                                            <text x="30" y="96" transform="rotate(-66, 30, 96)">17</text>
+                                            <text x="35" y="83" transform="rotate(-57, 35, 83)">18.5</text>
+                                            <text x="97" y="29" transform="rotate(-18, 97, 29)">25</text>
+                                            <text x="157" y="20" transform="rotate(12, 157, 20)">30</text>
+                                            <text x="214" y="45" transform="rotate(42, 214, 45)">35</text>
+                                            <text x="252" y="95" transform="rotate(72, 252, 95)">40</text>
+                                        </g>
+                                        
+                                        <!-- Category labels -->
+                                        <g style="font-size: 14px;">
+                                            <text><textPath xlink:href="#curvetxt1">Underweight</textPath></text>
+                                            <text><textPath xlink:href="#curvetxt2">Normal</textPath></text>
+                                            <text><textPath xlink:href="#curvetxt3">Overweight</textPath></text>
+                                            <text><textPath xlink:href="#curvetxt4">Obesity</textPath></text>
+                                        </g>
+                                        
+                                        <!-- Update needle with correct positioning -->
+                                        <line id="bmiNeedle" 
+                                            x1="140" y1="140" 
+                                            x2="140" y2="50" 
+                                            stroke="#333" 
+                                            stroke-width="2" 
+                                            marker-end="url(#arrowhead)"
+                                            style="transform-origin: 140px 140px;">
+                                        </line>
+                                        
+                                        <!-- BMI Value Display -->
+                                        <text x="67" y="120" style="font-size: 30px;font-weight:bold;color:#000;" id="gaugeBmiValue">BMI = 0</text>
                                     </g>
-                                    
-                                    <!-- Center BMI value -->
-                                    <text x="200" y="180" text-anchor="middle" class="gauge-center-value" id="gaugeBmiValue">BMI = 0</text>
                                 </svg>
                             </div>
-                            
-                            <!-- BMI Details -->
-                            <div class="bmi-details">
-                                <ul id="bmiDetailsList">
-                                    <li><strong>Healthy BMI range:</strong> <span id="healthyRange">18.5 kg/m² - 25 kg/m²</span></li>
-                                    <li><strong>Healthy weight for the height:</strong> <span id="healthyWeight">-</span></li>
-                                    <li><strong>BMI Prime:</strong> <span id="bmiPrimeValue">-</span></li>
-                                    <li><strong>Ponderal Index:</strong> <span id="ponderalValue">-</span></li>
-                                </ul>
-                            </div>
                         </div>
-                        
-                        <!-- Traditional result display -->
-                        <div class="traditional-result" style="margin-top: 2rem;">
-                        <div class="bmi-info">
-                            <p id="bmiDescription"></p>
+                        <ul style="margin-left:8px;padding-left:8px;">
+                            <li>Healthy BMI range: 18.5 kg/m<sup>2</sup> - 25 kg/m<sup>2</sup></li>
+                            <li>Healthy weight for the height: <span id="healthyWeight">-</span></li>
+                            <li>BMI Prime: <span id="bmiPrimeValue">-</span></li>
+                            <li>Ponderal Index: <span id="ponderalValue">-</span> kg/m<sup>3</sup></li>
+                        </ul>
+
+                        <!-- New BMI Advice Section -->
+                        <div class="bmi-advice">
+                            <h3>Personalized Health Recommendations</h3>
+                            <div id="nutritionAdvice">
+                                <!-- Underweight Advice -->
+                                <div class="nutrition-advice underweight" style="display:none;">
+                                    <h4><i class="fas fa-weight"></i> Recommendations for Healthy Weight Gain</h4>
+                                    <ul>
+                                        <li>Eat more frequently - aim for 5-6 smaller meals throughout the day</li>
+                                        <li>Choose nutrient-dense foods rich in healthy fats:
+                                            <ul>
+                                                <li>Nuts, seeds, and nut butters</li>
+                                                <li>Avocados and olive oil</li>
+                                                <li>Whole grains and legumes</li>
+                                            </ul>
+                                        </li>
+                                        <li>Add protein-rich foods to each meal:
+                                            <ul>
+                                                <li>Lean meats, fish, and eggs</li>
+                                                <li>Dairy products like yogurt and cheese</li>
+                                                <li>Plant proteins like quinoa and beans</li>
+                                            </ul>
+                                        </li>
+                                        <li>Consider nutritious smoothies with fruits, protein, and healthy fats</li>
+                                        <li>Consult with a healthcare provider about potential underlying causes</li>
+                                    </ul>
+                                </div>
+
+                                <!-- Normal Weight Advice -->
+                                <div class="nutrition-advice normal" style="display:none;">
+                                    <h4><i class="fas fa-check-circle"></i> Maintaining Your Healthy Weight</h4>
+                                    <ul>
+                                        <li>Continue your balanced diet with:
+                                            <ul>
+                                                <li>Plenty of fruits and vegetables</li>
+                                                <li>Whole grains and lean proteins</li>
+                                                <li>Healthy fats in moderation</li>
+                                            </ul>
+                                        </li>
+                                        <li>Stay physically active with 150 minutes of moderate exercise weekly</li>
+                                        <li>Monitor your weight regularly to maintain your healthy range</li>
+                                        <li>Practice mindful eating and portion control</li>
+                                    </ul>
+                                </div>
+
+                                <!-- Overweight Advice -->
+                                <div class="nutrition-advice overweight" style="display:none;">
+                                    <h4><i class="fas fa-balance-scale"></i> Healthy Weight Management Tips</h4>
+                                    <ul>
+                                        <li>Focus on portion control and mindful eating</li>
+                                        <li>Choose nutrient-dense, lower-calorie foods:
+                                            <ul>
+                                                <li>Fresh fruits and vegetables</li>
+                                                <li>Lean proteins and fish</li>
+                                                <li>Whole grains instead of refined grains</li>
+                                            </ul>
+                                        </li>
+                                        <li>Increase physical activity gradually:
+                                            <ul>
+                                                <li>Aim for 30 minutes of moderate exercise daily</li>
+                                                <li>Include both cardio and strength training</li>
+                                            </ul>
+                                        </li>
+                                        <li>Stay hydrated with water instead of sugary drinks</li>
+                                        <li>Consider consulting a healthcare provider for personalized advice</li>
+                                    </ul>
+                                </div>
+
+                                <!-- Obese Advice -->
+                                <div class="nutrition-advice obese" style="display:none;">
+                                    <h4><i class="fas fa-heartbeat"></i> Important Health Recommendations</h4>
+                                    <ul>
+                                        <li>Consult with healthcare providers for a personalized plan</li>
+                                        <li>Make sustainable dietary changes:
+                                            <ul>
+                                                <li>Reduce processed and high-calorie foods</li>
+                                                <li>Increase vegetables and lean proteins</li>
+                                                <li>Control portion sizes</li>
+                                            </ul>
+                                        </li>
+                                        <li>Start gentle physical activity:
+                                            <ul>
+                                                <li>Begin with walking or swimming</li>
+                                                <li>Gradually increase duration and intensity</li>
+                                            </ul>
+                                        </li>
+                                        <li>Monitor other health markers (blood pressure, blood sugar)</li>
+                                        <li>Consider joining support groups or working with a dietitian</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="nutrition-tips">
+                                <div class="tip-card">
+                                    <i class="fas fa-apple-alt"></i>
+                                    <strong>General Nutrition Tips:</strong>
+                                    <ul>
+                                        <li>Eat a variety of colorful fruits and vegetables</li>
+                                        <li>Choose whole grains over refined grains</li>
+                                        <li>Stay hydrated with water</li>
+                                    </ul>
+                                </div>
+                                <div class="tip-card">
+                                    <i class="fas fa-walking"></i>
+                                    <strong>Physical Activity:</strong>
+                                    <ul>
+                                        <li>Find activities you enjoy</li>
+                                        <li>Start slowly and build gradually</li>
+                                        <li>Stay consistent with your routine</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- BMI Information Section -->
-                <div class="bmi-info-section">
-                    <h3 style="text-align: center; margin-bottom: 2rem; color: rgb(0, 0, 0);">BMI Information & Guidelines</h3>
+                <div class="bmi-info-section" style="color: #f8f9fa; ">
+                    <h3 style="text-align: center; margin-bottom: 2rem;">BMI Information & Guidelines</h3>
                     
                     <!-- BMI Categories -->
                     <div class="bmi-ranges">
@@ -980,33 +1047,18 @@
                         navMenu.classList.remove('active');
                     }
                 });
-                
-                // Close menu on window resize
-                window.addEventListener('resize', function() {
-                    if (window.innerWidth > 768) {
-                        navMenu.classList.remove('active');
-                    }
-                });
             }
             
-            // Save button functionality
-            const saveBtn = document.querySelector('.save-btn');
-            if (saveBtn) {
-                saveBtn.addEventListener('click', function() {
-                    saveBMIResult();
-                });
-            }
-
             // BMI Form functionality
             const bmiForm = document.getElementById('bmiForm');
             if (bmiForm) {
                 bmiForm.addEventListener('submit', function(e) {
-            e.preventDefault();
+                    e.preventDefault();
                     calculateBMI();
                 });
             }
         });
-            
+        
         function calculateBMI() {
             let height, weight;
             const heightUnit = document.getElementById('heightUnit').value;
@@ -1032,145 +1084,128 @@
                 displayBMIResult(bmi);
             }
         }
-
+        
         function displayBMIResult(bmi) {
             const result = document.getElementById('result');
-            const age = parseInt(document.getElementById('age').value);
-            const gender = document.getElementById('gender').value;
             const height = getHeightInMeters();
-            const weight = getWeightInKg();
             
             // Calculate additional metrics
             const bmiPrime = (bmi / 25).toFixed(2);
-            const ponderalIndex = (weight / Math.pow(height, 3)).toFixed(1);
+            const ponderalIndex = (bmi / height).toFixed(1);
             
             // Calculate healthy weight range
             const minHealthyWeight = (18.5 * height * height).toFixed(1);
             const maxHealthyWeight = (25 * height * height).toFixed(1);
             
-            let category, description, color, advice, detailedCategory;
+            let category, color, message;
+            
+            // Hide all advice sections first
+            document.querySelectorAll('.nutrition-advice').forEach(el => el.style.display = 'none');
             
             if (bmi < 16) {
                 category = 'Severe Thinness';
-                detailedCategory = 'Severely Underweight';
-                color = '#6c757d';
-                description = 'Your BMI indicates severe thinness.';
-                advice = getAdvice('severe_underweight', age, gender);
+                color = '#bc2020';
+                message = 'Please consult a healthcare provider for a safe and scientific weight gain plan.';
+                document.querySelector('.nutrition-advice.underweight').style.display = 'block';
             } else if (bmi < 17) {
                 category = 'Moderate Thinness';
-                detailedCategory = 'Moderately Underweight';
-                color = '#17a2b8';
-                description = 'Your BMI indicates moderate thinness.';
-                advice = getAdvice('moderate_underweight', age, gender);
+                color = '#d38888';
+                message = 'Focus on healthy weight gain to improve your overall health.';
+                document.querySelector('.nutrition-advice.underweight').style.display = 'block';
             } else if (bmi < 18.5) {
                 category = 'Mild Thinness';
-                detailedCategory = 'Mildly Underweight';
-                color = '#20c997';
-                description = 'Your BMI indicates mild thinness.';
-                advice = getAdvice('underweight', age, gender);
+                color = '#ffe400';
+                message = "You are slightly underweight. Add more nutrients to reach your ideal weight.";
+                document.querySelector('.nutrition-advice.underweight').style.display = 'block';
             } else if (bmi < 25) {
-                category = 'Normal Weight';
-                detailedCategory = 'Normal Weight';
-                color = '#28a745';
-                description = 'Your BMI indicates that you have a normal weight.';
-                advice = getAdvice('normal', age, gender);
+                category = 'Normal';
+                color = '#008137';
+                message = "Excellent! Your BMI is ideal. Keep maintaining this healthy lifestyle!";
+                document.querySelector('.nutrition-advice.normal').style.display = 'block';
             } else if (bmi < 30) {
                 category = 'Overweight';
-                detailedCategory = 'Overweight';
-                color = '#ffc107';
-                description = 'Your BMI indicates that you are overweight.';
-                advice = getAdvice('overweight', age, gender);
+                color = '#ffe400';
+                message = "Slightly overweight. Do not worry - with proper diet and exercise, you will reach your ideal weight!";
+                document.querySelector('.nutrition-advice.overweight').style.display = 'block';
             } else if (bmi < 35) {
                 category = 'Obese Class I';
-                detailedCategory = 'Moderately Obese';
-                color = '#fd7e14';
-                description = 'Your BMI indicates Class I obesity.';
-                advice = getAdvice('obese_1', age, gender);
+                color = '#d38888';
+                message = 'Start making lifestyle changes to improve your health. You can do this!';
+                document.querySelector('.nutrition-advice.obese').style.display = 'block';
             } else if (bmi < 40) {
                 category = 'Obese Class II';
-                detailedCategory = 'Severely Obese';
-                color = '#dc3545';
-                description = 'Your BMI indicates Class II obesity.';
-                advice = getAdvice('obese_2', age, gender);
+                color = '#bc2020';
+                message = 'Time for positive changes. Consider consulting a healthcare provider for support.';
+                document.querySelector('.nutrition-advice.obese').style.display = 'block';
             } else {
                 category = 'Obese Class III';
-                detailedCategory = 'Very Severely Obese';
-                color = '#6f42c1';
-                description = 'Your BMI indicates Class III obesity.';
-                advice = getAdvice('obese_3', age, gender);
+                color = '#8a0101';
+                message = 'Your health needs special attention. Please consult a healthcare provider for guidance.';
+                document.querySelector('.nutrition-advice.obese').style.display = 'block';
             }
             
-            // Update gauge display
-            updateBMIGauge(bmi, category, color);
+            // Update display
+            document.getElementById('bmiValueLarge').textContent = bmi.toFixed(1);
+            document.getElementById('bmiCategoryLarge').textContent = category;
+            document.getElementById('bmiCategoryLarge').style.color = color;
+            
+            // Add encouraging message
+            const messageElement = document.createElement('p');
+            messageElement.style.fontSize = '1.1rem';
+            messageElement.style.marginTop = '1rem';
+            messageElement.style.textAlign = 'center';
+            messageElement.style.color = color;
+            messageElement.style.fontWeight = '500';
+            messageElement.textContent = message;
+            
+            // Remove any existing message
+            const existingMessage = document.querySelector('.bmi-message');
+            if (existingMessage) {
+                existingMessage.remove();
+            }
+            
+            // Add new message
+            messageElement.className = 'bmi-message';
+            document.querySelector('.bigtext').after(messageElement);
+            
+            // Update gauge with smooth animation
+            updateGaugeNeedle(bmi);
             
             // Update details
-            updateBMIDetails(bmi, bmiPrime, ponderalIndex, minHealthyWeight, maxHealthyWeight, weight);
+            document.getElementById('healthyWeight').textContent = `${minHealthyWeight} kg - ${maxHealthyWeight} kg`;
+            document.getElementById('bmiPrimeValue').textContent = bmiPrime;
+            document.getElementById('ponderalValue').textContent = ponderalIndex;
             
-            // Update traditional description
-            const bmiDescription = document.getElementById('bmiDescription');
-            bmiDescription.innerHTML = `
-                ${description}
-                <br><br><strong>Personalized Advice:</strong><br>${advice}
-            `;
-            
+            // Show result with smooth scroll
             result.style.display = 'block';
             result.scrollIntoView({ behavior: 'smooth' });
         }
         
-        function updateBMIGauge(bmi, category, color) {
-            // Update main result display
-            const bmiValueLarge = document.getElementById('bmiValueLarge');
-            const bmiCategoryLarge = document.getElementById('bmiCategoryLarge');
-            const gaugeBmiValue = document.getElementById('gaugeBmiValue');
-            
-            bmiValueLarge.textContent = `BMI = ${bmi.toFixed(1)} kg/m²`;
-            bmiCategoryLarge.textContent = `(${category})`;
-            bmiCategoryLarge.style.color = color;
-            gaugeBmiValue.textContent = `BMI = ${bmi.toFixed(1)}`;
-            
-                         // Calculate needle rotation with smooth interpolation
-             // BMI range 16-40 mapped to angle range -90 to 90 degrees
-             let angle;
-             const minBMI = 16;
-             const maxBMI = 40;
-             const minAngle = -90;
-             const maxAngle = 90;
-             
-             // Clamp BMI to visible range
-             const clampedBMI = Math.max(minBMI, Math.min(maxBMI, bmi));
-             
-             // Linear interpolation with smooth curve adjustments
-             if (bmi < 16) {
-                 angle = -90; // Minimum angle for very low BMI
-             } else if (bmi < 18.5) {
-                 // Underweight zone: -90 to -30 degrees
-                 const progress = (bmi - 16) / (18.5 - 16);
-                 angle = -90 + progress * 60;
-             } else if (bmi < 25) {
-                 // Normal zone: -30 to 30 degrees (center zone)
-                 const progress = (bmi - 18.5) / (25 - 18.5);
-                 angle = -30 + progress * 60;
-             } else if (bmi < 30) {
-                 // Overweight zone: 30 to 70 degrees
-                 const progress = (bmi - 25) / (30 - 25);
-                 angle = 30 + progress * 40;
-             } else if (bmi < 40) {
-                 // Obese zone: 70 to 90 degrees
-                 const progress = (bmi - 30) / (40 - 30);
-                 angle = 70 + progress * 20;
-             } else {
-                 angle = 90; // Maximum angle for very high BMI
-             }
-            
-            // Update needle rotation
+        function updateGaugeNeedle(bmi) {
             const needle = document.getElementById('bmiNeedle');
+            if (!needle) return;
+            
+            // Calculate rotation angle based on BMI value
+            let angle = 0;
+            
+            // Map BMI ranges to angles (-90 to +90 degrees)
+            if (bmi <= 16) {
+                angle = -90; // Minimum angle for severe underweight
+            } else if (bmi >= 40) {
+                angle = 90; // Maximum angle for severe obesity
+            } else {
+                // Linear mapping for BMI between 16 and 40
+                angle = -90 + ((bmi - 16) / 24) * 180;
+            }
+            
+            // Apply rotation transform with adjusted initial position
             needle.style.transform = `rotate(${angle}deg)`;
-        }
-        
-        function updateBMIDetails(bmi, bmiPrime, ponderalIndex, minHealthyWeight, maxHealthyWeight, weight) {
-            document.getElementById('healthyWeight').textContent = `${minHealthyWeight} kg - ${maxHealthyWeight} kg`;
-            document.getElementById('bmiPrimeValue').textContent = bmiPrime;
-            document.getElementById('ponderalValue').textContent = `${ponderalIndex} kg/m³`;
+            
+            // Update BMI value display
+            const bmiValueDisplay = document.getElementById('gaugeBmiValue');
+            if (bmiValueDisplay) {
+                bmiValueDisplay.textContent = `BMI = ${bmi.toFixed(1)}`;
+            }
         }
         
         function getHeightInMeters() {
@@ -1184,127 +1219,28 @@
             }
         }
         
-        function getWeightInKg() {
-            const weightUnit = document.getElementById('weightUnit').value;
-            const weightValue = parseFloat(document.getElementById('weight').value);
+        function saveBMIResult() {
+            const bmiValue = document.getElementById('bmiValueLarge').textContent;
+            const category = document.getElementById('bmiCategoryLarge').textContent;
+            const healthyWeight = document.getElementById('healthyWeight').textContent;
+            const bmiPrime = document.getElementById('bmiPrimeValue').textContent;
+            const ponderalIndex = document.getElementById('ponderalValue').textContent;
             
-            if (weightUnit === 'kg') {
-                return weightValue;
-            } else {
-                return weightValue * 0.453592;
-            }
-        }
-        
-        function getAdvice(category, age, gender) {
-            let advice = '';
+            const content = `BMI Calculator Results\n\n` +
+                          `BMI = ${bmiValue} kg/m² (${category})\n\n` +
+                          `Healthy BMI range: 18.5 kg/m² - 25 kg/m²\n` +
+                          `Healthy weight for the height: ${healthyWeight}\n` +
+                          `BMI Prime: ${bmiPrime}\n` +
+                          `Ponderal Index: ${ponderalIndex} kg/m³\n\n` +
+                          `Generated by CalculatorFree.Online`;
             
-            switch(category) {
-                case 'severe_underweight':
-                    advice = `• <strong>Seek immediate medical attention</strong> - severe malnutrition risk<br>
-                             • Work with healthcare team including doctor and dietitian<br>
-                             • May require supervised nutritional rehabilitation<br>
-                             • Focus on gradual, safe weight gain<br>
-                             • Monitor for complications like electrolyte imbalances`;
-                    break;
-                    
-                case 'moderate_underweight':
-                    advice = `• Consult with healthcare provider for comprehensive evaluation<br>
-                             • Work with registered dietitian for meal planning<br>
-                             • Increase caloric intake gradually with nutrient-dense foods<br>
-                             • Include healthy fats like nuts, avocados, olive oil<br>
-                             • Consider underlying medical conditions`;
-                    break;
-                    
-                case 'underweight':
-                    advice = `• Increase caloric intake with healthy, nutrient-dense foods<br>
-                             • Focus on protein-rich foods like lean meats, fish, eggs, and legumes<br>
-                             • Add healthy snacks between meals<br>
-                             • Consider strength training to build muscle mass<br>
-                             • Consult with a nutritionist for a personalized meal plan`;
-                    if (age < 18) {
-                        advice += `<br>• As a growing teenager, ensure adequate nutrition for development<br>
-                                  • Monitor growth patterns with healthcare provider`;
-                    }
-                    break;
-                    
-                case 'normal':
-                    advice = `• Maintain your current healthy lifestyle - great job!<br>
-                             • Continue balanced nutrition with variety of foods<br>
-                             • Aim for 150 minutes of moderate aerobic activity weekly<br>
-                             • Include strength training exercises 2-3 times per week<br>
-                             • Focus on long-term health maintenance`;
-                    if (age > 50) {
-                        advice += `<br>• Focus on bone health with calcium and vitamin D<br>
-                                  • Consider balance and flexibility exercises<br>
-                                  • Regular health screenings become more important`;
-                    }
-                    break;
-                    
-                case 'overweight':
-                    advice = `• Create a moderate caloric deficit (300-500 calories/day)<br>
-                             • Increase physical activity to 200-300 minutes per week<br>
-                             • Focus on portion control and mindful eating<br>
-                             • Choose whole foods over processed options<br>
-                             • Track food intake and physical activity`;
-                    if (gender === 'female' && age > 40) {
-                        advice += `<br>• Consider hormonal changes affecting metabolism<br>
-                                  • Focus on strength training to maintain muscle mass<br>
-                                  • Discuss hormone health with healthcare provider`;
-                    }
-                    break;
-                    
-                case 'obese_1':
-                    advice = `• Consult with healthcare provider for comprehensive weight management plan<br>
-                             • Consider working with registered dietitian<br>
-                             • Start with low-impact exercises like walking or swimming<br>
-                             • Focus on sustainable lifestyle changes, not quick fixes<br>
-                             • Monitor progress with regular check-ups<br>
-                             • Consider behavioral therapy for eating habits`;
-                    if (age > 35) {
-                        advice += `<br>• Screen for related health conditions (diabetes, hypertension)<br>
-                                  • Regular cardiovascular health monitoring`;
-                    }
-                    break;
-                    
-                case 'obese_2':
-                    advice = `• <strong>Medical supervision strongly recommended</strong><br>
-                             • Comprehensive health screening for obesity-related conditions<br>
-                             • Consider medically supervised weight loss programs<br>
-                             • May benefit from weight loss medications (under medical supervision)<br>
-                             • Start with supervised, low-impact exercise program<br>
-                             • Psychological support and counseling recommended`;
-                    if (age > 35) {
-                        advice += `<br>• Intensive monitoring for diabetes, heart disease, sleep apnea<br>
-                                  • Consider bariatric surgery consultation if appropriate`;
-                    }
-                    break;
-                    
-                case 'obese_3':
-                    advice = `• <strong>Immediate medical intervention required</strong><br>
-                             • Comprehensive medical evaluation by obesity specialist<br>
-                             • Consider bariatric surgery evaluation<br>
-                             • Medically supervised weight loss program essential<br>
-                             • Treatment of obesity-related health conditions<br>
-                             • Multidisciplinary team approach (doctor, dietitian, psychologist)<br>
-                             • Regular monitoring for serious health complications`;
-                    advice += `<br>• <em>This BMI level poses significant health risks - professional medical care is crucial</em>`;
-                    break;
-            }
-            
-            // Add age-specific general advice
-            if (age < 18) {
-                advice += `<br><br><strong>Special Note for Youth:</strong><br>
-                          • Growth patterns vary greatly during adolescence<br>
-                          • Consult pediatrician for age-appropriate BMI evaluation<br>
-                          • Focus on healthy habits rather than weight loss diets`;
-            } else if (age > 65) {
-                advice += `<br><br><strong>Special Note for Seniors:</strong><br>
-                          • Slightly higher BMI may be protective in older adults<br>
-                          • Focus on maintaining muscle mass and bone health<br>
-                          • Balance fall prevention with weight management`;
-            }
-            
-            return advice;
+            const blob = new Blob([content], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'bmi-result.txt';
+            a.click();
+            window.URL.revokeObjectURL(url);
         }
     </script>
 </body>
