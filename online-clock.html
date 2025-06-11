@@ -60,13 +60,16 @@
     
     <style>
         .online-clock {
-            background: rgba(255, 255, 255, 0.95);
+            background: var(--background-color, rgba(255, 255, 255, 0.95));
             backdrop-filter: blur(10px);
             border-radius: 20px;
             padding: 2rem;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
             max-width: 1200px;
             margin: 2rem auto;
+            width: 100%;
+            box-sizing: border-box;
+            color: var(--text-color, #333);
         }
 
         .clock-controls {
@@ -330,17 +333,31 @@
             top: 20px;
             right: 20px;
             background: rgba(255, 255, 255, 0.2);
-            border: none;
+            border: 2px solid rgba(255, 255, 255, 0.5);
             color: white;
             padding: 1rem;
             border-radius: 50%;
             cursor: pointer;
             font-size: 1.5rem;
             transition: all 0.3s ease;
+            z-index: 1000;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
         .fullscreen-exit:hover {
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.4);
+            border-color: rgba(255, 255, 255, 0.8);
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .fullscreen-exit:active {
+            transform: scale(0.95);
         }
 
         .clock-settings {
@@ -396,7 +413,24 @@
             transform: translateX(30px);
         }
 
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #0056b3;
+            --background-color: rgba(255, 255, 255, 0.95);
+            --text-color: #333;
+        }
+
         @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .online-clock {
+                margin: 1rem auto;
+                padding: 1rem;
+                border-radius: 15px;
+            }
+
             .digital-clock {
                 font-size: 2.5rem;
             }
@@ -416,11 +450,93 @@
             
             .clock-controls {
                 justify-content: center;
+                flex-wrap: wrap;
+                gap: 0.5rem;
             }
             
             .control-btn {
                 flex: 1;
-                min-width: 120px;
+                min-width: 100px;
+                padding: 0.8rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .theme-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 0.8rem;
+            }
+
+            .theme-option {
+                font-size: 0.8rem;
+                padding: 0.5rem;
+            }
+
+            .settings-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .setting-item {
+                justify-content: space-between;
+                padding: 0.8rem;
+                background: white;
+                border-radius: 8px;
+            }
+
+            .world-clock-item {
+                padding: 1rem;
+                margin-bottom: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .online-clock {
+                margin: 0.5rem;
+                padding: 0.8rem;
+            }
+
+            .digital-clock {
+                font-size: 2rem;
+            }
+
+            .analog-clock {
+                width: 200px;
+                height: 200px;
+            }
+
+            .fullscreen-mode .digital-clock {
+                font-size: 3rem;
+            }
+
+            .fullscreen-mode .digital-date {
+                font-size: 1.2rem;
+            }
+
+            .control-btn {
+                min-width: 80px;
+                padding: 0.7rem 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            .theme-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .fullscreen-exit {
+                top: 10px;
+                right: 10px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (hover: none) and (pointer: coarse) {
+            .control-btn,
+            .theme-option,
+            .toggle-switch {
+                min-height: 44px;
+                -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
             }
         }
 
@@ -950,23 +1066,74 @@
             });
             
             // Add active class to selected theme
-            document.querySelector(`[data-theme="${theme}"]`).classList.add('active');
+            const selectedTheme = document.querySelector(`[data-theme="${theme}"]`);
+            if (selectedTheme) {
+                selectedTheme.classList.add('active');
+            }
             
             // Apply theme colors
             const root = document.documentElement;
             const themeColors = {
-                classic: { primary: '#007bff', secondary: '#0056b3' },
-                dark: { primary: '#343a40', secondary: '#212529' },
-                neon: { primary: '#00ff88', secondary: '#00cc6a' },
-                sunset: { primary: '#ff6b6b', secondary: '#ee5a24' },
-                ocean: { primary: '#74b9ff', secondary: '#0984e3' },
-                forest: { primary: '#00b894', secondary: '#00a085' }
+                classic: { 
+                    primary: '#007bff', 
+                    secondary: '#0056b3',
+                    background: 'rgba(255, 255, 255, 0.95)',
+                    text: '#333'
+                },
+                dark: { 
+                    primary: '#343a40', 
+                    secondary: '#212529',
+                    background: 'rgba(30, 30, 30, 0.95)',
+                    text: '#fff'
+                },
+                neon: { 
+                    primary: '#00ff88', 
+                    secondary: '#00cc6a',
+                    background: 'rgba(0, 20, 0, 0.95)',
+                    text: '#00ff88'
+                },
+                sunset: { 
+                    primary: '#ff6b6b', 
+                    secondary: '#ee5a24',
+                    background: 'rgba(40, 20, 20, 0.95)',
+                    text: '#ff6b6b'
+                },
+                ocean: { 
+                    primary: '#74b9ff', 
+                    secondary: '#0984e3',
+                    background: 'rgba(20, 30, 40, 0.95)',
+                    text: '#74b9ff'
+                },
+                forest: { 
+                    primary: '#00b894', 
+                    secondary: '#00a085',
+                    background: 'rgba(0, 30, 20, 0.95)',
+                    text: '#00b894'
+                }
             };
             
             if (themeColors[theme]) {
                 root.style.setProperty('--primary-color', themeColors[theme].primary);
                 root.style.setProperty('--secondary-color', themeColors[theme].secondary);
+                root.style.setProperty('--background-color', themeColors[theme].background);
+                root.style.setProperty('--text-color', themeColors[theme].text);
+                
+                // Apply theme to clock elements
+                const digitalClock = document.getElementById('mainTime');
+                const onlineClock = document.querySelector('.online-clock');
+                
+                if (digitalClock) {
+                    digitalClock.style.color = themeColors[theme].primary;
+                }
+                
+                if (onlineClock) {
+                    onlineClock.style.background = themeColors[theme].background;
+                    onlineClock.style.color = themeColors[theme].text;
+                }
             }
+            
+            // Save theme preference
+            localStorage.setItem('clockTheme', theme);
         }
 
         function toggleSeconds() {
@@ -1024,6 +1191,12 @@
 
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
+            // Load saved theme
+            const savedTheme = localStorage.getItem('clockTheme');
+            if (savedTheme) {
+                setTheme(savedTheme);
+            }
+            
             updateClock();
             updateInterval = setInterval(updateClock, 1000);
             
@@ -1058,6 +1231,56 @@
                 toggle24Hour();
             } else if (e.key === 'Escape' && isFullscreen) {
                 exitFullscreen();
+            }
+        });
+
+        // Mobile menu toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (mobileMenuToggle && navMenu) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    if (navMenu.style.display === 'flex') {
+                        navMenu.style.display = 'none';
+                    } else {
+                        navMenu.style.display = 'flex';
+                        navMenu.style.position = 'absolute';
+                        navMenu.style.top = '100%';
+                        navMenu.style.left = '0';
+                        navMenu.style.right = '0';
+                        navMenu.style.background = 'white';
+                        navMenu.style.flexDirection = 'column';
+                        navMenu.style.padding = '1rem';
+                        navMenu.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+                        navMenu.style.borderRadius = '0 0 10px 10px';
+                        navMenu.style.zIndex = '1001';
+                    }
+                });
+
+                // Close mobile menu when clicking outside
+                document.addEventListener('click', function(event) {
+                    if (!mobileMenuToggle.contains(event.target) && !navMenu.contains(event.target)) {
+                        navMenu.style.display = 'none';
+                    }
+                });
+
+                // Close mobile menu when window is resized to desktop size
+                window.addEventListener('resize', function() {
+                    if (window.innerWidth > 768) {
+                        navMenu.style.display = '';
+                        navMenu.style.position = '';
+                        navMenu.style.top = '';
+                        navMenu.style.left = '';
+                        navMenu.style.right = '';
+                        navMenu.style.background = '';
+                        navMenu.style.flexDirection = '';
+                        navMenu.style.padding = '';
+                        navMenu.style.boxShadow = '';
+                        navMenu.style.borderRadius = '';
+                        navMenu.style.zIndex = '';
+                    }
+                });
             }
         });
     </script>

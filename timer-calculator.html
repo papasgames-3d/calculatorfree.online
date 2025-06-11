@@ -3,189 +3,194 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Primary SEO Meta Tags -->
     <title>Online Timer Calculator - Countdown Timer, Stopwatch & Multiple Timers | CalculatorFree.Online</title>
-    <meta name="title" content="Online Timer Calculator - Countdown Timer, Stopwatch & Multiple Timers | CalculatorFree.Online">
     <meta name="description" content="Free online timer calculator with countdown timer, stopwatch, multiple timers, and alarm sounds. Perfect for cooking, workouts, study sessions, and productivity.">
     <meta name="keywords" content="online timer, countdown timer, stopwatch, timer calculator, multiple timers, cooking timer, workout timer, study timer">
-    <meta name="robots" content="index, follow">
-    <meta name="author" content="CalculatorFree.Online">
     
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://calculatorfree.online/timer-calculator.html">
+    <!-- Open Graph -->
     <meta property="og:title" content="Online Timer Calculator - Countdown Timer & Stopwatch">
-    <meta property="og:description" content="Free online timer calculator with countdown timer, stopwatch, multiple timers, and alarm sounds. Perfect for productivity and time management.">
-    <meta property="og:image" content="https://calculatorfree.online/timer-calculator-preview.jpg">
-    <meta property="og:site_name" content="CalculatorFree.Online">
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://calculatorfree.online/timer-calculator.html">
-    <meta property="twitter:title" content="Online Timer Calculator - Countdown Timer & Stopwatch">
-    <meta property="twitter:description" content="Free online timer calculator with countdown timer, stopwatch, and multiple timers for productivity.">
-    <meta property="twitter:image" content="https://calculatorfree.online/timer-calculator-preview.jpg">
-    
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://calculatorfree.online/timer-calculator.html">
-    
-    <!-- Preconnect for performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <meta property="og:description" content="Free online timer calculator with countdown timer, stopwatch, multiple timers, and alarm sounds.">
+    <meta property="og:url" content="https://calculatorfree.online/timer-calculator.html">
+    <meta property="og:type" content="website">
     
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
-    <!-- Schema Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Timer Calculator",
-      "applicationCategory": "UtilitiesApplication",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "operatingSystem": "All",
-      "description": "Online timer calculator with countdown timer, stopwatch, and multiple timer functionality",
-      "featureList": ["Countdown Timer", "Stopwatch", "Multiple Timers", "Alarm Sounds", "Preset Timers"],
-      "url": "https://calculatorfree.online/timer-calculator.html"
-    }
-    </script>
-    
     <style>
-        .timer-calculator {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            max-width: 1200px;
-            margin: 2rem auto;
+        :root {
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --success: #22c55e;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --gray: #6b7280;
+            --gray-light: #f3f4f6;
+            --gray-dark: #374151;
+            --white: #ffffff;
+            --radius: 12px;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .timer-tabs {
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            box-sizing: border-box;
+        }
+
+        .timer-app {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .timer-container {
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Tab Navigation */
+        .tab-nav {
             display: flex;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            border-bottom: 2px solid #e9ecef;
+            background: var(--gray-light);
             overflow-x: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .tab-nav::-webkit-scrollbar {
+            display: none;
         }
 
         .tab-btn {
-            padding: 1rem 2rem;
+            flex: 1;
+            min-width: 100px;
+            padding: 1rem 0.75rem;
             border: none;
             background: transparent;
-            font-size: 1.1rem;
+            color: var(--gray);
             font-weight: 600;
-            color: #6c757d;
+            font-size: 0.875rem;
             cursor: pointer;
-            border-bottom: 3px solid transparent;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             white-space: nowrap;
+            border-bottom: 3px solid transparent;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
         }
 
         .tab-btn.active {
-            color: #007bff;
-            border-bottom-color: #007bff;
+            background: var(--white);
+            color: var(--primary);
+            border-bottom-color: var(--primary);
         }
 
+        .tab-btn:hover:not(.active) {
+            background: rgba(255, 255, 255, 0.7);
+            color: var(--gray-dark);
+        }
+
+        /* Tab Content */
         .tab-content {
             display: none;
+            padding: 2rem;
         }
 
         .tab-content.active {
             display: block;
         }
 
+        /* Timer Display */
         .timer-display {
+            background: linear-gradient(135deg, var(--gray-light) 0%, #e5e7eb 100%);
+            border-radius: var(--radius);
+            padding: 3rem 2rem;
             text-align: center;
-            font-size: 4rem;
-            font-weight: 700;
-            font-family: 'Courier New', monospace;
-            color: #333;
-            margin: 2rem 0;
-            padding: 2rem;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            border-radius: 15px;
-            border: 2px solid #dee2e6;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .timer-display::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--primary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .timer-display.running::before {
+            transform: scaleX(1);
         }
 
         .timer-display.running {
-            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
-            border-color: #28a745;
-            color: #155724;
+            background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+            border: 2px solid var(--success);
         }
 
         .timer-display.finished {
-            background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
-            border-color: #dc3545;
-            color: #721c24;
+            background: linear-gradient(135deg, #fef2f2 0%, #fecaca 100%);
+            border: 2px solid var(--danger);
             animation: pulse 1s infinite;
         }
 
         @keyframes pulse {
             0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+            50% { transform: scale(1.02); }
         }
 
-        .timer-controls {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
+        .timer-time {
+            font-family: 'Courier New', monospace;
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--gray-dark);
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.05em;
         }
 
-        .control-btn {
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 10px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            min-width: 120px;
+        .timer-label {
+            color: var(--gray);
+            font-size: 1rem;
+            font-weight: 500;
         }
 
-        .start-btn {
-            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
-            color: white;
-        }
-
-        .pause-btn {
-            background: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%);
-            color: white;
-        }
-
-        .stop-btn {
-            background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
-            color: white;
-        }
-
-        .reset-btn {
-            background: linear-gradient(135deg, #6c757d 0%, #5a6268 100%);
-            color: white;
-        }
-
-        .control-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .timer-input {
+        /* Input Section */
+        .input-section {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
             gap: 1rem;
-            margin-bottom: 2rem;
             max-width: 400px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0 auto 2rem;
         }
 
         .input-group {
@@ -194,110 +199,142 @@
 
         .input-label {
             display: block;
+            font-size: 0.875rem;
             font-weight: 600;
+            color: var(--gray);
             margin-bottom: 0.5rem;
-            color: #333;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
         .time-input {
             width: 100%;
             padding: 1rem;
-            border: 2px solid #e9ecef;
-            border-radius: 10px;
-            font-size: 1.5rem;
-            text-align: center;
+            border: 2px solid #e5e7eb;
+            border-radius: var(--radius);
             font-family: 'Courier New', monospace;
+            font-size: 1.25rem;
+            font-weight: 600;
+            text-align: center;
+            background: var(--white);
+            transition: var(--transition);
+            -webkit-appearance: none;
+            -moz-appearance: textfield;
         }
 
         .time-input:focus {
             outline: none;
-            border-color: #007bff;
-            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
         }
 
-        .preset-timers {
+        /* Preset Buttons */
+        .preset-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 0.75rem;
             margin-bottom: 2rem;
         }
 
         .preset-btn {
-            padding: 1rem;
-            border: 2px solid #007bff;
-            background: white;
-            color: #007bff;
-            border-radius: 10px;
-            cursor: pointer;
+            padding: 0.875rem 1rem;
+            border: 2px solid #e5e7eb;
+            background: var(--white);
+            color: var(--gray-dark);
+            border-radius: var(--radius);
             font-weight: 600;
-            transition: all 0.3s ease;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: var(--transition);
         }
 
         .preset-btn:hover {
-            background: #007bff;
-            color: white;
+            border-color: var(--primary);
+            background: var(--primary);
+            color: var(--white);
+            transform: translateY(-1px);
         }
 
-        .multiple-timers {
-            background: #f8f9fa;
-            border-radius: 15px;
-            padding: 2rem;
+        /* Control Buttons */
+        .controls {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
             margin-bottom: 2rem;
         }
 
-        .timer-item {
-            background: white;
-            border-radius: 10px;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-            border: 2px solid #e9ecef;
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: var(--radius);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .timer-item.running {
-            border-color: #28a745;
-            background: #d4edda;
-        }
-
-        .timer-item.finished {
-            border-color: #dc3545;
-            background: #f8d7da;
-        }
-
-        .timer-name {
-            font-weight: 600;
-            color: #333;
-        }
-
-        .timer-time {
-            font-family: 'Courier New', monospace;
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-
-        .timer-actions {
-            display: flex;
             gap: 0.5rem;
+            min-width: 120px;
+            justify-content: center;
         }
 
-        .action-btn {
-            padding: 0.5rem 1rem;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
         }
 
-        .lap-times {
-            background: white;
-            border-radius: 15px;
-            padding: 2rem;
-            margin-bottom: 2rem;
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+        }
+
+        .btn-success {
+            background: var(--success);
+            color: var(--white);
+        }
+
+        .btn-warning {
+            background: var(--warning);
+            color: var(--white);
+        }
+
+        .btn-danger {
+            background: var(--danger);
+            color: var(--white);
+        }
+
+        .btn-secondary {
+            background: var(--gray);
+            color: var(--white);
+        }
+
+        /* Lap Times */
+        .lap-section {
+            background: var(--gray-light);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .lap-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            color: var(--gray-dark);
+        }
+
+        .lap-list {
             max-height: 300px;
             overflow-y: auto;
         }
@@ -305,42 +342,290 @@
         .lap-item {
             display: flex;
             justify-content: space-between;
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #e9ecef;
-        }
-
-        .sound-controls {
-            background: #e7f3ff;
-            border-radius: 10px;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .sound-option {
-            display: flex;
             align-items: center;
+            padding: 0.75rem 1rem;
+            background: var(--white);
+            border-radius: calc(var(--radius) - 2px);
+            margin-bottom: 0.5rem;
+            font-family: 'Courier New', monospace;
+            box-shadow: var(--shadow);
+        }
+
+        .lap-item:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Multiple Timers */
+        .timer-grid {
+            display: grid;
             gap: 1rem;
+        }
+
+        .timer-item {
+            background: var(--gray-light);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            border: 2px solid transparent;
+            transition: var(--transition);
+        }
+
+        .timer-item.running {
+            border-color: var(--success);
+            background: #dcfce7;
+        }
+
+        .timer-item.finished {
+            border-color: var(--danger);
+            background: #fef2f2;
+        }
+
+        .timer-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 1rem;
         }
 
-        .sound-option input[type="radio"] {
-            transform: scale(1.2);
+        .timer-name {
+            font-weight: 600;
+            color: var(--gray-dark);
         }
 
+        .timer-time-small {
+            font-family: 'Courier New', monospace;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .timer-actions {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: flex-end;
+        }
+
+        .btn-sm {
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            min-width: auto;
+        }
+
+        /* Settings */
+        .settings-section {
+            background: var(--gray-light);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .settings-title {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            color: var(--gray-dark);
+            margin-bottom: 1rem;
+        }
+
+        .setting-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+            background: var(--white);
+            border-radius: calc(var(--radius) - 2px);
+            margin-bottom: 0.75rem;
+        }
+
+        .setting-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .setting-label {
+            font-weight: 500;
+            color: var(--gray-dark);
+        }
+
+        .toggle {
+            position: relative;
+            width: 48px;
+            height: 24px;
+            background: #d1d5db;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .toggle.active {
+            background: var(--primary);
+        }
+
+        .toggle::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 20px;
+            height: 20px;
+            background: var(--white);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .toggle.active::after {
+            transform: translateX(24px);
+        }
+
+        /* Mobile Responsive */
         @media (max-width: 768px) {
+            .timer-app {
+                margin: 1rem auto;
+                padding: 0 0.5rem;
+            }
+
+            .tab-content {
+                padding: 1.5rem 1rem;
+            }
+
+            .tab-btn {
+                min-width: 80px;
+                padding: 0.875rem 0.5rem;
+                font-size: 0.8rem;
+                flex-direction: column;
+                gap: 0.25rem;
+            }
+
+            .timer-time {
+                font-size: 3rem;
+            }
+
             .timer-display {
+                padding: 2rem 1rem;
+            }
+            
+            .controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 320px;
+                margin: 0 auto;
+            }
+
+            .preset-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .input-section {
+                grid-template-columns: 1fr;
+                max-width: 300px;
+            }
+
+            .timer-actions {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .setting-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.75rem;
+            }
+
+            .calculator-header h1 {
+                font-size: 1.75rem;
+                line-height: 1.3;
+                margin-bottom: 1rem;
+            }
+
+            .calculator-header p {
+                font-size: 0.95rem;
+                line-height: 1.5;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .timer-app {
+                padding: 0 0.25rem;
+            }
+
+            .tab-content {
+                padding: 1rem 0.75rem;
+            }
+
+            .timer-time {
                 font-size: 2.5rem;
             }
-            
-            .timer-controls {
+
+            .preset-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tab-btn {
+                min-width: 70px;
+                padding: 0.75rem 0.25rem;
+                font-size: 0.75rem;
                 flex-direction: column;
-                align-items: center;
+                gap: 0.125rem;
             }
-            
-            .control-btn {
-                width: 100%;
-                max-width: 200px;
+
+            .tab-btn span {
+                display: none;
             }
+
+            .tab-btn i {
+                font-size: 1.2rem;
+            }
+
+            .btn {
+                padding: 0.875rem 1.5rem;
+            }
+
+            .calculator-header h1 {
+                font-size: 1.5rem;
+                line-height: 1.2;
+            }
+
+            .calculator-header p {
+                font-size: 0.875rem;
+            }
+
+            .container {
+                padding: 0 0.5rem;
+            }
+        }
+
+        /* Touch improvements */
+        @media (hover: none) and (pointer: coarse) {
+            .btn,
+            .preset-btn,
+            .tab-btn {
+                min-height: 48px;
+                -webkit-tap-highlight-color: transparent;
+            }
+
+            .time-input {
+                min-height: 52px;
+                font-size: 1.125rem;
+            }
+        }
+
+        /* Utility classes */
+        .hidden {
+            display: none !important;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .no-timers {
+            text-align: center;
+            color: var(--gray);
+            padding: 3rem 2rem;
+            font-style: italic;
         }
     </style>
 </head>
@@ -348,10 +633,10 @@
     <header class="header">
         <div class="container">
             <div class="logo">
-                <i class="fas fa-calculator" aria-hidden="true"></i>
+                <i class="fas fa-calculator"></i>
                 <span>CalculatorFree.Online</span>
             </div>
-            <nav class="nav-menu" role="navigation" aria-label="Main navigation">
+            <nav class="nav-menu">
                 <a href="index.html" class="nav-link">Home</a>
                 <a href="index.html#financial" class="nav-link">Financial</a>
                 <a href="index.html#health" class="nav-link">Health & Fitness</a>
@@ -359,8 +644,8 @@
                 <a href="index.html#time" class="nav-link active">Time & Date</a>
                 <a href="index.html#other" class="nav-link">Other Tools</a>
             </nav>
-            <div class="mobile-menu-toggle" aria-label="Toggle mobile menu">
-                <i class="fas fa-bars" aria-hidden="true"></i>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
             </div>
         </div>
     </header>
@@ -373,19 +658,36 @@
                     <p>Free online timer with countdown timer, stopwatch, multiple timers, and alarm sounds. Perfect for cooking, workouts, study sessions, and productivity tracking.</p>
                 </div>
 
-                <div class="timer-calculator">
-                    <div class="timer-tabs">
-                        <button class="tab-btn active" onclick="switchTab('countdown')">Countdown Timer</button>
-                        <button class="tab-btn" onclick="switchTab('stopwatch')">Stopwatch</button>
-                        <button class="tab-btn" onclick="switchTab('multiple')">Multiple Timers</button>
-                        <button class="tab-btn" onclick="switchTab('settings')">Settings</button>
+                <div class="timer-app">
+                    <div class="timer-container">
+                        <!-- Tab Navigation -->
+                        <nav class="tab-nav">
+                            <button class="tab-btn active" data-tab="countdown">
+                                <i class="fas fa-hourglass-start"></i> 
+                                <span>Countdown</span>
+                            </button>
+                            <button class="tab-btn" data-tab="stopwatch">
+                                <i class="fas fa-stopwatch"></i> 
+                                <span>Stopwatch</span>
+                            </button>
+                            <button class="tab-btn" data-tab="multiple">
+                                <i class="fas fa-layer-group"></i> 
+                                <span>Multiple</span>
+                            </button>
+                            <button class="tab-btn" data-tab="settings">
+                                <i class="fas fa-cog"></i> 
+                                <span>Settings</span>
+                            </button>
+                        </nav>
+
+                        <!-- Countdown Timer -->
+                        <div class="tab-content active" id="countdown">
+                            <div class="timer-display" id="countdownDisplay">
+                                <div class="timer-time" id="countdownTime">00:00:00</div>
+                                <div class="timer-label">Countdown Timer</div>
                     </div>
 
-                    <!-- Countdown Timer Tab -->
-                    <div id="countdown" class="tab-content active">
-                        <div class="timer-display" id="countdownDisplay">00:00:00</div>
-                        
-                        <div class="timer-input">
+                            <div class="input-section">
                             <div class="input-group">
                                 <label class="input-label" for="hours">Hours</label>
                                 <input type="number" id="hours" class="time-input" min="0" max="23" value="0">
@@ -400,191 +702,118 @@
                             </div>
                         </div>
 
-                        <div class="preset-timers">
-                            <button class="preset-btn" onclick="setPreset(0, 1, 0)">1 Minute</button>
-                            <button class="preset-btn" onclick="setPreset(0, 5, 0)">5 Minutes</button>
-                            <button class="preset-btn" onclick="setPreset(0, 10, 0)">10 Minutes</button>
-                            <button class="preset-btn" onclick="setPreset(0, 15, 0)">15 Minutes</button>
-                            <button class="preset-btn" onclick="setPreset(0, 25, 0)">Pomodoro (25m)</button>
-                            <button class="preset-btn" onclick="setPreset(0, 30, 0)">30 Minutes</button>
-                            <button class="preset-btn" onclick="setPreset(1, 0, 0)">1 Hour</button>
-                            <button class="preset-btn" onclick="setPreset(2, 0, 0)">2 Hours</button>
+                            <div class="preset-grid">
+                                <button class="preset-btn" data-preset="0,1,0">1 Minute</button>
+                                <button class="preset-btn" data-preset="0,5,0">5 Minutes</button>
+                                <button class="preset-btn" data-preset="0,10,0">10 Minutes</button>
+                                <button class="preset-btn" data-preset="0,15,0">15 Minutes</button>
+                                <button class="preset-btn" data-preset="0,25,0">Pomodoro</button>
+                                <button class="preset-btn" data-preset="0,30,0">30 Minutes</button>
                         </div>
 
-                        <div class="timer-controls">
-                            <button class="control-btn start-btn" onclick="startCountdown()">
+                            <div class="controls">
+                                <button class="btn btn-success" id="startCountdown">
                                 <i class="fas fa-play"></i> Start
                             </button>
-                            <button class="control-btn pause-btn" onclick="pauseCountdown()">
+                                <button class="btn btn-warning" id="pauseCountdown">
                                 <i class="fas fa-pause"></i> Pause
                             </button>
-                            <button class="control-btn stop-btn" onclick="stopCountdown()">
+                                <button class="btn btn-danger" id="stopCountdown">
                                 <i class="fas fa-stop"></i> Stop
                             </button>
-                            <button class="control-btn reset-btn" onclick="resetCountdown()">
+                                <button class="btn btn-secondary" id="resetCountdown">
                                 <i class="fas fa-redo"></i> Reset
                             </button>
                         </div>
                     </div>
 
-                    <!-- Stopwatch Tab -->
-                    <div id="stopwatch" class="tab-content">
-                        <div class="timer-display" id="stopwatchDisplay">00:00:00</div>
-                        
-                        <div class="timer-controls">
-                            <button class="control-btn start-btn" onclick="startStopwatch()">
+                        <!-- Stopwatch -->
+                        <div class="tab-content" id="stopwatch">
+                            <div class="timer-display" id="stopwatchDisplay">
+                                <div class="timer-time" id="stopwatchTime">00:00:00</div>
+                                <div class="timer-label">Stopwatch</div>
+                            </div>
+
+                            <div class="controls">
+                                <button class="btn btn-success" id="startStopwatch">
                                 <i class="fas fa-play"></i> Start
                             </button>
-                            <button class="control-btn pause-btn" onclick="pauseStopwatch()">
+                                <button class="btn btn-warning" id="pauseStopwatch">
                                 <i class="fas fa-pause"></i> Pause
                             </button>
-                            <button class="control-btn" style="background: linear-gradient(135deg, #17a2b8 0%, #138496 100%); color: white;" onclick="lapStopwatch()">
+                                <button class="btn btn-primary" id="lapStopwatch">
                                 <i class="fas fa-flag"></i> Lap
                             </button>
-                            <button class="control-btn reset-btn" onclick="resetStopwatch()">
+                                <button class="btn btn-secondary" id="resetStopwatch">
                                 <i class="fas fa-redo"></i> Reset
                             </button>
                         </div>
 
-                        <div class="lap-times" id="lapTimes">
-                            <h3><i class="fas fa-list"></i> Lap Times</h3>
-                            <div id="lapList"></div>
+                            <div class="lap-section" id="lapSection" style="display: none;">
+                                <div class="lap-header">
+                                    <i class="fas fa-list"></i>
+                                    <span>Lap Times</span>
+                                </div>
+                                <div class="lap-list" id="lapList"></div>
                         </div>
                     </div>
 
-                    <!-- Multiple Timers Tab -->
-                    <div id="multiple" class="tab-content">
-                        <div class="timer-controls">
-                            <button class="control-btn start-btn" onclick="addNewTimer()">
+                        <!-- Multiple Timers -->
+                        <div class="tab-content" id="multiple">
+                            <div class="controls">
+                                <button class="btn btn-primary" id="addTimer">
                                 <i class="fas fa-plus"></i> Add Timer
                             </button>
-                            <button class="control-btn stop-btn" onclick="stopAllTimers()">
+                                <button class="btn btn-danger" id="stopAllTimers">
                                 <i class="fas fa-stop"></i> Stop All
                             </button>
-                            <button class="control-btn reset-btn" onclick="clearAllTimers()">
+                                <button class="btn btn-secondary" id="clearAllTimers">
                                 <i class="fas fa-trash"></i> Clear All
                             </button>
                         </div>
 
-                        <div class="multiple-timers" id="multipleTimers">
-                            <p style="text-align: center; color: #6c757d;">No timers added yet. Click "Add Timer" to create your first timer.</p>
+                            <div class="timer-grid" id="timerGrid">
+                                <div class="no-timers">
+                                    <i class="fas fa-clock" style="font-size: 3rem; color: var(--gray); margin-bottom: 1rem;"></i>
+                                    <p>No timers added yet. Click "Add Timer" to create your first timer.</p>
                         </div>
-                    </div>
-
-                    <!-- Settings Tab -->
-                    <div id="settings" class="tab-content">
-                        <div class="sound-controls">
-                            <h3><i class="fas fa-volume-up"></i> Alarm Sound</h3>
-                            <div class="sound-option">
-                                <input type="radio" id="sound1" name="alarmSound" value="beep" checked>
-                                <label for="sound1">Classic Beep</label>
-                                <button class="action-btn" onclick="playSound('beep')" style="background: #007bff; color: white;">
-                                    <i class="fas fa-play"></i> Test
-                                </button>
-                            </div>
-                            <div class="sound-option">
-                                <input type="radio" id="sound2" name="alarmSound" value="bell">
-                                <label for="sound2">Bell Ring</label>
-                                <button class="action-btn" onclick="playSound('bell')" style="background: #007bff; color: white;">
-                                    <i class="fas fa-play"></i> Test
-                                </button>
-                            </div>
-                            <div class="sound-option">
-                                <input type="radio" id="sound3" name="alarmSound" value="chime">
-                                <label for="sound3">Soft Chime</label>
-                                <button class="action-btn" onclick="playSound('chime')" style="background: #007bff; color: white;">
-                                    <i class="fas fa-play"></i> Test
-                                </button>
-                            </div>
-                            <div class="sound-option">
-                                <input type="radio" id="sound4" name="alarmSound" value="none">
-                                <label for="sound4">No Sound</label>
                             </div>
                         </div>
 
-                        <div class="sound-controls">
-                            <h3><i class="fas fa-cog"></i> Timer Settings</h3>
-                            <div class="sound-option">
-                                <input type="checkbox" id="autoRepeat">
-                                <label for="autoRepeat">Auto-repeat countdown timer</label>
+                        <!-- Settings -->
+                        <div class="tab-content" id="settings">
+                            <div class="settings-section">
+                                <div class="settings-title">
+                                    <i class="fas fa-volume-up"></i>
+                                    <span>Sound Settings</span>
                             </div>
-                            <div class="sound-option">
-                                <input type="checkbox" id="showNotification" checked>
-                                <label for="showNotification">Show browser notifications</label>
+                                <div class="setting-item">
+                                    <span class="setting-label">Play alarm sound</span>
+                                    <div class="toggle active" id="soundToggle"></div>
                             </div>
-                            <div class="sound-option">
-                                <input type="checkbox" id="keepScreenOn">
-                                <label for="keepScreenOn">Keep screen awake during timer</label>
-                            </div>
-                        </div>
+                                <div class="setting-item">
+                                    <span class="setting-label">Browser notifications</span>
+                                    <div class="toggle active" id="notificationToggle"></div>
                     </div>
                 </div>
 
-                <!-- How to Use Section -->
-                <section class="how-to-section">
-                    <div class="container">
-                        <h2>How to Use the Online Timer Calculator</h2>
-                        <div class="how-to-grid">
-                            <div class="how-to-card">
-                                <h3><i class="fas fa-clock"></i> Countdown Timer</h3>
-                                <p>Set hours, minutes, and seconds for your countdown. Use preset buttons for common durations like Pomodoro (25 minutes) or quick timers.</p>
+                            <div class="settings-section">
+                                <div class="settings-title">
+                                    <i class="fas fa-cog"></i>
+                                    <span>Timer Settings</span>
                             </div>
-                            <div class="how-to-card">
-                                <h3><i class="fas fa-stopwatch"></i> Stopwatch</h3>
-                                <p>Track elapsed time with precision. Use the lap feature to record split times for workouts, races, or time tracking.</p>
+                                <div class="setting-item">
+                                    <span class="setting-label">Auto-repeat countdown</span>
+                                    <div class="toggle" id="autoRepeatToggle"></div>
                             </div>
-                            <div class="how-to-card">
-                                <h3><i class="fas fa-layer-group"></i> Multiple Timers</h3>
-                                <p>Run several timers simultaneously. Perfect for cooking multiple dishes, managing different tasks, or interval training.</p>
+                                <div class="setting-item">
+                                    <span class="setting-label">Keep screen awake</span>
+                                    <div class="toggle" id="wakeLockToggle"></div>
                             </div>
-                            <div class="how-to-card">
-                                <h3><i class="fas fa-bell"></i> Alarm & Notifications</h3>
-                                <p>Choose from different alarm sounds and enable browser notifications to never miss when your timer finishes.</p>
                             </div>
                         </div>
                     </div>
-                </section>
-
-                <!-- Related Tools -->
-                <section class="related-calculators">
-                    <div class="container">
-                        <h2>Related Time & Date Tools</h2>
-                        <div class="related-grid">
-                            <div class="related-card">
-                                <div class="related-icon">
-                                    <i class="fas fa-clock"></i>
                                 </div>
-                                <h3>World Clock</h3>
-                                <p>Check current time in different time zones around the world</p>
-                                <a href="world-clock.html" class="btn-link" title="World Clock">View Clock</a>
-                            </div>
-                            <div class="related-card">
-                                <div class="related-icon">
-                                    <i class="fas fa-calendar"></i>
-                                </div>
-                                <h3>Calendar Calculator</h3>
-                                <p>Calculate dates, find day of week, and plan schedules</p>
-                                <a href="calendar-calculator.html" class="btn-link" title="Calendar Calculator">Use Calculator</a>
-                            </div>
-                            <div class="related-card">
-                                <div class="related-icon">
-                                    <i class="fas fa-calculator"></i>
-                                </div>
-                                <h3>Time Calculator</h3>
-                                <p>Add, subtract, and calculate time durations</p>
-                                <a href="time-calculator.html" class="btn-link" title="Time Calculator">Use Calculator</a>
-                            </div>
-                            <div class="related-card">
-                                <div class="related-icon">
-                                    <i class="fas fa-calendar-week"></i>
-                                </div>
-                                <h3>Week Number Calculator</h3>
-                                <p>Find week numbers and calculate weeks between dates</p>
-                                <a href="week-number-calculator.html" class="btn-link" title="Week Number Calculator">Use Calculator</a>
-                            </div>
-                        </div>
-                    </div>
-                </section>
             </div>
         </section>
     </main>
@@ -595,28 +824,19 @@
                 <div class="footer-section">
                     <h4>Time & Date Tools</h4>
                     <ul>
-                        <li><a href="timer-calculator.html" title="Timer Calculator">Timer Calculator</a></li>
-                        <li><a href="time-calculator.html" title="Time Calculator">Time Calculator</a></li>
-                        <li><a href="world-clock.html" title="World Clock">World Clock</a></li>
-                        <li><a href="calendar-calculator.html" title="Calendar Calculator">Calendar Calculator</a></li>
-                        <li><a href="week-number-calculator.html" title="Week Number Calculator">Week Number Calculator</a></li>
+                        <li><a href="timer-calculator.html">Timer Calculator</a></li>
+                        <li><a href="time-calculator.html">Time Calculator</a></li>
+                        <li><a href="world-clock.html">World Clock</a></li>
+                        <li><a href="calendar-calculator.html">Calendar Calculator</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>Popular Calculators</h4>
                     <ul>
-                        <li><a href="finance-calculator.html" title="Finance Calculator">Finance Calculator</a></li>
-                        <li><a href="bmi-calculator.html" title="BMI Calculator">BMI Calculator</a></li>
-                        <li><a href="scientific-calculator.html" title="Scientific Calculator">Scientific Calculator</a></li>
-                        <li><a href="percentage-calculator.html" title="Percentage Calculator">Percentage Calculator</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="index.html" title="Home">Home</a></li>
-                        <li><a href="sitemap.html" title="All Calculators">All Calculators</a></li>
-                        <li><a href="index.html#time" title="Time Tools">Time & Date Tools</a></li>
+                        <li><a href="finance-calculator.html">Finance Calculator</a></li>
+                        <li><a href="bmi-calculator.html">BMI Calculator</a></li>
+                        <li><a href="scientific-calculator.html">Scientific Calculator</a></li>
+                        <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
                     </ul>
                 </div>
             </div>
@@ -627,202 +847,288 @@
     </footer>
 
     <script>
-        let countdownInterval;
-        let stopwatchInterval;
-        let countdownTime = 0;
-        let stopwatchTime = 0;
-        let isCountdownRunning = false;
-        let isStopwatchRunning = false;
-        let lapCounter = 1;
-        let multipleTimers = [];
-        let timerIdCounter = 1;
+        class TimerApp {
+            constructor() {
+                this.countdownInterval = null;
+                this.stopwatchInterval = null;
+                this.countdownTime = 0;
+                this.stopwatchTime = 0;
+                this.isCountdownRunning = false;
+                this.isStopwatchRunning = false;
+                this.lapCounter = 1;
+                this.multipleTimers = [];
+                this.timerIdCounter = 1;
+                this.settings = {
+                    sound: true,
+                    notifications: true,
+                    autoRepeat: false,
+                    wakeLock: false
+                };
+                
+                this.init();
+            }
 
-        function switchTab(tabName) {
-            const tabs = document.querySelectorAll('.tab-content');
-            tabs.forEach(tab => tab.classList.remove('active'));
-            
-            const buttons = document.querySelectorAll('.tab-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
-            
+            init() {
+                this.bindEvents();
+                this.loadSettings();
+                this.requestNotificationPermission();
+                this.updateDisplays();
+            }
+
+            bindEvents() {
+                // Tab navigation
+                document.querySelectorAll('.tab-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => this.switchTab(e.target.dataset.tab));
+                });
+
+                // Countdown controls
+                document.getElementById('startCountdown').addEventListener('click', () => this.startCountdown());
+                document.getElementById('pauseCountdown').addEventListener('click', () => this.pauseCountdown());
+                document.getElementById('stopCountdown').addEventListener('click', () => this.stopCountdown());
+                document.getElementById('resetCountdown').addEventListener('click', () => this.resetCountdown());
+
+                // Stopwatch controls
+                document.getElementById('startStopwatch').addEventListener('click', () => this.startStopwatch());
+                document.getElementById('pauseStopwatch').addEventListener('click', () => this.pauseStopwatch());
+                document.getElementById('lapStopwatch').addEventListener('click', () => this.lapStopwatch());
+                document.getElementById('resetStopwatch').addEventListener('click', () => this.resetStopwatch());
+
+                // Multiple timers
+                document.getElementById('addTimer').addEventListener('click', () => this.addTimer());
+                document.getElementById('stopAllTimers').addEventListener('click', () => this.stopAllTimers());
+                document.getElementById('clearAllTimers').addEventListener('click', () => this.clearAllTimers());
+
+                // Presets
+                document.querySelectorAll('.preset-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => this.setPreset(e.target.dataset.preset));
+                });
+
+                // Settings toggles
+                document.querySelectorAll('.toggle').forEach(toggle => {
+                    toggle.addEventListener('click', (e) => this.toggleSetting(e.target.id));
+                });
+
+                // Input changes
+                ['hours', 'minutes', 'seconds'].forEach(id => {
+                    document.getElementById(id).addEventListener('input', () => this.updateCountdownFromInputs());
+                });
+            }
+
+            switchTab(tabName) {
+                // Update tab buttons
+                document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+                document.querySelector(`[data-tab="${tabName}"]`).classList.add('active');
+
+                // Update tab content
+                document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
             document.getElementById(tabName).classList.add('active');
-            event.target.classList.add('active');
         }
 
-        function formatTime(totalSeconds) {
+            formatTime(totalSeconds) {
             const hours = Math.floor(totalSeconds / 3600);
             const minutes = Math.floor((totalSeconds % 3600) / 60);
             const seconds = totalSeconds % 60;
             return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
         }
 
-        function setPreset(h, m, s) {
+            setPreset(preset) {
+                const [h, m, s] = preset.split(',').map(Number);
             document.getElementById('hours').value = h;
             document.getElementById('minutes').value = m;
             document.getElementById('seconds').value = s;
-            updateCountdownDisplay();
-        }
-
-        function updateCountdownDisplay() {
-            const display = document.getElementById('countdownDisplay');
-            display.textContent = formatTime(countdownTime);
-            
-            if (countdownTime <= 0 && isCountdownRunning) {
-                display.classList.add('finished');
-                playAlarm();
-                showNotification('Timer Finished!', 'Your countdown timer has reached zero.');
-                
-                if (document.getElementById('autoRepeat').checked) {
-                    resetCountdown();
-                    startCountdown();
-                } else {
-                    stopCountdown();
-                }
-            } else if (isCountdownRunning) {
-                display.classList.add('running');
-                display.classList.remove('finished');
-            } else {
-                display.classList.remove('running', 'finished');
+                this.updateCountdownFromInputs();
             }
-        }
 
-        function startCountdown() {
-            if (!isCountdownRunning) {
+            updateCountdownFromInputs() {
+                if (!this.isCountdownRunning) {
+                    const hours = parseInt(document.getElementById('hours').value) || 0;
+                    const minutes = parseInt(document.getElementById('minutes').value) || 0;
+                    const seconds = parseInt(document.getElementById('seconds').value) || 0;
+                    this.countdownTime = hours * 3600 + minutes * 60 + seconds;
+                    this.updateDisplays();
+                }
+            }
+
+            updateDisplays() {
+                // Update countdown display
+                const countdownDisplay = document.getElementById('countdownDisplay');
+                const countdownTime = document.getElementById('countdownTime');
+                countdownTime.textContent = this.formatTime(this.countdownTime);
+                
+                countdownDisplay.classList.remove('running', 'finished');
+                if (this.isCountdownRunning) {
+                    countdownDisplay.classList.add('running');
+                } else if (this.countdownTime <= 0 && this.countdownTime !== this.getInputTime()) {
+                    countdownDisplay.classList.add('finished');
+                }
+
+                // Update stopwatch display
+                const stopwatchDisplay = document.getElementById('stopwatchDisplay');
+                const stopwatchTime = document.getElementById('stopwatchTime');
+                stopwatchTime.textContent = this.formatTime(this.stopwatchTime);
+                
+                stopwatchDisplay.classList.remove('running');
+                if (this.isStopwatchRunning) {
+                    stopwatchDisplay.classList.add('running');
+                }
+            }
+
+            getInputTime() {
                 const hours = parseInt(document.getElementById('hours').value) || 0;
                 const minutes = parseInt(document.getElementById('minutes').value) || 0;
                 const seconds = parseInt(document.getElementById('seconds').value) || 0;
-                
-                if (countdownTime === 0) {
-                    countdownTime = hours * 3600 + minutes * 60 + seconds;
-                }
-                
-                if (countdownTime > 0) {
-                    isCountdownRunning = true;
-                    countdownInterval = setInterval(() => {
-                        countdownTime--;
-                        updateCountdownDisplay();
+                return hours * 3600 + minutes * 60 + seconds;
+            }
+
+            startCountdown() {
+                if (!this.isCountdownRunning) {
+                    if (this.countdownTime <= 0) {
+                        this.countdownTime = this.getInputTime();
+                    }
+                    
+                    if (this.countdownTime > 0) {
+                        this.isCountdownRunning = true;
+                        this.countdownInterval = setInterval(() => {
+                            this.countdownTime--;
+                            this.updateDisplays();
+                            
+                            if (this.countdownTime <= 0) {
+                                this.onCountdownFinished();
+                            }
                     }, 1000);
                 }
             }
         }
 
-        function pauseCountdown() {
-            isCountdownRunning = false;
-            clearInterval(countdownInterval);
-            updateCountdownDisplay();
-        }
-
-        function stopCountdown() {
-            isCountdownRunning = false;
-            clearInterval(countdownInterval);
-            updateCountdownDisplay();
-        }
-
-        function resetCountdown() {
-            isCountdownRunning = false;
-            clearInterval(countdownInterval);
-            countdownTime = 0;
-            updateCountdownDisplay();
-        }
-
-        function updateStopwatchDisplay() {
-            const display = document.getElementById('stopwatchDisplay');
-            display.textContent = formatTime(stopwatchTime);
-            
-            if (isStopwatchRunning) {
-                display.classList.add('running');
-            } else {
-                display.classList.remove('running');
+            pauseCountdown() {
+                this.isCountdownRunning = false;
+                clearInterval(this.countdownInterval);
+                this.updateDisplays();
             }
-        }
 
-        function startStopwatch() {
-            if (!isStopwatchRunning) {
-                isStopwatchRunning = true;
-                stopwatchInterval = setInterval(() => {
-                    stopwatchTime++;
-                    updateStopwatchDisplay();
+            stopCountdown() {
+                this.pauseCountdown();
+            }
+
+            resetCountdown() {
+                this.pauseCountdown();
+                this.countdownTime = 0;
+                this.updateDisplays();
+            }
+
+            onCountdownFinished() {
+                this.pauseCountdown();
+                this.playAlarm();
+                this.showNotification('Timer Finished!', 'Your countdown timer has completed.');
+                
+                if (this.settings.autoRepeat) {
+                    setTimeout(() => {
+                        this.countdownTime = this.getInputTime();
+                        this.startCountdown();
+                    }, 1000);
+                }
+            }
+
+            startStopwatch() {
+                if (!this.isStopwatchRunning) {
+                    this.isStopwatchRunning = true;
+                    this.stopwatchInterval = setInterval(() => {
+                        this.stopwatchTime++;
+                        this.updateDisplays();
                 }, 1000);
             }
         }
 
-        function pauseStopwatch() {
-            isStopwatchRunning = false;
-            clearInterval(stopwatchInterval);
-            updateStopwatchDisplay();
-        }
+            pauseStopwatch() {
+                this.isStopwatchRunning = false;
+                clearInterval(this.stopwatchInterval);
+                this.updateDisplays();
+            }
 
-        function resetStopwatch() {
-            isStopwatchRunning = false;
-            clearInterval(stopwatchInterval);
-            stopwatchTime = 0;
-            lapCounter = 1;
-            updateStopwatchDisplay();
+            resetStopwatch() {
+                this.pauseStopwatch();
+                this.stopwatchTime = 0;
+                this.lapCounter = 1;
+                this.updateDisplays();
             document.getElementById('lapList').innerHTML = '';
+                document.getElementById('lapSection').style.display = 'none';
         }
 
-        function lapStopwatch() {
-            if (isStopwatchRunning) {
+            lapStopwatch() {
+                if (this.isStopwatchRunning) {
                 const lapList = document.getElementById('lapList');
+                    const lapSection = document.getElementById('lapSection');
+                    
                 const lapItem = document.createElement('div');
                 lapItem.className = 'lap-item';
                 lapItem.innerHTML = `
-                    <span>Lap ${lapCounter}</span>
-                    <span>${formatTime(stopwatchTime)}</span>
+                        <span>Lap ${this.lapCounter}</span>
+                        <span>${this.formatTime(this.stopwatchTime)}</span>
                 `;
+                    
                 lapList.appendChild(lapItem);
-                lapCounter++;
+                    lapSection.style.display = 'block';
+                    this.lapCounter++;
+                }
             }
-        }
 
-        function addNewTimer() {
-            const name = prompt('Enter timer name:') || `Timer ${timerIdCounter}`;
-            const duration = prompt('Enter duration in minutes:') || '5';
-            const durationSeconds = parseInt(duration) * 60;
-            
-            if (durationSeconds > 0) {
+            addTimer() {
+                const name = prompt('Enter timer name:') || `Timer ${this.timerIdCounter}`;
+                const minutes = prompt('Enter duration in minutes:') || '5';
+                const duration = parseInt(minutes) * 60;
+                
+                if (duration > 0) {
                 const timer = {
-                    id: timerIdCounter++,
+                        id: this.timerIdCounter++,
                     name: name,
-                    duration: durationSeconds,
-                    remaining: durationSeconds,
+                        duration: duration,
+                        remaining: duration,
                     running: false,
                     interval: null
                 };
                 
-                multipleTimers.push(timer);
-                renderMultipleTimers();
+                    this.multipleTimers.push(timer);
+                    this.renderTimers();
+                }
             }
-        }
 
-        function renderMultipleTimers() {
-            const container = document.getElementById('multipleTimers');
-            
-            if (multipleTimers.length === 0) {
-                container.innerHTML = '<p style="text-align: center; color: #6c757d;">No timers added yet. Click "Add Timer" to create your first timer.</p>';
+            renderTimers() {
+                const grid = document.getElementById('timerGrid');
+                
+                if (this.multipleTimers.length === 0) {
+                    grid.innerHTML = `
+                        <div class="no-timers">
+                            <i class="fas fa-clock" style="font-size: 3rem; color: var(--gray); margin-bottom: 1rem;"></i>
+                            <p>No timers added yet. Click "Add Timer" to create your first timer.</p>
+                        </div>
+                    `;
                 return;
             }
             
-            container.innerHTML = multipleTimers.map(timer => `
+                grid.innerHTML = this.multipleTimers.map(timer => `
                 <div class="timer-item ${timer.running ? 'running' : ''} ${timer.remaining <= 0 ? 'finished' : ''}">
-                    <div class="timer-name">${timer.name}</div>
-                    <div class="timer-time">${formatTime(timer.remaining)}</div>
+                        <div class="timer-item-header">
+                            <span class="timer-name">${timer.name}</span>
+                            <span class="timer-time-small">${this.formatTime(timer.remaining)}</span>
+                        </div>
                     <div class="timer-actions">
-                        <button class="action-btn" onclick="toggleTimer(${timer.id})" style="background: ${timer.running ? '#ffc107' : '#28a745'}; color: white;">
+                            <button class="btn btn-sm ${timer.running ? 'btn-warning' : 'btn-success'}" onclick="app.toggleTimer(${timer.id})">
+                                <i class="fas fa-${timer.running ? 'pause' : 'play'}"></i>
                             ${timer.running ? 'Pause' : 'Start'}
                         </button>
-                        <button class="action-btn" onclick="resetTimer(${timer.id})" style="background: #6c757d; color: white;">
-                            Reset
+                            <button class="btn btn-sm btn-secondary" onclick="app.resetTimer(${timer.id})">
+                                <i class="fas fa-redo"></i> Reset
                         </button>
-                        <button class="action-btn" onclick="removeTimer(${timer.id})" style="background: #dc3545; color: white;">
-                            Delete
+                            <button class="btn btn-sm btn-danger" onclick="app.removeTimer(${timer.id})">
+                                <i class="fas fa-trash"></i> Delete
                         </button>
                     </div>
                 </div>
             `).join('');
         }
 
-        function toggleTimer(id) {
-            const timer = multipleTimers.find(t => t.id === id);
+            toggleTimer(id) {
+                const timer = this.multipleTimers.find(t => t.id === id);
             if (!timer) return;
             
             if (timer.running) {
@@ -835,57 +1141,82 @@
                     if (timer.remaining <= 0) {
                         timer.running = false;
                         clearInterval(timer.interval);
-                        playAlarm();
-                        showNotification('Timer Finished!', `${timer.name} has finished.`);
+                            this.playAlarm();
+                            this.showNotification('Timer Finished!', `${timer.name} has completed.`);
                     }
-                    renderMultipleTimers();
+                        this.renderTimers();
                 }, 1000);
             }
-            renderMultipleTimers();
-        }
+                this.renderTimers();
+            }
 
-        function resetTimer(id) {
-            const timer = multipleTimers.find(t => t.id === id);
-            if (!timer) return;
-            
+            resetTimer(id) {
+                const timer = this.multipleTimers.find(t => t.id === id);
+                if (timer) {
             timer.running = false;
             clearInterval(timer.interval);
             timer.remaining = timer.duration;
-            renderMultipleTimers();
+                    this.renderTimers();
+                }
         }
 
-        function removeTimer(id) {
-            const timer = multipleTimers.find(t => t.id === id);
+            removeTimer(id) {
+                const timer = this.multipleTimers.find(t => t.id === id);
             if (timer) {
                 clearInterval(timer.interval);
-                multipleTimers = multipleTimers.filter(t => t.id !== id);
-                renderMultipleTimers();
+                    this.multipleTimers = this.multipleTimers.filter(t => t.id !== id);
+                    this.renderTimers();
             }
         }
 
-        function stopAllTimers() {
-            multipleTimers.forEach(timer => {
+            stopAllTimers() {
+                this.multipleTimers.forEach(timer => {
                 timer.running = false;
                 clearInterval(timer.interval);
             });
-            renderMultipleTimers();
-        }
-
-        function clearAllTimers() {
-            multipleTimers.forEach(timer => clearInterval(timer.interval));
-            multipleTimers = [];
-            renderMultipleTimers();
-        }
-
-        function playAlarm() {
-            const selectedSound = document.querySelector('input[name="alarmSound"]:checked').value;
-            if (selectedSound !== 'none') {
-                playSound(selectedSound);
+                this.renderTimers();
             }
-        }
 
-        function playSound(soundType) {
-            // Create audio context for sound generation
+            clearAllTimers() {
+                this.multipleTimers.forEach(timer => clearInterval(timer.interval));
+                this.multipleTimers = [];
+                this.renderTimers();
+            }
+
+            toggleSetting(toggleId) {
+                const toggle = document.getElementById(toggleId);
+                const isActive = toggle.classList.contains('active');
+                
+                if (isActive) {
+                    toggle.classList.remove('active');
+                } else {
+                    toggle.classList.add('active');
+                }
+                
+                switch (toggleId) {
+                    case 'soundToggle':
+                        this.settings.sound = !isActive;
+                        break;
+                    case 'notificationToggle':
+                        this.settings.notifications = !isActive;
+                        if (!isActive) this.requestNotificationPermission();
+                        break;
+                    case 'autoRepeatToggle':
+                        this.settings.autoRepeat = !isActive;
+                        break;
+                    case 'wakeLockToggle':
+                        this.settings.wakeLock = !isActive;
+                        this.handleWakeLock();
+                        break;
+                }
+                
+                this.saveSettings();
+            }
+
+            playAlarm() {
+                if (!this.settings.sound) return;
+                
+                try {
             const audioContext = new (window.AudioContext || window.webkitAudioContext)();
             const oscillator = audioContext.createOscillator();
             const gainNode = audioContext.createGain();
@@ -893,58 +1224,111 @@
             oscillator.connect(gainNode);
             gainNode.connect(audioContext.destination);
             
-            switch(soundType) {
-                case 'beep':
                     oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
-                    break;
-                case 'bell':
-                    oscillator.frequency.setValueAtTime(1000, audioContext.currentTime);
-                    break;
-                case 'chime':
-                    oscillator.frequency.setValueAtTime(600, audioContext.currentTime);
-                    break;
-            }
-            
             gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
             gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 1);
             
             oscillator.start(audioContext.currentTime);
             oscillator.stop(audioContext.currentTime + 1);
-        }
+                } catch (e) {
+                    console.log('Audio playback failed:', e);
+                }
+            }
 
-        function showNotification(title, body) {
-            if (document.getElementById('showNotification').checked && 'Notification' in window) {
-                if (Notification.permission === 'granted') {
-                    new Notification(title, { body: body, icon: '/favicon.ico' });
-                } else if (Notification.permission !== 'denied') {
-                    Notification.requestPermission().then(permission => {
-                        if (permission === 'granted') {
-                            new Notification(title, { body: body, icon: '/favicon.ico' });
-                        }
+            showNotification(title, body) {
+                if (!this.settings.notifications) return;
+                
+                if ('Notification' in window && Notification.permission === 'granted') {
+                    new Notification(title, {
+                        body: body,
+                        icon: '/favicon.ico',
+                        badge: '/favicon.ico'
                     });
                 }
             }
-        }
 
-        // Initialize
-        document.addEventListener('DOMContentLoaded', function() {
-            updateCountdownDisplay();
-            updateStopwatchDisplay();
-            
-            // Request notification permission
+            requestNotificationPermission() {
             if ('Notification' in window && Notification.permission === 'default') {
                 Notification.requestPermission();
+                }
             }
-            
-            // Keep screen awake if supported
-            if ('wakeLock' in navigator) {
-                document.getElementById('keepScreenOn').addEventListener('change', async function() {
-                    if (this.checked) {
+
+            async handleWakeLock() {
+                if ('wakeLock' in navigator && this.settings.wakeLock) {
                         try {
                             await navigator.wakeLock.request('screen');
                         } catch (err) {
                             console.log('Wake lock failed:', err);
                         }
+                }
+            }
+
+            saveSettings() {
+                localStorage.setItem('timerSettings', JSON.stringify(this.settings));
+            }
+
+            loadSettings() {
+                const saved = localStorage.getItem('timerSettings');
+                if (saved) {
+                    this.settings = { ...this.settings, ...JSON.parse(saved) };
+                    
+                    // Update toggle states
+                    document.getElementById('soundToggle').classList.toggle('active', this.settings.sound);
+                    document.getElementById('notificationToggle').classList.toggle('active', this.settings.notifications);
+                    document.getElementById('autoRepeatToggle').classList.toggle('active', this.settings.autoRepeat);
+                    document.getElementById('wakeLockToggle').classList.toggle('active', this.settings.wakeLock);
+                }
+            }
+        }
+
+        // Initialize app
+        const app = new TimerApp();
+
+        // Mobile menu toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (mobileMenuToggle && navMenu) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    if (navMenu.style.display === 'flex') {
+                        navMenu.style.display = 'none';
+                    } else {
+                        navMenu.style.display = 'flex';
+                        navMenu.style.position = 'absolute';
+                        navMenu.style.top = '100%';
+                        navMenu.style.left = '0';
+                        navMenu.style.right = '0';
+                        navMenu.style.background = 'white';
+                        navMenu.style.flexDirection = 'column';
+                        navMenu.style.padding = '1rem';
+                        navMenu.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+                        navMenu.style.borderRadius = '0 0 10px 10px';
+                        navMenu.style.zIndex = '1001';
+                    }
+                });
+
+                // Close mobile menu when clicking outside
+                document.addEventListener('click', function(event) {
+                    if (!mobileMenuToggle.contains(event.target) && !navMenu.contains(event.target)) {
+                        navMenu.style.display = 'none';
+                    }
+                });
+
+                // Close mobile menu when window is resized to desktop size
+                window.addEventListener('resize', function() {
+                    if (window.innerWidth > 768) {
+                        navMenu.style.display = '';
+                        navMenu.style.position = '';
+                        navMenu.style.top = '';
+                        navMenu.style.left = '';
+                        navMenu.style.right = '';
+                        navMenu.style.background = '';
+                        navMenu.style.flexDirection = '';
+                        navMenu.style.padding = '';
+                        navMenu.style.boxShadow = '';
+                        navMenu.style.borderRadius = '';
+                        navMenu.style.zIndex = '';
                     }
                 });
             }

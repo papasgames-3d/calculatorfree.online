@@ -646,6 +646,54 @@ Calculated with CalculatorFree.Online`;
 
         // Initialize button states
         document.getElementById('decreaseBtn').disabled = true;
+    
+            // Mobile menu toggle functionality
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (mobileMenuToggle && navMenu) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    if (navMenu.style.display === 'flex') {
+                        navMenu.style.display = 'none';
+                    } else {
+                        navMenu.style.display = 'flex';
+                        navMenu.style.position = 'absolute';
+                        navMenu.style.top = '100%';
+                        navMenu.style.left = '0';
+                        navMenu.style.right = '0';
+                        navMenu.style.background = 'white';
+                        navMenu.style.flexDirection = 'column';
+                        navMenu.style.padding = '1rem';
+                        navMenu.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+                        navMenu.style.borderRadius = '0 0 10px 10px';
+                        navMenu.style.zIndex = '1001';
+                    }
+                });
+
+                // Close mobile menu when clicking outside
+                document.addEventListener('click', function(event) {
+                    if (!mobileMenuToggle.contains(event.target) && !navMenu.contains(event.target)) {
+                        navMenu.style.display = 'none';
+                    }
+                });
+
+                // Close mobile menu when window is resized to desktop size
+                window.addEventListener('resize', function() {
+                    if (window.innerWidth > 768) {
+                        navMenu.style.display = '';
+                        navMenu.style.position = '';
+                        navMenu.style.top = '';
+                        navMenu.style.left = '';
+                        navMenu.style.right = '';
+                        navMenu.style.background = '';
+                        navMenu.style.flexDirection = '';
+                        navMenu.style.padding = '';
+                        navMenu.style.boxShadow = '';
+                        navMenu.style.borderRadius = '';
+                        navMenu.style.zIndex = '';
+                    }
+                });
+            }
     </script>
 </body>
 </html>

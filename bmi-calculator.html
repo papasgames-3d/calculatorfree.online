@@ -70,6 +70,140 @@
             display: none;
         }
         
+        /* BMI Gauge Styles */
+        .bmi-gauge-container {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .result-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: #7cb342;
+            color: white;
+            border-radius: 10px;
+        }
+        
+        .result-header h3 {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .save-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .save-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-1px);
+        }
+        
+        .bmi-main-result {
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+        
+        .bmi-value-large {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        
+        .bmi-category-large {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .bmi-gauge {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+            position: relative;
+            padding: 1rem;
+            background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(248,249,250,0.4) 100%);
+            border-radius: 15px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
+        }
+        
+        .gauge-label {
+            font-size: 12px;
+            font-weight: 600;
+            fill: #333;
+        }
+        
+        .category-label {
+            font-size: 11px;
+            font-weight: 500;
+            fill: #666;
+        }
+        
+        .gauge-center-value {
+            font-size: 18px;
+            font-weight: 700;
+            fill: #333;
+        }
+        
+        #bmiNeedle {
+            transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transform-origin: 200px 150px;
+        }
+        
+        #bmiNeedle:hover {
+            filter: url(#needleShadow) brightness(1.1);
+        }
+        
+        .bmi-details {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .bmi-details ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .bmi-details li {
+            padding: 0.7rem 0;
+            border-bottom: 1px solid #e9ecef;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .bmi-details li:last-child {
+            border-bottom: none;
+        }
+        
+        .bmi-details strong {
+            color: #333;
+        }
+        
+        .bmi-details span {
+            color: #667eea;
+            font-weight: 600;
+        }
+        
         .bmi-value {
             font-size: 3rem;
             font-weight: 700;
@@ -108,6 +242,306 @@
         .normal { border-left: 5px solid #28a745; }
         .overweight { border-left: 5px solid #ffc107; }
         .obese { border-left: 5px solid #dc3545; }
+        
+        /* BMI Information Section Styles */
+        .bmi-info-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-top: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .bmi-info-section h3 {
+            color: #333;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+        
+        /* BMI Detailed Table */
+        .bmi-detailed-table {
+            margin: 2rem 0;
+            overflow-x: auto;
+        }
+        
+        .bmi-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .bmi-table th, .bmi-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .bmi-table th {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            font-weight: 600;
+        }
+        
+        .bmi-table tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .severe-thin { border-left: 4px solid #6c757d; }
+        .moderate-thin { border-left: 4px solid #17a2b8; }
+        .mild-thin { border-left: 4px solid #20c997; }
+        .normal-bmi { border-left: 4px solid #28a745; }
+        .overweight-bmi { border-left: 4px solid #ffc107; }
+        .obese-1 { border-left: 4px solid #fd7e14; }
+        .obese-2 { border-left: 4px solid #dc3545; }
+        .obese-3 { border-left: 4px solid #6f42c1; }
+        
+        /* Formula Section */
+        .bmi-formula-section {
+            margin: 2rem 0;
+        }
+        
+        .formula-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .formula-item {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 2px solid #e9ecef;
+        }
+        
+        .formula-item h4 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .formula {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+            background: #f8f9fa;
+            padding: 0.8rem;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .example {
+            font-size: 0.9rem;
+            color: #6c757d;
+            font-style: italic;
+        }
+        
+        /* Health Risks Section */
+        .health-risks-section {
+            margin: 2rem 0;
+        }
+        
+        .risk-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        
+        .risk-category {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .risk-category h3 {
+            color: #dc3545;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            text-align: left;
+        }
+        
+        .risk-category h3 i {
+            margin-right: 0.5rem;
+        }
+        
+        .risk-category ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .risk-category li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f8f9fa;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .risk-category li:before {
+            content: "•";
+            color: #dc3545;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        /* BMI Limitations */
+        .bmi-limitations {
+            margin: 2rem 0;
+        }
+        
+        .limitations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .limitation-item {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 2px solid #e9ecef;
+            transition: transform 0.3s ease;
+        }
+        
+        .limitation-item:hover {
+            transform: translateY(-3px);
+            border-color: #667eea;
+        }
+        
+        .limitation-item h4 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .limitation-item h4 i {
+            margin-right: 0.5rem;
+        }
+        
+        .limitation-item p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* Additional Metrics */
+        .additional-metrics {
+            margin: 2rem 0;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .metric-item {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 2px solid #e9ecef;
+        }
+        
+        .metric-item h4 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .metric-item p {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+        
+        .metric-item p:first-of-type {
+            font-family: 'Courier New', monospace;
+            background: #f8f9fa;
+            padding: 0.5rem;
+            border-radius: 5px;
+            font-weight: 600;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .bmi-info-section {
+                padding: 1.5rem;
+                margin-top: 1.5rem;
+            }
+            
+            .formula-container,
+            .risk-categories,
+            .limitations-grid,
+            .metrics-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .bmi-table th, .bmi-table td {
+                padding: 0.75rem 0.5rem;
+                font-size: 0.9rem;
+            }
+            
+                         .formula-item,
+             .risk-category,
+             .limitation-item,
+             .metric-item {
+                 padding: 1rem;
+             }
+             
+             .bmi-gauge-container {
+                 padding: 1rem;
+             }
+             
+             .result-header {
+                 flex-direction: column;
+                 gap: 1rem;
+                 text-align: center;
+             }
+             
+             .bmi-value-large {
+                 font-size: 2rem;
+             }
+             
+             .bmi-category-large {
+                 font-size: 1.1rem;
+             }
+             
+             .bmi-gauge svg {
+                 height: 150px;
+             }
+             
+             .gauge-label,
+             .category-label {
+                 font-size: 10px;
+             }
+             
+             .gauge-center-value {
+                 font-size: 14px;
+             }
+             
+             .bmi-details {
+                 padding: 1rem;
+             }
+             
+             .bmi-details li {
+                 flex-direction: column;
+                 align-items: flex-start;
+                 gap: 0.3rem;
+             }
+         }
     </style>
 </head>
 <body>
@@ -181,16 +615,131 @@
                     </form>
 
                     <div id="result" class="result">
-                        <div class="bmi-value" id="bmiValue"></div>
-                        <div class="bmi-category" id="bmiCategory"></div>
+                        <!-- BMI Gauge Chart -->
+                        <div class="bmi-gauge-container">
+                            <div class="result-header">
+                                <h3>Result</h3>
+                                <button class="save-btn">
+                                    <i class="fas fa-save"></i>
+                                    Save
+                                </button>
+                            </div>
+                            
+                            <div class="bmi-main-result">
+                                <div class="bmi-value-large" id="bmiValueLarge"></div>
+                                <div class="bmi-category-large" id="bmiCategoryLarge"></div>
+                            </div>
+                            
+                            <div class="bmi-gauge">
+                                <svg width="100%" height="200" viewBox="0 0 400 200">
+                                    <!-- Background semicircle -->
+                                    <defs>
+                                        <linearGradient id="backgroundGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                            <stop offset="0%" style="stop-color:#f8f9fa;stop-opacity:1" />
+                                            <stop offset="100%" style="stop-color:#e9ecef;stop-opacity:1" />
+                                        </linearGradient>
+                                    </defs>
+                                    <!-- Main background arc -->
+                                    <path id="gaugeBackground" d="M 50 150 A 150 150 0 0 1 350 150" 
+                                          fill="none" stroke="url(#backgroundGradient)" stroke-width="30"/>
+                                    
+                                    <!-- Colored segments with adjusted angles -->
+                                    <!-- Underweight: BMI 16-18.5 -->
+                                    <path d="M 50 150 A 150 150 0 0 1 125 82" 
+                                          fill="none" stroke="#dc3545" stroke-width="30"/>
+                                    
+                                    <!-- Normal: BMI 18.5-25 -->
+                                    <path d="M 125 82 A 150 150 0 0 1 200 65" 
+                                          fill="none" stroke="#28a745" stroke-width="30"/>
+                                    
+                                    <!-- Overweight: BMI 25-30 -->
+                                    <path d="M 200 65 A 150 150 0 0 1 275 82" 
+                                          fill="none" stroke="#ffc107" stroke-width="30"/>
+                                    
+                                    <!-- Obese: BMI 30-40 -->
+                                    <path d="M 275 82 A 150 150 0 0 1 350 150" 
+                                          fill="none" stroke="#dc3545" stroke-width="30"/>
+                                    
+                                    <!-- BMI value markers with adjusted positions -->
+                                    <text x="50" y="170" text-anchor="middle" class="gauge-label">16</text>
+                                    <text x="125" y="102" text-anchor="middle" class="gauge-label">18.5</text>
+                                    <text x="200" y="85" text-anchor="middle" class="gauge-label">22</text>
+                                    <text x="275" y="102" text-anchor="middle" class="gauge-label">25</text>
+                                    <text x="312" y="127" text-anchor="middle" class="gauge-label">30</text>
+                                    <text x="350" y="170" text-anchor="middle" class="gauge-label">40</text>
+                                    
+                                    <!-- Category labels with adjusted positions -->
+                                    <text x="87" y="130" text-anchor="middle" class="category-label">Underweight</text>
+                                    <text x="200" y="45" text-anchor="middle" class="category-label">Normal</text>
+                                    <text x="312" y="130" text-anchor="middle" class="category-label">Overweight</text>
+                                    <text x="350" y="127" text-anchor="middle" class="category-label" transform="rotate(45 350 127)">Obesity</text>
+                                    
+                                    <!-- Needle with improved styling -->
+                                    <defs>
+                                        <linearGradient id="needleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                            <stop offset="0%" style="stop-color:#2c3e50;stop-opacity:1" />
+                                            <stop offset="50%" style="stop-color:#34495e;stop-opacity:1" />
+                                            <stop offset="100%" style="stop-color:#2c3e50;stop-opacity:1" />
+                                        </linearGradient>
+                                        <radialGradient id="centerGradient" cx="50%" cy="50%" r="50%">
+                                            <stop offset="0%" style="stop-color:#ecf0f1;stop-opacity:1" />
+                                            <stop offset="70%" style="stop-color:#bdc3c7;stop-opacity:1" />
+                                            <stop offset="100%" style="stop-color:#95a5a6;stop-opacity:1" />
+                                        </radialGradient>
+                                        <filter id="needleShadow" x="-50%" y="-50%" width="200%" height="200%">
+                                            <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+                                        </filter>
+                                    </defs>
+                                    
+                                    <g id="bmiNeedle" transform-origin="200 150" filter="url(#needleShadow)">
+                                        <!-- Needle shadow -->
+                                        <polygon points="200,150 197,145 197,70 200,65 203,70 203,145" 
+                                                fill="rgba(0,0,0,0.2)" transform="translate(1,1)"/>
+                                        
+                                        <!-- Main needle body -->
+                                        <polygon points="200,150 197,145 197,70 200,65 203,70 203,145" 
+                                                fill="url(#needleGradient)" stroke="#2c3e50" stroke-width="0.5"/>
+                                        
+                                        <!-- Needle tip highlight -->
+                                        <polygon points="200,65 198,67 202,67" fill="#ecf0f1"/>
+                                        
+                                        <!-- Center hub -->
+                                        <circle cx="200" cy="150" r="12" fill="#34495e" stroke="#2c3e50" stroke-width="1"/>
+                                        <circle cx="200" cy="150" r="9" fill="url(#centerGradient)" stroke="#7f8c8d" stroke-width="0.5"/>
+                                        <circle cx="200" cy="150" r="4" fill="#ecf0f1" opacity="0.8"/>
+                                        <circle cx="200" cy="150" r="6" fill="none" stroke="#bdc3c7" stroke-width="0.5"/>
+                                    </g>
+                                    
+                                    <!-- Center BMI value -->
+                                    <text x="200" y="180" text-anchor="middle" class="gauge-center-value" id="gaugeBmiValue">BMI = 0</text>
+                                </svg>
+                            </div>
+                            
+                            <!-- BMI Details -->
+                            <div class="bmi-details">
+                                <ul id="bmiDetailsList">
+                                    <li><strong>Healthy BMI range:</strong> <span id="healthyRange">18.5 kg/m² - 25 kg/m²</span></li>
+                                    <li><strong>Healthy weight for the height:</strong> <span id="healthyWeight">-</span></li>
+                                    <li><strong>BMI Prime:</strong> <span id="bmiPrimeValue">-</span></li>
+                                    <li><strong>Ponderal Index:</strong> <span id="ponderalValue">-</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Traditional result display -->
+                        <div class="traditional-result" style="margin-top: 2rem;">
                         <div class="bmi-info">
                             <p id="bmiDescription"></p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="bmi-info">
-                    <h2 style="text-align: center; margin-bottom: 2rem; color: white;">BMI Categories</h2>
+                <!-- BMI Information Section -->
+                <div class="bmi-info-section">
+                    <h3 style="text-align: center; margin-bottom: 2rem; color: rgb(0, 0, 0);">BMI Information & Guidelines</h3>
+                    
+                    <!-- BMI Categories -->
                     <div class="bmi-ranges">
                         <div class="bmi-range underweight">
                             <h3>Underweight</h3>
@@ -207,6 +756,153 @@
                         <div class="bmi-range obese">
                             <h3>Obese</h3>
                             <p>BMI 30 or greater</p>
+                        </div>
+                    </div>
+
+                    <!-- Detailed BMI Table for Adults -->
+                    <div class="bmi-detailed-table">
+                        <h3>WHO BMI Classification Table for Adults (20+ years)</h3>
+                        <table class="bmi-table">
+                            <thead>
+                                <tr>
+                                    <th>Classification</th>
+                                    <th>BMI Range (kg/m²)</th>
+                                    <th>Health Risk</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="severe-thin">
+                                    <td>Severe Thinness</td>
+                                    <td>&lt; 16</td>
+                                    <td>High risk</td>
+                                </tr>
+                                <tr class="moderate-thin">
+                                    <td>Moderate Thinness</td>
+                                    <td>16 - 17</td>
+                                    <td>Moderate risk</td>
+                                </tr>
+                                <tr class="mild-thin">
+                                    <td>Mild Thinness</td>
+                                    <td>17 - 18.5</td>
+                                    <td>Low risk</td>
+                                </tr>
+                                <tr class="normal-bmi">
+                                    <td>Normal</td>
+                                    <td>18.5 - 25</td>
+                                    <td>Minimal risk</td>
+                                </tr>
+                                <tr class="overweight-bmi">
+                                    <td>Overweight</td>
+                                    <td>25 - 30</td>
+                                    <td>Increased risk</td>
+                                </tr>
+                                <tr class="obese-1">
+                                    <td>Obese Class I</td>
+                                    <td>30 - 35</td>
+                                    <td>Moderate risk</td>
+                                </tr>
+                                <tr class="obese-2">
+                                    <td>Obese Class II</td>
+                                    <td>35 - 40</td>
+                                    <td>High risk</td>
+                                </tr>
+                                <tr class="obese-3">
+                                    <td>Obese Class III</td>
+                                    <td>&gt; 40</td>
+                                    <td>Very high risk</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- BMI Formula -->
+                    <div class="bmi-formula-section">
+                        <h3>BMI Formula</h3>
+                        <div class="formula-container">
+                            <div class="formula-item">
+                                <h4>Metric Units</h4>
+                                <p class="formula">BMI = weight (kg) / height (m)²</p>
+                                <p class="example">Example: 70 kg / (1.75 m)² = 22.9</p>
+                            </div>
+                            <div class="formula-item">
+                                <h4>Imperial Units</h4>
+                                <p class="formula">BMI = (weight (lbs) / height (in)²) × 703</p>
+                                <p class="example">Example: (154 lbs / (69 in)²) × 703 = 22.9</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Health Risks -->
+                    <div class="health-risks-section">
+                        <div class="risk-categories">
+                            <div class="risk-category">
+                                <h3><i class="fas fa-exclamation-triangle"></i> Risks of Being Overweight</h3>
+                                <ul>
+                                    <li>High blood pressure</li>
+                                    <li>High LDL cholesterol, low HDL cholesterol</li>
+                                    <li>Type 2 diabetes</li>
+                                    <li>Coronary heart disease</li>
+                                    <li>Stroke</li>
+                                    <li>Gallbladder disease</li>
+                                    <li>Osteoarthritis</li>
+                                    <li>Sleep apnea and breathing problems</li>
+                                    <li>Certain cancers (endometrial, breast, colon)</li>
+                                    <li>Mental health issues</li>
+                                </ul>
+                            </div>
+                            <div class="risk-category">
+                                <h3><i class="fas fa-heart-broken"></i> Risks of Being Underweight</h3>
+                                <ul>
+                                    <li>Malnutrition and vitamin deficiencies</li>
+                                    <li>Anemia (reduced oxygen-carrying capacity)</li>
+                                    <li>Osteoporosis (weak bones)</li>
+                                    <li>Decreased immune function</li>
+                                    <li>Growth and development issues</li>
+                                    <li>Reproductive issues in women</li>
+                                    <li>Surgical complications</li>
+                                    <li>Increased mortality risk</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- BMI Limitations -->
+                    <div class="bmi-limitations">
+                        <h3>BMI Limitations</h3>
+                        <div class="limitations-grid">
+                            <div class="limitation-item">
+                                <h4><i class="fas fa-dumbbell"></i> Athletes & Muscular Individuals</h4>
+                                <p>BMI may overestimate body fat in athletes and those with high muscle mass, as muscle weighs more than fat.</p>
+                            </div>
+                            <div class="limitation-item">
+                                <h4><i class="fas fa-user-clock"></i> Age Factor</h4>
+                                <p>Older adults tend to have more body fat than younger adults with the same BMI due to muscle loss.</p>
+                            </div>
+                            <div class="limitation-item">
+                                <h4><i class="fas fa-venus-mars"></i> Gender Differences</h4>
+                                <p>Women typically have more body fat than men at the same BMI due to biological differences.</p>
+                            </div>
+                            <div class="limitation-item">
+                                <h4><i class="fas fa-child"></i> Children & Teens</h4>
+                                <p>BMI calculations for children must account for age and gender using percentile charts.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Additional Metrics -->
+                    <div class="additional-metrics">
+                        <h3>Additional Health Metrics</h3>
+                        <div class="metrics-grid">
+                            <div class="metric-item">
+                                <h4>BMI Prime</h4>
+                                <p>BMI Prime = BMI / 25</p>
+                                <p>A dimensionless ratio where 1.0 represents the upper limit of normal BMI (25 kg/m²)</p>
+                            </div>
+                            <div class="metric-item">
+                                <h4>Ponderal Index</h4>
+                                <p>PI = mass (kg) / height³ (m)</p>
+                                <p>More accurate for very tall or short individuals than BMI</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -268,9 +964,50 @@
 
     <script src="script.js"></script>
     <script>
-        document.getElementById('bmiForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu functionality
+            const mobileToggle = document.querySelector('.mobile-menu-toggle');
+            const navMenu = document.querySelector('.nav-menu');
             
+            if (mobileToggle && navMenu) {
+                mobileToggle.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                });
+                
+                // Close menu when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!mobileToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                        navMenu.classList.remove('active');
+                    }
+                });
+                
+                // Close menu on window resize
+                window.addEventListener('resize', function() {
+                    if (window.innerWidth > 768) {
+                        navMenu.classList.remove('active');
+                    }
+                });
+            }
+            
+            // Save button functionality
+            const saveBtn = document.querySelector('.save-btn');
+            if (saveBtn) {
+                saveBtn.addEventListener('click', function() {
+                    saveBMIResult();
+                });
+            }
+
+            // BMI Form functionality
+            const bmiForm = document.getElementById('bmiForm');
+            if (bmiForm) {
+                bmiForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+                    calculateBMI();
+                });
+            }
+        });
+            
+        function calculateBMI() {
             let height, weight;
             const heightUnit = document.getElementById('heightUnit').value;
             const weightUnit = document.getElementById('weightUnit').value;
@@ -294,73 +1031,212 @@
                 const bmi = weight / (height * height);
                 displayBMIResult(bmi);
             }
-        });
+        }
 
         function displayBMIResult(bmi) {
-            const bmiValue = document.getElementById('bmiValue');
-            const bmiCategory = document.getElementById('bmiCategory');
-            const bmiDescription = document.getElementById('bmiDescription');
             const result = document.getElementById('result');
             const age = parseInt(document.getElementById('age').value);
             const gender = document.getElementById('gender').value;
+            const height = getHeightInMeters();
+            const weight = getWeightInKg();
             
-            bmiValue.textContent = bmi.toFixed(1);
+            // Calculate additional metrics
+            const bmiPrime = (bmi / 25).toFixed(2);
+            const ponderalIndex = (weight / Math.pow(height, 3)).toFixed(1);
             
-            let category, description, color, advice;
+            // Calculate healthy weight range
+            const minHealthyWeight = (18.5 * height * height).toFixed(1);
+            const maxHealthyWeight = (25 * height * height).toFixed(1);
             
-            if (bmi < 18.5) {
-                category = 'Underweight';
+            let category, description, color, advice, detailedCategory;
+            
+            if (bmi < 16) {
+                category = 'Severe Thinness';
+                detailedCategory = 'Severely Underweight';
+                color = '#6c757d';
+                description = 'Your BMI indicates severe thinness.';
+                advice = getAdvice('severe_underweight', age, gender);
+            } else if (bmi < 17) {
+                category = 'Moderate Thinness';
+                detailedCategory = 'Moderately Underweight';
                 color = '#17a2b8';
-                description = 'Your BMI indicates that you are underweight.';
+                description = 'Your BMI indicates moderate thinness.';
+                advice = getAdvice('moderate_underweight', age, gender);
+            } else if (bmi < 18.5) {
+                category = 'Mild Thinness';
+                detailedCategory = 'Mildly Underweight';
+                color = '#20c997';
+                description = 'Your BMI indicates mild thinness.';
                 advice = getAdvice('underweight', age, gender);
             } else if (bmi < 25) {
                 category = 'Normal Weight';
+                detailedCategory = 'Normal Weight';
                 color = '#28a745';
                 description = 'Your BMI indicates that you have a normal weight.';
                 advice = getAdvice('normal', age, gender);
             } else if (bmi < 30) {
                 category = 'Overweight';
+                detailedCategory = 'Overweight';
                 color = '#ffc107';
                 description = 'Your BMI indicates that you are overweight.';
                 advice = getAdvice('overweight', age, gender);
-            } else {
-                category = 'Obese';
+            } else if (bmi < 35) {
+                category = 'Obese Class I';
+                detailedCategory = 'Moderately Obese';
+                color = '#fd7e14';
+                description = 'Your BMI indicates Class I obesity.';
+                advice = getAdvice('obese_1', age, gender);
+            } else if (bmi < 40) {
+                category = 'Obese Class II';
+                detailedCategory = 'Severely Obese';
                 color = '#dc3545';
-                description = 'Your BMI indicates obesity.';
-                advice = getAdvice('obese', age, gender);
+                description = 'Your BMI indicates Class II obesity.';
+                advice = getAdvice('obese_2', age, gender);
+            } else {
+                category = 'Obese Class III';
+                detailedCategory = 'Very Severely Obese';
+                color = '#6f42c1';
+                description = 'Your BMI indicates Class III obesity.';
+                advice = getAdvice('obese_3', age, gender);
             }
             
-            bmiCategory.textContent = category;
-            bmiCategory.style.color = color;
-            bmiValue.style.color = color;
-            bmiDescription.innerHTML = `${description}<br><br><strong>Personalized Advice:</strong><br>${advice}`;
+            // Update gauge display
+            updateBMIGauge(bmi, category, color);
+            
+            // Update details
+            updateBMIDetails(bmi, bmiPrime, ponderalIndex, minHealthyWeight, maxHealthyWeight, weight);
+            
+            // Update traditional description
+            const bmiDescription = document.getElementById('bmiDescription');
+            bmiDescription.innerHTML = `
+                ${description}
+                <br><br><strong>Personalized Advice:</strong><br>${advice}
+            `;
             
             result.style.display = 'block';
             result.scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function updateBMIGauge(bmi, category, color) {
+            // Update main result display
+            const bmiValueLarge = document.getElementById('bmiValueLarge');
+            const bmiCategoryLarge = document.getElementById('bmiCategoryLarge');
+            const gaugeBmiValue = document.getElementById('gaugeBmiValue');
+            
+            bmiValueLarge.textContent = `BMI = ${bmi.toFixed(1)} kg/m²`;
+            bmiCategoryLarge.textContent = `(${category})`;
+            bmiCategoryLarge.style.color = color;
+            gaugeBmiValue.textContent = `BMI = ${bmi.toFixed(1)}`;
+            
+                         // Calculate needle rotation with smooth interpolation
+             // BMI range 16-40 mapped to angle range -90 to 90 degrees
+             let angle;
+             const minBMI = 16;
+             const maxBMI = 40;
+             const minAngle = -90;
+             const maxAngle = 90;
+             
+             // Clamp BMI to visible range
+             const clampedBMI = Math.max(minBMI, Math.min(maxBMI, bmi));
+             
+             // Linear interpolation with smooth curve adjustments
+             if (bmi < 16) {
+                 angle = -90; // Minimum angle for very low BMI
+             } else if (bmi < 18.5) {
+                 // Underweight zone: -90 to -30 degrees
+                 const progress = (bmi - 16) / (18.5 - 16);
+                 angle = -90 + progress * 60;
+             } else if (bmi < 25) {
+                 // Normal zone: -30 to 30 degrees (center zone)
+                 const progress = (bmi - 18.5) / (25 - 18.5);
+                 angle = -30 + progress * 60;
+             } else if (bmi < 30) {
+                 // Overweight zone: 30 to 70 degrees
+                 const progress = (bmi - 25) / (30 - 25);
+                 angle = 30 + progress * 40;
+             } else if (bmi < 40) {
+                 // Obese zone: 70 to 90 degrees
+                 const progress = (bmi - 30) / (40 - 30);
+                 angle = 70 + progress * 20;
+             } else {
+                 angle = 90; // Maximum angle for very high BMI
+             }
+            
+            // Update needle rotation
+            const needle = document.getElementById('bmiNeedle');
+            needle.style.transform = `rotate(${angle}deg)`;
+        }
+        
+        function updateBMIDetails(bmi, bmiPrime, ponderalIndex, minHealthyWeight, maxHealthyWeight, weight) {
+            document.getElementById('healthyWeight').textContent = `${minHealthyWeight} kg - ${maxHealthyWeight} kg`;
+            document.getElementById('bmiPrimeValue').textContent = bmiPrime;
+            document.getElementById('ponderalValue').textContent = `${ponderalIndex} kg/m³`;
+        }
+        
+        function getHeightInMeters() {
+            const heightUnit = document.getElementById('heightUnit').value;
+            const heightValue = parseFloat(document.getElementById('height').value);
+            
+            if (heightUnit === 'cm') {
+                return heightValue / 100;
+            } else {
+                return heightValue * 0.3048;
+            }
+        }
+        
+        function getWeightInKg() {
+            const weightUnit = document.getElementById('weightUnit').value;
+            const weightValue = parseFloat(document.getElementById('weight').value);
+            
+            if (weightUnit === 'kg') {
+                return weightValue;
+            } else {
+                return weightValue * 0.453592;
+            }
         }
         
         function getAdvice(category, age, gender) {
             let advice = '';
             
             switch(category) {
+                case 'severe_underweight':
+                    advice = `• <strong>Seek immediate medical attention</strong> - severe malnutrition risk<br>
+                             • Work with healthcare team including doctor and dietitian<br>
+                             • May require supervised nutritional rehabilitation<br>
+                             • Focus on gradual, safe weight gain<br>
+                             • Monitor for complications like electrolyte imbalances`;
+                    break;
+                    
+                case 'moderate_underweight':
+                    advice = `• Consult with healthcare provider for comprehensive evaluation<br>
+                             • Work with registered dietitian for meal planning<br>
+                             • Increase caloric intake gradually with nutrient-dense foods<br>
+                             • Include healthy fats like nuts, avocados, olive oil<br>
+                             • Consider underlying medical conditions`;
+                    break;
+                    
                 case 'underweight':
                     advice = `• Increase caloric intake with healthy, nutrient-dense foods<br>
                              • Focus on protein-rich foods like lean meats, fish, eggs, and legumes<br>
+                             • Add healthy snacks between meals<br>
                              • Consider strength training to build muscle mass<br>
                              • Consult with a nutritionist for a personalized meal plan`;
                     if (age < 18) {
-                        advice += `<br>• As a growing teenager, ensure adequate nutrition for development`;
+                        advice += `<br>• As a growing teenager, ensure adequate nutrition for development<br>
+                                  • Monitor growth patterns with healthcare provider`;
                     }
                     break;
                     
                 case 'normal':
-                    advice = `• Maintain your current healthy lifestyle<br>
+                    advice = `• Maintain your current healthy lifestyle - great job!<br>
                              • Continue balanced nutrition with variety of foods<br>
                              • Aim for 150 minutes of moderate aerobic activity weekly<br>
-                             • Include strength training exercises 2-3 times per week`;
+                             • Include strength training exercises 2-3 times per week<br>
+                             • Focus on long-term health maintenance`;
                     if (age > 50) {
                         advice += `<br>• Focus on bone health with calcium and vitamin D<br>
-                                  • Consider balance and flexibility exercises`;
+                                  • Consider balance and flexibility exercises<br>
+                                  • Regular health screenings become more important`;
                     }
                     break;
                     
@@ -368,24 +1244,64 @@
                     advice = `• Create a moderate caloric deficit (300-500 calories/day)<br>
                              • Increase physical activity to 200-300 minutes per week<br>
                              • Focus on portion control and mindful eating<br>
-                             • Choose whole foods over processed options`;
+                             • Choose whole foods over processed options<br>
+                             • Track food intake and physical activity`;
                     if (gender === 'female' && age > 40) {
                         advice += `<br>• Consider hormonal changes affecting metabolism<br>
-                                  • Focus on strength training to maintain muscle mass`;
+                                  • Focus on strength training to maintain muscle mass<br>
+                                  • Discuss hormone health with healthcare provider`;
                     }
                     break;
                     
-                case 'obese':
-                    advice = `• Consult with healthcare provider for personalized plan<br>
+                case 'obese_1':
+                    advice = `• Consult with healthcare provider for comprehensive weight management plan<br>
                              • Consider working with registered dietitian<br>
                              • Start with low-impact exercises like walking or swimming<br>
                              • Focus on sustainable lifestyle changes, not quick fixes<br>
-                             • Monitor progress with regular check-ups`;
+                             • Monitor progress with regular check-ups<br>
+                             • Consider behavioral therapy for eating habits`;
                     if (age > 35) {
                         advice += `<br>• Screen for related health conditions (diabetes, hypertension)<br>
-                                  • Consider medical supervision for weight loss program`;
+                                  • Regular cardiovascular health monitoring`;
                     }
                     break;
+                    
+                case 'obese_2':
+                    advice = `• <strong>Medical supervision strongly recommended</strong><br>
+                             • Comprehensive health screening for obesity-related conditions<br>
+                             • Consider medically supervised weight loss programs<br>
+                             • May benefit from weight loss medications (under medical supervision)<br>
+                             • Start with supervised, low-impact exercise program<br>
+                             • Psychological support and counseling recommended`;
+                    if (age > 35) {
+                        advice += `<br>• Intensive monitoring for diabetes, heart disease, sleep apnea<br>
+                                  • Consider bariatric surgery consultation if appropriate`;
+                    }
+                    break;
+                    
+                case 'obese_3':
+                    advice = `• <strong>Immediate medical intervention required</strong><br>
+                             • Comprehensive medical evaluation by obesity specialist<br>
+                             • Consider bariatric surgery evaluation<br>
+                             • Medically supervised weight loss program essential<br>
+                             • Treatment of obesity-related health conditions<br>
+                             • Multidisciplinary team approach (doctor, dietitian, psychologist)<br>
+                             • Regular monitoring for serious health complications`;
+                    advice += `<br>• <em>This BMI level poses significant health risks - professional medical care is crucial</em>`;
+                    break;
+            }
+            
+            // Add age-specific general advice
+            if (age < 18) {
+                advice += `<br><br><strong>Special Note for Youth:</strong><br>
+                          • Growth patterns vary greatly during adolescence<br>
+                          • Consult pediatrician for age-appropriate BMI evaluation<br>
+                          • Focus on healthy habits rather than weight loss diets`;
+            } else if (age > 65) {
+                advice += `<br><br><strong>Special Note for Seniors:</strong><br>
+                          • Slightly higher BMI may be protective in older adults<br>
+                          • Focus on maintaining muscle mass and bone health<br>
+                          • Balance fall prevention with weight management`;
             }
             
             return advice;
