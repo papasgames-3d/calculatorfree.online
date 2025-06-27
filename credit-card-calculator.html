@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Credit Card Calculator - Payoff Time & Interest Calculator | CalculatorFree.Online</title>
-    <meta name="description" content="Calculate credit card payoff time, monthly payments, and total interest costs. Compare payment strategies and debt payoff scenarios.">
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        .credit-calculator {
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="index, follow" name="robots"/>
+  <link href="https://calculatorfree.online/credit-card-calculator.html" rel="canonical"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Credit Card Calculator - Payoff Time &amp; Interest Calculator | CalculatorFree.Online
+  </title>
+  <meta content="Calculate credit card payoff time, monthly payments, and total interest costs. Compare payment strategies and debt payoff scenarios." name="description"/>
+  <link href="styles.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+  <style>
+   .credit-calculator {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             border-radius: 20px;
@@ -226,420 +230,774 @@
                 flex-direction: column;
             }
         }
-    </style>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZTVJQRZ1L2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-ZTVJQRZ1L2">
+  </script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'G-ZTVJQRZ1L2');
-</script>
-
-</head>
-<body>
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <i class="fas fa-calculator"></i>
-                <span>CalculatorFree.Online</span>
-            </div>
-            <nav class="nav-menu">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="index.html#financial" class="nav-link active">Financial</a>
-                <a href="index.html#health" class="nav-link">Health & Fitness</a>
-                <a href="index.html#math" class="nav-link">Math</a>
-                <a href="index.html#other" class="nav-link">Other Tools</a>
-            </nav>
-            <div class="mobile-menu-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
+  </script>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://cdnjs.cloudflare.com" rel="preconnect"/>
+  <script type="application/ld+json">
+   {"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Credit Card Calculator", "applicationCategory": "CalculatorApplication", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "operatingSystem": "All", "description": "Free online credit card calculator with step-by-step calculations and detailed results."}
+  </script>
+  <script type="application/ld+json">
+   {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calculatorfree.online/"}, {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://calculatorfree.online/#calculators"}, {"@type": "ListItem", "position": 3, "name": "Credit Card Calculator", "item": "https://calculatorfree.online/credit-card-calculator.html"}]}
+  </script>
+ </head>
+ <body>
+  <header class="header">
+   <div class="container">
+    <div class="logo">
+     <i class="fas fa-calculator">
+     </i>
+     <span>
+      CalculatorFree.Online
+     </span>
+    </div>
+    <nav class="nav-menu">
+     <a class="nav-link" href="index.html">
+      Home
+     </a>
+     <a class="nav-link active" href="index.html#financial">
+      Financial
+     </a>
+     <a class="nav-link" href="index.html#health">
+      Health &amp; Fitness
+     </a>
+     <a class="nav-link" href="index.html#math">
+      Math
+     </a>
+     <a class="nav-link" href="index.html#other">
+      Other Tools
+     </a>
+    </nav>
+    <div class="mobile-menu-toggle">
+     <i class="fas fa-bars">
+     </i>
+    </div>
+   </div>
+  </header>
+  <main class="main">
+   <section class="hero">
+    <div class="container">
+     <div class="hero-content">
+      <h1>
+       <i class="fas fa-credit-card">
+       </i>
+       Credit Card Calculator
+      </h1>
+      <p>
+       Calculate payoff time, monthly payments, and total interest costs for your credit cards
+      </p>
+     </div>
+    </div>
+   </section>
+   <section>
+    <div class="container">
+     <div class="credit-calculator">
+      <div class="calculator-modes">
+       <button class="mode-button active" onclick="setMode('payoff')">
+        <i class="fas fa-calendar-check">
+        </i>
+        Payoff Calculator
+       </button>
+       <button class="mode-button" onclick="setMode('minimum')">
+        <i class="fas fa-chart-line">
+        </i>
+        Minimum Payment
+       </button>
+       <button class="mode-button" onclick="setMode('comparison')">
+        <i class="fas fa-balance-scale">
+        </i>
+        Payment Comparison
+       </button>
+      </div>
+      <!-- Payoff Calculator Mode -->
+      <div class="mode-content" id="payoff">
+       <div class="calculator-grid">
+        <div class="input-panel">
+         <h3 class="panel-title">
+          <i class="fas fa-credit-card">
+          </i>
+          Credit Card Details
+         </h3>
+         <div class="input-group">
+          <label for="card-balance">
+           Current Balance
+          </label>
+          <div class="currency-input">
+           <span class="currency-symbol">
+            $
+           </span>
+           <input class="input-field" id="card-balance" min="0" placeholder="5000" step="1" type="number"/>
+          </div>
+         </div>
+         <div class="input-group">
+          <label for="apr">
+           Annual Percentage Rate (APR)
+          </label>
+          <input class="input-field" id="apr" max="50" min="0" placeholder="18.99" step="0.01" type="number"/>
+          <p style="font-size: 0.9rem; color: #6c757d; margin-top: 0.5rem;">
+           Percentage (e.g., 18.99 for 18.99%)
+          </p>
+         </div>
+         <div class="input-group">
+          <label for="monthly-payment">
+           Monthly Payment
+          </label>
+          <div class="currency-input">
+           <span class="currency-symbol">
+            $
+           </span>
+           <input class="input-field" id="monthly-payment" min="0" placeholder="200" step="1" type="number"/>
+          </div>
+         </div>
+         <div class="input-group">
+          <label for="payment-strategy">
+           Payment Strategy
+          </label>
+          <select class="input-field" id="payment-strategy">
+           <option value="fixed">
+            Fixed Monthly Payment
+           </option>
+           <option value="minimum">
+            Minimum Payment Only
+           </option>
+           <option value="avalanche">
+            Debt Avalanche
+           </option>
+           <option value="snowball">
+            Debt Snowball
+           </option>
+          </select>
+         </div>
         </div>
-    </header>
-
-    <main class="main">
-        <section class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1><i class="fas fa-credit-card"></i> Credit Card Calculator</h1>
-                    <p>Calculate payoff time, monthly payments, and total interest costs for your credit cards</p>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <div class="container">
-                <div class="credit-calculator">
-                    <div class="calculator-modes">
-                        <button class="mode-button active" onclick="setMode('payoff')">
-                            <i class="fas fa-calendar-check"></i> Payoff Calculator
-                        </button>
-                        <button class="mode-button" onclick="setMode('minimum')">
-                            <i class="fas fa-chart-line"></i> Minimum Payment
-                        </button>
-                        <button class="mode-button" onclick="setMode('comparison')">
-                            <i class="fas fa-balance-scale"></i> Payment Comparison
-                        </button>
-                    </div>
-
-                    <!-- Payoff Calculator Mode -->
-                    <div id="payoff" class="mode-content">
-                        <div class="calculator-grid">
-                            <div class="input-panel">
-                                <h3 class="panel-title"><i class="fas fa-credit-card"></i> Credit Card Details</h3>
-                                
-                                <div class="input-group">
-                                    <label for="card-balance">Current Balance</label>
-                                    <div class="currency-input">
-                                        <span class="currency-symbol">$</span>
-                                        <input type="number" id="card-balance" class="input-field" placeholder="5000" min="0" step="1">
-                                    </div>
-                                </div>
-
-                                <div class="input-group">
-                                    <label for="apr">Annual Percentage Rate (APR)</label>
-                                    <input type="number" id="apr" class="input-field" placeholder="18.99" min="0" max="50" step="0.01">
-                                    <p style="font-size: 0.9rem; color: #6c757d; margin-top: 0.5rem;">
-                                        Percentage (e.g., 18.99 for 18.99%)
-                                    </p>
-                                </div>
-
-                                <div class="input-group">
-                                    <label for="monthly-payment">Monthly Payment</label>
-                                    <div class="currency-input">
-                                        <span class="currency-symbol">$</span>
-                                        <input type="number" id="monthly-payment" class="input-field" placeholder="200" min="0" step="1">
-                                    </div>
-                                </div>
-
-                                <div class="input-group">
-                                    <label for="payment-strategy">Payment Strategy</label>
-                                    <select id="payment-strategy" class="input-field">
-                                        <option value="fixed">Fixed Monthly Payment</option>
-                                        <option value="minimum">Minimum Payment Only</option>
-                                        <option value="avalanche">Debt Avalanche</option>
-                                        <option value="snowball">Debt Snowball</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="result-panel">
-                                <h3 class="panel-title"><i class="fas fa-chart-pie"></i> Payoff Results</h3>
-                                
-                                <div class="input-group">
-                                    <label for="payoff-time">Time to Pay Off</label>
-                                    <input type="text" id="payoff-time" class="input-field result-field" placeholder="0 months" readonly>
-                                </div>
-
-                                <div class="input-group">
-                                    <label for="total-interest">Total Interest Paid</label>
-                                    <div class="currency-input">
-                                        <span class="currency-symbol">$</span>
-                                        <input type="text" id="total-interest" class="input-field result-field" placeholder="0.00" readonly>
-                                    </div>
-                                </div>
-
-                                <div class="input-group">
-                                    <label for="total-paid">Total Amount Paid</label>
-                                    <div class="currency-input">
-                                        <span class="currency-symbol">$</span>
-                                        <input type="text" id="total-paid" class="input-field result-field" placeholder="0.00" readonly>
-                                    </div>
-                                </div>
-
-                                <div class="input-group">
-                                    <label for="payoff-date">Payoff Date</label>
-                                    <input type="text" id="payoff-date" class="input-field result-field" placeholder="Month Year" readonly>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Minimum Payment Mode -->
-                    <div id="minimum" class="mode-content" style="display: none;">
-                        <div class="calculator-grid">
-                            <div class="input-panel">
-                                <h3 class="panel-title"><i class="fas fa-percentage"></i> Card Information</h3>
-                                
-                                <div class="input-group">
-                                    <label for="min-balance">Card Balance</label>
-                                    <div class="currency-input">
-                                        <span class="currency-symbol">$</span>
-                                        <input type="number" id="min-balance" class="input-field" placeholder="3000" min="0" step="1">
-                                    </div>
-                                </div>
-
-                                <div class="input-group">
-                                    <label for="min-apr">APR</label>
-                                    <input type="number" id="min-apr" class="input-field" placeholder="24.99" min="0" max="50" step="0.01">
-                                </div>
-
-                                <div class="input-group">
-                                    <label for="min-payment-rate">Minimum Payment Rate</label>
-                                    <input type="number" id="min-payment-rate" class="input-field" placeholder="2" min="1" max="10" step="0.1">
-                                    <p style="font-size: 0.9rem; color: #6c757d; margin-top: 0.5rem;">
-                                        Percentage of balance (typically 2-3%)
-                                    </p>
-                                </div>
-
-                                <div class="input-group">
-                                    <label for="minimum-floor">Minimum Payment Floor</label>
-                                    <div class="currency-input">
-                                        <span class="currency-symbol">$</span>
-                                        <input type="number" id="minimum-floor" class="input-field" placeholder="25" min="0" step="1">
-                                    </div>
-                                    <p style="font-size: 0.9rem; color: #6c757d; margin-top: 0.5rem;">
-                                        Minimum payment amount regardless of balance
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="result-panel">
-                                <h3 class="panel-title"><i class="fas fa-calculator"></i> Minimum Payment Results</h3>
-                                
-                                <div class="input-group">
-                                    <label for="calculated-minimum">Minimum Payment</label>
-                                    <div class="currency-input">
-                                        <span class="currency-symbol">$</span>
-                                        <input type="text" id="calculated-minimum" class="input-field result-field" placeholder="0.00" readonly>
-                                    </div>
-                                </div>
-
-                                <div class="input-group">
-                                    <label for="min-payoff-time">Payoff Time</label>
-                                    <input type="text" id="min-payoff-time" class="input-field result-field" placeholder="0 years" readonly>
-                                </div>
-
-                                <div class="input-group">
-                                    <label for="min-total-interest">Total Interest</label>
-                                    <div class="currency-input">
-                                        <span class="currency-symbol">$</span>
-                                        <input type="text" id="min-total-interest" class="input-field result-field" placeholder="0.00" readonly>
-                                    </div>
-                                </div>
-
-                                <div class="input-group">
-                                    <label for="interest-to-principal">Interest vs Principal</label>
-                                    <input type="text" id="interest-to-principal" class="input-field result-field" placeholder="0% interest" readonly>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Comparison Mode -->
-                    <div id="comparison" class="mode-content" style="display: none;">
-                        <div class="calculator-grid">
-                            <div class="input-panel">
-                                <h3 class="panel-title"><i class="fas fa-balance-scale"></i> Compare Scenarios</h3>
-                                
-                                <div class="input-group">
-                                    <label for="comp-balance">Card Balance</label>
-                                    <div class="currency-input">
-                                        <span class="currency-symbol">$</span>
-                                        <input type="number" id="comp-balance" class="input-field" placeholder="8000" min="0" step="1">
-                                    </div>
-                                </div>
-
-                                <div class="input-group">
-                                    <label for="comp-apr">APR</label>
-                                    <input type="number" id="comp-apr" class="input-field" placeholder="22.99" min="0" max="50" step="0.01">
-                                </div>
-
-                                <div class="input-group">
-                                    <label for="scenario1-payment">Scenario 1: Payment Amount</label>
-                                    <div class="currency-input">
-                                        <span class="currency-symbol">$</span>
-                                        <input type="number" id="scenario1-payment" class="input-field" placeholder="200" min="0" step="1">
-                                    </div>
-                                </div>
-
-                                <div class="input-group">
-                                    <label for="scenario2-payment">Scenario 2: Payment Amount</label>
-                                    <div class="currency-input">
-                                        <span class="currency-symbol">$</span>
-                                        <input type="number" id="scenario2-payment" class="input-field" placeholder="400" min="0" step="1">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="result-panel">
-                                <h3 class="panel-title"><i class="fas fa-chart-bar"></i> Comparison Results</h3>
-                                
-                                <div class="input-group">
-                                    <label>Scenario 1 vs Scenario 2</label>
-                                    <div style="background: rgba(255,255,255,0.1); border-radius: 8px; padding: 1rem; margin-bottom: 1rem;">
-                                        <div id="scenario1-results" style="margin-bottom: 0.5rem;">Scenario 1: Enter amounts to compare</div>
-                                        <div id="scenario2-results">Scenario 2: Enter amounts to compare</div>
-                                    </div>
-                                </div>
-
-                                <div class="input-group">
-                                    <label for="time-saved">Time Saved</label>
-                                    <input type="text" id="time-saved" class="input-field result-field" placeholder="0 months" readonly>
-                                </div>
-
-                                <div class="input-group">
-                                    <label for="interest-saved">Interest Saved</label>
-                                    <div class="currency-input">
-                                        <span class="currency-symbol">$</span>
-                                        <input type="text" id="interest-saved" class="input-field result-field" placeholder="0.00" readonly>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="payoff-summary" class="payoff-summary" style="display: none;">
-                        <h3><i class="fas fa-chart-line"></i> Payoff Summary</h3>
-                        <div class="summary-grid" id="summary-grid">
-                            <!-- Summary cards will be generated here -->
-                        </div>
-                    </div>
-
-                    <div class="comparison-section">
-                        <h3><i class="fas fa-lightbulb"></i> Debt Payoff Strategies</h3>
-                        <div class="comparison-grid">
-                            <div class="comparison-card">
-                                <div class="strategy-title">💰 Debt Avalanche</div>
-                                <div class="strategy-details">
-                                    <strong>Strategy:</strong> Pay minimums on all cards, put extra money toward highest APR card first.<br>
-                                    <strong>Best for:</strong> Saving the most money on interest.<br>
-                                    <strong>Time:</strong> Usually fastest mathematically.
-                                </div>
-                            </div>
-                            <div class="comparison-card">
-                                <div class="strategy-title">❄️ Debt Snowball</div>
-                                <div class="strategy-details">
-                                    <strong>Strategy:</strong> Pay minimums on all cards, put extra money toward smallest balance first.<br>
-                                    <strong>Best for:</strong> Psychological wins and motivation.<br>
-                                    <strong>Time:</strong> May take longer but builds momentum.
-                                </div>
-                            </div>
-                            <div class="comparison-card">
-                                <div class="strategy-title">🔄 Balance Transfer</div>
-                                <div class="strategy-details">
-                                    <strong>Strategy:</strong> Move high-interest debt to 0% APR promotional card.<br>
-                                    <strong>Best for:</strong> Temporary relief and aggressive payoff.<br>
-                                    <strong>Time:</strong> Take advantage of promotional periods.
-                                </div>
-                            </div>
-                            <div class="comparison-card">
-                                <div class="strategy-title">📞 Debt Consolidation</div>
-                                <div class="strategy-details">
-                                    <strong>Strategy:</strong> Combine multiple debts into one lower-interest loan.<br>
-                                    <strong>Best for:</strong> Simplifying payments and reducing rates.<br>
-                                    <strong>Time:</strong> Fixed payment schedule.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tips-section">
-                        <h3><i class="fas fa-graduation-cap"></i> Credit Card Debt Tips</h3>
-                        <div class="tips-grid">
-                            <div class="tip-item">
-                                <h4>🚫 Stop Using Credit Cards</h4>
-                                <p>Avoid adding new charges while paying off existing debt. Use cash or debit cards for purchases.</p>
-                            </div>
-                            <div class="tip-item">
-                                <h4>💰 Pay More Than Minimum</h4>
-                                <p>Even an extra $25-50 per month can significantly reduce payoff time and interest costs.</p>
-                            </div>
-                            <div class="tip-item">
-                                <h4>📞 Negotiate Lower Rates</h4>
-                                <p>Call your credit card company to request a lower APR, especially if you've been a good customer.</p>
-                            </div>
-                            <div class="tip-item">
-                                <h4>💡 Use Windfalls Wisely</h4>
-                                <p>Apply tax refunds, bonuses, or unexpected money directly to your highest-interest debt.</p>
-                            </div>
-                            <div class="tip-item">
-                                <h4>📊 Track Your Progress</h4>
-                                <p>Monitor your balances monthly and celebrate milestones to stay motivated.</p>
-                            </div>
-                            <div class="tip-item">
-                                <h4>🎯 Set a Target Date</h4>
-                                <p>Choose a specific payoff date and work backwards to determine required monthly payments.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Financial Calculators</h4>
-                    <ul>
-                        <li><a href="mortgage-calculator.html">Mortgage Calculator</a></li>
-                        <li><a href="loan-calculator.html">Loan Calculator</a></li>
-                        <li><a href="auto-loan-calculator.html">Auto Loan Calculator</a></li>
-                        <li><a href="interest-calculator.html">Interest Calculator</a></li>
-                        <li><a href="investment-calculator.html">Investment Calculator</a></li>
-                        <li><a href="compound-interest-calculator.html">Compound Interest Calculator</a></li>
-                        <li><a href="tax-calculator.html">Tax Calculator</a></li>
-                        <li><a href="salary-calculator.html">Salary Calculator</a></li>
-                        <li><a href="credit-card-calculator.html">Credit Card Calculator</a></li>
-                        <li><a href="retirement-calculator.html">Retirement Calculator</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Health & Fitness</h4>
-                    <ul>
-                        <li><a href="bmi-calculator.html">BMI Calculator</a></li>
-                        <li><a href="calorie-calculator.html">Calorie Calculator</a></li>
-                        <li><a href="macro-calculator.html">Macro Calculator</a></li>
-                        <li><a href="pace-calculator.html">Pace Calculator</a></li>
-                        <li><a href="body-fat-calculator.html">Body Fat Calculator</a></li>
-                        <li><a href="bmr-calculator.html">BMR Calculator</a></li>
-                        <li><a href="pregnancy-calculator.html">Pregnancy Calculator</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Math Calculators</h4>
-                    <ul>
-                        <li><a href="scientific-calculator.html">Scientific Calculator</a></li>
-                        <li><a href="basic-calculator.html">Basic Calculator</a></li>
-                        <li><a href="binary-calculator.html">Binary Calculator</a></li>
-                        <li><a href="area-calculator.html">Area Calculator</a></li>
-                        <li><a href="volume-calculator.html">Volume Calculator</a></li>
-                        <li><a href="average-calculator.html">Average Calculator</a></li>
-                        <li><a href="fraction-calculator.html">Fraction Calculator</a></li>
-                        <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
-                        <li><a href="triangle-calculator.html">Triangle Calculator</a></li>
-                        <li><a href="random-number-generator.html">Random Number Generator</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Other Tools</h4>
-                    <ul>
-                        <li><a href="age-calculator.html">Age Calculator</a></li>
-                        <li><a href="date-calculator.html">Date Calculator</a></li>
-                        <li><a href="time-calculator.html">Time Calculator</a></li>
-                        <li><a href="hours-calculator.html">Hours Calculator</a></li>
-                        <li><a href="gpa-calculator.html">GPA Calculator</a></li>
-                        <li><a href="grade-calculator.html">Grade Calculator</a></li>
-                        <li><a href="password-generator.html">Password Generator</a></li>
-                        <li><a href="tip-calculator.html">Tip Calculator</a></li>
-                        <li><a href="unit-converter.html">Unit Converter</a></li>
-                        <li><a href="fuel-calculator.html">Fuel Calculator</a></li>
-                        <li><a href="concrete-calculator.html">Concrete Calculator</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 CalculatorFree.Online. All rights reserved.</p>
-            </div>
+        <div class="result-panel">
+         <h3 class="panel-title">
+          <i class="fas fa-chart-pie">
+          </i>
+          Payoff Results
+         </h3>
+         <div class="input-group">
+          <label for="payoff-time">
+           Time to Pay Off
+          </label>
+          <input class="input-field result-field" id="payoff-time" placeholder="0 months" readonly="" type="text"/>
+         </div>
+         <div class="input-group">
+          <label for="total-interest">
+           Total Interest Paid
+          </label>
+          <div class="currency-input">
+           <span class="currency-symbol">
+            $
+           </span>
+           <input class="input-field result-field" id="total-interest" placeholder="0.00" readonly="" type="text"/>
+          </div>
+         </div>
+         <div class="input-group">
+          <label for="total-paid">
+           Total Amount Paid
+          </label>
+          <div class="currency-input">
+           <span class="currency-symbol">
+            $
+           </span>
+           <input class="input-field result-field" id="total-paid" placeholder="0.00" readonly="" type="text"/>
+          </div>
+         </div>
+         <div class="input-group">
+          <label for="payoff-date">
+           Payoff Date
+          </label>
+          <input class="input-field result-field" id="payoff-date" placeholder="Month Year" readonly="" type="text"/>
+         </div>
         </div>
-    </footer>
-
-    <script>
-        let currentMode = 'payoff';
+       </div>
+      </div>
+      <!-- Minimum Payment Mode -->
+      <div class="mode-content" id="minimum" style="display: none;">
+       <div class="calculator-grid">
+        <div class="input-panel">
+         <h3 class="panel-title">
+          <i class="fas fa-percentage">
+          </i>
+          Card Information
+         </h3>
+         <div class="input-group">
+          <label for="min-balance">
+           Card Balance
+          </label>
+          <div class="currency-input">
+           <span class="currency-symbol">
+            $
+           </span>
+           <input class="input-field" id="min-balance" min="0" placeholder="3000" step="1" type="number"/>
+          </div>
+         </div>
+         <div class="input-group">
+          <label for="min-apr">
+           APR
+          </label>
+          <input class="input-field" id="min-apr" max="50" min="0" placeholder="24.99" step="0.01" type="number"/>
+         </div>
+         <div class="input-group">
+          <label for="min-payment-rate">
+           Minimum Payment Rate
+          </label>
+          <input class="input-field" id="min-payment-rate" max="10" min="1" placeholder="2" step="0.1" type="number"/>
+          <p style="font-size: 0.9rem; color: #6c757d; margin-top: 0.5rem;">
+           Percentage of balance (typically 2-3%)
+          </p>
+         </div>
+         <div class="input-group">
+          <label for="minimum-floor">
+           Minimum Payment Floor
+          </label>
+          <div class="currency-input">
+           <span class="currency-symbol">
+            $
+           </span>
+           <input class="input-field" id="minimum-floor" min="0" placeholder="25" step="1" type="number"/>
+          </div>
+          <p style="font-size: 0.9rem; color: #6c757d; margin-top: 0.5rem;">
+           Minimum payment amount regardless of balance
+          </p>
+         </div>
+        </div>
+        <div class="result-panel">
+         <h3 class="panel-title">
+          <i class="fas fa-calculator">
+          </i>
+          Minimum Payment Results
+         </h3>
+         <div class="input-group">
+          <label for="calculated-minimum">
+           Minimum Payment
+          </label>
+          <div class="currency-input">
+           <span class="currency-symbol">
+            $
+           </span>
+           <input class="input-field result-field" id="calculated-minimum" placeholder="0.00" readonly="" type="text"/>
+          </div>
+         </div>
+         <div class="input-group">
+          <label for="min-payoff-time">
+           Payoff Time
+          </label>
+          <input class="input-field result-field" id="min-payoff-time" placeholder="0 years" readonly="" type="text"/>
+         </div>
+         <div class="input-group">
+          <label for="min-total-interest">
+           Total Interest
+          </label>
+          <div class="currency-input">
+           <span class="currency-symbol">
+            $
+           </span>
+           <input class="input-field result-field" id="min-total-interest" placeholder="0.00" readonly="" type="text"/>
+          </div>
+         </div>
+         <div class="input-group">
+          <label for="interest-to-principal">
+           Interest vs Principal
+          </label>
+          <input class="input-field result-field" id="interest-to-principal" placeholder="0% interest" readonly="" type="text"/>
+         </div>
+        </div>
+       </div>
+      </div>
+      <!-- Comparison Mode -->
+      <div class="mode-content" id="comparison" style="display: none;">
+       <div class="calculator-grid">
+        <div class="input-panel">
+         <h3 class="panel-title">
+          <i class="fas fa-balance-scale">
+          </i>
+          Compare Scenarios
+         </h3>
+         <div class="input-group">
+          <label for="comp-balance">
+           Card Balance
+          </label>
+          <div class="currency-input">
+           <span class="currency-symbol">
+            $
+           </span>
+           <input class="input-field" id="comp-balance" min="0" placeholder="8000" step="1" type="number"/>
+          </div>
+         </div>
+         <div class="input-group">
+          <label for="comp-apr">
+           APR
+          </label>
+          <input class="input-field" id="comp-apr" max="50" min="0" placeholder="22.99" step="0.01" type="number"/>
+         </div>
+         <div class="input-group">
+          <label for="scenario1-payment">
+           Scenario 1: Payment Amount
+          </label>
+          <div class="currency-input">
+           <span class="currency-symbol">
+            $
+           </span>
+           <input class="input-field" id="scenario1-payment" min="0" placeholder="200" step="1" type="number"/>
+          </div>
+         </div>
+         <div class="input-group">
+          <label for="scenario2-payment">
+           Scenario 2: Payment Amount
+          </label>
+          <div class="currency-input">
+           <span class="currency-symbol">
+            $
+           </span>
+           <input class="input-field" id="scenario2-payment" min="0" placeholder="400" step="1" type="number"/>
+          </div>
+         </div>
+        </div>
+        <div class="result-panel">
+         <h3 class="panel-title">
+          <i class="fas fa-chart-bar">
+          </i>
+          Comparison Results
+         </h3>
+         <div class="input-group">
+          <label>
+           Scenario 1 vs Scenario 2
+          </label>
+          <div style="background: rgba(255,255,255,0.1); border-radius: 8px; padding: 1rem; margin-bottom: 1rem;">
+           <div id="scenario1-results" style="margin-bottom: 0.5rem;">
+            Scenario 1: Enter amounts to compare
+           </div>
+           <div id="scenario2-results">
+            Scenario 2: Enter amounts to compare
+           </div>
+          </div>
+         </div>
+         <div class="input-group">
+          <label for="time-saved">
+           Time Saved
+          </label>
+          <input class="input-field result-field" id="time-saved" placeholder="0 months" readonly="" type="text"/>
+         </div>
+         <div class="input-group">
+          <label for="interest-saved">
+           Interest Saved
+          </label>
+          <div class="currency-input">
+           <span class="currency-symbol">
+            $
+           </span>
+           <input class="input-field result-field" id="interest-saved" placeholder="0.00" readonly="" type="text"/>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="payoff-summary" id="payoff-summary" style="display: none;">
+       <h3>
+        <i class="fas fa-chart-line">
+        </i>
+        Payoff Summary
+       </h3>
+       <div class="summary-grid" id="summary-grid">
+        <!-- Summary cards will be generated here -->
+       </div>
+      </div>
+      <div class="comparison-section">
+       <h3>
+        <i class="fas fa-lightbulb">
+        </i>
+        Debt Payoff Strategies
+       </h3>
+       <div class="comparison-grid">
+        <div class="comparison-card">
+         <div class="strategy-title">
+          💰 Debt Avalanche
+         </div>
+         <div class="strategy-details">
+          <strong>
+           Strategy:
+          </strong>
+          Pay minimums on all cards, put extra money toward highest APR card first.
+          <br/>
+          <strong>
+           Best for:
+          </strong>
+          Saving the most money on interest.
+          <br/>
+          <strong>
+           Time:
+          </strong>
+          Usually fastest mathematically.
+         </div>
+        </div>
+        <div class="comparison-card">
+         <div class="strategy-title">
+          ❄️ Debt Snowball
+         </div>
+         <div class="strategy-details">
+          <strong>
+           Strategy:
+          </strong>
+          Pay minimums on all cards, put extra money toward smallest balance first.
+          <br/>
+          <strong>
+           Best for:
+          </strong>
+          Psychological wins and motivation.
+          <br/>
+          <strong>
+           Time:
+          </strong>
+          May take longer but builds momentum.
+         </div>
+        </div>
+        <div class="comparison-card">
+         <div class="strategy-title">
+          🔄 Balance Transfer
+         </div>
+         <div class="strategy-details">
+          <strong>
+           Strategy:
+          </strong>
+          Move high-interest debt to 0% APR promotional card.
+          <br/>
+          <strong>
+           Best for:
+          </strong>
+          Temporary relief and aggressive payoff.
+          <br/>
+          <strong>
+           Time:
+          </strong>
+          Take advantage of promotional periods.
+         </div>
+        </div>
+        <div class="comparison-card">
+         <div class="strategy-title">
+          📞 Debt Consolidation
+         </div>
+         <div class="strategy-details">
+          <strong>
+           Strategy:
+          </strong>
+          Combine multiple debts into one lower-interest loan.
+          <br/>
+          <strong>
+           Best for:
+          </strong>
+          Simplifying payments and reducing rates.
+          <br/>
+          <strong>
+           Time:
+          </strong>
+          Fixed payment schedule.
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="tips-section">
+       <h3>
+        <i class="fas fa-graduation-cap">
+        </i>
+        Credit Card Debt Tips
+       </h3>
+       <div class="tips-grid">
+        <div class="tip-item">
+         <h4>
+          🚫 Stop Using Credit Cards
+         </h4>
+         <p>
+          Avoid adding new charges while paying off existing debt. Use cash or debit cards for purchases.
+         </p>
+        </div>
+        <div class="tip-item">
+         <h4>
+          💰 Pay More Than Minimum
+         </h4>
+         <p>
+          Even an extra $25-50 per month can significantly reduce payoff time and interest costs.
+         </p>
+        </div>
+        <div class="tip-item">
+         <h4>
+          📞 Negotiate Lower Rates
+         </h4>
+         <p>
+          Call your credit card company to request a lower APR, especially if you've been a good customer.
+         </p>
+        </div>
+        <div class="tip-item">
+         <h4>
+          💡 Use Windfalls Wisely
+         </h4>
+         <p>
+          Apply tax refunds, bonuses, or unexpected money directly to your highest-interest debt.
+         </p>
+        </div>
+        <div class="tip-item">
+         <h4>
+          📊 Track Your Progress
+         </h4>
+         <p>
+          Monitor your balances monthly and celebrate milestones to stay motivated.
+         </p>
+        </div>
+        <div class="tip-item">
+         <h4>
+          🎯 Set a Target Date
+         </h4>
+         <p>
+          Choose a specific payoff date and work backwards to determine required monthly payments.
+         </p>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+  </main>
+  <footer class="footer">
+   <div class="container">
+    <div class="footer-content">
+     <div class="footer-section">
+      <h4>
+       Financial Calculators
+      </h4>
+      <ul>
+       <li>
+        <a href="mortgage-calculator.html">
+         Mortgage Calculator
+        </a>
+       </li>
+       <li>
+        <a href="loan-calculator.html">
+         Loan Calculator
+        </a>
+       </li>
+       <li>
+        <a href="auto-loan-calculator.html">
+         Auto Loan Calculator
+        </a>
+       </li>
+       <li>
+        <a href="interest-calculator.html">
+         Interest Calculator
+        </a>
+       </li>
+       <li>
+        <a href="investment-calculator.html">
+         Investment Calculator
+        </a>
+       </li>
+       <li>
+        <a href="compound-interest-calculator.html">
+         Compound Interest Calculator
+        </a>
+       </li>
+       <li>
+        <a href="tax-calculator.html">
+         Tax Calculator
+        </a>
+       </li>
+       <li>
+        <a href="salary-calculator.html">
+         Salary Calculator
+        </a>
+       </li>
+       <li>
+        <a href="credit-card-calculator.html">
+         Credit Card Calculator
+        </a>
+       </li>
+       <li>
+        <a href="retirement-calculator.html">
+         Retirement Calculator
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="footer-section">
+      <h4>
+       Health &amp; Fitness
+      </h4>
+      <ul>
+       <li>
+        <a href="bmi-calculator.html">
+         BMI Calculator
+        </a>
+       </li>
+       <li>
+        <a href="calorie-calculator.html">
+         Calorie Calculator
+        </a>
+       </li>
+       <li>
+        <a href="macro-calculator.html">
+         Macro Calculator
+        </a>
+       </li>
+       <li>
+        <a href="pace-calculator.html">
+         Pace Calculator
+        </a>
+       </li>
+       <li>
+        <a href="body-fat-calculator.html">
+         Body Fat Calculator
+        </a>
+       </li>
+       <li>
+        <a href="bmr-calculator.html">
+         BMR Calculator
+        </a>
+       </li>
+       <li>
+        <a href="pregnancy-calculator.html">
+         Pregnancy Calculator
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="footer-section">
+      <h4>
+       Math Calculators
+      </h4>
+      <ul>
+       <li>
+        <a href="scientific-calculator.html">
+         Scientific Calculator
+        </a>
+       </li>
+       <li>
+        <a href="basic-calculator.html">
+         Basic Calculator
+        </a>
+       </li>
+       <li>
+        <a href="binary-calculator.html">
+         Binary Calculator
+        </a>
+       </li>
+       <li>
+        <a href="area-calculator.html">
+         Area Calculator
+        </a>
+       </li>
+       <li>
+        <a href="volume-calculator.html">
+         Volume Calculator
+        </a>
+       </li>
+       <li>
+        <a href="average-calculator.html">
+         Average Calculator
+        </a>
+       </li>
+       <li>
+        <a href="fraction-calculator.html">
+         Fraction Calculator
+        </a>
+       </li>
+       <li>
+        <a href="percentage-calculator.html">
+         Percentage Calculator
+        </a>
+       </li>
+       <li>
+        <a href="triangle-calculator.html">
+         Triangle Calculator
+        </a>
+       </li>
+       <li>
+        <a href="random-number-generator.html">
+         Random Number Generator
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="footer-section">
+      <h4>
+       Other Tools
+      </h4>
+      <ul>
+       <li>
+        <a href="age-calculator.html">
+         Age Calculator
+        </a>
+       </li>
+       <li>
+        <a href="date-calculator.html">
+         Date Calculator
+        </a>
+       </li>
+       <li>
+        <a href="time-calculator.html">
+         Time Calculator
+        </a>
+       </li>
+       <li>
+        <a href="hours-calculator.html">
+         Hours Calculator
+        </a>
+       </li>
+       <li>
+        <a href="gpa-calculator.html">
+         GPA Calculator
+        </a>
+       </li>
+       <li>
+        <a href="grade-calculator.html">
+         Grade Calculator
+        </a>
+       </li>
+       <li>
+        <a href="password-generator.html">
+         Password Generator
+        </a>
+       </li>
+       <li>
+        <a href="tip-calculator.html">
+         Tip Calculator
+        </a>
+       </li>
+       <li>
+        <a href="unit-converter.html">
+         Unit Converter
+        </a>
+       </li>
+       <li>
+        <a href="fuel-calculator.html">
+         Fuel Calculator
+        </a>
+       </li>
+       <li>
+        <a href="concrete-calculator.html">
+         Concrete Calculator
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="footer-bottom">
+     <p>
+      © 2024 CalculatorFree.Online. All rights reserved.
+     </p>
+    </div>
+   </div>
+  </footer>
+  <script>
+   let currentMode = 'payoff';
 
         function setMode(mode) {
             // Hide all mode contents
@@ -846,6 +1204,6 @@
             document.getElementById('scenario1-payment').value = 200;
             document.getElementById('scenario2-payment').value = 400;
         });
-    </script>
-</body>
-</html> 
+  </script>
+ </body>
+</html>

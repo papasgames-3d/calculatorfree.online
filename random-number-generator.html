@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Number Generator - Generate Random Numbers | CalculatorFree.Online</title>
-    <meta name="description" content="Free random number generator with customizable ranges, multiple numbers, and various formats.">
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        .random-generator {
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="index, follow" name="robots"/>
+  <link href="https://calculatorfree.online/random-number-generator.html" rel="canonical"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Random Number Generator - Generate Random Numbers | CalculatorFree.Online
+  </title>
+  <meta content="Free random number generator with customizable ranges, multiple numbers, and various formats." name="description"/>
+  <link href="styles.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+  <style>
+   .random-generator {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             border-radius: 20px;
@@ -295,296 +299,525 @@
                 min-width: 80%;
             }
         }
-    </style>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZTVJQRZ1L2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-ZTVJQRZ1L2">
+  </script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'G-ZTVJQRZ1L2');
-</script>
-
-</head>
-<body>
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <i class="fas fa-calculator"></i>
-                <span>CalculatorFree.Online</span>
-            </div>
-            <nav class="nav-menu">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="index.html#financial" class="nav-link">Financial</a>
-                <a href="index.html#health" class="nav-link">Health & Fitness</a>
-                <a href="index.html#math" class="nav-link active">Math</a>
-                <a href="index.html#other" class="nav-link">Other Tools</a>
-            </nav>
-            <div class="mobile-menu-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
+  </script>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://cdnjs.cloudflare.com" rel="preconnect"/>
+  <script type="application/ld+json">
+   {"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Random Number Generator", "applicationCategory": "CalculatorApplication", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "operatingSystem": "All", "description": "Free online random number generator with step-by-step calculations and detailed results."}
+  </script>
+  <script type="application/ld+json">
+   {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calculatorfree.online/"}, {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://calculatorfree.online/#calculators"}, {"@type": "ListItem", "position": 3, "name": "Random Number Generator", "item": "https://calculatorfree.online/random-number-generator.html"}]}
+  </script>
+ </head>
+ <body>
+  <header class="header">
+   <div class="container">
+    <div class="logo">
+     <i class="fas fa-calculator">
+     </i>
+     <span>
+      CalculatorFree.Online
+     </span>
+    </div>
+    <nav class="nav-menu">
+     <a class="nav-link" href="index.html">
+      Home
+     </a>
+     <a class="nav-link" href="index.html#financial">
+      Financial
+     </a>
+     <a class="nav-link" href="index.html#health">
+      Health &amp; Fitness
+     </a>
+     <a class="nav-link active" href="index.html#math">
+      Math
+     </a>
+     <a class="nav-link" href="index.html#other">
+      Other Tools
+     </a>
+    </nav>
+    <div class="mobile-menu-toggle">
+     <i class="fas fa-bars">
+     </i>
+    </div>
+   </div>
+  </header>
+  <main class="main">
+   <section class="hero">
+    <div class="container">
+     <div class="hero-content">
+      <h1>
+       Random Number Generator
+      </h1>
+      <p>
+       Generate random numbers with customizable ranges and options
+      </p>
+     </div>
+    </div>
+   </section>
+   <section>
+    <div class="container">
+     <div class="random-generator">
+      <div class="generator-tabs">
+       <button class="tab-button active" onclick="switchTab('integers')">
+        Integers
+       </button>
+       <button class="tab-button" onclick="switchTab('decimals')">
+        Decimals
+       </button>
+       <button class="tab-button" onclick="switchTab('list')">
+        From List
+       </button>
+       <button class="tab-button" onclick="switchTab('sequence')">
+        Sequence
+       </button>
+      </div>
+      <!-- Integer Generator -->
+      <div class="generator-section" id="integersTab">
+       <h3>
+        Integer Random Number Generator
+       </h3>
+       <div class="input-grid">
+        <div class="input-group">
+         <label for="intMin">
+          Minimum Value
+         </label>
+         <input id="intMin" type="number" value="1"/>
         </div>
-    </header>
-
-    <main class="main">
-        <section class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1>Random Number Generator</h1>
-                    <p>Generate random numbers with customizable ranges and options</p>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <div class="container">
-                <div class="random-generator">
-                    <div class="generator-tabs">
-                        <button class="tab-button active" onclick="switchTab('integers')">Integers</button>
-                        <button class="tab-button" onclick="switchTab('decimals')">Decimals</button>
-                        <button class="tab-button" onclick="switchTab('list')">From List</button>
-                        <button class="tab-button" onclick="switchTab('sequence')">Sequence</button>
-                    </div>
-
-                    <!-- Integer Generator -->
-                    <div id="integersTab" class="generator-section">
-                        <h3>Integer Random Number Generator</h3>
-                        <div class="input-grid">
-                            <div class="input-group">
-                                <label for="intMin">Minimum Value</label>
-                                <input type="number" id="intMin" value="1">
-                            </div>
-                            <div class="input-group">
-                                <label for="intMax">Maximum Value</label>
-                                <input type="number" id="intMax" value="100">
-                            </div>
-                            <div class="input-group">
-                                <label for="intCount">How Many Numbers?</label>
-                                <input type="number" id="intCount" value="1" min="1" max="1000">
-                            </div>
-                            <div class="input-group">
-                                <label for="intDuplicates">Allow Duplicates?</label>
-                                <select id="intDuplicates">
-                                    <option value="true">Yes</option>
-                                    <option value="false">No</option>
-                                </select>
-                            </div>
-                        </div>
-                        <button class="generate-btn" onclick="generateIntegers()">
-                            <i class="fas fa-dice"></i> Generate Random Integers
-                        </button>
-                    </div>
-
-                    <!-- Decimal Generator -->
-                    <div id="decimalsTab" class="generator-section" style="display: none;">
-                        <h3>Decimal Random Number Generator</h3>
-                        <div class="input-grid">
-                            <div class="input-group">
-                                <label for="decMin">Minimum Value</label>
-                                <input type="number" id="decMin" value="0" step="0.01">
-                            </div>
-                            <div class="input-group">
-                                <label for="decMax">Maximum Value</label>
-                                <input type="number" id="decMax" value="1" step="0.01">
-                            </div>
-                            <div class="input-group">
-                                <label for="decCount">How Many Numbers?</label>
-                                <input type="number" id="decCount" value="1" min="1" max="100">
-                            </div>
-                            <div class="input-group">
-                                <label for="decPlaces">Decimal Places</label>
-                                <input type="number" id="decPlaces" value="2" min="1" max="10">
-                            </div>
-                        </div>
-                        <button class="generate-btn" onclick="generateDecimals()">
-                            <i class="fas fa-dice"></i> Generate Random Decimals
-                        </button>
-                    </div>
-
-                    <!-- List Generator -->
-                    <div id="listTab" class="generator-section" style="display: none;">
-                        <h3>Random Selection from List</h3>
-                        <div class="input-grid">
-                            <div class="input-group" style="grid-column: 1 / -1;">
-                                <label for="itemList">Enter Items (one per line or comma-separated)</label>
-                                <textarea id="itemList" rows="5" style="resize: vertical; padding: 0.8rem; border: 2px solid #e9ecef; border-radius: 10px;" 
-                                placeholder="Apple&#10;Banana&#10;Orange&#10;Grape&#10;Strawberry"></textarea>
-                            </div>
-                            <div class="input-group">
-                                <label for="listCount">How Many to Select?</label>
-                                <input type="number" id="listCount" value="1" min="1">
-                            </div>
-                            <div class="input-group">
-                                <label for="listDuplicates">Allow Duplicates?</label>
-                                <select id="listDuplicates">
-                                    <option value="true">Yes</option>
-                                    <option value="false">No</option>
-                                </select>
-                            </div>
-                        </div>
-                        <button class="generate-btn" onclick="generateFromList()">
-                            <i class="fas fa-list"></i> Select Random Items
-                        </button>
-                    </div>
-
-                    <!-- Sequence Generator -->
-                    <div id="sequenceTab" class="generator-section" style="display: none;">
-                        <h3>Random Sequence Generator</h3>
-                        <div class="input-grid">
-                            <div class="input-group">
-                                <label for="seqLength">Sequence Length</label>
-                                <input type="number" id="seqLength" value="10" min="1" max="1000">
-                            </div>
-                            <div class="input-group">
-                                <label for="seqType">Sequence Type</label>
-                                <select id="seqType">
-                                    <option value="binary">Binary (0,1)</option>
-                                    <option value="coin">Coin Flip (H,T)</option>
-                                    <option value="dice">Dice Roll (1-6)</option>
-                                    <option value="custom">Custom Range</option>
-                                </select>
-                            </div>
-                            <div class="input-group" id="customRangeGroup" style="display: none;">
-                                <label for="customRange">Custom Range (min-max)</label>
-                                <input type="text" id="customRange" placeholder="1-10">
-                            </div>
-                        </div>
-                        <button class="generate-btn" onclick="generateSequence()">
-                            <i class="fas fa-random"></i> Generate Sequence
-                        </button>
-                    </div>
-
-                    <!-- Results Display -->
-                    <div class="result-display">
-                        <h3>Generated Results</h3>
-                        <div id="resultsContainer">
-                            <div class="result-numbers">
-                                <div class="result-number" id="placeholderResult">Click Generate!</div>
-                            </div>
-                        </div>
-                        <div id="copyButtons" style="display: none;">
-                            <button class="copy-btn" onclick="copyResults('comma')">Copy (Comma Separated)</button>
-                            <button class="copy-btn" onclick="copyResults('space')">Copy (Space Separated)</button>
-                            <button class="copy-btn" onclick="copyResults('newline')">Copy (New Lines)</button>
-                        </div>
-                    </div>
-
-                    <!-- Presets -->
-                    <div class="presets-section">
-                        <div class="preset-card" onclick="loadPreset('dice')">
-                            <i class="fas fa-dice"></i>
-                            <h4>Dice Roll</h4>
-                            <p>Roll a 6-sided die</p>
-                        </div>
-                        <div class="preset-card" onclick="loadPreset('coin')">
-                            <i class="fas fa-coins"></i>
-                            <h4>Coin Flip</h4>
-                            <p>Heads or Tails</p>
-                        </div>
-                        <div class="preset-card" onclick="loadPreset('lottery')">
-                            <i class="fas fa-ticket-alt"></i>
-                            <h4>Lottery Numbers</h4>
-                            <p>6 numbers (1-49)</p>
-                        </div>
-                        <div class="preset-card" onclick="loadPreset('password')">
-                            <i class="fas fa-key"></i>
-                            <h4>Random PIN</h4>
-                            <p>4-digit PIN code</p>
-                        </div>
-                    </div>
-
-                    <!-- Statistics -->
-                    <div class="statistics-section" id="statisticsSection" style="display: none;">
-                        <h3>Statistics</h3>
-                        <div class="stats-grid">
-                            <div class="stat-item">
-                                <div class="stat-value" id="statMin">-</div>
-                                <div class="stat-label">Minimum</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-value" id="statMax">-</div>
-                                <div class="stat-label">Maximum</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-value" id="statAvg">-</div>
-                                <div class="stat-label">Average</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-value" id="statSum">-</div>
-                                <div class="stat-label">Sum</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- History -->
-                    <div class="history-section">
-                        <div class="history-controls">
-                            <h3>Generation History</h3>
-                            <button class="clear-history-btn" onclick="clearHistory()">Clear History</button>
-                        </div>
-                        <div class="history-list" id="historyList">
-                            <p style="text-align: center; color: #6c757d;">No history yet</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Financial Calculators</h4>
-                    <ul>
-                        <li><a href="mortgage-calculator.html">Mortgage Calculator</a></li>
-                        <li><a href="loan-calculator.html">Loan Calculator</a></li>
-                        <li><a href="auto-loan-calculator.html">Auto Loan Calculator</a></li>
-                        <li><a href="interest-calculator.html">Interest Calculator</a></li>
-                        <li><a href="retirement-calculator.html">Retirement Calculator</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Health & Fitness</h4>
-                    <ul>
-                        <li><a href="bmi-calculator.html">BMI Calculator</a></li>
-                        <li><a href="calorie-calculator.html">Calorie Calculator</a></li>
-                        <li><a href="body-fat-calculator.html">Body Fat Calculator</a></li>
-                        <li><a href="bmr-calculator.html">BMR Calculator</a></li>
-                        <li><a href="pregnancy-calculator.html">Pregnancy Calculator</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Math Calculators</h4>
-                    <ul>
-                        <li><a href="scientific-calculator.html">Scientific Calculator</a></li>
-                        <li><a href="fraction-calculator.html">Fraction Calculator</a></li>
-                        <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
-                        <li><a href="triangle-calculator.html">Triangle Calculator</a></li>
-                        <li><a href="random-number-generator.html">Random Number Generator</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Other Tools</h4>
-                    <ul>
-                        <li><a href="age-calculator.html">Age Calculator</a></li>
-                        <li><a href="date-calculator.html">Date Calculator</a></li>
-                        <li><a href="time-calculator.html">Time Calculator</a></li>
-                        <li><a href="gpa-calculator.html">GPA Calculator</a></li>
-                        <li><a href="password-generator.html">Password Generator</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 CalculatorFree.Online. All rights reserved.</p>
-            </div>
+        <div class="input-group">
+         <label for="intMax">
+          Maximum Value
+         </label>
+         <input id="intMax" type="number" value="100"/>
         </div>
-    </footer>
-
-    <script>
-        let currentTab = 'integers';
+        <div class="input-group">
+         <label for="intCount">
+          How Many Numbers?
+         </label>
+         <input id="intCount" max="1000" min="1" type="number" value="1"/>
+        </div>
+        <div class="input-group">
+         <label for="intDuplicates">
+          Allow Duplicates?
+         </label>
+         <select id="intDuplicates">
+          <option value="true">
+           Yes
+          </option>
+          <option value="false">
+           No
+          </option>
+         </select>
+        </div>
+       </div>
+       <button class="generate-btn" onclick="generateIntegers()">
+        <i class="fas fa-dice">
+        </i>
+        Generate Random Integers
+       </button>
+      </div>
+      <!-- Decimal Generator -->
+      <div class="generator-section" id="decimalsTab" style="display: none;">
+       <h3>
+        Decimal Random Number Generator
+       </h3>
+       <div class="input-grid">
+        <div class="input-group">
+         <label for="decMin">
+          Minimum Value
+         </label>
+         <input id="decMin" step="0.01" type="number" value="0"/>
+        </div>
+        <div class="input-group">
+         <label for="decMax">
+          Maximum Value
+         </label>
+         <input id="decMax" step="0.01" type="number" value="1"/>
+        </div>
+        <div class="input-group">
+         <label for="decCount">
+          How Many Numbers?
+         </label>
+         <input id="decCount" max="100" min="1" type="number" value="1"/>
+        </div>
+        <div class="input-group">
+         <label for="decPlaces">
+          Decimal Places
+         </label>
+         <input id="decPlaces" max="10" min="1" type="number" value="2"/>
+        </div>
+       </div>
+       <button class="generate-btn" onclick="generateDecimals()">
+        <i class="fas fa-dice">
+        </i>
+        Generate Random Decimals
+       </button>
+      </div>
+      <!-- List Generator -->
+      <div class="generator-section" id="listTab" style="display: none;">
+       <h3>
+        Random Selection from List
+       </h3>
+       <div class="input-grid">
+        <div class="input-group" style="grid-column: 1 / -1;">
+         <label for="itemList">
+          Enter Items (one per line or comma-separated)
+         </label>
+         <textarea id="itemList" placeholder="Apple
+Banana
+Orange
+Grape
+Strawberry" rows="5" style="resize: vertical; padding: 0.8rem; border: 2px solid #e9ecef; border-radius: 10px;"></textarea>
+        </div>
+        <div class="input-group">
+         <label for="listCount">
+          How Many to Select?
+         </label>
+         <input id="listCount" min="1" type="number" value="1"/>
+        </div>
+        <div class="input-group">
+         <label for="listDuplicates">
+          Allow Duplicates?
+         </label>
+         <select id="listDuplicates">
+          <option value="true">
+           Yes
+          </option>
+          <option value="false">
+           No
+          </option>
+         </select>
+        </div>
+       </div>
+       <button class="generate-btn" onclick="generateFromList()">
+        <i class="fas fa-list">
+        </i>
+        Select Random Items
+       </button>
+      </div>
+      <!-- Sequence Generator -->
+      <div class="generator-section" id="sequenceTab" style="display: none;">
+       <h3>
+        Random Sequence Generator
+       </h3>
+       <div class="input-grid">
+        <div class="input-group">
+         <label for="seqLength">
+          Sequence Length
+         </label>
+         <input id="seqLength" max="1000" min="1" type="number" value="10"/>
+        </div>
+        <div class="input-group">
+         <label for="seqType">
+          Sequence Type
+         </label>
+         <select id="seqType">
+          <option value="binary">
+           Binary (0,1)
+          </option>
+          <option value="coin">
+           Coin Flip (H,T)
+          </option>
+          <option value="dice">
+           Dice Roll (1-6)
+          </option>
+          <option value="custom">
+           Custom Range
+          </option>
+         </select>
+        </div>
+        <div class="input-group" id="customRangeGroup" style="display: none;">
+         <label for="customRange">
+          Custom Range (min-max)
+         </label>
+         <input id="customRange" placeholder="1-10" type="text"/>
+        </div>
+       </div>
+       <button class="generate-btn" onclick="generateSequence()">
+        <i class="fas fa-random">
+        </i>
+        Generate Sequence
+       </button>
+      </div>
+      <!-- Results Display -->
+      <div class="result-display">
+       <h3>
+        Generated Results
+       </h3>
+       <div id="resultsContainer">
+        <div class="result-numbers">
+         <div class="result-number" id="placeholderResult">
+          Click Generate!
+         </div>
+        </div>
+       </div>
+       <div id="copyButtons" style="display: none;">
+        <button class="copy-btn" onclick="copyResults('comma')">
+         Copy (Comma Separated)
+        </button>
+        <button class="copy-btn" onclick="copyResults('space')">
+         Copy (Space Separated)
+        </button>
+        <button class="copy-btn" onclick="copyResults('newline')">
+         Copy (New Lines)
+        </button>
+       </div>
+      </div>
+      <!-- Presets -->
+      <div class="presets-section">
+       <div class="preset-card" onclick="loadPreset('dice')">
+        <i class="fas fa-dice">
+        </i>
+        <h4>
+         Dice Roll
+        </h4>
+        <p>
+         Roll a 6-sided die
+        </p>
+       </div>
+       <div class="preset-card" onclick="loadPreset('coin')">
+        <i class="fas fa-coins">
+        </i>
+        <h4>
+         Coin Flip
+        </h4>
+        <p>
+         Heads or Tails
+        </p>
+       </div>
+       <div class="preset-card" onclick="loadPreset('lottery')">
+        <i class="fas fa-ticket-alt">
+        </i>
+        <h4>
+         Lottery Numbers
+        </h4>
+        <p>
+         6 numbers (1-49)
+        </p>
+       </div>
+       <div class="preset-card" onclick="loadPreset('password')">
+        <i class="fas fa-key">
+        </i>
+        <h4>
+         Random PIN
+        </h4>
+        <p>
+         4-digit PIN code
+        </p>
+       </div>
+      </div>
+      <!-- Statistics -->
+      <div class="statistics-section" id="statisticsSection" style="display: none;">
+       <h3>
+        Statistics
+       </h3>
+       <div class="stats-grid">
+        <div class="stat-item">
+         <div class="stat-value" id="statMin">
+          -
+         </div>
+         <div class="stat-label">
+          Minimum
+         </div>
+        </div>
+        <div class="stat-item">
+         <div class="stat-value" id="statMax">
+          -
+         </div>
+         <div class="stat-label">
+          Maximum
+         </div>
+        </div>
+        <div class="stat-item">
+         <div class="stat-value" id="statAvg">
+          -
+         </div>
+         <div class="stat-label">
+          Average
+         </div>
+        </div>
+        <div class="stat-item">
+         <div class="stat-value" id="statSum">
+          -
+         </div>
+         <div class="stat-label">
+          Sum
+         </div>
+        </div>
+       </div>
+      </div>
+      <!-- History -->
+      <div class="history-section">
+       <div class="history-controls">
+        <h3>
+         Generation History
+        </h3>
+        <button class="clear-history-btn" onclick="clearHistory()">
+         Clear History
+        </button>
+       </div>
+       <div class="history-list" id="historyList">
+        <p style="text-align: center; color: #6c757d;">
+         No history yet
+        </p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+  </main>
+  <footer class="footer">
+   <div class="container">
+    <div class="footer-content">
+     <div class="footer-section">
+      <h4>
+       Financial Calculators
+      </h4>
+      <ul>
+       <li>
+        <a href="mortgage-calculator.html">
+         Mortgage Calculator
+        </a>
+       </li>
+       <li>
+        <a href="loan-calculator.html">
+         Loan Calculator
+        </a>
+       </li>
+       <li>
+        <a href="auto-loan-calculator.html">
+         Auto Loan Calculator
+        </a>
+       </li>
+       <li>
+        <a href="interest-calculator.html">
+         Interest Calculator
+        </a>
+       </li>
+       <li>
+        <a href="retirement-calculator.html">
+         Retirement Calculator
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="footer-section">
+      <h4>
+       Health &amp; Fitness
+      </h4>
+      <ul>
+       <li>
+        <a href="bmi-calculator.html">
+         BMI Calculator
+        </a>
+       </li>
+       <li>
+        <a href="calorie-calculator.html">
+         Calorie Calculator
+        </a>
+       </li>
+       <li>
+        <a href="body-fat-calculator.html">
+         Body Fat Calculator
+        </a>
+       </li>
+       <li>
+        <a href="bmr-calculator.html">
+         BMR Calculator
+        </a>
+       </li>
+       <li>
+        <a href="pregnancy-calculator.html">
+         Pregnancy Calculator
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="footer-section">
+      <h4>
+       Math Calculators
+      </h4>
+      <ul>
+       <li>
+        <a href="scientific-calculator.html">
+         Scientific Calculator
+        </a>
+       </li>
+       <li>
+        <a href="fraction-calculator.html">
+         Fraction Calculator
+        </a>
+       </li>
+       <li>
+        <a href="percentage-calculator.html">
+         Percentage Calculator
+        </a>
+       </li>
+       <li>
+        <a href="triangle-calculator.html">
+         Triangle Calculator
+        </a>
+       </li>
+       <li>
+        <a href="random-number-generator.html">
+         Random Number Generator
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="footer-section">
+      <h4>
+       Other Tools
+      </h4>
+      <ul>
+       <li>
+        <a href="age-calculator.html">
+         Age Calculator
+        </a>
+       </li>
+       <li>
+        <a href="date-calculator.html">
+         Date Calculator
+        </a>
+       </li>
+       <li>
+        <a href="time-calculator.html">
+         Time Calculator
+        </a>
+       </li>
+       <li>
+        <a href="gpa-calculator.html">
+         GPA Calculator
+        </a>
+       </li>
+       <li>
+        <a href="password-generator.html">
+         Password Generator
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="footer-bottom">
+     <p>
+      © 2024 CalculatorFree.Online. All rights reserved.
+     </p>
+    </div>
+   </div>
+  </footer>
+  <script>
+   let currentTab = 'integers';
         let generationHistory = [];
         let currentResults = [];
 
@@ -908,6 +1141,6 @@
             // Set default values for list
             document.getElementById('itemList').value = 'Apple\nBanana\nOrange\nGrape\nStrawberry';
         });
-    </script>
-</body>
-</html> 
+  </script>
+ </body>
+</html>

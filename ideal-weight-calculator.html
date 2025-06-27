@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ideal Weight Calculator - Calculate Your Perfect Body Weight | CalculatorFree.Online</title>
-    <meta name="description" content="Calculate your ideal body weight using multiple formulas including Robinson, Miller, Devine, and Hamwi methods. Get personalized weight ranges for optimal health.">
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        .ideal-weight-calculator {
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="index, follow" name="robots"/>
+  <link href="https://calculatorfree.online/ideal-weight-calculator.html" rel="canonical"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Ideal Weight Calculator - Calculate Your Perfect Body Weight | CalculatorFree.Online
+  </title>
+  <meta content="Calculate your ideal body weight using multiple formulas including Robinson, Miller, Devine, and Hamwi methods. Get personalized weight ranges for optimal health." name="description"/>
+  <link href="styles.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+  <style>
+   .ideal-weight-calculator {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             border-radius: 20px;
@@ -249,323 +253,662 @@
                 grid-template-columns: 1fr;
             }
         }
-    </style>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZTVJQRZ1L2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-ZTVJQRZ1L2">
+  </script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'G-ZTVJQRZ1L2');
-</script>
-
-</head>
-<body>
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <i class="fas fa-calculator"></i>
-                <span>CalculatorFree.Online</span>
-            </div>
-            <nav class="nav-menu">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="index.html#financial" class="nav-link">Financial</a>
-                <a href="index.html#health" class="nav-link active">Health & Fitness</a>
-                <a href="index.html#math" class="nav-link">Math</a>
-                <a href="index.html#other" class="nav-link">Other Tools</a>
-            </nav>
-            <div class="mobile-menu-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
+  </script>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://cdnjs.cloudflare.com" rel="preconnect"/>
+  <script type="application/ld+json">
+   {"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Ideal Weight Calculator", "applicationCategory": "CalculatorApplication", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "operatingSystem": "All", "description": "Free online ideal weight calculator with step-by-step calculations and detailed results."}
+  </script>
+  <script type="application/ld+json">
+   {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calculatorfree.online/"}, {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://calculatorfree.online/#calculators"}, {"@type": "ListItem", "position": 3, "name": "Ideal Weight Calculator", "item": "https://calculatorfree.online/ideal-weight-calculator.html"}]}
+  </script>
+ </head>
+ <body>
+  <header class="header">
+   <div class="container">
+    <div class="logo">
+     <i class="fas fa-calculator">
+     </i>
+     <span>
+      CalculatorFree.Online
+     </span>
+    </div>
+    <nav class="nav-menu">
+     <a class="nav-link" href="index.html">
+      Home
+     </a>
+     <a class="nav-link" href="index.html#financial">
+      Financial
+     </a>
+     <a class="nav-link active" href="index.html#health">
+      Health &amp; Fitness
+     </a>
+     <a class="nav-link" href="index.html#math">
+      Math
+     </a>
+     <a class="nav-link" href="index.html#other">
+      Other Tools
+     </a>
+    </nav>
+    <div class="mobile-menu-toggle">
+     <i class="fas fa-bars">
+     </i>
+    </div>
+   </div>
+  </header>
+  <main class="main">
+   <section class="hero">
+    <div class="container">
+     <div class="hero-content">
+      <h1>
+       <i class="fas fa-weight">
+       </i>
+       Ideal Weight Calculator
+      </h1>
+      <p>
+       Calculate your ideal body weight using multiple scientific formulas
+      </p>
+     </div>
+    </div>
+   </section>
+   <section>
+    <div class="container">
+     <div class="ideal-weight-calculator">
+      <div class="calculator-grid">
+       <div class="input-panel">
+        <h3 class="panel-title">
+         <i class="fas fa-user">
+         </i>
+         Your Information
+        </h3>
+        <div class="input-group">
+         <label>
+          Measurement Units
+         </label>
+         <div class="unit-selector">
+          <div class="unit-option active" onclick="setUnits('metric')">
+           Metric
+          </div>
+          <div class="unit-option" onclick="setUnits('imperial')">
+           Imperial
+          </div>
+         </div>
         </div>
-    </header>
-
-    <main class="main">
-        <section class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1><i class="fas fa-weight"></i> Ideal Weight Calculator</h1>
-                    <p>Calculate your ideal body weight using multiple scientific formulas</p>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <div class="container">
-                <div class="ideal-weight-calculator">
-                    <div class="calculator-grid">
-                        <div class="input-panel">
-                            <h3 class="panel-title"><i class="fas fa-user"></i> Your Information</h3>
-                            
-                            <div class="input-group">
-                                <label>Measurement Units</label>
-                                <div class="unit-selector">
-                                    <div class="unit-option active" onclick="setUnits('metric')">Metric</div>
-                                    <div class="unit-option" onclick="setUnits('imperial')">Imperial</div>
-                                </div>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="gender">Gender</label>
-                                <select id="gender" class="input-field">
-                                    <option value="male">Male</option>
-                                    <option value="female">Female</option>
-                                </select>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="age">Age (years)</label>
-                                <input type="number" id="age" class="input-field" placeholder="30" min="18" max="100" step="1">
-                            </div>
-
-                            <div class="input-group" id="height-group">
-                                <label>Height</label>
-                                <div class="height-inputs" id="height-inputs">
-                                    <input type="number" id="height-cm" class="input-field" placeholder="170" min="100" max="250" step="0.1">
-                                    <div style="display: flex; align-items: center; font-weight: 600; color: #6c757d;">cm</div>
-                                </div>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="current-weight">Current Weight (optional)</label>
-                                <div style="display: flex; gap: 1rem; align-items: center;">
-                                    <input type="number" id="current-weight" class="input-field" placeholder="70" min="30" max="300" step="0.1">
-                                    <span id="weight-unit" style="font-weight: 600; color: #6c757d;">kg</span>
-                                </div>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="activity-level">Activity Level</label>
-                                <select id="activity-level" class="input-field">
-                                    <option value="sedentary">Sedentary (little/no exercise)</option>
-                                    <option value="light" selected>Light (light exercise 1-3 days/week)</option>
-                                    <option value="moderate">Moderate (moderate exercise 3-5 days/week)</option>
-                                    <option value="active">Active (hard exercise 6-7 days/week)</option>
-                                    <option value="very-active">Very Active (very hard exercise/physical job)</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="result-panel">
-                            <h3 class="panel-title"><i class="fas fa-bullseye"></i> Ideal Weight Results</h3>
-                            
-                            <div class="input-group">
-                                <label for="robinson-result">Robinson Formula</label>
-                                <input type="text" id="robinson-result" class="input-field result-field" placeholder="--" readonly>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="miller-result">Miller Formula</label>
-                                <input type="text" id="miller-result" class="input-field result-field" placeholder="--" readonly>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="devine-result">Devine Formula</label>
-                                <input type="text" id="devine-result" class="input-field result-field" placeholder="--" readonly>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="hamwi-result">Hamwi Formula</label>
-                                <input type="text" id="hamwi-result" class="input-field result-field" placeholder="--" readonly>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="average-result">Average Ideal Weight</label>
-                                <input type="text" id="average-result" class="input-field result-field" placeholder="--" readonly>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="healthy-range">Healthy Weight Range</label>
-                                <input type="text" id="healthy-range" class="input-field result-field" placeholder="--" readonly>
-                                <small style="color: rgba(255,255,255,0.8);">BMI 18.5 - 24.9</small>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="formula-results" id="formula-section" style="display: none;">
-                        <h3><i class="fas fa-calculator"></i> Formula Breakdown</h3>
-                        <div class="formulas-grid">
-                            <div class="formula-card">
-                                <div class="formula-name">Robinson (1983)</div>
-                                <div class="formula-weight" id="robinson-weight">--</div>
-                                <div class="formula-description">Most commonly used formula for ideal weight calculation</div>
-                            </div>
-                            <div class="formula-card">
-                                <div class="formula-name">Miller (1983)</div>
-                                <div class="formula-weight" id="miller-weight">--</div>
-                                <div class="formula-description">Modified version with slightly different coefficients</div>
-                            </div>
-                            <div class="formula-card">
-                                <div class="formula-name">Devine (1974)</div>
-                                <div class="formula-weight" id="devine-weight">--</div>
-                                <div class="formula-description">Original formula used in medical dosing calculations</div>
-                            </div>
-                            <div class="formula-card">
-                                <div class="formula-name">Hamwi (1964)</div>
-                                <div class="formula-weight" id="hamwi-weight">--</div>
-                                <div class="formula-description">Traditional formula still used in clinical settings</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="weight-range">
-                        <h3><i class="fas fa-chart-bar"></i> Weight Classification</h3>
-                        <div class="range-cards" id="weight-ranges">
-                            <div class="range-card">
-                                <div class="range-label">Underweight</div>
-                                <div class="range-value range-underweight" id="underweight-range">--</div>
-                                <div>BMI < 18.5</div>
-                            </div>
-                            <div class="range-card">
-                                <div class="range-label">Normal Weight</div>
-                                <div class="range-value range-normal" id="normal-range">--</div>
-                                <div>BMI 18.5 - 24.9</div>
-                            </div>
-                            <div class="range-card">
-                                <div class="range-label">Overweight</div>
-                                <div class="range-value range-overweight" id="overweight-range">--</div>
-                                <div>BMI 25 - 29.9</div>
-                            </div>
-                            <div class="range-card">
-                                <div class="range-label">Obese</div>
-                                <div class="range-value range-obese" id="obese-range">--</div>
-                                <div>BMI ≥ 30</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="current-status" id="status-section" style="display: none;">
-                        <h3><i class="fas fa-info-circle"></i> Your Current Status</h3>
-                        <div class="status-grid">
-                            <div class="status-card">
-                                <div class="status-value" id="current-bmi">--</div>
-                                <div>Current BMI</div>
-                            </div>
-                            <div class="status-card">
-                                <div class="status-value" id="bmi-category">--</div>
-                                <div>BMI Category</div>
-                            </div>
-                            <div class="status-card">
-                                <div class="status-value" id="weight-difference">--</div>
-                                <div>Weight Difference</div>
-                            </div>
-                            <div class="status-card">
-                                <div class="status-value" id="body-fat-estimate">--</div>
-                                <div>Est. Body Fat</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="recommendations">
-                        <h3><i class="fas fa-lightbulb"></i> Health & Weight Recommendations</h3>
-                        <div class="tips-grid">
-                            <div class="tip-item">
-                                <div class="tip-icon"><i class="fas fa-apple-alt"></i></div>
-                                <h4>Balanced Nutrition</h4>
-                                <p>Focus on whole foods, adequate protein, healthy fats, and complex carbohydrates for sustainable weight management.</p>
-                            </div>
-                            <div class="tip-item">
-                                <div class="tip-icon"><i class="fas fa-running"></i></div>
-                                <h4>Regular Exercise</h4>
-                                <p>Combine cardiovascular exercise with strength training for optimal body composition and overall health.</p>
-                            </div>
-                            <div class="tip-item">
-                                <div class="tip-icon"><i class="fas fa-clock"></i></div>
-                                <h4>Gradual Changes</h4>
-                                <p>Aim for 1-2 pounds per week weight loss if needed. Sustainable changes are more effective than extreme measures.</p>
-                            </div>
-                            <div class="tip-item">
-                                <div class="tip-icon"><i class="fas fa-user-md"></i></div>
-                                <h4>Professional Guidance</h4>
-                                <p>Consult healthcare providers for personalized advice, especially if you have underlying health conditions.</p>
-                            </div>
-                            <div class="tip-item">
-                                <div class="tip-icon"><i class="fas fa-heart"></i></div>
-                                <h4>Overall Health</h4>
-                                <p>Remember that health encompasses more than just weight - focus on fitness, energy levels, and overall wellbeing.</p>
-                            </div>
-                            <div class="tip-item">
-                                <div class="tip-icon"><i class="fas fa-chart-line"></i></div>
-                                <h4>Track Progress</h4>
-                                <p>Monitor your progress through measurements, how clothes fit, and energy levels, not just the scale.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Health & Fitness</h4>
-                    <ul>
-                        <li><a href="bmi-calculator.html">BMI Calculator</a></li>
-                        <li><a href="calorie-calculator.html">Calorie Calculator</a></li>
-                        <li><a href="body-fat-calculator.html">Body Fat Calculator</a></li>
-                        <li><a href="bmr-calculator.html">BMR Calculator</a></li>
-                        <li><a href="ideal-weight-calculator.html">Ideal Weight Calculator</a></li>
-                        <li><a href="pregnancy-calculator.html">Pregnancy Calculator</a></li>
-                        <li><a href="water-calculator.html">Water Calculator</a></li>
-                        <li><a href="macro-calculator.html">Macro Calculator</a></li>
-                        <li><a href="pace-calculator.html">Pace Calculator</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Financial Calculators</h4>
-                    <ul>
-                        <li><a href="mortgage-calculator.html">Mortgage Calculator</a></li>
-                        <li><a href="loan-calculator.html">Loan Calculator</a></li>
-                        <li><a href="auto-loan-calculator.html">Auto Loan Calculator</a></li>
-                        <li><a href="payment-calculator.html">Payment Calculator</a></li>
-                        <li><a href="401k-calculator.html">401K Calculator</a></li>
-                        <li><a href="interest-calculator.html">Interest Calculator</a></li>
-                        <li><a href="investment-calculator.html">Investment Calculator</a></li>
-                        <li><a href="compound-interest-calculator.html">Compound Interest Calculator</a></li>
-                        <li><a href="retirement-calculator.html">Retirement Calculator</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Math Calculators</h4>
-                    <ul>
-                        <li><a href="scientific-calculator.html">Scientific Calculator</a></li>
-                        <li><a href="basic-calculator.html">Basic Calculator</a></li>
-                        <li><a href="area-calculator.html">Area Calculator</a></li>
-                        <li><a href="volume-calculator.html">Volume Calculator</a></li>
-                        <li><a href="average-calculator.html">Average Calculator</a></li>
-                        <li><a href="fraction-calculator.html">Fraction Calculator</a></li>
-                        <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
-                        <li><a href="triangle-calculator.html">Triangle Calculator</a></li>
-                        <li><a href="random-number-generator.html">Random Number Generator</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Other Tools</h4>
-                    <ul>
-                        <li><a href="age-calculator.html">Age Calculator</a></li>
-                        <li><a href="date-calculator.html">Date Calculator</a></li>
-                        <li><a href="time-calculator.html">Time Calculator</a></li>
-                        <li><a href="gpa-calculator.html">GPA Calculator</a></li>
-                        <li><a href="grade-calculator.html">Grade Calculator</a></li>
-                        <li><a href="hours-calculator.html">Hours Calculator</a></li>
-                        <li><a href="password-generator.html">Password Generator</a></li>
-                        <li><a href="tip-calculator.html">Tip Calculator</a></li>
-                        <li><a href="unit-converter.html">Unit Converter</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 CalculatorFree.Online. All rights reserved.</p>
-            </div>
+        <div class="input-group">
+         <label for="gender">
+          Gender
+         </label>
+         <select class="input-field" id="gender">
+          <option value="male">
+           Male
+          </option>
+          <option value="female">
+           Female
+          </option>
+         </select>
         </div>
-    </footer>
-
-    <script>
-        let isMetric = true;
+        <div class="input-group">
+         <label for="age">
+          Age (years)
+         </label>
+         <input class="input-field" id="age" max="100" min="18" placeholder="30" step="1" type="number"/>
+        </div>
+        <div class="input-group" id="height-group">
+         <label>
+          Height
+         </label>
+         <div class="height-inputs" id="height-inputs">
+          <input class="input-field" id="height-cm" max="250" min="100" placeholder="170" step="0.1" type="number"/>
+          <div style="display: flex; align-items: center; font-weight: 600; color: #6c757d;">
+           cm
+          </div>
+         </div>
+        </div>
+        <div class="input-group">
+         <label for="current-weight">
+          Current Weight (optional)
+         </label>
+         <div style="display: flex; gap: 1rem; align-items: center;">
+          <input class="input-field" id="current-weight" max="300" min="30" placeholder="70" step="0.1" type="number"/>
+          <span id="weight-unit" style="font-weight: 600; color: #6c757d;">
+           kg
+          </span>
+         </div>
+        </div>
+        <div class="input-group">
+         <label for="activity-level">
+          Activity Level
+         </label>
+         <select class="input-field" id="activity-level">
+          <option value="sedentary">
+           Sedentary (little/no exercise)
+          </option>
+          <option selected="" value="light">
+           Light (light exercise 1-3 days/week)
+          </option>
+          <option value="moderate">
+           Moderate (moderate exercise 3-5 days/week)
+          </option>
+          <option value="active">
+           Active (hard exercise 6-7 days/week)
+          </option>
+          <option value="very-active">
+           Very Active (very hard exercise/physical job)
+          </option>
+         </select>
+        </div>
+       </div>
+       <div class="result-panel">
+        <h3 class="panel-title">
+         <i class="fas fa-bullseye">
+         </i>
+         Ideal Weight Results
+        </h3>
+        <div class="input-group">
+         <label for="robinson-result">
+          Robinson Formula
+         </label>
+         <input class="input-field result-field" id="robinson-result" placeholder="--" readonly="" type="text"/>
+        </div>
+        <div class="input-group">
+         <label for="miller-result">
+          Miller Formula
+         </label>
+         <input class="input-field result-field" id="miller-result" placeholder="--" readonly="" type="text"/>
+        </div>
+        <div class="input-group">
+         <label for="devine-result">
+          Devine Formula
+         </label>
+         <input class="input-field result-field" id="devine-result" placeholder="--" readonly="" type="text"/>
+        </div>
+        <div class="input-group">
+         <label for="hamwi-result">
+          Hamwi Formula
+         </label>
+         <input class="input-field result-field" id="hamwi-result" placeholder="--" readonly="" type="text"/>
+        </div>
+        <div class="input-group">
+         <label for="average-result">
+          Average Ideal Weight
+         </label>
+         <input class="input-field result-field" id="average-result" placeholder="--" readonly="" type="text"/>
+        </div>
+        <div class="input-group">
+         <label for="healthy-range">
+          Healthy Weight Range
+         </label>
+         <input class="input-field result-field" id="healthy-range" placeholder="--" readonly="" type="text"/>
+         <small style="color: rgba(255,255,255,0.8);">
+          BMI 18.5 - 24.9
+         </small>
+        </div>
+       </div>
+      </div>
+      <div class="formula-results" id="formula-section" style="display: none;">
+       <h3>
+        <i class="fas fa-calculator">
+        </i>
+        Formula Breakdown
+       </h3>
+       <div class="formulas-grid">
+        <div class="formula-card">
+         <div class="formula-name">
+          Robinson (1983)
+         </div>
+         <div class="formula-weight" id="robinson-weight">
+          --
+         </div>
+         <div class="formula-description">
+          Most commonly used formula for ideal weight calculation
+         </div>
+        </div>
+        <div class="formula-card">
+         <div class="formula-name">
+          Miller (1983)
+         </div>
+         <div class="formula-weight" id="miller-weight">
+          --
+         </div>
+         <div class="formula-description">
+          Modified version with slightly different coefficients
+         </div>
+        </div>
+        <div class="formula-card">
+         <div class="formula-name">
+          Devine (1974)
+         </div>
+         <div class="formula-weight" id="devine-weight">
+          --
+         </div>
+         <div class="formula-description">
+          Original formula used in medical dosing calculations
+         </div>
+        </div>
+        <div class="formula-card">
+         <div class="formula-name">
+          Hamwi (1964)
+         </div>
+         <div class="formula-weight" id="hamwi-weight">
+          --
+         </div>
+         <div class="formula-description">
+          Traditional formula still used in clinical settings
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="weight-range">
+       <h3>
+        <i class="fas fa-chart-bar">
+        </i>
+        Weight Classification
+       </h3>
+       <div class="range-cards" id="weight-ranges">
+        <div class="range-card">
+         <div class="range-label">
+          Underweight
+         </div>
+         <div class="range-value range-underweight" id="underweight-range">
+          --
+         </div>
+         <div>
+          BMI &lt; 18.5
+         </div>
+        </div>
+        <div class="range-card">
+         <div class="range-label">
+          Normal Weight
+         </div>
+         <div class="range-value range-normal" id="normal-range">
+          --
+         </div>
+         <div>
+          BMI 18.5 - 24.9
+         </div>
+        </div>
+        <div class="range-card">
+         <div class="range-label">
+          Overweight
+         </div>
+         <div class="range-value range-overweight" id="overweight-range">
+          --
+         </div>
+         <div>
+          BMI 25 - 29.9
+         </div>
+        </div>
+        <div class="range-card">
+         <div class="range-label">
+          Obese
+         </div>
+         <div class="range-value range-obese" id="obese-range">
+          --
+         </div>
+         <div>
+          BMI ≥ 30
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="current-status" id="status-section" style="display: none;">
+       <h3>
+        <i class="fas fa-info-circle">
+        </i>
+        Your Current Status
+       </h3>
+       <div class="status-grid">
+        <div class="status-card">
+         <div class="status-value" id="current-bmi">
+          --
+         </div>
+         <div>
+          Current BMI
+         </div>
+        </div>
+        <div class="status-card">
+         <div class="status-value" id="bmi-category">
+          --
+         </div>
+         <div>
+          BMI Category
+         </div>
+        </div>
+        <div class="status-card">
+         <div class="status-value" id="weight-difference">
+          --
+         </div>
+         <div>
+          Weight Difference
+         </div>
+        </div>
+        <div class="status-card">
+         <div class="status-value" id="body-fat-estimate">
+          --
+         </div>
+         <div>
+          Est. Body Fat
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="recommendations">
+       <h3>
+        <i class="fas fa-lightbulb">
+        </i>
+        Health &amp; Weight Recommendations
+       </h3>
+       <div class="tips-grid">
+        <div class="tip-item">
+         <div class="tip-icon">
+          <i class="fas fa-apple-alt">
+          </i>
+         </div>
+         <h4>
+          Balanced Nutrition
+         </h4>
+         <p>
+          Focus on whole foods, adequate protein, healthy fats, and complex carbohydrates for sustainable weight management.
+         </p>
+        </div>
+        <div class="tip-item">
+         <div class="tip-icon">
+          <i class="fas fa-running">
+          </i>
+         </div>
+         <h4>
+          Regular Exercise
+         </h4>
+         <p>
+          Combine cardiovascular exercise with strength training for optimal body composition and overall health.
+         </p>
+        </div>
+        <div class="tip-item">
+         <div class="tip-icon">
+          <i class="fas fa-clock">
+          </i>
+         </div>
+         <h4>
+          Gradual Changes
+         </h4>
+         <p>
+          Aim for 1-2 pounds per week weight loss if needed. Sustainable changes are more effective than extreme measures.
+         </p>
+        </div>
+        <div class="tip-item">
+         <div class="tip-icon">
+          <i class="fas fa-user-md">
+          </i>
+         </div>
+         <h4>
+          Professional Guidance
+         </h4>
+         <p>
+          Consult healthcare providers for personalized advice, especially if you have underlying health conditions.
+         </p>
+        </div>
+        <div class="tip-item">
+         <div class="tip-icon">
+          <i class="fas fa-heart">
+          </i>
+         </div>
+         <h4>
+          Overall Health
+         </h4>
+         <p>
+          Remember that health encompasses more than just weight - focus on fitness, energy levels, and overall wellbeing.
+         </p>
+        </div>
+        <div class="tip-item">
+         <div class="tip-icon">
+          <i class="fas fa-chart-line">
+          </i>
+         </div>
+         <h4>
+          Track Progress
+         </h4>
+         <p>
+          Monitor your progress through measurements, how clothes fit, and energy levels, not just the scale.
+         </p>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+  </main>
+  <footer class="footer">
+   <div class="container">
+    <div class="footer-content">
+     <div class="footer-section">
+      <h4>
+       Health &amp; Fitness
+      </h4>
+      <ul>
+       <li>
+        <a href="bmi-calculator.html">
+         BMI Calculator
+        </a>
+       </li>
+       <li>
+        <a href="calorie-calculator.html">
+         Calorie Calculator
+        </a>
+       </li>
+       <li>
+        <a href="body-fat-calculator.html">
+         Body Fat Calculator
+        </a>
+       </li>
+       <li>
+        <a href="bmr-calculator.html">
+         BMR Calculator
+        </a>
+       </li>
+       <li>
+        <a href="ideal-weight-calculator.html">
+         Ideal Weight Calculator
+        </a>
+       </li>
+       <li>
+        <a href="pregnancy-calculator.html">
+         Pregnancy Calculator
+        </a>
+       </li>
+       <li>
+        <a href="water-calculator.html">
+         Water Calculator
+        </a>
+       </li>
+       <li>
+        <a href="macro-calculator.html">
+         Macro Calculator
+        </a>
+       </li>
+       <li>
+        <a href="pace-calculator.html">
+         Pace Calculator
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="footer-section">
+      <h4>
+       Financial Calculators
+      </h4>
+      <ul>
+       <li>
+        <a href="mortgage-calculator.html">
+         Mortgage Calculator
+        </a>
+       </li>
+       <li>
+        <a href="loan-calculator.html">
+         Loan Calculator
+        </a>
+       </li>
+       <li>
+        <a href="auto-loan-calculator.html">
+         Auto Loan Calculator
+        </a>
+       </li>
+       <li>
+        <a href="payment-calculator.html">
+         Payment Calculator
+        </a>
+       </li>
+       <li>
+        <a href="401k-calculator.html">
+         401K Calculator
+        </a>
+       </li>
+       <li>
+        <a href="interest-calculator.html">
+         Interest Calculator
+        </a>
+       </li>
+       <li>
+        <a href="investment-calculator.html">
+         Investment Calculator
+        </a>
+       </li>
+       <li>
+        <a href="compound-interest-calculator.html">
+         Compound Interest Calculator
+        </a>
+       </li>
+       <li>
+        <a href="retirement-calculator.html">
+         Retirement Calculator
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="footer-section">
+      <h4>
+       Math Calculators
+      </h4>
+      <ul>
+       <li>
+        <a href="scientific-calculator.html">
+         Scientific Calculator
+        </a>
+       </li>
+       <li>
+        <a href="basic-calculator.html">
+         Basic Calculator
+        </a>
+       </li>
+       <li>
+        <a href="area-calculator.html">
+         Area Calculator
+        </a>
+       </li>
+       <li>
+        <a href="volume-calculator.html">
+         Volume Calculator
+        </a>
+       </li>
+       <li>
+        <a href="average-calculator.html">
+         Average Calculator
+        </a>
+       </li>
+       <li>
+        <a href="fraction-calculator.html">
+         Fraction Calculator
+        </a>
+       </li>
+       <li>
+        <a href="percentage-calculator.html">
+         Percentage Calculator
+        </a>
+       </li>
+       <li>
+        <a href="triangle-calculator.html">
+         Triangle Calculator
+        </a>
+       </li>
+       <li>
+        <a href="random-number-generator.html">
+         Random Number Generator
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="footer-section">
+      <h4>
+       Other Tools
+      </h4>
+      <ul>
+       <li>
+        <a href="age-calculator.html">
+         Age Calculator
+        </a>
+       </li>
+       <li>
+        <a href="date-calculator.html">
+         Date Calculator
+        </a>
+       </li>
+       <li>
+        <a href="time-calculator.html">
+         Time Calculator
+        </a>
+       </li>
+       <li>
+        <a href="gpa-calculator.html">
+         GPA Calculator
+        </a>
+       </li>
+       <li>
+        <a href="grade-calculator.html">
+         Grade Calculator
+        </a>
+       </li>
+       <li>
+        <a href="hours-calculator.html">
+         Hours Calculator
+        </a>
+       </li>
+       <li>
+        <a href="password-generator.html">
+         Password Generator
+        </a>
+       </li>
+       <li>
+        <a href="tip-calculator.html">
+         Tip Calculator
+        </a>
+       </li>
+       <li>
+        <a href="unit-converter.html">
+         Unit Converter
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="footer-bottom">
+     <p>
+      © 2024 CalculatorFree.Online. All rights reserved.
+     </p>
+    </div>
+   </div>
+  </footer>
+  <script>
+   let isMetric = true;
 
         function setUnits(system) {
             isMetric = system === 'metric';
@@ -782,6 +1125,6 @@
             document.getElementById('age').value = 30;
             document.getElementById('height-cm').value = 170;
         });
-    </script>
-</body>
-</html> 
+  </script>
+ </body>
+</html>

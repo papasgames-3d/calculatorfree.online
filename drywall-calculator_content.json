@@ -1,0 +1,30 @@
+{
+  "title": "Drywall Calculator - Free Online Calculator | Updated June 2025",
+  "meta_description": "Free online drywall calculator with step-by-step calculations. Calculate accurate results quickly and easily. Updated for June 2025.",
+  "h1": "Drywall Calculator",
+  "intro": "Our free online drywall calculator provides quick and accurate results. \nUpdated for June 2025, this calculator helps you calculate accurate results quickly and easily.",
+  "features": [
+    "Easy to use interface",
+    "Mobile-friendly design",
+    "Instant calculations",
+    "Step-by-step explanations",
+    "No registration required",
+    "100% free to use"
+  ],
+  "how_to_use": [
+    "Enter your values in the input fields",
+    "Click the calculate button",
+    "Review your results",
+    "Use the detailed breakdown for more information"
+  ],
+  "example_calculations": [
+    {
+      "inputs": {
+        "value1": "Example input 1",
+        "value2": "Example input 2"
+      },
+      "result": "Example result"
+    }
+  ],
+  "last_updated": "2025-06-27"
+}

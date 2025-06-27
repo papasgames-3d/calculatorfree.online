@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BMI Calculator - Calculate Your Body Mass Index | CalculatorFree.Online</title>
-    <meta name="description" content="Free BMI calculator to determine your body mass index. Calculate BMI using height and weight with instant results and health recommendations.">
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        /* Base styles */
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="index, follow" name="robots"/>
+  <link href="https://calculatorfree.online/bmi-calculator.html" rel="canonical"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   BMI Calculator - Calculate Your Body Mass Index | CalculatorFree.Online
+  </title>
+  <meta content="Free BMI calculator to determine your body mass index. Calculate BMI using height and weight with instant results and health recommendations." name="description"/>
+  <link href="styles.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+  <style>
+   /* Base styles */
         .bmi-calculator {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -532,517 +536,1002 @@
                 padding: 0.75rem;
             }
         }
-    </style>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZTVJQRZ1L2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-ZTVJQRZ1L2">
+  </script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'G-ZTVJQRZ1L2');
-</script>
-
-</head>
-<body>
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <i class="fas fa-calculator"></i>
-                <span>CalculatorFree.Online</span>
-            </div>
-            <nav class="nav-menu">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="index.html#financial" class="nav-link">Financial</a>
-                <a href="index.html#health" class="nav-link active">Health & Fitness</a>
-                <a href="index.html#math" class="nav-link">Math</a>
-                <a href="index.html#other" class="nav-link">Other Tools</a>
-            </nav>
-            <div class="mobile-menu-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
+  </script>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://cdnjs.cloudflare.com" rel="preconnect"/>
+  <script type="application/ld+json">
+   {"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "BMI Calculator", "applicationCategory": "CalculatorApplication", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "operatingSystem": "All", "description": "Free online bmi calculator with step-by-step calculations and detailed results."}
+  </script>
+  <script type="application/ld+json">
+   {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calculatorfree.online/"}, {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://calculatorfree.online/#calculators"}, {"@type": "ListItem", "position": 3, "name": "BMI Calculator", "item": "https://calculatorfree.online/bmi-calculator.html"}]}
+  </script>
+ </head>
+ <body>
+  <header class="header">
+   <div class="container">
+    <div class="logo">
+     <i class="fas fa-calculator">
+     </i>
+     <span>
+      CalculatorFree.Online
+     </span>
+    </div>
+    <nav class="nav-menu">
+     <a class="nav-link" href="index.html">
+      Home
+     </a>
+     <a class="nav-link" href="index.html#financial">
+      Financial
+     </a>
+     <a class="nav-link active" href="index.html#health">
+      Health &amp; Fitness
+     </a>
+     <a class="nav-link" href="index.html#math">
+      Math
+     </a>
+     <a class="nav-link" href="index.html#other">
+      Other Tools
+     </a>
+    </nav>
+    <div class="mobile-menu-toggle">
+     <i class="fas fa-bars">
+     </i>
+    </div>
+   </div>
+  </header>
+  <main class="main">
+   <section class="hero">
+    <div class="container">
+     <div class="hero-content">
+      <h1>
+       BMI Calculator
+      </h1>
+      <p>
+       Calculate your Body Mass Index to assess your weight status
+      </p>
+     </div>
+    </div>
+   </section>
+   <section class="calculator-section">
+    <div class="container">
+     <div class="bmi-calculator">
+      <form id="bmiForm">
+       <div class="input-group">
+        <label for="height">
+         Height
+        </label>
+        <input id="height" min="0" placeholder="Enter your height" required="" step="0.1" type="number"/>
+        <select id="heightUnit" style="margin-top: 0.5rem;">
+         <option value="cm">
+          Centimeters (cm)
+         </option>
+         <option value="ft">
+          Feet &amp; Inches
+         </option>
+        </select>
+       </div>
+       <div class="input-group">
+        <label for="weight">
+         Weight
+        </label>
+        <input id="weight" min="0" placeholder="Enter your weight" required="" step="0.1" type="number"/>
+        <select id="weightUnit" style="margin-top: 0.5rem;">
+         <option value="kg">
+          Kilograms (kg)
+         </option>
+         <option value="lbs">
+          Pounds (lbs)
+         </option>
+        </select>
+       </div>
+       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+        <div class="input-group">
+         <label for="age">
+          Age
+         </label>
+         <input id="age" max="120" min="1" placeholder="Your age" required="" type="number"/>
         </div>
-    </header>
-
-    <main class="main">
-        <section class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1>BMI Calculator</h1>
-                    <p>Calculate your Body Mass Index to assess your weight status</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="calculator-section">
-            <div class="container">
-                <div class="bmi-calculator">
-                    <form id="bmiForm">
-                        <div class="input-group">
-                            <label for="height">Height</label>
-                            <input type="number" id="height" step="0.1" min="0" placeholder="Enter your height" required>
-                            <select id="heightUnit" style="margin-top: 0.5rem;">
-                                <option value="cm">Centimeters (cm)</option>
-                                <option value="ft">Feet & Inches</option>
-                            </select>
-                        </div>
-
-                        <div class="input-group">
-                            <label for="weight">Weight</label>
-                            <input type="number" id="weight" step="0.1" min="0" placeholder="Enter your weight" required>
-                            <select id="weightUnit" style="margin-top: 0.5rem;">
-                                <option value="kg">Kilograms (kg)</option>
-                                <option value="lbs">Pounds (lbs)</option>
-                            </select>
-                        </div>
-                        
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-                            <div class="input-group">
-                                <label for="age">Age</label>
-                                <input type="number" id="age" min="1" max="120" placeholder="Your age" required>
-                            </div>
-                            <div class="input-group">
-                                <label for="gender">Gender</label>
-                                <select id="gender" required>
-                                    <option value="">Select Gender</option>
-                                    <option value="male">Male</option>
-                                    <option value="female">Female</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <button type="submit" class="calculate-btn">Calculate BMI</button>
-                    </form>
-
-                    <div id="result" class="result" style="display:none;">
-                        <h2 class="h2result">Result
-                            <img src="//d26tpo4cm8sb6k.cloudfront.net/img/save.svg" width="19" height="20" 
-                                 title="Save this calculation" style="float:right;padding-top:3px;cursor:pointer;"
-                                 onclick="saveBMIResult()">
-                        </h2>
-                        <div class="bigtext" style="margin-top:5px;">
-                            <b>BMI = <span id="bmiValueLarge">0</span> kg/m<sup>2</sup></b> &nbsp; 
-                            (<span id="bmiCategoryLarge" style="color:green">Normal</span>)
-                        </div>
-                        <div style="padding-top:10px;text-align:center;">
-                            <div class="bmi-gauge">
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="300" height="163" viewBox="0 0 300 163">
-                                    <g transform="translate(18,18)" style="font-family:arial,helvetica,sans-serif;font-size: 12px;">
-                                        <defs>
-                                            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
-                                                <polygon points="0 0, 10 3.5, 0 7" />
-                                            </marker>
-                                            <path id="curvetxt1" d="M-4 140 A140 140, 0, 0, 1, 284 140" style="fill: none;"/>
-                                            <path id="curvetxt2" d="M33 43.6 A140 140, 0, 0, 1, 280 140" style="fill: none;"/>
-                                            <path id="curvetxt3" d="M95 3 A140 140, 0, 0, 1, 284 140" style="fill: none;"/>
-                                            <path id="curvetxt4" d="M235.4 33 A140 140, 0, 0, 1, 284 140" style="fill: none;"/>
-                                        </defs>
-                                        
-                                        <!-- BMI Range Segments -->
-                                        <path d="M0 140 A140 140, 0, 0, 1, 6.9 96.7 L140 140 Z" fill="#bc2020" />
-                                        <path d="M6.9 96.7 A140 140, 0, 0, 1, 12.1 83.1 L140 140 Z" fill="#d38888" />
-                                        <path d="M12.1 83.1 A140 140, 0, 0, 1, 22.6 63.8 L140 140 Z" fill="#ffe400" />
-                                        <path d="M22.6 63.8 A140 140, 0, 0, 1, 96.7 6.9 L140 140 Z" fill="#008137" />
-                                        <path d="M96.7 6.9 A140 140, 0, 0, 1, 169.1 3.1 L140 140 Z" fill="#ffe400" />
-                                        <path d="M169.1 3.1 A140 140, 0, 0, 1, 233.7 36 L140 140 Z" fill="#d38888" />
-                                        <path d="M233.7 36 A140 140, 0, 0, 1, 273.1 96.7 L140 140 Z" fill="#bc2020" />
-                                        <path d="M273.1 96.7 A140 140, 0, 0, 1, 280 140 L140 140 Z" fill="#8a0101" />
-                                        
-                                        <!-- White center circle -->
-                                        <path d="M45 140 A90 90, 0, 0, 1, 230 140 Z" fill="#fff" />
-                                        
-                                        <!-- Center dot -->
-                                        <circle cx="140" cy="140" r="3" fill="#333" />
-                                        
-                                        <!-- BMI value markers -->
-                                        <g style="paint-order: stroke;stroke: #fff;stroke-width: 2px;">
-                                            <text x="25" y="111" transform="rotate(-72, 25, 111)">16</text>
-                                            <text x="30" y="96" transform="rotate(-66, 30, 96)">17</text>
-                                            <text x="35" y="83" transform="rotate(-57, 35, 83)">18.5</text>
-                                            <text x="97" y="29" transform="rotate(-18, 97, 29)">25</text>
-                                            <text x="157" y="20" transform="rotate(12, 157, 20)">30</text>
-                                            <text x="214" y="45" transform="rotate(42, 214, 45)">35</text>
-                                            <text x="252" y="95" transform="rotate(72, 252, 95)">40</text>
-                                        </g>
-                                        
-                                        <!-- Category labels -->
-                                        <g style="font-size: 14px;">
-                                            <text><textPath xlink:href="#curvetxt1">Underweight</textPath></text>
-                                            <text><textPath xlink:href="#curvetxt2">Normal</textPath></text>
-                                            <text><textPath xlink:href="#curvetxt3">Overweight</textPath></text>
-                                            <text><textPath xlink:href="#curvetxt4">Obesity</textPath></text>
-                                        </g>
-                                        
-                                        <!-- Update needle with correct positioning -->
-                                        <line id="bmiNeedle" 
-                                            x1="140" y1="140" 
-                                            x2="140" y2="50" 
-                                            stroke="#333" 
-                                            stroke-width="2" 
-                                            marker-end="url(#arrowhead)"
-                                            style="transform-origin: 140px 140px;">
-                                        </line>
-                                        
-                                        <!-- BMI Value Display -->
-                                        <text x="67" y="120" style="font-size: 30px;font-weight:bold;color:#000;" id="gaugeBmiValue">BMI = 0</text>
-                                    </g>
-                                </svg>
-                            </div>
-                        </div>
-                        <ul style="margin-left:8px;padding-left:8px;">
-                            <li>Healthy BMI range: 18.5 kg/m<sup>2</sup> - 25 kg/m<sup>2</sup></li>
-                            <li>Healthy weight for the height: <span id="healthyWeight">-</span></li>
-                            <li>BMI Prime: <span id="bmiPrimeValue">-</span></li>
-                            <li>Ponderal Index: <span id="ponderalValue">-</span> kg/m<sup>3</sup></li>
-                        </ul>
-
-                        <!-- New BMI Advice Section -->
-                        <div class="bmi-advice">
-                            <h3>Personalized Health Recommendations</h3>
-                            <div id="nutritionAdvice">
-                                <!-- Underweight Advice -->
-                                <div class="nutrition-advice underweight" style="display:none;">
-                                    <h4><i class="fas fa-weight"></i> Recommendations for Healthy Weight Gain</h4>
-                                    <ul>
-                                        <li>Eat more frequently - aim for 5-6 smaller meals throughout the day</li>
-                                        <li>Choose nutrient-dense foods rich in healthy fats:
-                                            <ul>
-                                                <li>Nuts, seeds, and nut butters</li>
-                                                <li>Avocados and olive oil</li>
-                                                <li>Whole grains and legumes</li>
-                                            </ul>
-                                        </li>
-                                        <li>Add protein-rich foods to each meal:
-                                            <ul>
-                                                <li>Lean meats, fish, and eggs</li>
-                                                <li>Dairy products like yogurt and cheese</li>
-                                                <li>Plant proteins like quinoa and beans</li>
-                                            </ul>
-                                        </li>
-                                        <li>Consider nutritious smoothies with fruits, protein, and healthy fats</li>
-                                        <li>Consult with a healthcare provider about potential underlying causes</li>
-                                    </ul>
-                                </div>
-
-                                <!-- Normal Weight Advice -->
-                                <div class="nutrition-advice normal" style="display:none;">
-                                    <h4><i class="fas fa-check-circle"></i> Maintaining Your Healthy Weight</h4>
-                                    <ul>
-                                        <li>Continue your balanced diet with:
-                                            <ul>
-                                                <li>Plenty of fruits and vegetables</li>
-                                                <li>Whole grains and lean proteins</li>
-                                                <li>Healthy fats in moderation</li>
-                                            </ul>
-                                        </li>
-                                        <li>Stay physically active with 150 minutes of moderate exercise weekly</li>
-                                        <li>Monitor your weight regularly to maintain your healthy range</li>
-                                        <li>Practice mindful eating and portion control</li>
-                                    </ul>
-                                </div>
-
-                                <!-- Overweight Advice -->
-                                <div class="nutrition-advice overweight" style="display:none;">
-                                    <h4><i class="fas fa-balance-scale"></i> Healthy Weight Management Tips</h4>
-                                    <ul>
-                                        <li>Focus on portion control and mindful eating</li>
-                                        <li>Choose nutrient-dense, lower-calorie foods:
-                                            <ul>
-                                                <li>Fresh fruits and vegetables</li>
-                                                <li>Lean proteins and fish</li>
-                                                <li>Whole grains instead of refined grains</li>
-                                            </ul>
-                                        </li>
-                                        <li>Increase physical activity gradually:
-                                            <ul>
-                                                <li>Aim for 30 minutes of moderate exercise daily</li>
-                                                <li>Include both cardio and strength training</li>
-                                            </ul>
-                                        </li>
-                                        <li>Stay hydrated with water instead of sugary drinks</li>
-                                        <li>Consider consulting a healthcare provider for personalized advice</li>
-                                    </ul>
-                                </div>
-
-                                <!-- Obese Advice -->
-                                <div class="nutrition-advice obese" style="display:none;">
-                                    <h4><i class="fas fa-heartbeat"></i> Important Health Recommendations</h4>
-                                    <ul>
-                                        <li>Consult with healthcare providers for a personalized plan</li>
-                                        <li>Make sustainable dietary changes:
-                                            <ul>
-                                                <li>Reduce processed and high-calorie foods</li>
-                                                <li>Increase vegetables and lean proteins</li>
-                                                <li>Control portion sizes</li>
-                                            </ul>
-                                        </li>
-                                        <li>Start gentle physical activity:
-                                            <ul>
-                                                <li>Begin with walking or swimming</li>
-                                                <li>Gradually increase duration and intensity</li>
-                                            </ul>
-                                        </li>
-                                        <li>Monitor other health markers (blood pressure, blood sugar)</li>
-                                        <li>Consider joining support groups or working with a dietitian</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="nutrition-tips">
-                                <div class="tip-card">
-                                    <i class="fas fa-apple-alt"></i>
-                                    <strong>General Nutrition Tips:</strong>
-                                    <ul>
-                                        <li>Eat a variety of colorful fruits and vegetables</li>
-                                        <li>Choose whole grains over refined grains</li>
-                                        <li>Stay hydrated with water</li>
-                                    </ul>
-                                </div>
-                                <div class="tip-card">
-                                    <i class="fas fa-walking"></i>
-                                    <strong>Physical Activity:</strong>
-                                    <ul>
-                                        <li>Find activities you enjoy</li>
-                                        <li>Start slowly and build gradually</li>
-                                        <li>Stay consistent with your routine</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- BMI Information Section -->
-                <div class="bmi-info-section" style="color: #f8f9fa; ">
-                    <h3 style="text-align: center; margin-bottom: 2rem;">BMI Information & Guidelines</h3>
-                    
-                    <!-- BMI Categories -->
-                    <div class="bmi-ranges">
-                        <div class="bmi-range underweight">
-                            <h3>Underweight</h3>
-                            <p>BMI less than 18.5</p>
-                        </div>
-                        <div class="bmi-range normal">
-                            <h3>Normal Weight</h3>
-                            <p>BMI 18.5 - 24.9</p>
-                        </div>
-                        <div class="bmi-range overweight">
-                            <h3>Overweight</h3>
-                            <p>BMI 25 - 29.9</p>
-                        </div>
-                        <div class="bmi-range obese">
-                            <h3>Obese</h3>
-                            <p>BMI 30 or greater</p>
-                        </div>
-                    </div>
-
-                    <!-- Detailed BMI Table for Adults -->
-                    <div class="bmi-detailed-table">
-                        <h3>WHO BMI Classification Table for Adults (20+ years)</h3>
-                        <table class="bmi-table">
-                            <thead>
-                                <tr>
-                                    <th>Classification</th>
-                                    <th>BMI Range (kg/m²)</th>
-                                    <th>Health Risk</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class="severe-thin">
-                                    <td>Severe Thinness</td>
-                                    <td>&lt; 16</td>
-                                    <td>High risk</td>
-                                </tr>
-                                <tr class="moderate-thin">
-                                    <td>Moderate Thinness</td>
-                                    <td>16 - 17</td>
-                                    <td>Moderate risk</td>
-                                </tr>
-                                <tr class="mild-thin">
-                                    <td>Mild Thinness</td>
-                                    <td>17 - 18.5</td>
-                                    <td>Low risk</td>
-                                </tr>
-                                <tr class="normal-bmi">
-                                    <td>Normal</td>
-                                    <td>18.5 - 25</td>
-                                    <td>Minimal risk</td>
-                                </tr>
-                                <tr class="overweight-bmi">
-                                    <td>Overweight</td>
-                                    <td>25 - 30</td>
-                                    <td>Increased risk</td>
-                                </tr>
-                                <tr class="obese-1">
-                                    <td>Obese Class I</td>
-                                    <td>30 - 35</td>
-                                    <td>Moderate risk</td>
-                                </tr>
-                                <tr class="obese-2">
-                                    <td>Obese Class II</td>
-                                    <td>35 - 40</td>
-                                    <td>High risk</td>
-                                </tr>
-                                <tr class="obese-3">
-                                    <td>Obese Class III</td>
-                                    <td>&gt; 40</td>
-                                    <td>Very high risk</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <!-- BMI Formula -->
-                    <div class="bmi-formula-section">
-                        <h3>BMI Formula</h3>
-                        <div class="formula-container">
-                            <div class="formula-item">
-                                <h4>Metric Units</h4>
-                                <p class="formula">BMI = weight (kg) / height (m)²</p>
-                                <p class="example">Example: 70 kg / (1.75 m)² = 22.9</p>
-                            </div>
-                            <div class="formula-item">
-                                <h4>Imperial Units</h4>
-                                <p class="formula">BMI = (weight (lbs) / height (in)²) × 703</p>
-                                <p class="example">Example: (154 lbs / (69 in)²) × 703 = 22.9</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Health Risks -->
-                    <div class="health-risks-section">
-                        <div class="risk-categories">
-                            <div class="risk-category">
-                                <h3><i class="fas fa-exclamation-triangle"></i> Risks of Being Overweight</h3>
-                                <ul>
-                                    <li>High blood pressure</li>
-                                    <li>High LDL cholesterol, low HDL cholesterol</li>
-                                    <li>Type 2 diabetes</li>
-                                    <li>Coronary heart disease</li>
-                                    <li>Stroke</li>
-                                    <li>Gallbladder disease</li>
-                                    <li>Osteoarthritis</li>
-                                    <li>Sleep apnea and breathing problems</li>
-                                    <li>Certain cancers (endometrial, breast, colon)</li>
-                                    <li>Mental health issues</li>
-                                </ul>
-                            </div>
-                            <div class="risk-category">
-                                <h3><i class="fas fa-heart-broken"></i> Risks of Being Underweight</h3>
-                                <ul>
-                                    <li>Malnutrition and vitamin deficiencies</li>
-                                    <li>Anemia (reduced oxygen-carrying capacity)</li>
-                                    <li>Osteoporosis (weak bones)</li>
-                                    <li>Decreased immune function</li>
-                                    <li>Growth and development issues</li>
-                                    <li>Reproductive issues in women</li>
-                                    <li>Surgical complications</li>
-                                    <li>Increased mortality risk</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- BMI Limitations -->
-                    <div class="bmi-limitations">
-                        <h3>BMI Limitations</h3>
-                        <div class="limitations-grid">
-                            <div class="limitation-item">
-                                <h4><i class="fas fa-dumbbell"></i> Athletes & Muscular Individuals</h4>
-                                <p>BMI may overestimate body fat in athletes and those with high muscle mass, as muscle weighs more than fat.</p>
-                            </div>
-                            <div class="limitation-item">
-                                <h4><i class="fas fa-user-clock"></i> Age Factor</h4>
-                                <p>Older adults tend to have more body fat than younger adults with the same BMI due to muscle loss.</p>
-                            </div>
-                            <div class="limitation-item">
-                                <h4><i class="fas fa-venus-mars"></i> Gender Differences</h4>
-                                <p>Women typically have more body fat than men at the same BMI due to biological differences.</p>
-                            </div>
-                            <div class="limitation-item">
-                                <h4><i class="fas fa-child"></i> Children & Teens</h4>
-                                <p>BMI calculations for children must account for age and gender using percentile charts.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Additional Metrics -->
-                    <div class="additional-metrics">
-                        <h3>Additional Health Metrics</h3>
-                        <div class="metrics-grid">
-                            <div class="metric-item">
-                                <h4>BMI Prime</h4>
-                                <p>BMI Prime = BMI / 25</p>
-                                <p>A dimensionless ratio where 1.0 represents the upper limit of normal BMI (25 kg/m²)</p>
-                            </div>
-                            <div class="metric-item">
-                                <h4>Ponderal Index</h4>
-                                <p>PI = mass (kg) / height³ (m)</p>
-                                <p>More accurate for very tall or short individuals than BMI</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Financial Calculators</h4>
-                    <ul>
-                        <li><a href="mortgage-calculator.html">Mortgage Calculator</a></li>
-                        <li><a href="loan-calculator.html">Loan Calculator</a></li>
-                        <li><a href="auto-loan-calculator.html">Auto Loan Calculator</a></li>
-                        <li><a href="interest-calculator.html">Interest Calculator</a></li>
-                        <li><a href="retirement-calculator.html">Retirement Calculator</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Health & Fitness</h4>
-                    <ul>
-                        <li><a href="bmi-calculator.html">BMI Calculator</a></li>
-                        <li><a href="calorie-calculator.html">Calorie Calculator</a></li>
-                        <li><a href="body-fat-calculator.html">Body Fat Calculator</a></li>
-                        <li><a href="bmr-calculator.html">BMR Calculator</a></li>
-                        <li><a href="pregnancy-calculator.html">Pregnancy Calculator</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Math Calculators</h4>
-                    <ul>
-                        <li><a href="scientific-calculator.html">Scientific Calculator</a></li>
-                        <li><a href="fraction-calculator.html">Fraction Calculator</a></li>
-                        <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
-                        <li><a href="triangle-calculator.html">Triangle Calculator</a></li>
-                        <li><a href="random-number-generator.html">Random Number Generator</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Other Tools</h4>
-                    <ul>
-                        <li><a href="age-calculator.html">Age Calculator</a></li>
-                        <li><a href="date-calculator.html">Date Calculator</a></li>
-                        <li><a href="time-calculator.html">Time Calculator</a></li>
-                        <li><a href="gpa-calculator.html">GPA Calculator</a></li>
-                        <li><a href="password-generator.html">Password Generator</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 CalculatorFree.Online. All rights reserved.</p>
-                <p>Designed & Developed by <strong>Long Thái Bảo</strong> | Unauthorized copying is strictly prohibited</p>
-                <p><small>All content, design, and code are protected by copyright law - <a href="copyright.html" style="color: #6c757d;">View Copyright Notice</a></small></p>
-            </div>
+        <div class="input-group">
+         <label for="gender">
+          Gender
+         </label>
+         <select id="gender" required="">
+          <option value="">
+           Select Gender
+          </option>
+          <option value="male">
+           Male
+          </option>
+          <option value="female">
+           Female
+          </option>
+         </select>
         </div>
-    </footer>
-
-    <script src="script.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
+       </div>
+       <button class="calculate-btn" type="submit">
+        Calculate BMI
+       </button>
+      </form>
+      <div class="result" id="result" style="display:none;">
+       <h2 class="h2result">
+        Result
+        <img height="20" onclick="saveBMIResult()" src="//d26tpo4cm8sb6k.cloudfront.net/img/save.svg" style="float:right;padding-top:3px;cursor:pointer;" title="Save this calculation" width="19"/>
+       </h2>
+       <div class="bigtext" style="margin-top:5px;">
+        <b>
+         BMI =
+         <span id="bmiValueLarge">
+          0
+         </span>
+         kg/m
+         <sup>
+          2
+         </sup>
+        </b>
+        (
+        <span id="bmiCategoryLarge" style="color:green">
+         Normal
+        </span>
+        )
+       </div>
+       <div style="padding-top:10px;text-align:center;">
+        <div class="bmi-gauge">
+         <svg height="163" viewbox="0 0 300 163" width="300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <g style="font-family:arial,helvetica,sans-serif;font-size: 12px;" transform="translate(18,18)">
+           <defs>
+            <marker id="arrowhead" markerheight="7" markerwidth="10" orient="auto" refx="0" refy="3.5">
+             <polygon points="0 0, 10 3.5, 0 7">
+             </polygon>
+            </marker>
+            <path d="M-4 140 A140 140, 0, 0, 1, 284 140" id="curvetxt1" style="fill: none;">
+            </path>
+            <path d="M33 43.6 A140 140, 0, 0, 1, 280 140" id="curvetxt2" style="fill: none;">
+            </path>
+            <path d="M95 3 A140 140, 0, 0, 1, 284 140" id="curvetxt3" style="fill: none;">
+            </path>
+            <path d="M235.4 33 A140 140, 0, 0, 1, 284 140" id="curvetxt4" style="fill: none;">
+            </path>
+           </defs>
+           <!-- BMI Range Segments -->
+           <path d="M0 140 A140 140, 0, 0, 1, 6.9 96.7 L140 140 Z" fill="#bc2020">
+           </path>
+           <path d="M6.9 96.7 A140 140, 0, 0, 1, 12.1 83.1 L140 140 Z" fill="#d38888">
+           </path>
+           <path d="M12.1 83.1 A140 140, 0, 0, 1, 22.6 63.8 L140 140 Z" fill="#ffe400">
+           </path>
+           <path d="M22.6 63.8 A140 140, 0, 0, 1, 96.7 6.9 L140 140 Z" fill="#008137">
+           </path>
+           <path d="M96.7 6.9 A140 140, 0, 0, 1, 169.1 3.1 L140 140 Z" fill="#ffe400">
+           </path>
+           <path d="M169.1 3.1 A140 140, 0, 0, 1, 233.7 36 L140 140 Z" fill="#d38888">
+           </path>
+           <path d="M233.7 36 A140 140, 0, 0, 1, 273.1 96.7 L140 140 Z" fill="#bc2020">
+           </path>
+           <path d="M273.1 96.7 A140 140, 0, 0, 1, 280 140 L140 140 Z" fill="#8a0101">
+           </path>
+           <!-- White center circle -->
+           <path d="M45 140 A90 90, 0, 0, 1, 230 140 Z" fill="#fff">
+           </path>
+           <!-- Center dot -->
+           <circle cx="140" cy="140" fill="#333" r="3">
+           </circle>
+           <!-- BMI value markers -->
+           <g style="paint-order: stroke;stroke: #fff;stroke-width: 2px;">
+            <text transform="rotate(-72, 25, 111)" x="25" y="111">
+             16
+            </text>
+            <text transform="rotate(-66, 30, 96)" x="30" y="96">
+             17
+            </text>
+            <text transform="rotate(-57, 35, 83)" x="35" y="83">
+             18.5
+            </text>
+            <text transform="rotate(-18, 97, 29)" x="97" y="29">
+             25
+            </text>
+            <text transform="rotate(12, 157, 20)" x="157" y="20">
+             30
+            </text>
+            <text transform="rotate(42, 214, 45)" x="214" y="45">
+             35
+            </text>
+            <text transform="rotate(72, 252, 95)" x="252" y="95">
+             40
+            </text>
+           </g>
+           <!-- Category labels -->
+           <g style="font-size: 14px;">
+            <text>
+             <textpath xlink:href="#curvetxt1">
+              Underweight
+             </textpath>
+            </text>
+            <text>
+             <textpath xlink:href="#curvetxt2">
+              Normal
+             </textpath>
+            </text>
+            <text>
+             <textpath xlink:href="#curvetxt3">
+              Overweight
+             </textpath>
+            </text>
+            <text>
+             <textpath xlink:href="#curvetxt4">
+              Obesity
+             </textpath>
+            </text>
+           </g>
+           <!-- Update needle with correct positioning -->
+           <line id="bmiNeedle" marker-end="url(#arrowhead)" stroke="#333" stroke-width="2" style="transform-origin: 140px 140px;" x1="140" x2="140" y1="140" y2="50">
+           </line>
+           <!-- BMI Value Display -->
+           <text id="gaugeBmiValue" style="font-size: 30px;font-weight:bold;color:#000;" x="67" y="120">
+            BMI = 0
+           </text>
+          </g>
+         </svg>
+        </div>
+       </div>
+       <ul style="margin-left:8px;padding-left:8px;">
+        <li>
+         Healthy BMI range: 18.5 kg/m
+         <sup>
+          2
+         </sup>
+         - 25 kg/m
+         <sup>
+          2
+         </sup>
+        </li>
+        <li>
+         Healthy weight for the height:
+         <span id="healthyWeight">
+          -
+         </span>
+        </li>
+        <li>
+         BMI Prime:
+         <span id="bmiPrimeValue">
+          -
+         </span>
+        </li>
+        <li>
+         Ponderal Index:
+         <span id="ponderalValue">
+          -
+         </span>
+         kg/m
+         <sup>
+          3
+         </sup>
+        </li>
+       </ul>
+       <!-- New BMI Advice Section -->
+       <div class="bmi-advice">
+        <h3>
+         Personalized Health Recommendations
+        </h3>
+        <div id="nutritionAdvice">
+         <!-- Underweight Advice -->
+         <div class="nutrition-advice underweight" style="display:none;">
+          <h4>
+           <i class="fas fa-weight">
+           </i>
+           Recommendations for Healthy Weight Gain
+          </h4>
+          <ul>
+           <li>
+            Eat more frequently - aim for 5-6 smaller meals throughout the day
+           </li>
+           <li>
+            Choose nutrient-dense foods rich in healthy fats:
+            <ul>
+             <li>
+              Nuts, seeds, and nut butters
+             </li>
+             <li>
+              Avocados and olive oil
+             </li>
+             <li>
+              Whole grains and legumes
+             </li>
+            </ul>
+           </li>
+           <li>
+            Add protein-rich foods to each meal:
+            <ul>
+             <li>
+              Lean meats, fish, and eggs
+             </li>
+             <li>
+              Dairy products like yogurt and cheese
+             </li>
+             <li>
+              Plant proteins like quinoa and beans
+             </li>
+            </ul>
+           </li>
+           <li>
+            Consider nutritious smoothies with fruits, protein, and healthy fats
+           </li>
+           <li>
+            Consult with a healthcare provider about potential underlying causes
+           </li>
+          </ul>
+         </div>
+         <!-- Normal Weight Advice -->
+         <div class="nutrition-advice normal" style="display:none;">
+          <h4>
+           <i class="fas fa-check-circle">
+           </i>
+           Maintaining Your Healthy Weight
+          </h4>
+          <ul>
+           <li>
+            Continue your balanced diet with:
+            <ul>
+             <li>
+              Plenty of fruits and vegetables
+             </li>
+             <li>
+              Whole grains and lean proteins
+             </li>
+             <li>
+              Healthy fats in moderation
+             </li>
+            </ul>
+           </li>
+           <li>
+            Stay physically active with 150 minutes of moderate exercise weekly
+           </li>
+           <li>
+            Monitor your weight regularly to maintain your healthy range
+           </li>
+           <li>
+            Practice mindful eating and portion control
+           </li>
+          </ul>
+         </div>
+         <!-- Overweight Advice -->
+         <div class="nutrition-advice overweight" style="display:none;">
+          <h4>
+           <i class="fas fa-balance-scale">
+           </i>
+           Healthy Weight Management Tips
+          </h4>
+          <ul>
+           <li>
+            Focus on portion control and mindful eating
+           </li>
+           <li>
+            Choose nutrient-dense, lower-calorie foods:
+            <ul>
+             <li>
+              Fresh fruits and vegetables
+             </li>
+             <li>
+              Lean proteins and fish
+             </li>
+             <li>
+              Whole grains instead of refined grains
+             </li>
+            </ul>
+           </li>
+           <li>
+            Increase physical activity gradually:
+            <ul>
+             <li>
+              Aim for 30 minutes of moderate exercise daily
+             </li>
+             <li>
+              Include both cardio and strength training
+             </li>
+            </ul>
+           </li>
+           <li>
+            Stay hydrated with water instead of sugary drinks
+           </li>
+           <li>
+            Consider consulting a healthcare provider for personalized advice
+           </li>
+          </ul>
+         </div>
+         <!-- Obese Advice -->
+         <div class="nutrition-advice obese" style="display:none;">
+          <h4>
+           <i class="fas fa-heartbeat">
+           </i>
+           Important Health Recommendations
+          </h4>
+          <ul>
+           <li>
+            Consult with healthcare providers for a personalized plan
+           </li>
+           <li>
+            Make sustainable dietary changes:
+            <ul>
+             <li>
+              Reduce processed and high-calorie foods
+             </li>
+             <li>
+              Increase vegetables and lean proteins
+             </li>
+             <li>
+              Control portion sizes
+             </li>
+            </ul>
+           </li>
+           <li>
+            Start gentle physical activity:
+            <ul>
+             <li>
+              Begin with walking or swimming
+             </li>
+             <li>
+              Gradually increase duration and intensity
+             </li>
+            </ul>
+           </li>
+           <li>
+            Monitor other health markers (blood pressure, blood sugar)
+           </li>
+           <li>
+            Consider joining support groups or working with a dietitian
+           </li>
+          </ul>
+         </div>
+        </div>
+        <div class="nutrition-tips">
+         <div class="tip-card">
+          <i class="fas fa-apple-alt">
+          </i>
+          <strong>
+           General Nutrition Tips:
+          </strong>
+          <ul>
+           <li>
+            Eat a variety of colorful fruits and vegetables
+           </li>
+           <li>
+            Choose whole grains over refined grains
+           </li>
+           <li>
+            Stay hydrated with water
+           </li>
+          </ul>
+         </div>
+         <div class="tip-card">
+          <i class="fas fa-walking">
+          </i>
+          <strong>
+           Physical Activity:
+          </strong>
+          <ul>
+           <li>
+            Find activities you enjoy
+           </li>
+           <li>
+            Start slowly and build gradually
+           </li>
+           <li>
+            Stay consistent with your routine
+           </li>
+          </ul>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <!-- BMI Information Section -->
+     <div class="bmi-info-section" style="color: #f8f9fa; ">
+      <h3 style="text-align: center; margin-bottom: 2rem;">
+       BMI Information &amp; Guidelines
+      </h3>
+      <!-- BMI Categories -->
+      <div class="bmi-ranges">
+       <div class="bmi-range underweight">
+        <h3>
+         Underweight
+        </h3>
+        <p>
+         BMI less than 18.5
+        </p>
+       </div>
+       <div class="bmi-range normal">
+        <h3>
+         Normal Weight
+        </h3>
+        <p>
+         BMI 18.5 - 24.9
+        </p>
+       </div>
+       <div class="bmi-range overweight">
+        <h3>
+         Overweight
+        </h3>
+        <p>
+         BMI 25 - 29.9
+        </p>
+       </div>
+       <div class="bmi-range obese">
+        <h3>
+         Obese
+        </h3>
+        <p>
+         BMI 30 or greater
+        </p>
+       </div>
+      </div>
+      <!-- Detailed BMI Table for Adults -->
+      <div class="bmi-detailed-table">
+       <h3>
+        WHO BMI Classification Table for Adults (20+ years)
+       </h3>
+       <table class="bmi-table">
+        <thead>
+         <tr>
+          <th>
+           Classification
+          </th>
+          <th>
+           BMI Range (kg/m²)
+          </th>
+          <th>
+           Health Risk
+          </th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr class="severe-thin">
+          <td>
+           Severe Thinness
+          </td>
+          <td>
+           &lt; 16
+          </td>
+          <td>
+           High risk
+          </td>
+         </tr>
+         <tr class="moderate-thin">
+          <td>
+           Moderate Thinness
+          </td>
+          <td>
+           16 - 17
+          </td>
+          <td>
+           Moderate risk
+          </td>
+         </tr>
+         <tr class="mild-thin">
+          <td>
+           Mild Thinness
+          </td>
+          <td>
+           17 - 18.5
+          </td>
+          <td>
+           Low risk
+          </td>
+         </tr>
+         <tr class="normal-bmi">
+          <td>
+           Normal
+          </td>
+          <td>
+           18.5 - 25
+          </td>
+          <td>
+           Minimal risk
+          </td>
+         </tr>
+         <tr class="overweight-bmi">
+          <td>
+           Overweight
+          </td>
+          <td>
+           25 - 30
+          </td>
+          <td>
+           Increased risk
+          </td>
+         </tr>
+         <tr class="obese-1">
+          <td>
+           Obese Class I
+          </td>
+          <td>
+           30 - 35
+          </td>
+          <td>
+           Moderate risk
+          </td>
+         </tr>
+         <tr class="obese-2">
+          <td>
+           Obese Class II
+          </td>
+          <td>
+           35 - 40
+          </td>
+          <td>
+           High risk
+          </td>
+         </tr>
+         <tr class="obese-3">
+          <td>
+           Obese Class III
+          </td>
+          <td>
+           &gt; 40
+          </td>
+          <td>
+           Very high risk
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <!-- BMI Formula -->
+      <div class="bmi-formula-section">
+       <h3>
+        BMI Formula
+       </h3>
+       <div class="formula-container">
+        <div class="formula-item">
+         <h4>
+          Metric Units
+         </h4>
+         <p class="formula">
+          BMI = weight (kg) / height (m)²
+         </p>
+         <p class="example">
+          Example: 70 kg / (1.75 m)² = 22.9
+         </p>
+        </div>
+        <div class="formula-item">
+         <h4>
+          Imperial Units
+         </h4>
+         <p class="formula">
+          BMI = (weight (lbs) / height (in)²) × 703
+         </p>
+         <p class="example">
+          Example: (154 lbs / (69 in)²) × 703 = 22.9
+         </p>
+        </div>
+       </div>
+      </div>
+      <!-- Health Risks -->
+      <div class="health-risks-section">
+       <div class="risk-categories">
+        <div class="risk-category">
+         <h3>
+          <i class="fas fa-exclamation-triangle">
+          </i>
+          Risks of Being Overweight
+         </h3>
+         <ul>
+          <li>
+           High blood pressure
+          </li>
+          <li>
+           High LDL cholesterol, low HDL cholesterol
+          </li>
+          <li>
+           Type 2 diabetes
+          </li>
+          <li>
+           Coronary heart disease
+          </li>
+          <li>
+           Stroke
+          </li>
+          <li>
+           Gallbladder disease
+          </li>
+          <li>
+           Osteoarthritis
+          </li>
+          <li>
+           Sleep apnea and breathing problems
+          </li>
+          <li>
+           Certain cancers (endometrial, breast, colon)
+          </li>
+          <li>
+           Mental health issues
+          </li>
+         </ul>
+        </div>
+        <div class="risk-category">
+         <h3>
+          <i class="fas fa-heart-broken">
+          </i>
+          Risks of Being Underweight
+         </h3>
+         <ul>
+          <li>
+           Malnutrition and vitamin deficiencies
+          </li>
+          <li>
+           Anemia (reduced oxygen-carrying capacity)
+          </li>
+          <li>
+           Osteoporosis (weak bones)
+          </li>
+          <li>
+           Decreased immune function
+          </li>
+          <li>
+           Growth and development issues
+          </li>
+          <li>
+           Reproductive issues in women
+          </li>
+          <li>
+           Surgical complications
+          </li>
+          <li>
+           Increased mortality risk
+          </li>
+         </ul>
+        </div>
+       </div>
+      </div>
+      <!-- BMI Limitations -->
+      <div class="bmi-limitations">
+       <h3>
+        BMI Limitations
+       </h3>
+       <div class="limitations-grid">
+        <div class="limitation-item">
+         <h4>
+          <i class="fas fa-dumbbell">
+          </i>
+          Athletes &amp; Muscular Individuals
+         </h4>
+         <p>
+          BMI may overestimate body fat in athletes and those with high muscle mass, as muscle weighs more than fat.
+         </p>
+        </div>
+        <div class="limitation-item">
+         <h4>
+          <i class="fas fa-user-clock">
+          </i>
+          Age Factor
+         </h4>
+         <p>
+          Older adults tend to have more body fat than younger adults with the same BMI due to muscle loss.
+         </p>
+        </div>
+        <div class="limitation-item">
+         <h4>
+          <i class="fas fa-venus-mars">
+          </i>
+          Gender Differences
+         </h4>
+         <p>
+          Women typically have more body fat than men at the same BMI due to biological differences.
+         </p>
+        </div>
+        <div class="limitation-item">
+         <h4>
+          <i class="fas fa-child">
+          </i>
+          Children &amp; Teens
+         </h4>
+         <p>
+          BMI calculations for children must account for age and gender using percentile charts.
+         </p>
+        </div>
+       </div>
+      </div>
+      <!-- Additional Metrics -->
+      <div class="additional-metrics">
+       <h3>
+        Additional Health Metrics
+       </h3>
+       <div class="metrics-grid">
+        <div class="metric-item">
+         <h4>
+          BMI Prime
+         </h4>
+         <p>
+          BMI Prime = BMI / 25
+         </p>
+         <p>
+          A dimensionless ratio where 1.0 represents the upper limit of normal BMI (25 kg/m²)
+         </p>
+        </div>
+        <div class="metric-item">
+         <h4>
+          Ponderal Index
+         </h4>
+         <p>
+          PI = mass (kg) / height³ (m)
+         </p>
+         <p>
+          More accurate for very tall or short individuals than BMI
+         </p>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+  </main>
+  <footer class="footer">
+   <div class="container">
+    <div class="footer-content">
+     <div class="footer-section">
+      <h4>
+       Financial Calculators
+      </h4>
+      <ul>
+       <li>
+        <a href="mortgage-calculator.html">
+         Mortgage Calculator
+        </a>
+       </li>
+       <li>
+        <a href="loan-calculator.html">
+         Loan Calculator
+        </a>
+       </li>
+       <li>
+        <a href="auto-loan-calculator.html">
+         Auto Loan Calculator
+        </a>
+       </li>
+       <li>
+        <a href="interest-calculator.html">
+         Interest Calculator
+        </a>
+       </li>
+       <li>
+        <a href="retirement-calculator.html">
+         Retirement Calculator
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="footer-section">
+      <h4>
+       Health &amp; Fitness
+      </h4>
+      <ul>
+       <li>
+        <a href="bmi-calculator.html">
+         BMI Calculator
+        </a>
+       </li>
+       <li>
+        <a href="calorie-calculator.html">
+         Calorie Calculator
+        </a>
+       </li>
+       <li>
+        <a href="body-fat-calculator.html">
+         Body Fat Calculator
+        </a>
+       </li>
+       <li>
+        <a href="bmr-calculator.html">
+         BMR Calculator
+        </a>
+       </li>
+       <li>
+        <a href="pregnancy-calculator.html">
+         Pregnancy Calculator
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="footer-section">
+      <h4>
+       Math Calculators
+      </h4>
+      <ul>
+       <li>
+        <a href="scientific-calculator.html">
+         Scientific Calculator
+        </a>
+       </li>
+       <li>
+        <a href="fraction-calculator.html">
+         Fraction Calculator
+        </a>
+       </li>
+       <li>
+        <a href="percentage-calculator.html">
+         Percentage Calculator
+        </a>
+       </li>
+       <li>
+        <a href="triangle-calculator.html">
+         Triangle Calculator
+        </a>
+       </li>
+       <li>
+        <a href="random-number-generator.html">
+         Random Number Generator
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="footer-section">
+      <h4>
+       Other Tools
+      </h4>
+      <ul>
+       <li>
+        <a href="age-calculator.html">
+         Age Calculator
+        </a>
+       </li>
+       <li>
+        <a href="date-calculator.html">
+         Date Calculator
+        </a>
+       </li>
+       <li>
+        <a href="time-calculator.html">
+         Time Calculator
+        </a>
+       </li>
+       <li>
+        <a href="gpa-calculator.html">
+         GPA Calculator
+        </a>
+       </li>
+       <li>
+        <a href="password-generator.html">
+         Password Generator
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="footer-bottom">
+     <p>
+      © 2024 CalculatorFree.Online. All rights reserved.
+     </p>
+     <p>
+      Designed &amp; Developed by
+      <strong>
+       Long Thái Bảo
+      </strong>
+      | Unauthorized copying is strictly prohibited
+     </p>
+     <p>
+      <small>
+       All content, design, and code are protected by copyright law -
+       <a href="copyright.html" style="color: #6c757d;">
+        View Copyright Notice
+       </a>
+      </small>
+     </p>
+    </div>
+   </div>
+  </footer>
+  <script src="script.js">
+  </script>
+  <script>
+   document.addEventListener('DOMContentLoaded', function() {
             // Mobile menu functionality
             const mobileToggle = document.querySelector('.mobile-menu-toggle');
             const navMenu = document.querySelector('.nav-menu');
@@ -1253,6 +1742,6 @@
             a.click();
             window.URL.revokeObjectURL(url);
         }
-    </script>
-</body>
-</html> 
+  </script>
+ </body>
+</html>

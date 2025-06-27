@@ -1,0 +1,41 @@
+{
+  "title": "Mortgage Calculator - Free Online Calculator | Updated June 2025",
+  "meta_description": "Free online mortgage calculator with step-by-step calculations. Calculate monthly mortgage payments, interest, and amortization schedule. Updated for June 2025.",
+  "h1": "Mortgage Calculator",
+  "intro": "Our free online mortgage calculator provides quick and accurate results. \nUpdated for June 2025, this calculator helps you calculate monthly mortgage payments, interest, and amortization schedule.",
+  "features": [
+    "Easy to use interface",
+    "Mobile-friendly design",
+    "Instant calculations",
+    "Step-by-step explanations",
+    "No registration required",
+    "100% free to use"
+  ],
+  "how_to_use": [
+    "Enter your values in the input fields",
+    "Click the calculate button",
+    "Review your results",
+    "Use the detailed breakdown for more information"
+  ],
+  "example_calculations": [
+    {
+      "inputs": {
+        "home_price": "$300,000",
+        "down_payment": "$60,000",
+        "interest": "3.5%",
+        "term": "30 years"
+      },
+      "result": "$1,077 monthly payment"
+    },
+    {
+      "inputs": {
+        "home_price": "$500,000",
+        "down_payment": "$100,000",
+        "interest": "4.0%",
+        "term": "15 years"
+      },
+      "result": "$2,959 monthly payment"
+    }
+  ],
+  "last_updated": "2025-06-27"
+}

@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Square Footage Calculator - Calculate Area & Square Feet | CalculatorFree.Online</title>
-    <meta name="description" content="Calculate square footage for rooms, houses, land, and irregular shapes. Convert between different area units and plan your space accurately.">
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        .sqft-calculator {
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="index, follow" name="robots"/>
+  <link href="https://calculatorfree.online/square-footage-calculator.html" rel="canonical"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Square Footage Calculator - Calculate Area &amp; Square Feet | CalculatorFree.Online
+  </title>
+  <meta content="Calculate square footage for rooms, houses, land, and irregular shapes. Convert between different area units and plan your space accurately." name="description"/>
+  <link href="styles.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+  <style>
+   .sqft-calculator {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             border-radius: 20px;
@@ -224,311 +228,602 @@
                 grid-template-columns: 1fr;
             }
         }
-    </style>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZTVJQRZ1L2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-ZTVJQRZ1L2">
+  </script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'G-ZTVJQRZ1L2');
-</script>
-
-</head>
-<body>
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <i class="fas fa-calculator"></i>
-                <span>CalculatorFree.Online</span>
-            </div>
-            <nav class="nav-menu">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="index.html#financial" class="nav-link">Financial</a>
-                <a href="index.html#health" class="nav-link">Health & Fitness</a>
-                <a href="index.html#math" class="nav-link">Math</a>
-                <a href="index.html#other" class="nav-link active">Other Tools</a>
-            </nav>
-            <div class="mobile-menu-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
+  </script>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://cdnjs.cloudflare.com" rel="preconnect"/>
+  <script type="application/ld+json">
+   {"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Square Footage Calculator", "applicationCategory": "CalculatorApplication", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "operatingSystem": "All", "description": "Free online square footage calculator with step-by-step calculations and detailed results."}
+  </script>
+  <script type="application/ld+json">
+   {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calculatorfree.online/"}, {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://calculatorfree.online/#calculators"}, {"@type": "ListItem", "position": 3, "name": "Square Footage Calculator", "item": "https://calculatorfree.online/square-footage-calculator.html"}]}
+  </script>
+ </head>
+ <body>
+  <header class="header">
+   <div class="container">
+    <div class="logo">
+     <i class="fas fa-calculator">
+     </i>
+     <span>
+      CalculatorFree.Online
+     </span>
+    </div>
+    <nav class="nav-menu">
+     <a class="nav-link" href="index.html">
+      Home
+     </a>
+     <a class="nav-link" href="index.html#financial">
+      Financial
+     </a>
+     <a class="nav-link" href="index.html#health">
+      Health &amp; Fitness
+     </a>
+     <a class="nav-link" href="index.html#math">
+      Math
+     </a>
+     <a class="nav-link active" href="index.html#other">
+      Other Tools
+     </a>
+    </nav>
+    <div class="mobile-menu-toggle">
+     <i class="fas fa-bars">
+     </i>
+    </div>
+   </div>
+  </header>
+  <main class="main">
+   <section class="hero">
+    <div class="container">
+     <div class="hero-content">
+      <h1>
+       <i class="fas fa-expand-arrows-alt">
+       </i>
+       Square Footage Calculator
+      </h1>
+      <p>
+       Calculate area and square footage for any shape - rooms, houses, land, and more
+      </p>
+     </div>
+    </div>
+   </section>
+   <section>
+    <div class="container">
+     <div class="sqft-calculator">
+      <div class="shape-tabs">
+       <button class="tab-button active" onclick="setShape('rectangle')">
+        <i class="fas fa-square">
+        </i>
+        <br/>
+        Rectangle
+       </button>
+       <button class="tab-button" onclick="setShape('circle')">
+        <i class="fas fa-circle">
+        </i>
+        <br/>
+        Circle
+       </button>
+       <button class="tab-button" onclick="setShape('triangle')">
+        <i class="fas fa-play">
+        </i>
+        <br/>
+        Triangle
+       </button>
+       <button class="tab-button" onclick="setShape('trapezoid')">
+        <i class="fas fa-shapes">
+        </i>
+        <br/>
+        Trapezoid
+       </button>
+       <button class="tab-button" onclick="setShape('ellipse')">
+        <i class="fas fa-oval-h">
+        </i>
+        <br/>
+        Ellipse
+       </button>
+       <button class="tab-button" onclick="setShape('polygon')">
+        <i class="fas fa-draw-polygon">
+        </i>
+        <br/>
+        Polygon
+       </button>
+      </div>
+      <div class="calculator-grid">
+       <div class="input-panel">
+        <h3 class="panel-title">
+         <i class="fas fa-ruler">
+         </i>
+         <span id="shape-title">
+          Rectangle
+         </span>
+         Dimensions
+        </h3>
+        <!-- Rectangle inputs -->
+        <div class="shape-inputs" id="rectangle-inputs">
+         <div class="input-group">
+          <label>
+           Dimensions
+          </label>
+          <div class="dimension-grid">
+           <input class="input-field" id="rect-length" min="0" placeholder="Length (ft)" step="0.1" type="number"/>
+           <input class="input-field" id="rect-width" min="0" placeholder="Width (ft)" step="0.1" type="number"/>
+          </div>
+         </div>
         </div>
-    </header>
-
-    <main class="main">
-        <section class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1><i class="fas fa-expand-arrows-alt"></i> Square Footage Calculator</h1>
-                    <p>Calculate area and square footage for any shape - rooms, houses, land, and more</p>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <div class="container">
-                <div class="sqft-calculator">
-                    <div class="shape-tabs">
-                        <button class="tab-button active" onclick="setShape('rectangle')">
-                            <i class="fas fa-square"></i><br>Rectangle
-                        </button>
-                        <button class="tab-button" onclick="setShape('circle')">
-                            <i class="fas fa-circle"></i><br>Circle
-                        </button>
-                        <button class="tab-button" onclick="setShape('triangle')">
-                            <i class="fas fa-play"></i><br>Triangle
-                        </button>
-                        <button class="tab-button" onclick="setShape('trapezoid')">
-                            <i class="fas fa-shapes"></i><br>Trapezoid
-                        </button>
-                        <button class="tab-button" onclick="setShape('ellipse')">
-                            <i class="fas fa-oval-h"></i><br>Ellipse
-                        </button>
-                        <button class="tab-button" onclick="setShape('polygon')">
-                            <i class="fas fa-draw-polygon"></i><br>Polygon
-                        </button>
-                    </div>
-
-                    <div class="calculator-grid">
-                        <div class="input-panel">
-                            <h3 class="panel-title"><i class="fas fa-ruler"></i> <span id="shape-title">Rectangle</span> Dimensions</h3>
-                            
-                            <!-- Rectangle inputs -->
-                            <div id="rectangle-inputs" class="shape-inputs">
-                                <div class="input-group">
-                                    <label>Dimensions</label>
-                                    <div class="dimension-grid">
-                                        <input type="number" id="rect-length" class="input-field" placeholder="Length (ft)" min="0" step="0.1">
-                                        <input type="number" id="rect-width" class="input-field" placeholder="Width (ft)" min="0" step="0.1">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Circle inputs -->
-                            <div id="circle-inputs" class="shape-inputs" style="display: none;">
-                                <div class="input-group">
-                                    <label for="circle-radius">Radius</label>
-                                    <input type="number" id="circle-radius" class="input-field" placeholder="Radius (ft)" min="0" step="0.1">
-                                </div>
-                                <div class="input-group">
-                                    <label for="circle-diameter">Or Diameter</label>
-                                    <input type="number" id="circle-diameter" class="input-field" placeholder="Diameter (ft)" min="0" step="0.1">
-                                </div>
-                            </div>
-
-                            <!-- Triangle inputs -->
-                            <div id="triangle-inputs" class="shape-inputs" style="display: none;">
-                                <div class="input-group">
-                                    <label for="triangle-base">Base</label>
-                                    <input type="number" id="triangle-base" class="input-field" placeholder="Base (ft)" min="0" step="0.1">
-                                </div>
-                                <div class="input-group">
-                                    <label for="triangle-height">Height</label>
-                                    <input type="number" id="triangle-height" class="input-field" placeholder="Height (ft)" min="0" step="0.1">
-                                </div>
-                            </div>
-
-                            <!-- Trapezoid inputs -->
-                            <div id="trapezoid-inputs" class="shape-inputs" style="display: none;">
-                                <div class="input-group">
-                                    <label>Parallel Sides</label>
-                                    <div class="dimension-grid">
-                                        <input type="number" id="trap-base1" class="input-field" placeholder="Base 1 (ft)" min="0" step="0.1">
-                                        <input type="number" id="trap-base2" class="input-field" placeholder="Base 2 (ft)" min="0" step="0.1">
-                                    </div>
-                                </div>
-                                <div class="input-group">
-                                    <label for="trap-height">Height</label>
-                                    <input type="number" id="trap-height" class="input-field" placeholder="Height (ft)" min="0" step="0.1">
-                                </div>
-                            </div>
-
-                            <!-- Ellipse inputs -->
-                            <div id="ellipse-inputs" class="shape-inputs" style="display: none;">
-                                <div class="input-group">
-                                    <label>Semi-axes</label>
-                                    <div class="dimension-grid">
-                                        <input type="number" id="ellipse-a" class="input-field" placeholder="Semi-axis A (ft)" min="0" step="0.1">
-                                        <input type="number" id="ellipse-b" class="input-field" placeholder="Semi-axis B (ft)" min="0" step="0.1">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Polygon inputs -->
-                            <div id="polygon-inputs" class="shape-inputs" style="display: none;">
-                                <div class="input-group">
-                                    <label for="polygon-sides">Number of Sides</label>
-                                    <input type="number" id="polygon-sides" class="input-field" placeholder="6" min="3" max="20" step="1">
-                                </div>
-                                <div class="input-group">
-                                    <label for="polygon-side-length">Side Length</label>
-                                    <input type="number" id="polygon-side-length" class="input-field" placeholder="Side Length (ft)" min="0" step="0.1">
-                                </div>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="unit-system">Unit System</label>
-                                <select id="unit-system" class="input-field">
-                                    <option value="feet">Feet</option>
-                                    <option value="meters">Meters</option>
-                                    <option value="inches">Inches</option>
-                                    <option value="yards">Yards</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="result-panel">
-                            <h3 class="panel-title"><i class="fas fa-calculator"></i> Area Results</h3>
-                            
-                            <div class="input-group">
-                                <label for="area-sqft">Area (Square Feet)</label>
-                                <input type="text" id="area-sqft" class="input-field result-field" placeholder="0 sq ft" readonly>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="area-sqm">Area (Square Meters)</label>
-                                <input type="text" id="area-sqm" class="input-field result-field" placeholder="0 sq m" readonly>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="area-acres">Area (Acres)</label>
-                                <input type="text" id="area-acres" class="input-field result-field" placeholder="0 acres" readonly>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="perimeter">Perimeter</label>
-                                <input type="text" id="perimeter" class="input-field result-field" placeholder="0 ft" readonly>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="shape-visual">
-                        <h3><i class="fas fa-eye"></i> Shape Visualization</h3>
-                        <div class="visual-diagram" id="shape-diagram">
-                            <span id="diagram-text">📐 Rectangle Shape</span>
-                        </div>
-                        <div class="formula-display" id="formula-display">
-                            Area = Length × Width
-                        </div>
-                    </div>
-
-                    <div class="conversions-section">
-                        <h3><i class="fas fa-exchange-alt"></i> Area Conversions</h3>
-                        <div class="conversion-grid" id="conversion-grid">
-                            <!-- Conversion items will be generated here -->
-                        </div>
-                    </div>
-
-                    <div class="tips-section">
-                        <h3><i class="fas fa-graduation-cap"></i> Measurement Tips</h3>
-                        <div class="tips-grid">
-                            <div class="tip-item">
-                                <h4>📏 Accurate Measurements</h4>
-                                <p>Use a quality measuring tape and measure twice for accuracy. For large areas, consider using a measuring wheel.</p>
-                            </div>
-                            <div class="tip-item">
-                                <h4>🏠 Room Calculations</h4>
-                                <p>For rooms, measure wall to wall. Don't subtract for small fixtures, but do subtract for large built-ins.</p>
-                            </div>
-                            <div class="tip-item">
-                                <h4>🌍 Land Measurements</h4>
-                                <p>For property, use a surveyor's measurements when available. GPS apps can help estimate large outdoor areas.</p>
-                            </div>
-                            <div class="tip-item">
-                                <h4>📐 Irregular Shapes</h4>
-                                <p>Break complex shapes into simple rectangles, triangles, or circles, then add the areas together.</p>
-                            </div>
-                            <div class="tip-item">
-                                <h4>🔢 Unit Conversions</h4>
-                                <p>1 acre = 43,560 sq ft. 1 sq meter = 10.764 sq ft. Always double-check your unit conversions.</p>
-                            </div>
-                            <div class="tip-item">
-                                <h4>📱 Digital Tools</h4>
-                                <p>Use smartphone apps with AR measurement features for quick estimates, but verify with physical measurements.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Financial Calculators</h4>
-                    <ul>
-                        <li><a href="mortgage-calculator.html">Mortgage Calculator</a></li>
-                        <li><a href="loan-calculator.html">Loan Calculator</a></li>
-                        <li><a href="auto-loan-calculator.html">Auto Loan Calculator</a></li>
-                        <li><a href="interest-calculator.html">Interest Calculator</a></li>
-                        <li><a href="investment-calculator.html">Investment Calculator</a></li>
-                        <li><a href="compound-interest-calculator.html">Compound Interest Calculator</a></li>
-                        <li><a href="tax-calculator.html">Tax Calculator</a></li>
-                        <li><a href="salary-calculator.html">Salary Calculator</a></li>
-                        <li><a href="credit-card-calculator.html">Credit Card Calculator</a></li>
-                        <li><a href="debt-calculator.html">Debt Calculator</a></li>
-                        <li><a href="retirement-calculator.html">Retirement Calculator</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Health & Fitness</h4>
-                    <ul>
-                        <li><a href="bmi-calculator.html">BMI Calculator</a></li>
-                        <li><a href="calorie-calculator.html">Calorie Calculator</a></li>
-                        <li><a href="macro-calculator.html">Macro Calculator</a></li>
-                        <li><a href="pace-calculator.html">Pace Calculator</a></li>
-                        <li><a href="body-fat-calculator.html">Body Fat Calculator</a></li>
-                        <li><a href="bmr-calculator.html">BMR Calculator</a></li>
-                        <li><a href="pregnancy-calculator.html">Pregnancy Calculator</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Math Calculators</h4>
-                    <ul>
-                        <li><a href="scientific-calculator.html">Scientific Calculator</a></li>
-                        <li><a href="basic-calculator.html">Basic Calculator</a></li>
-                        <li><a href="binary-calculator.html">Binary Calculator</a></li>
-                        <li><a href="area-calculator.html">Area Calculator</a></li>
-                        <li><a href="volume-calculator.html">Volume Calculator</a></li>
-                        <li><a href="average-calculator.html">Average Calculator</a></li>
-                        <li><a href="fraction-calculator.html">Fraction Calculator</a></li>
-                        <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
-                        <li><a href="triangle-calculator.html">Triangle Calculator</a></li>
-                        <li><a href="random-number-generator.html">Random Number Generator</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Other Tools</h4>
-                    <ul>
-                        <li><a href="age-calculator.html">Age Calculator</a></li>
-                        <li><a href="date-calculator.html">Date Calculator</a></li>
-                        <li><a href="time-calculator.html">Time Calculator</a></li>
-                        <li><a href="hours-calculator.html">Hours Calculator</a></li>
-                        <li><a href="gpa-calculator.html">GPA Calculator</a></li>
-                        <li><a href="grade-calculator.html">Grade Calculator</a></li>
-                        <li><a href="password-generator.html">Password Generator</a></li>
-                        <li><a href="tip-calculator.html">Tip Calculator</a></li>
-                        <li><a href="unit-converter.html">Unit Converter</a></li>
-                        <li><a href="fuel-calculator.html">Fuel Calculator</a></li>
-                        <li><a href="concrete-calculator.html">Concrete Calculator</a></li>
-                        <li><a href="paint-calculator.html">Paint Calculator</a></li>
-                        <li><a href="flooring-calculator.html">Flooring Calculator</a></li>
-                        <li><a href="square-footage-calculator.html">Square Footage Calculator</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 CalculatorFree.Online. All rights reserved.</p>
-            </div>
+        <!-- Circle inputs -->
+        <div class="shape-inputs" id="circle-inputs" style="display: none;">
+         <div class="input-group">
+          <label for="circle-radius">
+           Radius
+          </label>
+          <input class="input-field" id="circle-radius" min="0" placeholder="Radius (ft)" step="0.1" type="number"/>
+         </div>
+         <div class="input-group">
+          <label for="circle-diameter">
+           Or Diameter
+          </label>
+          <input class="input-field" id="circle-diameter" min="0" placeholder="Diameter (ft)" step="0.1" type="number"/>
+         </div>
         </div>
-    </footer>
-
-    <script>
-        let currentShape = 'rectangle';
+        <!-- Triangle inputs -->
+        <div class="shape-inputs" id="triangle-inputs" style="display: none;">
+         <div class="input-group">
+          <label for="triangle-base">
+           Base
+          </label>
+          <input class="input-field" id="triangle-base" min="0" placeholder="Base (ft)" step="0.1" type="number"/>
+         </div>
+         <div class="input-group">
+          <label for="triangle-height">
+           Height
+          </label>
+          <input class="input-field" id="triangle-height" min="0" placeholder="Height (ft)" step="0.1" type="number"/>
+         </div>
+        </div>
+        <!-- Trapezoid inputs -->
+        <div class="shape-inputs" id="trapezoid-inputs" style="display: none;">
+         <div class="input-group">
+          <label>
+           Parallel Sides
+          </label>
+          <div class="dimension-grid">
+           <input class="input-field" id="trap-base1" min="0" placeholder="Base 1 (ft)" step="0.1" type="number"/>
+           <input class="input-field" id="trap-base2" min="0" placeholder="Base 2 (ft)" step="0.1" type="number"/>
+          </div>
+         </div>
+         <div class="input-group">
+          <label for="trap-height">
+           Height
+          </label>
+          <input class="input-field" id="trap-height" min="0" placeholder="Height (ft)" step="0.1" type="number"/>
+         </div>
+        </div>
+        <!-- Ellipse inputs -->
+        <div class="shape-inputs" id="ellipse-inputs" style="display: none;">
+         <div class="input-group">
+          <label>
+           Semi-axes
+          </label>
+          <div class="dimension-grid">
+           <input class="input-field" id="ellipse-a" min="0" placeholder="Semi-axis A (ft)" step="0.1" type="number"/>
+           <input class="input-field" id="ellipse-b" min="0" placeholder="Semi-axis B (ft)" step="0.1" type="number"/>
+          </div>
+         </div>
+        </div>
+        <!-- Polygon inputs -->
+        <div class="shape-inputs" id="polygon-inputs" style="display: none;">
+         <div class="input-group">
+          <label for="polygon-sides">
+           Number of Sides
+          </label>
+          <input class="input-field" id="polygon-sides" max="20" min="3" placeholder="6" step="1" type="number"/>
+         </div>
+         <div class="input-group">
+          <label for="polygon-side-length">
+           Side Length
+          </label>
+          <input class="input-field" id="polygon-side-length" min="0" placeholder="Side Length (ft)" step="0.1" type="number"/>
+         </div>
+        </div>
+        <div class="input-group">
+         <label for="unit-system">
+          Unit System
+         </label>
+         <select class="input-field" id="unit-system">
+          <option value="feet">
+           Feet
+          </option>
+          <option value="meters">
+           Meters
+          </option>
+          <option value="inches">
+           Inches
+          </option>
+          <option value="yards">
+           Yards
+          </option>
+         </select>
+        </div>
+       </div>
+       <div class="result-panel">
+        <h3 class="panel-title">
+         <i class="fas fa-calculator">
+         </i>
+         Area Results
+        </h3>
+        <div class="input-group">
+         <label for="area-sqft">
+          Area (Square Feet)
+         </label>
+         <input class="input-field result-field" id="area-sqft" placeholder="0 sq ft" readonly="" type="text"/>
+        </div>
+        <div class="input-group">
+         <label for="area-sqm">
+          Area (Square Meters)
+         </label>
+         <input class="input-field result-field" id="area-sqm" placeholder="0 sq m" readonly="" type="text"/>
+        </div>
+        <div class="input-group">
+         <label for="area-acres">
+          Area (Acres)
+         </label>
+         <input class="input-field result-field" id="area-acres" placeholder="0 acres" readonly="" type="text"/>
+        </div>
+        <div class="input-group">
+         <label for="perimeter">
+          Perimeter
+         </label>
+         <input class="input-field result-field" id="perimeter" placeholder="0 ft" readonly="" type="text"/>
+        </div>
+       </div>
+      </div>
+      <div class="shape-visual">
+       <h3>
+        <i class="fas fa-eye">
+        </i>
+        Shape Visualization
+       </h3>
+       <div class="visual-diagram" id="shape-diagram">
+        <span id="diagram-text">
+         📐 Rectangle Shape
+        </span>
+       </div>
+       <div class="formula-display" id="formula-display">
+        Area = Length × Width
+       </div>
+      </div>
+      <div class="conversions-section">
+       <h3>
+        <i class="fas fa-exchange-alt">
+        </i>
+        Area Conversions
+       </h3>
+       <div class="conversion-grid" id="conversion-grid">
+        <!-- Conversion items will be generated here -->
+       </div>
+      </div>
+      <div class="tips-section">
+       <h3>
+        <i class="fas fa-graduation-cap">
+        </i>
+        Measurement Tips
+       </h3>
+       <div class="tips-grid">
+        <div class="tip-item">
+         <h4>
+          📏 Accurate Measurements
+         </h4>
+         <p>
+          Use a quality measuring tape and measure twice for accuracy. For large areas, consider using a measuring wheel.
+         </p>
+        </div>
+        <div class="tip-item">
+         <h4>
+          🏠 Room Calculations
+         </h4>
+         <p>
+          For rooms, measure wall to wall. Don't subtract for small fixtures, but do subtract for large built-ins.
+         </p>
+        </div>
+        <div class="tip-item">
+         <h4>
+          🌍 Land Measurements
+         </h4>
+         <p>
+          For property, use a surveyor's measurements when available. GPS apps can help estimate large outdoor areas.
+         </p>
+        </div>
+        <div class="tip-item">
+         <h4>
+          📐 Irregular Shapes
+         </h4>
+         <p>
+          Break complex shapes into simple rectangles, triangles, or circles, then add the areas together.
+         </p>
+        </div>
+        <div class="tip-item">
+         <h4>
+          🔢 Unit Conversions
+         </h4>
+         <p>
+          1 acre = 43,560 sq ft. 1 sq meter = 10.764 sq ft. Always double-check your unit conversions.
+         </p>
+        </div>
+        <div class="tip-item">
+         <h4>
+          📱 Digital Tools
+         </h4>
+         <p>
+          Use smartphone apps with AR measurement features for quick estimates, but verify with physical measurements.
+         </p>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+  </main>
+  <footer class="footer">
+   <div class="container">
+    <div class="footer-content">
+     <div class="footer-section">
+      <h4>
+       Financial Calculators
+      </h4>
+      <ul>
+       <li>
+        <a href="mortgage-calculator.html">
+         Mortgage Calculator
+        </a>
+       </li>
+       <li>
+        <a href="loan-calculator.html">
+         Loan Calculator
+        </a>
+       </li>
+       <li>
+        <a href="auto-loan-calculator.html">
+         Auto Loan Calculator
+        </a>
+       </li>
+       <li>
+        <a href="interest-calculator.html">
+         Interest Calculator
+        </a>
+       </li>
+       <li>
+        <a href="investment-calculator.html">
+         Investment Calculator
+        </a>
+       </li>
+       <li>
+        <a href="compound-interest-calculator.html">
+         Compound Interest Calculator
+        </a>
+       </li>
+       <li>
+        <a href="tax-calculator.html">
+         Tax Calculator
+        </a>
+       </li>
+       <li>
+        <a href="salary-calculator.html">
+         Salary Calculator
+        </a>
+       </li>
+       <li>
+        <a href="credit-card-calculator.html">
+         Credit Card Calculator
+        </a>
+       </li>
+       <li>
+        <a href="debt-calculator.html">
+         Debt Calculator
+        </a>
+       </li>
+       <li>
+        <a href="retirement-calculator.html">
+         Retirement Calculator
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="footer-section">
+      <h4>
+       Health &amp; Fitness
+      </h4>
+      <ul>
+       <li>
+        <a href="bmi-calculator.html">
+         BMI Calculator
+        </a>
+       </li>
+       <li>
+        <a href="calorie-calculator.html">
+         Calorie Calculator
+        </a>
+       </li>
+       <li>
+        <a href="macro-calculator.html">
+         Macro Calculator
+        </a>
+       </li>
+       <li>
+        <a href="pace-calculator.html">
+         Pace Calculator
+        </a>
+       </li>
+       <li>
+        <a href="body-fat-calculator.html">
+         Body Fat Calculator
+        </a>
+       </li>
+       <li>
+        <a href="bmr-calculator.html">
+         BMR Calculator
+        </a>
+       </li>
+       <li>
+        <a href="pregnancy-calculator.html">
+         Pregnancy Calculator
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="footer-section">
+      <h4>
+       Math Calculators
+      </h4>
+      <ul>
+       <li>
+        <a href="scientific-calculator.html">
+         Scientific Calculator
+        </a>
+       </li>
+       <li>
+        <a href="basic-calculator.html">
+         Basic Calculator
+        </a>
+       </li>
+       <li>
+        <a href="binary-calculator.html">
+         Binary Calculator
+        </a>
+       </li>
+       <li>
+        <a href="area-calculator.html">
+         Area Calculator
+        </a>
+       </li>
+       <li>
+        <a href="volume-calculator.html">
+         Volume Calculator
+        </a>
+       </li>
+       <li>
+        <a href="average-calculator.html">
+         Average Calculator
+        </a>
+       </li>
+       <li>
+        <a href="fraction-calculator.html">
+         Fraction Calculator
+        </a>
+       </li>
+       <li>
+        <a href="percentage-calculator.html">
+         Percentage Calculator
+        </a>
+       </li>
+       <li>
+        <a href="triangle-calculator.html">
+         Triangle Calculator
+        </a>
+       </li>
+       <li>
+        <a href="random-number-generator.html">
+         Random Number Generator
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="footer-section">
+      <h4>
+       Other Tools
+      </h4>
+      <ul>
+       <li>
+        <a href="age-calculator.html">
+         Age Calculator
+        </a>
+       </li>
+       <li>
+        <a href="date-calculator.html">
+         Date Calculator
+        </a>
+       </li>
+       <li>
+        <a href="time-calculator.html">
+         Time Calculator
+        </a>
+       </li>
+       <li>
+        <a href="hours-calculator.html">
+         Hours Calculator
+        </a>
+       </li>
+       <li>
+        <a href="gpa-calculator.html">
+         GPA Calculator
+        </a>
+       </li>
+       <li>
+        <a href="grade-calculator.html">
+         Grade Calculator
+        </a>
+       </li>
+       <li>
+        <a href="password-generator.html">
+         Password Generator
+        </a>
+       </li>
+       <li>
+        <a href="tip-calculator.html">
+         Tip Calculator
+        </a>
+       </li>
+       <li>
+        <a href="unit-converter.html">
+         Unit Converter
+        </a>
+       </li>
+       <li>
+        <a href="fuel-calculator.html">
+         Fuel Calculator
+        </a>
+       </li>
+       <li>
+        <a href="concrete-calculator.html">
+         Concrete Calculator
+        </a>
+       </li>
+       <li>
+        <a href="paint-calculator.html">
+         Paint Calculator
+        </a>
+       </li>
+       <li>
+        <a href="flooring-calculator.html">
+         Flooring Calculator
+        </a>
+       </li>
+       <li>
+        <a href="square-footage-calculator.html">
+         Square Footage Calculator
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="footer-bottom">
+     <p>
+      © 2024 CalculatorFree.Online. All rights reserved.
+     </p>
+    </div>
+   </div>
+  </footer>
+  <script>
+   let currentShape = 'rectangle';
 
         const shapeFormulas = {
             rectangle: 'Area = Length × Width',
@@ -727,6 +1022,6 @@
             document.getElementById('polygon-sides').value = 6;
             document.getElementById('polygon-side-length').value = 5;
         });
-    </script>
-</body>
-</html> 
+  </script>
+ </body>
+</html>

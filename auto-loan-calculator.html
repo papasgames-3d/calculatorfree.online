@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auto Loan Calculator - Calculate Car Loan Payments | CalculatorFree.Online</title>
-    <meta name="description" content="Free auto loan calculator to estimate monthly car payments, total interest, and loan details for your vehicle purchase.">
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        .auto-loan-calculator {
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="index, follow" name="robots"/>
+  <link href="https://calculatorfree.online/auto-loan-calculator.html" rel="canonical"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Auto Loan Calculator - Calculate Car Loan Payments | CalculatorFree.Online
+  </title>
+  <meta content="Free auto loan calculator to estimate monthly car payments, total interest, and loan details for your vehicle purchase." name="description"/>
+  <link href="styles.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+  <style>
+   .auto-loan-calculator {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             border-radius: 20px;
@@ -197,212 +201,391 @@
                 grid-template-columns: 1fr;
             }
         }
-    </style>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZTVJQRZ1L2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-ZTVJQRZ1L2">
+  </script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'G-ZTVJQRZ1L2');
-</script>
-
-</head>
-<body>
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <i class="fas fa-calculator"></i>
-                <span>CalculatorFree.Online</span>
-            </div>
-            <nav class="nav-menu">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="index.html#financial" class="nav-link active">Financial</a>
-                <a href="index.html#health" class="nav-link">Health & Fitness</a>
-                <a href="index.html#math" class="nav-link">Math</a>
-                <a href="index.html#other" class="nav-link">Other Tools</a>
-            </nav>
-            <div class="mobile-menu-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
+  </script>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://cdnjs.cloudflare.com" rel="preconnect"/>
+  <script type="application/ld+json">
+   {"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Auto Loan Calculator", "applicationCategory": "CalculatorApplication", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "operatingSystem": "All", "description": "Free online auto loan calculator with step-by-step calculations and detailed results."}
+  </script>
+  <script type="application/ld+json">
+   {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calculatorfree.online/"}, {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://calculatorfree.online/#calculators"}, {"@type": "ListItem", "position": 3, "name": "Auto Loan Calculator", "item": "https://calculatorfree.online/auto-loan-calculator.html"}]}
+  </script>
+ </head>
+ <body>
+  <header class="header">
+   <div class="container">
+    <div class="logo">
+     <i class="fas fa-calculator">
+     </i>
+     <span>
+      CalculatorFree.Online
+     </span>
+    </div>
+    <nav class="nav-menu">
+     <a class="nav-link" href="index.html">
+      Home
+     </a>
+     <a class="nav-link active" href="index.html#financial">
+      Financial
+     </a>
+     <a class="nav-link" href="index.html#health">
+      Health &amp; Fitness
+     </a>
+     <a class="nav-link" href="index.html#math">
+      Math
+     </a>
+     <a class="nav-link" href="index.html#other">
+      Other Tools
+     </a>
+    </nav>
+    <div class="mobile-menu-toggle">
+     <i class="fas fa-bars">
+     </i>
+    </div>
+   </div>
+  </header>
+  <main class="main">
+   <section class="hero">
+    <div class="container">
+     <div class="hero-content">
+      <h1>
+       Auto Loan Calculator
+      </h1>
+      <p>
+       Calculate your car loan payments and find the best financing option
+      </p>
+     </div>
+    </div>
+   </section>
+   <section>
+    <div class="container">
+     <div class="auto-loan-calculator">
+      <div class="calculator-grid">
+       <div class="input-section">
+        <div class="input-group">
+         <label for="vehiclePrice">
+          Vehicle Price
+         </label>
+         <div class="input-with-icon">
+          <i class="fas fa-dollar-sign">
+          </i>
+          <input id="vehiclePrice" min="0" placeholder="Enter vehicle price" step="1000" type="number"/>
+         </div>
         </div>
-    </header>
-
-    <main class="main">
-        <section class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1>Auto Loan Calculator</h1>
-                    <p>Calculate your car loan payments and find the best financing option</p>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <div class="container">
-                <div class="auto-loan-calculator">
-                    <div class="calculator-grid">
-                        <div class="input-section">
-                            <div class="input-group">
-                                <label for="vehiclePrice">Vehicle Price</label>
-                                <div class="input-with-icon">
-                                    <i class="fas fa-dollar-sign"></i>
-                                    <input type="number" id="vehiclePrice" placeholder="Enter vehicle price" min="0" step="1000">
-                                </div>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="downPayment">Down Payment</label>
-                                <div class="input-with-icon">
-                                    <i class="fas fa-dollar-sign"></i>
-                                    <input type="number" id="downPayment" placeholder="Enter down payment" min="0" step="500">
-                                </div>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="tradeInValue">Trade-in Value (Optional)</label>
-                                <div class="input-with-icon">
-                                    <i class="fas fa-dollar-sign"></i>
-                                    <input type="number" id="tradeInValue" placeholder="Enter trade-in value" min="0" step="500">
-                                </div>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="interestRate">Annual Interest Rate (%)</label>
-                                <div class="input-with-icon">
-                                    <i class="fas fa-percent"></i>
-                                    <input type="number" id="interestRate" placeholder="Enter interest rate" min="0" step="0.1">
-                                </div>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="loanTerm">Loan Term</label>
-                                <select id="loanTerm">
-                                    <option value="24">24 months (2 years)</option>
-                                    <option value="36">36 months (3 years)</option>
-                                    <option value="48">48 months (4 years)</option>
-                                    <option value="60" selected>60 months (5 years)</option>
-                                    <option value="72">72 months (6 years)</option>
-                                    <option value="84">84 months (7 years)</option>
-                                </select>
-                            </div>
-
-                            <button class="btn-calculate" onclick="calculateAutoLoan()">
-                                Calculate Auto Loan
-                            </button>
-                        </div>
-
-                        <div class="results-section">
-                            <div class="monthly-payment">
-                                <div class="amount" id="monthlyPayment">$0.00</div>
-                                <div class="label">Monthly Payment</div>
-                            </div>
-
-                            <div class="result-item">
-                                <span class="result-label">Loan Amount</span>
-                                <span class="result-value" id="loanAmount">$0.00</span>
-                            </div>
-                            <div class="result-item">
-                                <span class="result-label">Total Interest</span>
-                                <span class="result-value" id="totalInterest">$0.00</span>
-                            </div>
-                            <div class="result-item">
-                                <span class="result-label">Total Cost</span>
-                                <span class="result-value" id="totalCost">$0.00</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="loan-breakdown">
-                        <div class="breakdown-card">
-                            <div class="value" id="vehiclePriceDisplay">$0</div>
-                            <div class="label">Vehicle Price</div>
-                        </div>
-                        <div class="breakdown-card">
-                            <div class="value" id="downPaymentDisplay">$0</div>
-                            <div class="label">Down Payment</div>
-                        </div>
-                        <div class="breakdown-card">
-                            <div class="value" id="tradeInDisplay">$0</div>
-                            <div class="label">Trade-in Value</div>
-                        </div>
-                        <div class="breakdown-card">
-                            <div class="value" id="loanAmountDisplay">$0</div>
-                            <div class="label">Amount Financed</div>
-                        </div>
-                    </div>
-
-                    <div class="car-tips">
-                        <h4><i class="fas fa-car"></i> Auto Loan Tips</h4>
-                        <ul>
-                            <li>Shop around for the best interest rates from banks, credit unions, and dealers</li>
-                            <li>Consider a larger down payment to reduce monthly payments and total interest</li>
-                            <li>Check your credit score before applying - higher scores get better rates</li>
-                            <li>Don't forget to factor in insurance, taxes, and registration fees</li>
-                            <li>Consider certified pre-owned vehicles for better value</li>
-                            <li>Shorter loan terms mean higher monthly payments but less total interest</li>
-                            <li>Get pre-approved for financing before shopping to know your budget</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Financial Calculators</h4>
-                    <ul>
-                        <li><a href="mortgage-calculator.html">Mortgage Calculator</a></li>
-                        <li><a href="loan-calculator.html">Loan Calculator</a></li>
-                        <li><a href="auto-loan-calculator.html">Auto Loan Calculator</a></li>
-                        <li><a href="interest-calculator.html">Interest Calculator</a></li>
-                        <li><a href="retirement-calculator.html">Retirement Calculator</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Health & Fitness</h4>
-                    <ul>
-                        <li><a href="bmi-calculator.html">BMI Calculator</a></li>
-                        <li><a href="calorie-calculator.html">Calorie Calculator</a></li>
-                        <li><a href="body-fat-calculator.html">Body Fat Calculator</a></li>
-                        <li><a href="bmr-calculator.html">BMR Calculator</a></li>
-                        <li><a href="pregnancy-calculator.html">Pregnancy Calculator</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Math Calculators</h4>
-                    <ul>
-                        <li><a href="scientific-calculator.html">Scientific Calculator</a></li>
-                        <li><a href="fraction-calculator.html">Fraction Calculator</a></li>
-                        <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
-                        <li><a href="triangle-calculator.html">Triangle Calculator</a></li>
-                        <li><a href="random-number-generator.html">Random Number Generator</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Other Tools</h4>
-                    <ul>
-                        <li><a href="age-calculator.html">Age Calculator</a></li>
-                        <li><a href="date-calculator.html">Date Calculator</a></li>
-                        <li><a href="time-calculator.html">Time Calculator</a></li>
-                        <li><a href="gpa-calculator.html">GPA Calculator</a></li>
-                        <li><a href="password-generator.html">Password Generator</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 CalculatorFree.Online. All rights reserved.</p>
-            </div>
+        <div class="input-group">
+         <label for="downPayment">
+          Down Payment
+         </label>
+         <div class="input-with-icon">
+          <i class="fas fa-dollar-sign">
+          </i>
+          <input id="downPayment" min="0" placeholder="Enter down payment" step="500" type="number"/>
+         </div>
         </div>
-    </footer>
-
-    <script>
-        function calculateAutoLoan() {
+        <div class="input-group">
+         <label for="tradeInValue">
+          Trade-in Value (Optional)
+         </label>
+         <div class="input-with-icon">
+          <i class="fas fa-dollar-sign">
+          </i>
+          <input id="tradeInValue" min="0" placeholder="Enter trade-in value" step="500" type="number"/>
+         </div>
+        </div>
+        <div class="input-group">
+         <label for="interestRate">
+          Annual Interest Rate (%)
+         </label>
+         <div class="input-with-icon">
+          <i class="fas fa-percent">
+          </i>
+          <input id="interestRate" min="0" placeholder="Enter interest rate" step="0.1" type="number"/>
+         </div>
+        </div>
+        <div class="input-group">
+         <label for="loanTerm">
+          Loan Term
+         </label>
+         <select id="loanTerm">
+          <option value="24">
+           24 months (2 years)
+          </option>
+          <option value="36">
+           36 months (3 years)
+          </option>
+          <option value="48">
+           48 months (4 years)
+          </option>
+          <option selected="" value="60">
+           60 months (5 years)
+          </option>
+          <option value="72">
+           72 months (6 years)
+          </option>
+          <option value="84">
+           84 months (7 years)
+          </option>
+         </select>
+        </div>
+        <button class="btn-calculate" onclick="calculateAutoLoan()">
+         Calculate Auto Loan
+        </button>
+       </div>
+       <div class="results-section">
+        <div class="monthly-payment">
+         <div class="amount" id="monthlyPayment">
+          $0.00
+         </div>
+         <div class="label">
+          Monthly Payment
+         </div>
+        </div>
+        <div class="result-item">
+         <span class="result-label">
+          Loan Amount
+         </span>
+         <span class="result-value" id="loanAmount">
+          $0.00
+         </span>
+        </div>
+        <div class="result-item">
+         <span class="result-label">
+          Total Interest
+         </span>
+         <span class="result-value" id="totalInterest">
+          $0.00
+         </span>
+        </div>
+        <div class="result-item">
+         <span class="result-label">
+          Total Cost
+         </span>
+         <span class="result-value" id="totalCost">
+          $0.00
+         </span>
+        </div>
+       </div>
+      </div>
+      <div class="loan-breakdown">
+       <div class="breakdown-card">
+        <div class="value" id="vehiclePriceDisplay">
+         $0
+        </div>
+        <div class="label">
+         Vehicle Price
+        </div>
+       </div>
+       <div class="breakdown-card">
+        <div class="value" id="downPaymentDisplay">
+         $0
+        </div>
+        <div class="label">
+         Down Payment
+        </div>
+       </div>
+       <div class="breakdown-card">
+        <div class="value" id="tradeInDisplay">
+         $0
+        </div>
+        <div class="label">
+         Trade-in Value
+        </div>
+       </div>
+       <div class="breakdown-card">
+        <div class="value" id="loanAmountDisplay">
+         $0
+        </div>
+        <div class="label">
+         Amount Financed
+        </div>
+       </div>
+      </div>
+      <div class="car-tips">
+       <h4>
+        <i class="fas fa-car">
+        </i>
+        Auto Loan Tips
+       </h4>
+       <ul>
+        <li>
+         Shop around for the best interest rates from banks, credit unions, and dealers
+        </li>
+        <li>
+         Consider a larger down payment to reduce monthly payments and total interest
+        </li>
+        <li>
+         Check your credit score before applying - higher scores get better rates
+        </li>
+        <li>
+         Don't forget to factor in insurance, taxes, and registration fees
+        </li>
+        <li>
+         Consider certified pre-owned vehicles for better value
+        </li>
+        <li>
+         Shorter loan terms mean higher monthly payments but less total interest
+        </li>
+        <li>
+         Get pre-approved for financing before shopping to know your budget
+        </li>
+       </ul>
+      </div>
+     </div>
+    </div>
+   </section>
+  </main>
+  <footer class="footer">
+   <div class="container">
+    <div class="footer-content">
+     <div class="footer-section">
+      <h4>
+       Financial Calculators
+      </h4>
+      <ul>
+       <li>
+        <a href="mortgage-calculator.html">
+         Mortgage Calculator
+        </a>
+       </li>
+       <li>
+        <a href="loan-calculator.html">
+         Loan Calculator
+        </a>
+       </li>
+       <li>
+        <a href="auto-loan-calculator.html">
+         Auto Loan Calculator
+        </a>
+       </li>
+       <li>
+        <a href="interest-calculator.html">
+         Interest Calculator
+        </a>
+       </li>
+       <li>
+        <a href="retirement-calculator.html">
+         Retirement Calculator
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="footer-section">
+      <h4>
+       Health &amp; Fitness
+      </h4>
+      <ul>
+       <li>
+        <a href="bmi-calculator.html">
+         BMI Calculator
+        </a>
+       </li>
+       <li>
+        <a href="calorie-calculator.html">
+         Calorie Calculator
+        </a>
+       </li>
+       <li>
+        <a href="body-fat-calculator.html">
+         Body Fat Calculator
+        </a>
+       </li>
+       <li>
+        <a href="bmr-calculator.html">
+         BMR Calculator
+        </a>
+       </li>
+       <li>
+        <a href="pregnancy-calculator.html">
+         Pregnancy Calculator
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="footer-section">
+      <h4>
+       Math Calculators
+      </h4>
+      <ul>
+       <li>
+        <a href="scientific-calculator.html">
+         Scientific Calculator
+        </a>
+       </li>
+       <li>
+        <a href="fraction-calculator.html">
+         Fraction Calculator
+        </a>
+       </li>
+       <li>
+        <a href="percentage-calculator.html">
+         Percentage Calculator
+        </a>
+       </li>
+       <li>
+        <a href="triangle-calculator.html">
+         Triangle Calculator
+        </a>
+       </li>
+       <li>
+        <a href="random-number-generator.html">
+         Random Number Generator
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="footer-section">
+      <h4>
+       Other Tools
+      </h4>
+      <ul>
+       <li>
+        <a href="age-calculator.html">
+         Age Calculator
+        </a>
+       </li>
+       <li>
+        <a href="date-calculator.html">
+         Date Calculator
+        </a>
+       </li>
+       <li>
+        <a href="time-calculator.html">
+         Time Calculator
+        </a>
+       </li>
+       <li>
+        <a href="gpa-calculator.html">
+         GPA Calculator
+        </a>
+       </li>
+       <li>
+        <a href="password-generator.html">
+         Password Generator
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="footer-bottom">
+     <p>
+      © 2024 CalculatorFree.Online. All rights reserved.
+     </p>
+    </div>
+   </div>
+  </footer>
+  <script>
+   function calculateAutoLoan() {
             // Get input values
             const vehiclePrice = parseFloat(document.getElementById('vehiclePrice').value) || 0;
             const downPayment = parseFloat(document.getElementById('downPayment').value) || 0;
@@ -510,6 +693,6 @@
                 });
             }
         });
-    </script>
-</body>
-</html> 
+  </script>
+ </body>
+</html>

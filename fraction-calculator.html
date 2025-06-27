@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fraction Calculator - Add, Subtract, Multiply & Divide Fractions | CalculatorFree.Online</title>
-    <meta name="description" content="Free fraction calculator to perform arithmetic operations on fractions with step-by-step solutions.">
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        .fraction-calculator {
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="index, follow" name="robots"/>
+  <link href="https://calculatorfree.online/fraction-calculator.html" rel="canonical"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Fraction Calculator - Add, Subtract, Multiply &amp; Divide Fractions | CalculatorFree.Online
+  </title>
+  <meta content="Free fraction calculator to perform arithmetic operations on fractions with step-by-step solutions." name="description"/>
+  <link href="styles.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+  <style>
+   .fraction-calculator {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             border-radius: 20px;
@@ -240,201 +244,369 @@
                 font-size: 2rem;
             }
         }
-    </style>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZTVJQRZ1L2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-ZTVJQRZ1L2">
+  </script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'G-ZTVJQRZ1L2');
-</script>
-
-</head>
-<body>
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <i class="fas fa-calculator"></i>
-                <span>CalculatorFree.Online</span>
-            </div>
-            <nav class="nav-menu">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="index.html#financial" class="nav-link">Financial</a>
-                <a href="index.html#health" class="nav-link">Health & Fitness</a>
-                <a href="index.html#math" class="nav-link active">Math</a>
-                <a href="index.html#other" class="nav-link">Other Tools</a>
-            </nav>
-            <div class="mobile-menu-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
+  </script>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://cdnjs.cloudflare.com" rel="preconnect"/>
+  <script type="application/ld+json">
+   {"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Fraction Calculator", "applicationCategory": "CalculatorApplication", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "operatingSystem": "All", "description": "Free online fraction calculator with step-by-step calculations and detailed results."}
+  </script>
+  <script type="application/ld+json">
+   {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calculatorfree.online/"}, {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://calculatorfree.online/#calculators"}, {"@type": "ListItem", "position": 3, "name": "Fraction Calculator", "item": "https://calculatorfree.online/fraction-calculator.html"}]}
+  </script>
+ </head>
+ <body>
+  <header class="header">
+   <div class="container">
+    <div class="logo">
+     <i class="fas fa-calculator">
+     </i>
+     <span>
+      CalculatorFree.Online
+     </span>
+    </div>
+    <nav class="nav-menu">
+     <a class="nav-link" href="index.html">
+      Home
+     </a>
+     <a class="nav-link" href="index.html#financial">
+      Financial
+     </a>
+     <a class="nav-link" href="index.html#health">
+      Health &amp; Fitness
+     </a>
+     <a class="nav-link active" href="index.html#math">
+      Math
+     </a>
+     <a class="nav-link" href="index.html#other">
+      Other Tools
+     </a>
+    </nav>
+    <div class="mobile-menu-toggle">
+     <i class="fas fa-bars">
+     </i>
+    </div>
+   </div>
+  </header>
+  <main class="main">
+   <section class="hero">
+    <div class="container">
+     <div class="hero-content">
+      <h1>
+       Fraction Calculator
+      </h1>
+      <p>
+       Perform arithmetic operations on fractions with step-by-step solutions
+      </p>
+     </div>
+    </div>
+   </section>
+   <section>
+    <div class="container">
+     <div class="fraction-calculator">
+      <div class="calculator-section">
+       <h3>
+        Fraction Calculator
+       </h3>
+       <div class="fraction-input-grid">
+        <!-- First Fraction -->
+        <div class="fraction-input">
+         <input id="num1" placeholder="0" type="number" value="1"/>
+         <div class="fraction-line">
+         </div>
+         <input id="den1" placeholder="1" type="number" value="2"/>
         </div>
-    </header>
-
-    <main class="main">
-        <section class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1>Fraction Calculator</h1>
-                    <p>Perform arithmetic operations on fractions with step-by-step solutions</p>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <div class="container">
-                <div class="fraction-calculator">
-                    <div class="calculator-section">
-                        <h3>Fraction Calculator</h3>
-                        <div class="fraction-input-grid">
-                            <!-- First Fraction -->
-                            <div class="fraction-input">
-                                <input type="number" id="num1" placeholder="0" value="1">
-                                <div class="fraction-line"></div>
-                                <input type="number" id="den1" placeholder="1" value="2">
-                            </div>
-
-                            <!-- Operation -->
-                            <div class="operation-selector">
-                                <button class="operation-btn active" onclick="selectOperation('+')" data-op="+">+</button>
-                                <button class="operation-btn" onclick="selectOperation('-')" data-op="-">−</button>
-                                <button class="operation-btn" onclick="selectOperation('*')" data-op="*">×</button>
-                                <button class="operation-btn" onclick="selectOperation('/')" data-op="/">÷</button>
-                            </div>
-
-                            <!-- Second Fraction -->
-                            <div class="fraction-input">
-                                <input type="number" id="num2" placeholder="0" value="1">
-                                <div class="fraction-line"></div>
-                                <input type="number" id="den2" placeholder="1" value="3">
-                            </div>
-
-                            <!-- Equals -->
-                            <div class="equals-sign">=</div>
-
-                            <!-- Result -->
-                            <div id="resultDisplay">
-                                <div class="result-fraction">
-                                    <div class="numerator" id="resultNum">5</div>
-                                    <div class="fraction-line"></div>
-                                    <div class="denominator" id="resultDen">6</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="result-section">
-                        <div class="result-display">
-                            <h3>Result</h3>
-                            <div>
-                                <span id="fractionResult">1/2 + 1/3 = 5/6</span>
-                            </div>
-                            <div class="result-decimal">
-                                Decimal: <span id="decimalResult">0.8333...</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="steps-section" id="stepsSection">
-                        <h3>Step-by-Step Solution</h3>
-                        <div id="stepsContainer">
-                            <!-- Steps will be populated here -->
-                        </div>
-                    </div>
-
-                    <div class="quick-operations">
-                        <div class="quick-op-card" onclick="loadExample('1/2', '+', '1/3')">
-                            <i class="fas fa-plus"></i>
-                            <h4>Addition</h4>
-                            <p>1/2 + 1/3</p>
-                        </div>
-                        <div class="quick-op-card" onclick="loadExample('3/4', '-', '1/6')">
-                            <i class="fas fa-minus"></i>
-                            <h4>Subtraction</h4>
-                            <p>3/4 - 1/6</p>
-                        </div>
-                        <div class="quick-op-card" onclick="loadExample('2/3', '*', '3/5')">
-                            <i class="fas fa-times"></i>
-                            <h4>Multiplication</h4>
-                            <p>2/3 × 3/5</p>
-                        </div>
-                        <div class="quick-op-card" onclick="loadExample('4/5', '/', '2/3')">
-                            <i class="fas fa-divide"></i>
-                            <h4>Division</h4>
-                            <p>4/5 ÷ 2/3</p>
-                        </div>
-                    </div>
-
-                    <div class="fraction-tips">
-                        <h4><i class="fas fa-lightbulb"></i> Fraction Tips</h4>
-                        <ul>
-                            <li>Always simplify fractions to their lowest terms</li>
-                            <li>To add/subtract fractions, find a common denominator</li>
-                            <li>To multiply fractions, multiply numerators and denominators</li>
-                            <li>To divide fractions, multiply by the reciprocal</li>
-                            <li>Use the GCD (Greatest Common Divisor) to simplify fractions</li>
-                            <li>Mixed numbers should be converted to improper fractions first</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Financial Calculators</h4>
-                    <ul>
-                        <li><a href="mortgage-calculator.html">Mortgage Calculator</a></li>
-                        <li><a href="loan-calculator.html">Loan Calculator</a></li>
-                        <li><a href="auto-loan-calculator.html">Auto Loan Calculator</a></li>
-                        <li><a href="interest-calculator.html">Interest Calculator</a></li>
-                        <li><a href="retirement-calculator.html">Retirement Calculator</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Health & Fitness</h4>
-                    <ul>
-                        <li><a href="bmi-calculator.html">BMI Calculator</a></li>
-                        <li><a href="calorie-calculator.html">Calorie Calculator</a></li>
-                        <li><a href="body-fat-calculator.html">Body Fat Calculator</a></li>
-                        <li><a href="bmr-calculator.html">BMR Calculator</a></li>
-                        <li><a href="pregnancy-calculator.html">Pregnancy Calculator</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Math Calculators</h4>
-                    <ul>
-                        <li><a href="scientific-calculator.html">Scientific Calculator</a></li>
-                        <li><a href="fraction-calculator.html">Fraction Calculator</a></li>
-                        <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
-                        <li><a href="triangle-calculator.html">Triangle Calculator</a></li>
-                        <li><a href="random-number-generator.html">Random Number Generator</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Other Tools</h4>
-                    <ul>
-                        <li><a href="age-calculator.html">Age Calculator</a></li>
-                        <li><a href="date-calculator.html">Date Calculator</a></li>
-                        <li><a href="time-calculator.html">Time Calculator</a></li>
-                        <li><a href="gpa-calculator.html">GPA Calculator</a></li>
-                        <li><a href="password-generator.html">Password Generator</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 CalculatorFree.Online. All rights reserved.</p>
-            </div>
+        <!-- Operation -->
+        <div class="operation-selector">
+         <button class="operation-btn active" data-op="+" onclick="selectOperation('+')">
+          +
+         </button>
+         <button class="operation-btn" data-op="-" onclick="selectOperation('-')">
+          −
+         </button>
+         <button class="operation-btn" data-op="*" onclick="selectOperation('*')">
+          ×
+         </button>
+         <button class="operation-btn" data-op="/" onclick="selectOperation('/')">
+          ÷
+         </button>
         </div>
-    </footer>
-
-    <script>
-        let currentOperation = '+';
+        <!-- Second Fraction -->
+        <div class="fraction-input">
+         <input id="num2" placeholder="0" type="number" value="1"/>
+         <div class="fraction-line">
+         </div>
+         <input id="den2" placeholder="1" type="number" value="3"/>
+        </div>
+        <!-- Equals -->
+        <div class="equals-sign">
+         =
+        </div>
+        <!-- Result -->
+        <div id="resultDisplay">
+         <div class="result-fraction">
+          <div class="numerator" id="resultNum">
+           5
+          </div>
+          <div class="fraction-line">
+          </div>
+          <div class="denominator" id="resultDen">
+           6
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="result-section">
+       <div class="result-display">
+        <h3>
+         Result
+        </h3>
+        <div>
+         <span id="fractionResult">
+          1/2 + 1/3 = 5/6
+         </span>
+        </div>
+        <div class="result-decimal">
+         Decimal:
+         <span id="decimalResult">
+          0.8333...
+         </span>
+        </div>
+       </div>
+      </div>
+      <div class="steps-section" id="stepsSection">
+       <h3>
+        Step-by-Step Solution
+       </h3>
+       <div id="stepsContainer">
+        <!-- Steps will be populated here -->
+       </div>
+      </div>
+      <div class="quick-operations">
+       <div class="quick-op-card" onclick="loadExample('1/2', '+', '1/3')">
+        <i class="fas fa-plus">
+        </i>
+        <h4>
+         Addition
+        </h4>
+        <p>
+         1/2 + 1/3
+        </p>
+       </div>
+       <div class="quick-op-card" onclick="loadExample('3/4', '-', '1/6')">
+        <i class="fas fa-minus">
+        </i>
+        <h4>
+         Subtraction
+        </h4>
+        <p>
+         3/4 - 1/6
+        </p>
+       </div>
+       <div class="quick-op-card" onclick="loadExample('2/3', '*', '3/5')">
+        <i class="fas fa-times">
+        </i>
+        <h4>
+         Multiplication
+        </h4>
+        <p>
+         2/3 × 3/5
+        </p>
+       </div>
+       <div class="quick-op-card" onclick="loadExample('4/5', '/', '2/3')">
+        <i class="fas fa-divide">
+        </i>
+        <h4>
+         Division
+        </h4>
+        <p>
+         4/5 ÷ 2/3
+        </p>
+       </div>
+      </div>
+      <div class="fraction-tips">
+       <h4>
+        <i class="fas fa-lightbulb">
+        </i>
+        Fraction Tips
+       </h4>
+       <ul>
+        <li>
+         Always simplify fractions to their lowest terms
+        </li>
+        <li>
+         To add/subtract fractions, find a common denominator
+        </li>
+        <li>
+         To multiply fractions, multiply numerators and denominators
+        </li>
+        <li>
+         To divide fractions, multiply by the reciprocal
+        </li>
+        <li>
+         Use the GCD (Greatest Common Divisor) to simplify fractions
+        </li>
+        <li>
+         Mixed numbers should be converted to improper fractions first
+        </li>
+       </ul>
+      </div>
+     </div>
+    </div>
+   </section>
+  </main>
+  <footer class="footer">
+   <div class="container">
+    <div class="footer-content">
+     <div class="footer-section">
+      <h4>
+       Financial Calculators
+      </h4>
+      <ul>
+       <li>
+        <a href="mortgage-calculator.html">
+         Mortgage Calculator
+        </a>
+       </li>
+       <li>
+        <a href="loan-calculator.html">
+         Loan Calculator
+        </a>
+       </li>
+       <li>
+        <a href="auto-loan-calculator.html">
+         Auto Loan Calculator
+        </a>
+       </li>
+       <li>
+        <a href="interest-calculator.html">
+         Interest Calculator
+        </a>
+       </li>
+       <li>
+        <a href="retirement-calculator.html">
+         Retirement Calculator
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="footer-section">
+      <h4>
+       Health &amp; Fitness
+      </h4>
+      <ul>
+       <li>
+        <a href="bmi-calculator.html">
+         BMI Calculator
+        </a>
+       </li>
+       <li>
+        <a href="calorie-calculator.html">
+         Calorie Calculator
+        </a>
+       </li>
+       <li>
+        <a href="body-fat-calculator.html">
+         Body Fat Calculator
+        </a>
+       </li>
+       <li>
+        <a href="bmr-calculator.html">
+         BMR Calculator
+        </a>
+       </li>
+       <li>
+        <a href="pregnancy-calculator.html">
+         Pregnancy Calculator
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="footer-section">
+      <h4>
+       Math Calculators
+      </h4>
+      <ul>
+       <li>
+        <a href="scientific-calculator.html">
+         Scientific Calculator
+        </a>
+       </li>
+       <li>
+        <a href="fraction-calculator.html">
+         Fraction Calculator
+        </a>
+       </li>
+       <li>
+        <a href="percentage-calculator.html">
+         Percentage Calculator
+        </a>
+       </li>
+       <li>
+        <a href="triangle-calculator.html">
+         Triangle Calculator
+        </a>
+       </li>
+       <li>
+        <a href="random-number-generator.html">
+         Random Number Generator
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="footer-section">
+      <h4>
+       Other Tools
+      </h4>
+      <ul>
+       <li>
+        <a href="age-calculator.html">
+         Age Calculator
+        </a>
+       </li>
+       <li>
+        <a href="date-calculator.html">
+         Date Calculator
+        </a>
+       </li>
+       <li>
+        <a href="time-calculator.html">
+         Time Calculator
+        </a>
+       </li>
+       <li>
+        <a href="gpa-calculator.html">
+         GPA Calculator
+        </a>
+       </li>
+       <li>
+        <a href="password-generator.html">
+         Password Generator
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="footer-bottom">
+     <p>
+      © 2024 CalculatorFree.Online. All rights reserved.
+     </p>
+    </div>
+   </div>
+  </footer>
+  <script>
+   let currentOperation = '+';
 
         function selectOperation(operation) {
             currentOperation = operation;
@@ -622,6 +794,6 @@
             
             calculateFraction(); // Initial calculation
         });
-    </script>
-</body>
-</html> 
+  </script>
+ </body>
+</html>

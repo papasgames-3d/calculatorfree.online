@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mortgage Payoff Calculator - Early Payment & Extra Principal | CalculatorFree.Online</title>
-    <meta name="description" content="Calculate mortgage payoff scenarios with extra payments. See how additional principal payments can save thousands in interest and reduce loan term.">
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        .payoff-calculator {
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="index, follow" name="robots"/>
+  <link href="https://calculatorfree.online/mortgage-payoff-calculator.html" rel="canonical"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Mortgage Payoff Calculator - Early Payment &amp; Extra Principal | CalculatorFree.Online
+  </title>
+  <meta content="Calculate mortgage payoff scenarios with extra payments. See how additional principal payments can save thousands in interest and reduce loan term." name="description"/>
+  <link href="styles.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+  <style>
+   .payoff-calculator {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             border-radius: 20px;
@@ -225,311 +229,635 @@
                 grid-template-columns: 1fr;
             }
         }
-    </style>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZTVJQRZ1L2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-ZTVJQRZ1L2">
+  </script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'G-ZTVJQRZ1L2');
-</script>
-
-</head>
-<body>
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <i class="fas fa-calculator"></i>
-                <span>CalculatorFree.Online</span>
-            </div>
-            <nav class="nav-menu">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="index.html#financial" class="nav-link active">Financial</a>
-                <a href="index.html#health" class="nav-link">Health & Fitness</a>
-                <a href="index.html#math" class="nav-link">Math</a>
-                <a href="index.html#other" class="nav-link">Other Tools</a>
-            </nav>
-            <div class="mobile-menu-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
+  </script>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://cdnjs.cloudflare.com" rel="preconnect"/>
+  <script type="application/ld+json">
+   {"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Mortgage Payoff Calculator", "applicationCategory": "CalculatorApplication", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "operatingSystem": "All", "description": "Free online mortgage payoff calculator with step-by-step calculations and detailed results."}
+  </script>
+  <script type="application/ld+json">
+   {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calculatorfree.online/"}, {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://calculatorfree.online/#calculators"}, {"@type": "ListItem", "position": 3, "name": "Mortgage Payoff Calculator", "item": "https://calculatorfree.online/mortgage-payoff-calculator.html"}]}
+  </script>
+ </head>
+ <body>
+  <header class="header">
+   <div class="container">
+    <div class="logo">
+     <i class="fas fa-calculator">
+     </i>
+     <span>
+      CalculatorFree.Online
+     </span>
+    </div>
+    <nav class="nav-menu">
+     <a class="nav-link" href="index.html">
+      Home
+     </a>
+     <a class="nav-link active" href="index.html#financial">
+      Financial
+     </a>
+     <a class="nav-link" href="index.html#health">
+      Health &amp; Fitness
+     </a>
+     <a class="nav-link" href="index.html#math">
+      Math
+     </a>
+     <a class="nav-link" href="index.html#other">
+      Other Tools
+     </a>
+    </nav>
+    <div class="mobile-menu-toggle">
+     <i class="fas fa-bars">
+     </i>
+    </div>
+   </div>
+  </header>
+  <main class="main">
+   <section class="hero">
+    <div class="container">
+     <div class="hero-content">
+      <h1>
+       <i class="fas fa-home">
+       </i>
+       Mortgage Payoff Calculator
+      </h1>
+      <p>
+       Calculate savings from extra mortgage payments and early payoff strategies
+      </p>
+     </div>
+    </div>
+   </section>
+   <section>
+    <div class="container">
+     <div class="payoff-calculator">
+      <div class="calculator-grid">
+       <div class="input-panel">
+        <h3 class="panel-title">
+         <i class="fas fa-edit">
+         </i>
+         Mortgage Details
+        </h3>
+        <div class="input-group">
+         <label for="loan-amount">
+          Original Loan Amount
+         </label>
+         <input class="input-field" id="loan-amount" placeholder="300000" step="1000" type="number"/>
         </div>
-    </header>
-
-    <main class="main">
-        <section class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1><i class="fas fa-home"></i> Mortgage Payoff Calculator</h1>
-                    <p>Calculate savings from extra mortgage payments and early payoff strategies</p>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <div class="container">
-                <div class="payoff-calculator">
-                    <div class="calculator-grid">
-                        <div class="input-panel">
-                            <h3 class="panel-title"><i class="fas fa-edit"></i> Mortgage Details</h3>
-                            
-                            <div class="input-group">
-                                <label for="loan-amount">Original Loan Amount</label>
-                                <input type="number" id="loan-amount" class="input-field" placeholder="300000" step="1000">
-                            </div>
-
-                            <div class="input-group">
-                                <label for="current-balance">Current Balance</label>
-                                <input type="number" id="current-balance" class="input-field" placeholder="250000" step="1000">
-                            </div>
-
-                            <div class="input-group">
-                                <label for="interest-rate">Annual Interest Rate (%)</label>
-                                <input type="number" id="interest-rate" class="input-field" placeholder="4.5" step="0.01">
-                            </div>
-
-                            <div class="input-group">
-                                <label for="remaining-years">Remaining Years</label>
-                                <input type="number" id="remaining-years" class="input-field" placeholder="25" step="0.5">
-                            </div>
-
-                            <div class="input-group">
-                                <label for="current-payment">Current Monthly Payment</label>
-                                <input type="number" id="current-payment" class="input-field" placeholder="1500" step="10">
-                            </div>
-
-                            <h4 style="margin: 2rem 0 1rem 0; color: #fd7e14;"><i class="fas fa-plus"></i> Extra Payment Options</h4>
-
-                            <div class="input-group">
-                                <label for="extra-monthly">Extra Monthly Payment</label>
-                                <input type="number" id="extra-monthly" class="input-field" placeholder="200" step="10">
-                            </div>
-
-                            <div class="input-group">
-                                <label for="extra-yearly">Extra Yearly Payment</label>
-                                <input type="number" id="extra-yearly" class="input-field" placeholder="0" step="100">
-                            </div>
-
-                            <div class="input-group">
-                                <label for="one-time-payment">One-time Extra Payment</label>
-                                <input type="number" id="one-time-payment" class="input-field" placeholder="0" step="1000">
-                            </div>
-                        </div>
-
-                        <div class="result-panel">
-                            <h3 class="panel-title"><i class="fas fa-chart-line"></i> Payoff Results</h3>
-                            
-                            <div class="input-group">
-                                <label for="normal-payoff">Normal Payoff Date</label>
-                                <input type="text" id="normal-payoff" class="input-field result-field" placeholder="--" readonly>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="early-payoff">Early Payoff Date</label>
-                                <input type="text" id="early-payoff" class="input-field result-field" placeholder="--" readonly>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="time-saved">Time Saved</label>
-                                <input type="text" id="time-saved" class="input-field result-field" placeholder="--" readonly>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="normal-interest">Normal Total Interest</label>
-                                <input type="text" id="normal-interest" class="input-field result-field" placeholder="--" readonly>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="early-interest">Early Total Interest</label>
-                                <input type="text" id="early-interest" class="input-field result-field" placeholder="--" readonly>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="interest-saved">Interest Saved</label>
-                                <input type="text" id="interest-saved" class="input-field result-field" placeholder="--" readonly>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="payment-options">
-                        <h3><i class="fas fa-credit-card"></i> Payment Strategy Options</h3>
-                        <div class="options-grid">
-                            <div class="option-card active" onclick="selectStrategy('extra-monthly')">
-                                <div class="option-title">Extra Monthly Payment</div>
-                                <p>Add a fixed amount to your monthly payment</p>
-                                <p><strong>Best for:</strong> Steady income, consistent savings</p>
-                            </div>
-                            <div class="option-card" onclick="selectStrategy('biweekly')">
-                                <div class="option-title">Bi-weekly Payments</div>
-                                <p>Pay half your monthly payment every two weeks</p>
-                                <p><strong>Best for:</strong> Bi-weekly paycheck schedule</p>
-                            </div>
-                            <div class="option-card" onclick="selectStrategy('yearly-bonus')">
-                                <div class="option-title">Annual Extra Payment</div>
-                                <p>Apply annual bonus or tax refund to principal</p>
-                                <p><strong>Best for:</strong> Irregular extra income</p>
-                            </div>
-                            <div class="option-card" onclick="selectStrategy('aggressive')">
-                                <div class="option-title">Aggressive Paydown</div>
-                                <p>Combine multiple strategies for maximum savings</p>
-                                <p><strong>Best for:</strong> High income, debt-free goals</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="comparison-section" id="comparison-section" style="display: none;">
-                        <h3><i class="fas fa-balance-scale"></i> Payoff Comparison</h3>
-                        <div class="comparison-grid">
-                            <div class="comparison-card">
-                                <div class="comparison-value savings-value" id="total-savings">--</div>
-                                <div>Total Interest Saved</div>
-                            </div>
-                            <div class="comparison-card">
-                                <div class="comparison-value time-value" id="months-saved">--</div>
-                                <div>Months Saved</div>
-                            </div>
-                            <div class="comparison-card">
-                                <div class="comparison-value interest-value" id="monthly-savings">--</div>
-                                <div>Avg Monthly Interest Savings</div>
-                            </div>
-                            <div class="comparison-card">
-                                <div class="comparison-value" id="break-even" style="color: #6f42c1;">--</div>
-                                <div>Break-even Point</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="payment-schedule" id="schedule-section" style="display: none;">
-                        <h3><i class="fas fa-calendar-alt"></i> Payment Schedule Preview</h3>
-                        <div class="table-container">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Payment #</th>
-                                        <th>Date</th>
-                                        <th>Payment</th>
-                                        <th>Principal</th>
-                                        <th>Interest</th>
-                                        <th>Extra Payment</th>
-                                        <th>Balance</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="schedule-table-body">
-                                    <!-- Schedule rows will be generated here -->
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    <div class="strategies-section">
-                        <h3><i class="fas fa-lightbulb"></i> Mortgage Payoff Strategies</h3>
-                        <div class="strategies-grid">
-                            <div class="strategy-card">
-                                <div class="strategy-title">Bi-weekly Payments</div>
-                                <div class="strategy-pros">✓ Painless 26 payments vs 12</div>
-                                <div class="strategy-pros">✓ Saves 4-6 years typically</div>
-                                <div class="strategy-cons">✗ May have setup fees</div>
-                                <div class="strategy-cons">✗ Less flexibility</div>
-                            </div>
-                            <div class="strategy-card">
-                                <div class="strategy-title">Extra Principal</div>
-                                <div class="strategy-pros">✓ Immediate interest savings</div>
-                                <div class="strategy-pros">✓ Flexible amounts</div>
-                                <div class="strategy-cons">✗ Requires discipline</div>
-                                <div class="strategy-cons">✗ Opportunity cost</div>
-                            </div>
-                            <div class="strategy-card">
-                                <div class="strategy-title">Refinancing</div>
-                                <div class="strategy-pros">✓ Lower interest rate</div>
-                                <div class="strategy-pros">✓ Reset to shorter term</div>
-                                <div class="strategy-cons">✗ Closing costs</div>
-                                <div class="strategy-cons">✗ Credit requirements</div>
-                            </div>
-                            <div class="strategy-card">
-                                <div class="strategy-title">Recast/Re-amortization</div>
-                                <div class="strategy-pros">✓ Lower monthly payments</div>
-                                <div class="strategy-pros">✓ Keep current rate</div>
-                                <div class="strategy-cons">✗ Requires large payment</div>
-                                <div class="strategy-cons">✗ Not all lenders offer</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Financial Calculators</h4>
-                    <ul>
-                        <li><a href="mortgage-calculator.html">Mortgage Calculator</a></li>
-                        <li><a href="loan-calculator.html">Loan Calculator</a></li>
-                        <li><a href="auto-loan-calculator.html">Auto Loan Calculator</a></li>
-                        <li><a href="payment-calculator.html">Payment Calculator</a></li>
-                        <li><a href="401k-calculator.html">401K Calculator</a></li>
-                        <li><a href="interest-calculator.html">Interest Calculator</a></li>
-                        <li><a href="investment-calculator.html">Investment Calculator</a></li>
-                        <li><a href="compound-interest-calculator.html">Compound Interest Calculator</a></li>
-                        <li><a href="retirement-calculator.html">Retirement Calculator</a></li>
-                        <li><a href="mortgage-payoff-calculator.html">Mortgage Payoff Calculator</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Health & Fitness</h4>
-                    <ul>
-                        <li><a href="bmi-calculator.html">BMI Calculator</a></li>
-                        <li><a href="calorie-calculator.html">Calorie Calculator</a></li>
-                        <li><a href="body-fat-calculator.html">Body Fat Calculator</a></li>
-                        <li><a href="bmr-calculator.html">BMR Calculator</a></li>
-                        <li><a href="ideal-weight-calculator.html">Ideal Weight Calculator</a></li>
-                        <li><a href="pregnancy-calculator.html">Pregnancy Calculator</a></li>
-                        <li><a href="water-calculator.html">Water Calculator</a></li>
-                        <li><a href="macro-calculator.html">Macro Calculator</a></li>
-                        <li><a href="pace-calculator.html">Pace Calculator</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Math Calculators</h4>
-                    <ul>
-                        <li><a href="scientific-calculator.html">Scientific Calculator</a></li>
-                        <li><a href="basic-calculator.html">Basic Calculator</a></li>
-                        <li><a href="area-calculator.html">Area Calculator</a></li>
-                        <li><a href="volume-calculator.html">Volume Calculator</a></li>
-                        <li><a href="average-calculator.html">Average Calculator</a></li>
-                        <li><a href="fraction-calculator.html">Fraction Calculator</a></li>
-                        <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
-                        <li><a href="triangle-calculator.html">Triangle Calculator</a></li>
-                        <li><a href="random-number-generator.html">Random Number Generator</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Other Tools</h4>
-                    <ul>
-                        <li><a href="age-calculator.html">Age Calculator</a></li>
-                        <li><a href="date-calculator.html">Date Calculator</a></li>
-                        <li><a href="time-calculator.html">Time Calculator</a></li>
-                        <li><a href="gpa-calculator.html">GPA Calculator</a></li>
-                        <li><a href="grade-calculator.html">Grade Calculator</a></li>
-                        <li><a href="hours-calculator.html">Hours Calculator</a></li>
-                        <li><a href="password-generator.html">Password Generator</a></li>
-                        <li><a href="tip-calculator.html">Tip Calculator</a></li>
-                        <li><a href="unit-converter.html">Unit Converter</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 CalculatorFree.Online. All rights reserved.</p>
-            </div>
+        <div class="input-group">
+         <label for="current-balance">
+          Current Balance
+         </label>
+         <input class="input-field" id="current-balance" placeholder="250000" step="1000" type="number"/>
         </div>
-    </footer>
-
-    <script>
-        let currentStrategy = 'extra-monthly';
+        <div class="input-group">
+         <label for="interest-rate">
+          Annual Interest Rate (%)
+         </label>
+         <input class="input-field" id="interest-rate" placeholder="4.5" step="0.01" type="number"/>
+        </div>
+        <div class="input-group">
+         <label for="remaining-years">
+          Remaining Years
+         </label>
+         <input class="input-field" id="remaining-years" placeholder="25" step="0.5" type="number"/>
+        </div>
+        <div class="input-group">
+         <label for="current-payment">
+          Current Monthly Payment
+         </label>
+         <input class="input-field" id="current-payment" placeholder="1500" step="10" type="number"/>
+        </div>
+        <h4 style="margin: 2rem 0 1rem 0; color: #fd7e14;">
+         <i class="fas fa-plus">
+         </i>
+         Extra Payment Options
+        </h4>
+        <div class="input-group">
+         <label for="extra-monthly">
+          Extra Monthly Payment
+         </label>
+         <input class="input-field" id="extra-monthly" placeholder="200" step="10" type="number"/>
+        </div>
+        <div class="input-group">
+         <label for="extra-yearly">
+          Extra Yearly Payment
+         </label>
+         <input class="input-field" id="extra-yearly" placeholder="0" step="100" type="number"/>
+        </div>
+        <div class="input-group">
+         <label for="one-time-payment">
+          One-time Extra Payment
+         </label>
+         <input class="input-field" id="one-time-payment" placeholder="0" step="1000" type="number"/>
+        </div>
+       </div>
+       <div class="result-panel">
+        <h3 class="panel-title">
+         <i class="fas fa-chart-line">
+         </i>
+         Payoff Results
+        </h3>
+        <div class="input-group">
+         <label for="normal-payoff">
+          Normal Payoff Date
+         </label>
+         <input class="input-field result-field" id="normal-payoff" placeholder="--" readonly="" type="text"/>
+        </div>
+        <div class="input-group">
+         <label for="early-payoff">
+          Early Payoff Date
+         </label>
+         <input class="input-field result-field" id="early-payoff" placeholder="--" readonly="" type="text"/>
+        </div>
+        <div class="input-group">
+         <label for="time-saved">
+          Time Saved
+         </label>
+         <input class="input-field result-field" id="time-saved" placeholder="--" readonly="" type="text"/>
+        </div>
+        <div class="input-group">
+         <label for="normal-interest">
+          Normal Total Interest
+         </label>
+         <input class="input-field result-field" id="normal-interest" placeholder="--" readonly="" type="text"/>
+        </div>
+        <div class="input-group">
+         <label for="early-interest">
+          Early Total Interest
+         </label>
+         <input class="input-field result-field" id="early-interest" placeholder="--" readonly="" type="text"/>
+        </div>
+        <div class="input-group">
+         <label for="interest-saved">
+          Interest Saved
+         </label>
+         <input class="input-field result-field" id="interest-saved" placeholder="--" readonly="" type="text"/>
+        </div>
+       </div>
+      </div>
+      <div class="payment-options">
+       <h3>
+        <i class="fas fa-credit-card">
+        </i>
+        Payment Strategy Options
+       </h3>
+       <div class="options-grid">
+        <div class="option-card active" onclick="selectStrategy('extra-monthly')">
+         <div class="option-title">
+          Extra Monthly Payment
+         </div>
+         <p>
+          Add a fixed amount to your monthly payment
+         </p>
+         <p>
+          <strong>
+           Best for:
+          </strong>
+          Steady income, consistent savings
+         </p>
+        </div>
+        <div class="option-card" onclick="selectStrategy('biweekly')">
+         <div class="option-title">
+          Bi-weekly Payments
+         </div>
+         <p>
+          Pay half your monthly payment every two weeks
+         </p>
+         <p>
+          <strong>
+           Best for:
+          </strong>
+          Bi-weekly paycheck schedule
+         </p>
+        </div>
+        <div class="option-card" onclick="selectStrategy('yearly-bonus')">
+         <div class="option-title">
+          Annual Extra Payment
+         </div>
+         <p>
+          Apply annual bonus or tax refund to principal
+         </p>
+         <p>
+          <strong>
+           Best for:
+          </strong>
+          Irregular extra income
+         </p>
+        </div>
+        <div class="option-card" onclick="selectStrategy('aggressive')">
+         <div class="option-title">
+          Aggressive Paydown
+         </div>
+         <p>
+          Combine multiple strategies for maximum savings
+         </p>
+         <p>
+          <strong>
+           Best for:
+          </strong>
+          High income, debt-free goals
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="comparison-section" id="comparison-section" style="display: none;">
+       <h3>
+        <i class="fas fa-balance-scale">
+        </i>
+        Payoff Comparison
+       </h3>
+       <div class="comparison-grid">
+        <div class="comparison-card">
+         <div class="comparison-value savings-value" id="total-savings">
+          --
+         </div>
+         <div>
+          Total Interest Saved
+         </div>
+        </div>
+        <div class="comparison-card">
+         <div class="comparison-value time-value" id="months-saved">
+          --
+         </div>
+         <div>
+          Months Saved
+         </div>
+        </div>
+        <div class="comparison-card">
+         <div class="comparison-value interest-value" id="monthly-savings">
+          --
+         </div>
+         <div>
+          Avg Monthly Interest Savings
+         </div>
+        </div>
+        <div class="comparison-card">
+         <div class="comparison-value" id="break-even" style="color: #6f42c1;">
+          --
+         </div>
+         <div>
+          Break-even Point
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="payment-schedule" id="schedule-section" style="display: none;">
+       <h3>
+        <i class="fas fa-calendar-alt">
+        </i>
+        Payment Schedule Preview
+       </h3>
+       <div class="table-container">
+        <table>
+         <thead>
+          <tr>
+           <th>
+            Payment #
+           </th>
+           <th>
+            Date
+           </th>
+           <th>
+            Payment
+           </th>
+           <th>
+            Principal
+           </th>
+           <th>
+            Interest
+           </th>
+           <th>
+            Extra Payment
+           </th>
+           <th>
+            Balance
+           </th>
+          </tr>
+         </thead>
+         <tbody id="schedule-table-body">
+          <!-- Schedule rows will be generated here -->
+         </tbody>
+        </table>
+       </div>
+      </div>
+      <div class="strategies-section">
+       <h3>
+        <i class="fas fa-lightbulb">
+        </i>
+        Mortgage Payoff Strategies
+       </h3>
+       <div class="strategies-grid">
+        <div class="strategy-card">
+         <div class="strategy-title">
+          Bi-weekly Payments
+         </div>
+         <div class="strategy-pros">
+          ✓ Painless 26 payments vs 12
+         </div>
+         <div class="strategy-pros">
+          ✓ Saves 4-6 years typically
+         </div>
+         <div class="strategy-cons">
+          ✗ May have setup fees
+         </div>
+         <div class="strategy-cons">
+          ✗ Less flexibility
+         </div>
+        </div>
+        <div class="strategy-card">
+         <div class="strategy-title">
+          Extra Principal
+         </div>
+         <div class="strategy-pros">
+          ✓ Immediate interest savings
+         </div>
+         <div class="strategy-pros">
+          ✓ Flexible amounts
+         </div>
+         <div class="strategy-cons">
+          ✗ Requires discipline
+         </div>
+         <div class="strategy-cons">
+          ✗ Opportunity cost
+         </div>
+        </div>
+        <div class="strategy-card">
+         <div class="strategy-title">
+          Refinancing
+         </div>
+         <div class="strategy-pros">
+          ✓ Lower interest rate
+         </div>
+         <div class="strategy-pros">
+          ✓ Reset to shorter term
+         </div>
+         <div class="strategy-cons">
+          ✗ Closing costs
+         </div>
+         <div class="strategy-cons">
+          ✗ Credit requirements
+         </div>
+        </div>
+        <div class="strategy-card">
+         <div class="strategy-title">
+          Recast/Re-amortization
+         </div>
+         <div class="strategy-pros">
+          ✓ Lower monthly payments
+         </div>
+         <div class="strategy-pros">
+          ✓ Keep current rate
+         </div>
+         <div class="strategy-cons">
+          ✗ Requires large payment
+         </div>
+         <div class="strategy-cons">
+          ✗ Not all lenders offer
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+  </main>
+  <footer class="footer">
+   <div class="container">
+    <div class="footer-content">
+     <div class="footer-section">
+      <h4>
+       Financial Calculators
+      </h4>
+      <ul>
+       <li>
+        <a href="mortgage-calculator.html">
+         Mortgage Calculator
+        </a>
+       </li>
+       <li>
+        <a href="loan-calculator.html">
+         Loan Calculator
+        </a>
+       </li>
+       <li>
+        <a href="auto-loan-calculator.html">
+         Auto Loan Calculator
+        </a>
+       </li>
+       <li>
+        <a href="payment-calculator.html">
+         Payment Calculator
+        </a>
+       </li>
+       <li>
+        <a href="401k-calculator.html">
+         401K Calculator
+        </a>
+       </li>
+       <li>
+        <a href="interest-calculator.html">
+         Interest Calculator
+        </a>
+       </li>
+       <li>
+        <a href="investment-calculator.html">
+         Investment Calculator
+        </a>
+       </li>
+       <li>
+        <a href="compound-interest-calculator.html">
+         Compound Interest Calculator
+        </a>
+       </li>
+       <li>
+        <a href="retirement-calculator.html">
+         Retirement Calculator
+        </a>
+       </li>
+       <li>
+        <a href="mortgage-payoff-calculator.html">
+         Mortgage Payoff Calculator
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="footer-section">
+      <h4>
+       Health &amp; Fitness
+      </h4>
+      <ul>
+       <li>
+        <a href="bmi-calculator.html">
+         BMI Calculator
+        </a>
+       </li>
+       <li>
+        <a href="calorie-calculator.html">
+         Calorie Calculator
+        </a>
+       </li>
+       <li>
+        <a href="body-fat-calculator.html">
+         Body Fat Calculator
+        </a>
+       </li>
+       <li>
+        <a href="bmr-calculator.html">
+         BMR Calculator
+        </a>
+       </li>
+       <li>
+        <a href="ideal-weight-calculator.html">
+         Ideal Weight Calculator
+        </a>
+       </li>
+       <li>
+        <a href="pregnancy-calculator.html">
+         Pregnancy Calculator
+        </a>
+       </li>
+       <li>
+        <a href="water-calculator.html">
+         Water Calculator
+        </a>
+       </li>
+       <li>
+        <a href="macro-calculator.html">
+         Macro Calculator
+        </a>
+       </li>
+       <li>
+        <a href="pace-calculator.html">
+         Pace Calculator
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="footer-section">
+      <h4>
+       Math Calculators
+      </h4>
+      <ul>
+       <li>
+        <a href="scientific-calculator.html">
+         Scientific Calculator
+        </a>
+       </li>
+       <li>
+        <a href="basic-calculator.html">
+         Basic Calculator
+        </a>
+       </li>
+       <li>
+        <a href="area-calculator.html">
+         Area Calculator
+        </a>
+       </li>
+       <li>
+        <a href="volume-calculator.html">
+         Volume Calculator
+        </a>
+       </li>
+       <li>
+        <a href="average-calculator.html">
+         Average Calculator
+        </a>
+       </li>
+       <li>
+        <a href="fraction-calculator.html">
+         Fraction Calculator
+        </a>
+       </li>
+       <li>
+        <a href="percentage-calculator.html">
+         Percentage Calculator
+        </a>
+       </li>
+       <li>
+        <a href="triangle-calculator.html">
+         Triangle Calculator
+        </a>
+       </li>
+       <li>
+        <a href="random-number-generator.html">
+         Random Number Generator
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="footer-section">
+      <h4>
+       Other Tools
+      </h4>
+      <ul>
+       <li>
+        <a href="age-calculator.html">
+         Age Calculator
+        </a>
+       </li>
+       <li>
+        <a href="date-calculator.html">
+         Date Calculator
+        </a>
+       </li>
+       <li>
+        <a href="time-calculator.html">
+         Time Calculator
+        </a>
+       </li>
+       <li>
+        <a href="gpa-calculator.html">
+         GPA Calculator
+        </a>
+       </li>
+       <li>
+        <a href="grade-calculator.html">
+         Grade Calculator
+        </a>
+       </li>
+       <li>
+        <a href="hours-calculator.html">
+         Hours Calculator
+        </a>
+       </li>
+       <li>
+        <a href="password-generator.html">
+         Password Generator
+        </a>
+       </li>
+       <li>
+        <a href="tip-calculator.html">
+         Tip Calculator
+        </a>
+       </li>
+       <li>
+        <a href="unit-converter.html">
+         Unit Converter
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="footer-bottom">
+     <p>
+      © 2024 CalculatorFree.Online. All rights reserved.
+     </p>
+    </div>
+   </div>
+  </footer>
+  <script>
+   let currentStrategy = 'extra-monthly';
 
         function selectStrategy(strategy) {
             currentStrategy = strategy;
@@ -805,6 +1133,6 @@
 
             calculatePayoff();
         });
-    </script>
-</body>
-</html> 
+  </script>
+ </body>
+</html>

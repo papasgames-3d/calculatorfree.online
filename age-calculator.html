@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Age Calculator - Calculate Your Exact Age | CalculatorFree.Online</title>
-    <meta name="description" content="Calculate your exact age in years, months, days, hours, minutes and seconds. Find out how old you are with our precise age calculator.">
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        .age-calculator {
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="index, follow" name="robots"/>
+  <link href="https://calculatorfree.online/age-calculator.html" rel="canonical"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Age Calculator - Calculate Your Exact Age | CalculatorFree.Online
+  </title>
+  <meta content="Calculate your exact age in years, months, days, hours, minutes and seconds. Find out how old you are with our precise age calculator." name="description"/>
+  <link href="styles.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+  <style>
+   .age-calculator {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             border-radius: 20px;
@@ -134,207 +138,408 @@
             font-weight: 700;
             color: #28a745;
         }
-    </style>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZTVJQRZ1L2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-ZTVJQRZ1L2">
+  </script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'G-ZTVJQRZ1L2');
-</script>
-
-</head>
-<body>
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <i class="fas fa-calculator"></i>
-                <span>CalculatorFree.Online</span>
-            </div>
-            <nav class="nav-menu">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="index.html#financial" class="nav-link">Financial</a>
-                <a href="index.html#health" class="nav-link">Health & Fitness</a>
-                <a href="index.html#math" class="nav-link">Math</a>
-                <a href="index.html#other" class="nav-link active">Other Tools</a>
-            </nav>
-            <div class="mobile-menu-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
+  </script>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://cdnjs.cloudflare.com" rel="preconnect"/>
+  <script type="application/ld+json">
+   {"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Age Calculator", "applicationCategory": "CalculatorApplication", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "operatingSystem": "All", "description": "Free online age calculator with step-by-step calculations and detailed results."}
+  </script>
+  <script type="application/ld+json">
+   {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calculatorfree.online/"}, {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://calculatorfree.online/#calculators"}, {"@type": "ListItem", "position": 3, "name": "Age Calculator", "item": "https://calculatorfree.online/age-calculator.html"}]}
+  </script>
+ </head>
+ <body>
+  <header class="header">
+   <div class="container">
+    <div class="logo">
+     <i class="fas fa-calculator">
+     </i>
+     <span>
+      CalculatorFree.Online
+     </span>
+    </div>
+    <nav class="nav-menu">
+     <a class="nav-link" href="index.html">
+      Home
+     </a>
+     <a class="nav-link" href="index.html#financial">
+      Financial
+     </a>
+     <a class="nav-link" href="index.html#health">
+      Health &amp; Fitness
+     </a>
+     <a class="nav-link" href="index.html#math">
+      Math
+     </a>
+     <a class="nav-link active" href="index.html#other">
+      Other Tools
+     </a>
+    </nav>
+    <div class="mobile-menu-toggle">
+     <i class="fas fa-bars">
+     </i>
+    </div>
+   </div>
+  </header>
+  <main class="main">
+   <section class="hero">
+    <div class="container">
+     <div class="hero-content">
+      <h1>
+       Age Calculator
+      </h1>
+      <p>
+       Calculate your exact age in years, months, days and more
+      </p>
+     </div>
+    </div>
+   </section>
+   <section class="calculator-section">
+    <div class="container">
+     <div class="age-calculator">
+      <form id="ageForm">
+       <h3 style="margin-bottom: 1.5rem; text-align: center;">
+        Enter Your Birth Date
+       </h3>
+       <div class="date-inputs">
+        <div class="input-group">
+         <label for="birthMonth">
+          Month
+         </label>
+         <select id="birthMonth" required="">
+          <option value="">
+           Select Month
+          </option>
+          <option value="1">
+           January
+          </option>
+          <option value="2">
+           February
+          </option>
+          <option value="3">
+           March
+          </option>
+          <option value="4">
+           April
+          </option>
+          <option value="5">
+           May
+          </option>
+          <option value="6">
+           June
+          </option>
+          <option value="7">
+           July
+          </option>
+          <option value="8">
+           August
+          </option>
+          <option value="9">
+           September
+          </option>
+          <option value="10">
+           October
+          </option>
+          <option value="11">
+           November
+          </option>
+          <option value="12">
+           December
+          </option>
+         </select>
         </div>
-    </header>
-
-    <main class="main">
-        <section class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1>Age Calculator</h1>
-                    <p>Calculate your exact age in years, months, days and more</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="calculator-section">
-            <div class="container">
-                <div class="age-calculator">
-                    <form id="ageForm">
-                        <h3 style="margin-bottom: 1.5rem; text-align: center;">Enter Your Birth Date</h3>
-                        
-                        <div class="date-inputs">
-                            <div class="input-group">
-                                <label for="birthMonth">Month</label>
-                                <select id="birthMonth" required>
-                                    <option value="">Select Month</option>
-                                    <option value="1">January</option>
-                                    <option value="2">February</option>
-                                    <option value="3">March</option>
-                                    <option value="4">April</option>
-                                    <option value="5">May</option>
-                                    <option value="6">June</option>
-                                    <option value="7">July</option>
-                                    <option value="8">August</option>
-                                    <option value="9">September</option>
-                                    <option value="10">October</option>
-                                    <option value="11">November</option>
-                                    <option value="12">December</option>
-                                </select>
-                            </div>
-                            <div class="input-group">
-                                <label for="birthDay">Day</label>
-                                <input type="number" id="birthDay" min="1" max="31" placeholder="Day" required>
-                            </div>
-                            <div class="input-group">
-                                <label for="birthYear">Year</label>
-                                <input type="number" id="birthYear" min="1900" max="2024" placeholder="Year" required>
-                            </div>
-                        </div>
-
-                        <h3 style="margin-top: 2rem; margin-bottom: 1rem; text-align: center;">Calculate Age At Specific Date (Optional)</h3>
-                        
-                        <div class="date-inputs">
-                            <div class="input-group">
-                                <label for="targetMonth">Month</label>
-                                <select id="targetMonth">
-                                    <option value="">Current Date</option>
-                                    <option value="1">January</option>
-                                    <option value="2">February</option>
-                                    <option value="3">March</option>
-                                    <option value="4">April</option>
-                                    <option value="5">May</option>
-                                    <option value="6">June</option>
-                                    <option value="7">July</option>
-                                    <option value="8">August</option>
-                                    <option value="9">September</option>
-                                    <option value="10">October</option>
-                                    <option value="11">November</option>
-                                    <option value="12">December</option>
-                                </select>
-                            </div>
-                            <div class="input-group">
-                                <label for="targetDay">Day</label>
-                                <input type="number" id="targetDay" min="1" max="31" placeholder="Day">
-                            </div>
-                            <div class="input-group">
-                                <label for="targetYear">Year</label>
-                                <input type="number" id="targetYear" min="1900" max="2100" placeholder="Year">
-                            </div>
-                        </div>
-
-                        <button type="submit" class="calculate-btn">Calculate Age</button>
-                    </form>
-
-                    <div id="resultSection" class="result-section">
-                        <div class="age-display">
-                            <div class="main-age" id="mainAge">0 Years Old</div>
-                            <div>Your Current Age</div>
-                        </div>
-                        
-                        <div class="age-breakdown">
-                            <div class="age-item">
-                                <div class="age-number" id="totalDays">0</div>
-                                <div class="age-label">Days Old</div>
-                            </div>
-                            <div class="age-item">
-                                <div class="age-number" id="totalHours">0</div>
-                                <div class="age-label">Hours Old</div>
-                            </div>
-                            <div class="age-item">
-                                <div class="age-number" id="totalMinutes">0</div>
-                                <div class="age-label">Minutes Old</div>
-                            </div>
-                            <div class="age-item">
-                                <div class="age-number" id="totalMonths">0</div>
-                                <div class="age-label">Months Old</div>
-                            </div>
-                        </div>
-                        
-                        <div class="next-birthday">
-                            <div class="birthday-info">Next Birthday</div>
-                            <div class="days-until" id="daysUntilBirthday">0 days</div>
-                            <div id="nextBirthdayDate"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Financial Calculators</h4>
-                    <ul>
-                        <li><a href="mortgage-calculator.html">Mortgage Calculator</a></li>
-                        <li><a href="loan-calculator.html">Loan Calculator</a></li>
-                        <li><a href="auto-loan-calculator.html">Auto Loan Calculator</a></li>
-                        <li><a href="interest-calculator.html">Interest Calculator</a></li>
-                        <li><a href="retirement-calculator.html">Retirement Calculator</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Health & Fitness</h4>
-                    <ul>
-                        <li><a href="bmi-calculator.html">BMI Calculator</a></li>
-                        <li><a href="calorie-calculator.html">Calorie Calculator</a></li>
-                        <li><a href="body-fat-calculator.html">Body Fat Calculator</a></li>
-                        <li><a href="bmr-calculator.html">BMR Calculator</a></li>
-                        <li><a href="pregnancy-calculator.html">Pregnancy Calculator</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Math Calculators</h4>
-                    <ul>
-                        <li><a href="scientific-calculator.html">Scientific Calculator</a></li>
-                        <li><a href="fraction-calculator.html">Fraction Calculator</a></li>
-                        <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
-                        <li><a href="triangle-calculator.html">Triangle Calculator</a></li>
-                        <li><a href="random-number-generator.html">Random Number Generator</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Other Tools</h4>
-                    <ul>
-                        <li><a href="age-calculator.html">Age Calculator</a></li>
-                        <li><a href="date-calculator.html">Date Calculator</a></li>
-                        <li><a href="time-calculator.html">Time Calculator</a></li>
-                        <li><a href="gpa-calculator.html">GPA Calculator</a></li>
-                        <li><a href="password-generator.html">Password Generator</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 CalculatorFree.Online. All rights reserved.</p>
-            </div>
+        <div class="input-group">
+         <label for="birthDay">
+          Day
+         </label>
+         <input id="birthDay" max="31" min="1" placeholder="Day" required="" type="number"/>
         </div>
-    </footer>
-
-    <script src="script.js"></script>
-    <script>
-        document.getElementById('ageForm').addEventListener('submit', function(e) {
+        <div class="input-group">
+         <label for="birthYear">
+          Year
+         </label>
+         <input id="birthYear" max="2024" min="1900" placeholder="Year" required="" type="number"/>
+        </div>
+       </div>
+       <h3 style="margin-top: 2rem; margin-bottom: 1rem; text-align: center;">
+        Calculate Age At Specific Date (Optional)
+       </h3>
+       <div class="date-inputs">
+        <div class="input-group">
+         <label for="targetMonth">
+          Month
+         </label>
+         <select id="targetMonth">
+          <option value="">
+           Current Date
+          </option>
+          <option value="1">
+           January
+          </option>
+          <option value="2">
+           February
+          </option>
+          <option value="3">
+           March
+          </option>
+          <option value="4">
+           April
+          </option>
+          <option value="5">
+           May
+          </option>
+          <option value="6">
+           June
+          </option>
+          <option value="7">
+           July
+          </option>
+          <option value="8">
+           August
+          </option>
+          <option value="9">
+           September
+          </option>
+          <option value="10">
+           October
+          </option>
+          <option value="11">
+           November
+          </option>
+          <option value="12">
+           December
+          </option>
+         </select>
+        </div>
+        <div class="input-group">
+         <label for="targetDay">
+          Day
+         </label>
+         <input id="targetDay" max="31" min="1" placeholder="Day" type="number"/>
+        </div>
+        <div class="input-group">
+         <label for="targetYear">
+          Year
+         </label>
+         <input id="targetYear" max="2100" min="1900" placeholder="Year" type="number"/>
+        </div>
+       </div>
+       <button class="calculate-btn" type="submit">
+        Calculate Age
+       </button>
+      </form>
+      <div class="result-section" id="resultSection">
+       <div class="age-display">
+        <div class="main-age" id="mainAge">
+         0 Years Old
+        </div>
+        <div>
+         Your Current Age
+        </div>
+       </div>
+       <div class="age-breakdown">
+        <div class="age-item">
+         <div class="age-number" id="totalDays">
+          0
+         </div>
+         <div class="age-label">
+          Days Old
+         </div>
+        </div>
+        <div class="age-item">
+         <div class="age-number" id="totalHours">
+          0
+         </div>
+         <div class="age-label">
+          Hours Old
+         </div>
+        </div>
+        <div class="age-item">
+         <div class="age-number" id="totalMinutes">
+          0
+         </div>
+         <div class="age-label">
+          Minutes Old
+         </div>
+        </div>
+        <div class="age-item">
+         <div class="age-number" id="totalMonths">
+          0
+         </div>
+         <div class="age-label">
+          Months Old
+         </div>
+        </div>
+       </div>
+       <div class="next-birthday">
+        <div class="birthday-info">
+         Next Birthday
+        </div>
+        <div class="days-until" id="daysUntilBirthday">
+         0 days
+        </div>
+        <div id="nextBirthdayDate">
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+  </main>
+  <footer class="footer">
+   <div class="container">
+    <div class="footer-content">
+     <div class="footer-section">
+      <h4>
+       Financial Calculators
+      </h4>
+      <ul>
+       <li>
+        <a href="mortgage-calculator.html">
+         Mortgage Calculator
+        </a>
+       </li>
+       <li>
+        <a href="loan-calculator.html">
+         Loan Calculator
+        </a>
+       </li>
+       <li>
+        <a href="auto-loan-calculator.html">
+         Auto Loan Calculator
+        </a>
+       </li>
+       <li>
+        <a href="interest-calculator.html">
+         Interest Calculator
+        </a>
+       </li>
+       <li>
+        <a href="retirement-calculator.html">
+         Retirement Calculator
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="footer-section">
+      <h4>
+       Health &amp; Fitness
+      </h4>
+      <ul>
+       <li>
+        <a href="bmi-calculator.html">
+         BMI Calculator
+        </a>
+       </li>
+       <li>
+        <a href="calorie-calculator.html">
+         Calorie Calculator
+        </a>
+       </li>
+       <li>
+        <a href="body-fat-calculator.html">
+         Body Fat Calculator
+        </a>
+       </li>
+       <li>
+        <a href="bmr-calculator.html">
+         BMR Calculator
+        </a>
+       </li>
+       <li>
+        <a href="pregnancy-calculator.html">
+         Pregnancy Calculator
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="footer-section">
+      <h4>
+       Math Calculators
+      </h4>
+      <ul>
+       <li>
+        <a href="scientific-calculator.html">
+         Scientific Calculator
+        </a>
+       </li>
+       <li>
+        <a href="fraction-calculator.html">
+         Fraction Calculator
+        </a>
+       </li>
+       <li>
+        <a href="percentage-calculator.html">
+         Percentage Calculator
+        </a>
+       </li>
+       <li>
+        <a href="triangle-calculator.html">
+         Triangle Calculator
+        </a>
+       </li>
+       <li>
+        <a href="random-number-generator.html">
+         Random Number Generator
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="footer-section">
+      <h4>
+       Other Tools
+      </h4>
+      <ul>
+       <li>
+        <a href="age-calculator.html">
+         Age Calculator
+        </a>
+       </li>
+       <li>
+        <a href="date-calculator.html">
+         Date Calculator
+        </a>
+       </li>
+       <li>
+        <a href="time-calculator.html">
+         Time Calculator
+        </a>
+       </li>
+       <li>
+        <a href="gpa-calculator.html">
+         GPA Calculator
+        </a>
+       </li>
+       <li>
+        <a href="password-generator.html">
+         Password Generator
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="footer-bottom">
+     <p>
+      © 2024 CalculatorFree.Online. All rights reserved.
+     </p>
+    </div>
+   </div>
+  </footer>
+  <script src="script.js">
+  </script>
+  <script>
+   document.getElementById('ageForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
             const birthMonth = parseInt(document.getElementById('birthMonth').value);
@@ -477,7 +682,6 @@ if (mobileMenuToggle && navMenu) {
         }
     });
 }
-    </script>
-    
-</body>
-</html> 
+  </script>
+ </body>
+</html>

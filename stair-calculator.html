@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stair Calculator - Calculate Stair Dimensions & Materials | CalculatorFree.Online</title>
-    <meta name="description" content="Calculate stair dimensions including rise, run, steps, angle, and materials needed for stair construction.">
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        .stair-calculator {
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="index, follow" name="robots"/>
+  <link href="https://calculatorfree.online/stair-calculator.html" rel="canonical"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Stair Calculator - Calculate Stair Dimensions &amp; Materials | CalculatorFree.Online
+  </title>
+  <meta content="Calculate stair dimensions including rise, run, steps, angle, and materials needed for stair construction." name="description"/>
+  <link href="styles.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+  <style>
+   .stair-calculator {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             border-radius: 20px;
@@ -233,280 +237,529 @@
                 grid-template-columns: 1fr;
             }
         }
-    </style>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZTVJQRZ1L2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-ZTVJQRZ1L2">
+  </script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'G-ZTVJQRZ1L2');
-</script>
-
-</head>
-<body>
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <i class="fas fa-calculator"></i>
-                <span>CalculatorFree.Online</span>
-            </div>
-            <nav class="nav-menu">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="index.html#financial" class="nav-link">Financial</a>
-                <a href="index.html#health" class="nav-link">Health & Fitness</a>
-                <a href="index.html#math" class="nav-link">Math</a>
-                <a href="index.html#other" class="nav-link active">Other Tools</a>
-            </nav>
-            <div class="mobile-menu-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
+  </script>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://cdnjs.cloudflare.com" rel="preconnect"/>
+  <script type="application/ld+json">
+   {"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Stair Calculator", "applicationCategory": "CalculatorApplication", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "operatingSystem": "All", "description": "Free online stair calculator with step-by-step calculations and detailed results."}
+  </script>
+  <script type="application/ld+json">
+   {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calculatorfree.online/"}, {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://calculatorfree.online/#calculators"}, {"@type": "ListItem", "position": 3, "name": "Stair Calculator", "item": "https://calculatorfree.online/stair-calculator.html"}]}
+  </script>
+ </head>
+ <body>
+  <header class="header">
+   <div class="container">
+    <div class="logo">
+     <i class="fas fa-calculator">
+     </i>
+     <span>
+      CalculatorFree.Online
+     </span>
+    </div>
+    <nav class="nav-menu">
+     <a class="nav-link" href="index.html">
+      Home
+     </a>
+     <a class="nav-link" href="index.html#financial">
+      Financial
+     </a>
+     <a class="nav-link" href="index.html#health">
+      Health &amp; Fitness
+     </a>
+     <a class="nav-link" href="index.html#math">
+      Math
+     </a>
+     <a class="nav-link active" href="index.html#other">
+      Other Tools
+     </a>
+    </nav>
+    <div class="mobile-menu-toggle">
+     <i class="fas fa-bars">
+     </i>
+    </div>
+   </div>
+  </header>
+  <main class="main">
+   <section class="hero">
+    <div class="container">
+     <div class="hero-content">
+      <h1>
+       <i class="fas fa-level-up-alt">
+       </i>
+       Stair Calculator
+      </h1>
+      <p>
+       Calculate stair dimensions, steps, rise, run, angle, and building code compliance
+      </p>
+     </div>
+    </div>
+   </section>
+   <section>
+    <div class="container">
+     <div class="stair-calculator">
+      <div class="calculator-grid">
+       <div class="input-panel">
+        <h3 class="panel-title">
+         <i class="fas fa-ruler">
+         </i>
+         Stair Dimensions
+        </h3>
+        <div class="input-group">
+         <label for="total-rise">
+          Total Rise (inches)
+         </label>
+         <input class="input-field" id="total-rise" min="0" placeholder="96" step="0.25" type="number"/>
+         <small style="color: #6c757d;">
+          Floor to floor height
+         </small>
         </div>
-    </header>
-
-    <main class="main">
-        <section class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1><i class="fas fa-level-up-alt"></i> Stair Calculator</h1>
-                    <p>Calculate stair dimensions, steps, rise, run, angle, and building code compliance</p>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <div class="container">
-                <div class="stair-calculator">
-                    <div class="calculator-grid">
-                        <div class="input-panel">
-                            <h3 class="panel-title"><i class="fas fa-ruler"></i> Stair Dimensions</h3>
-                            
-                            <div class="input-group">
-                                <label for="total-rise">Total Rise (inches)</label>
-                                <input type="number" id="total-rise" class="input-field" placeholder="96" min="0" step="0.25">
-                                <small style="color: #6c757d;">Floor to floor height</small>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="total-run">Total Run (inches)</label>
-                                <input type="number" id="total-run" class="input-field" placeholder="120" min="0" step="0.25">
-                                <small style="color: #6c757d;">Horizontal distance available</small>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="step-count">Number of Steps</label>
-                                <input type="number" id="step-count" class="input-field" placeholder="12" min="3" max="30" step="1">
-                                <small style="color: #6c757d;">Leave blank to auto-calculate</small>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="tread-thickness">Tread Thickness (inches)</label>
-                                <select id="tread-thickness" class="input-field">
-                                    <option value="1" selected>1" - Standard lumber</option>
-                                    <option value="1.5">1.5" - Thick lumber</option>
-                                    <option value="2">2" - Extra thick</option>
-                                </select>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="stringer-width">Stringer Width (inches)</label>
-                                <select id="stringer-width" class="input-field">
-                                    <option value="9.25">9.25" - 2x10</option>
-                                    <option value="11.25" selected>11.25" - 2x12</option>
-                                    <option value="13.25">13.25" - 2x14</option>
-                                </select>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="headroom">Minimum Headroom (inches)</label>
-                                <input type="number" id="headroom" class="input-field" value="80" min="72" max="96" step="1">
-                                <small style="color: #6c757d;">Building code minimum: 80"</small>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="stair-width">Stair Width (inches)</label>
-                                <input type="number" id="stair-width" class="input-field" value="36" min="24" max="72" step="1">
-                                <small style="color: #6c757d;">Code minimum: 36"</small>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="calculation-method">Calculation Method</label>
-                                <select id="calculation-method" class="input-field">
-                                    <option value="auto" selected>Auto (optimal rise/run)</option>
-                                    <option value="equal-rise">Equal rise (specify steps)</option>
-                                    <option value="equal-run">Equal run (specify steps)</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="result-panel">
-                            <h3 class="panel-title"><i class="fas fa-clipboard-list"></i> Calculated Results</h3>
-                            
-                            <div class="input-group">
-                                <label for="calculated-steps">Number of Steps</label>
-                                <input type="text" id="calculated-steps" class="input-field result-field" placeholder="0 steps" readonly>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="unit-rise">Unit Rise</label>
-                                <input type="text" id="unit-rise" class="input-field result-field" placeholder="0 inches" readonly>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="unit-run">Unit Run (Tread)</label>
-                                <input type="text" id="unit-run" class="input-field result-field" placeholder="0 inches" readonly>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="stair-angle">Stair Angle</label>
-                                <input type="text" id="stair-angle" class="input-field result-field" placeholder="0°" readonly>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="stringer-length">Stringer Length</label>
-                                <input type="text" id="stringer-length" class="input-field result-field" placeholder="0 inches" readonly>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="total-tread-area">Total Tread Area</label>
-                                <input type="text" id="total-tread-area" class="input-field result-field" placeholder="0 sq ft" readonly>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="riser-area">Total Riser Area</label>
-                                <input type="text" id="riser-area" class="input-field result-field" placeholder="0 sq ft" readonly>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="recommended-stringers">Recommended Stringers</label>
-                                <input type="text" id="recommended-stringers" class="input-field result-field" placeholder="0 stringers" readonly>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="stair-diagram">
-                        <h3><i class="fas fa-drafting-compass"></i> Stair Profile Diagram</h3>
-                        <div class="diagram-container" id="diagram-container">
-                            <div class="stair-visual" id="stair-visual">
-                                <!-- Steps will be generated here -->
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="code-compliance-section" class="code-compliance">
-                        <h3><i class="fas fa-check-circle"></i> Building Code Compliance</h3>
-                        <div class="compliance-grid" id="compliance-grid">
-                            <!-- Compliance checks will be generated here -->
-                        </div>
-                    </div>
-
-                    <div id="material-breakdown-section" class="material-breakdown" style="display: none;">
-                        <h3><i class="fas fa="clipboard-list"></i> Material Requirements</h3>
-                        <div class="breakdown-grid" id="breakdown-grid">
-                            <!-- Material breakdown will be generated here -->
-                        </div>
-                    </div>
-
-                    <div class="tips-section">
-                        <h3><i class="fas fa-graduation-cap"></i> Stair Construction Tips</h3>
-                        <div class="tips-grid">
-                            <div class="tip-item">
-                                <h4>📐 Rise & Run Formula</h4>
-                                <p>Ideal ratio: 2 x Rise + Run = 24-25 inches. Common comfortable ratio is 7" rise with 11" run.</p>
-                            </div>
-                            <div class="tip-item">
-                                <h4>📏 Consistent Dimensions</h4>
-                                <p>All rises should be identical within 3/8". Variation can cause tripping hazards.</p>
-                            </div>
-                            <div class="tip-item">
-                                <h4>🛠️ Stringer Placement</h4>
-                                <p>Use 2x12 lumber for stringers. Space stringers max 16" on center for 5/4" treads.</p>
-                            </div>
-                            <div class="tip-item">
-                                <h4>🔧 Secure Attachment</h4>
-                                <p>Attach stringers with joist hangers or ledger board. Use appropriate fasteners for load.</p>
-                            </div>
-                            <div class="tip-item">
-                                <h4>🚪 Headroom Check</h4>
-                                <p>Minimum 6'8" headroom throughout stair run. Check local codes for requirements.</p>
-                            </div>
-                            <div class="tip-item">
-                                <h4>🛡️ Safety Features</h4>
-                                <p>Install handrails 34-38" high. Guardrails required for stairs over 30" high.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Financial Calculators</h4>
-                    <ul>
-                        <li><a href="mortgage-calculator.html">Mortgage Calculator</a></li>
-                        <li><a href="loan-calculator.html">Loan Calculator</a></li>
-                        <li><a href="auto-loan-calculator.html">Auto Loan Calculator</a></li>
-                        <li><a href="interest-calculator.html">Interest Calculator</a></li>
-                        <li><a href="investment-calculator.html">Investment Calculator</a></li>
-                        <li><a href="compound-interest-calculator.html">Compound Interest Calculator</a></li>
-                        <li><a href="retirement-calculator.html">Retirement Calculator</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Health & Fitness</h4>
-                    <ul>
-                        <li><a href="bmi-calculator.html">BMI Calculator</a></li>
-                        <li><a href="calorie-calculator.html">Calorie Calculator</a></li>
-                        <li><a href="body-fat-calculator.html">Body Fat Calculator</a></li>
-                        <li><a href="bmr-calculator.html">BMR Calculator</a></li>
-                        <li><a href="pregnancy-calculator.html">Pregnancy Calculator</a></li>
-                        <li><a href="water-calculator.html">Water Calculator</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Math Calculators</h4>
-                    <ul>
-                        <li><a href="scientific-calculator.html">Scientific Calculator</a></li>
-                        <li><a href="basic-calculator.html">Basic Calculator</a></li>
-                        <li><a href="area-calculator.html">Area Calculator</a></li>
-                        <li><a href="volume-calculator.html">Volume Calculator</a></li>
-                        <li><a href="average-calculator.html">Average Calculator</a></li>
-                        <li><a href="fraction-calculator.html">Fraction Calculator</a></li>
-                        <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
-                        <li><a href="triangle-calculator.html">Triangle Calculator</a></li>
-                        <li><a href="random-number-generator.html">Random Number Generator</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Other Tools</h4>
-                    <ul>
-                        <li><a href="age-calculator.html">Age Calculator</a></li>
-                        <li><a href="date-calculator.html">Date Calculator</a></li>
-                        <li><a href="time-calculator.html">Time Calculator</a></li>
-                        <li><a href="gpa-calculator.html">GPA Calculator</a></li>
-                        <li><a href="grade-calculator.html">Grade Calculator</a></li>
-                        <li><a href="hours-calculator.html">Hours Calculator</a></li>
-                        <li><a href="password-generator.html">Password Generator</a></li>
-                        <li><a href="tip-calculator.html">Tip Calculator</a></li>
-                        <li><a href="unit-converter.html">Unit Converter</a></li>
-                        <li><a href="stair-calculator.html">Stair Calculator</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 CalculatorFree.Online. All rights reserved.</p>
-            </div>
+        <div class="input-group">
+         <label for="total-run">
+          Total Run (inches)
+         </label>
+         <input class="input-field" id="total-run" min="0" placeholder="120" step="0.25" type="number"/>
+         <small style="color: #6c757d;">
+          Horizontal distance available
+         </small>
         </div>
-    </footer>
-
-    <script>
-        function calculateStairs() {
+        <div class="input-group">
+         <label for="step-count">
+          Number of Steps
+         </label>
+         <input class="input-field" id="step-count" max="30" min="3" placeholder="12" step="1" type="number"/>
+         <small style="color: #6c757d;">
+          Leave blank to auto-calculate
+         </small>
+        </div>
+        <div class="input-group">
+         <label for="tread-thickness">
+          Tread Thickness (inches)
+         </label>
+         <select class="input-field" id="tread-thickness">
+          <option selected="" value="1">
+           1" - Standard lumber
+          </option>
+          <option value="1.5">
+           1.5" - Thick lumber
+          </option>
+          <option value="2">
+           2" - Extra thick
+          </option>
+         </select>
+        </div>
+        <div class="input-group">
+         <label for="stringer-width">
+          Stringer Width (inches)
+         </label>
+         <select class="input-field" id="stringer-width">
+          <option value="9.25">
+           9.25" - 2x10
+          </option>
+          <option selected="" value="11.25">
+           11.25" - 2x12
+          </option>
+          <option value="13.25">
+           13.25" - 2x14
+          </option>
+         </select>
+        </div>
+        <div class="input-group">
+         <label for="headroom">
+          Minimum Headroom (inches)
+         </label>
+         <input class="input-field" id="headroom" max="96" min="72" step="1" type="number" value="80"/>
+         <small style="color: #6c757d;">
+          Building code minimum: 80"
+         </small>
+        </div>
+        <div class="input-group">
+         <label for="stair-width">
+          Stair Width (inches)
+         </label>
+         <input class="input-field" id="stair-width" max="72" min="24" step="1" type="number" value="36"/>
+         <small style="color: #6c757d;">
+          Code minimum: 36"
+         </small>
+        </div>
+        <div class="input-group">
+         <label for="calculation-method">
+          Calculation Method
+         </label>
+         <select class="input-field" id="calculation-method">
+          <option selected="" value="auto">
+           Auto (optimal rise/run)
+          </option>
+          <option value="equal-rise">
+           Equal rise (specify steps)
+          </option>
+          <option value="equal-run">
+           Equal run (specify steps)
+          </option>
+         </select>
+        </div>
+       </div>
+       <div class="result-panel">
+        <h3 class="panel-title">
+         <i class="fas fa-clipboard-list">
+         </i>
+         Calculated Results
+        </h3>
+        <div class="input-group">
+         <label for="calculated-steps">
+          Number of Steps
+         </label>
+         <input class="input-field result-field" id="calculated-steps" placeholder="0 steps" readonly="" type="text"/>
+        </div>
+        <div class="input-group">
+         <label for="unit-rise">
+          Unit Rise
+         </label>
+         <input class="input-field result-field" id="unit-rise" placeholder="0 inches" readonly="" type="text"/>
+        </div>
+        <div class="input-group">
+         <label for="unit-run">
+          Unit Run (Tread)
+         </label>
+         <input class="input-field result-field" id="unit-run" placeholder="0 inches" readonly="" type="text"/>
+        </div>
+        <div class="input-group">
+         <label for="stair-angle">
+          Stair Angle
+         </label>
+         <input class="input-field result-field" id="stair-angle" placeholder="0°" readonly="" type="text"/>
+        </div>
+        <div class="input-group">
+         <label for="stringer-length">
+          Stringer Length
+         </label>
+         <input class="input-field result-field" id="stringer-length" placeholder="0 inches" readonly="" type="text"/>
+        </div>
+        <div class="input-group">
+         <label for="total-tread-area">
+          Total Tread Area
+         </label>
+         <input class="input-field result-field" id="total-tread-area" placeholder="0 sq ft" readonly="" type="text"/>
+        </div>
+        <div class="input-group">
+         <label for="riser-area">
+          Total Riser Area
+         </label>
+         <input class="input-field result-field" id="riser-area" placeholder="0 sq ft" readonly="" type="text"/>
+        </div>
+        <div class="input-group">
+         <label for="recommended-stringers">
+          Recommended Stringers
+         </label>
+         <input class="input-field result-field" id="recommended-stringers" placeholder="0 stringers" readonly="" type="text"/>
+        </div>
+       </div>
+      </div>
+      <div class="stair-diagram">
+       <h3>
+        <i class="fas fa-drafting-compass">
+        </i>
+        Stair Profile Diagram
+       </h3>
+       <div class="diagram-container" id="diagram-container">
+        <div class="stair-visual" id="stair-visual">
+         <!-- Steps will be generated here -->
+        </div>
+       </div>
+      </div>
+      <div class="code-compliance" id="code-compliance-section">
+       <h3>
+        <i class="fas fa-check-circle">
+        </i>
+        Building Code Compliance
+       </h3>
+       <div class="compliance-grid" id="compliance-grid">
+        <!-- Compliance checks will be generated here -->
+       </div>
+      </div>
+      <div class="material-breakdown" id="material-breakdown-section" style="display: none;">
+       <h3>
+        <i class="fas fa=" clipboard-list"="">
+        </i>
+        Material Requirements
+       </h3>
+       <div class="breakdown-grid" id="breakdown-grid">
+        <!-- Material breakdown will be generated here -->
+       </div>
+      </div>
+      <div class="tips-section">
+       <h3>
+        <i class="fas fa-graduation-cap">
+        </i>
+        Stair Construction Tips
+       </h3>
+       <div class="tips-grid">
+        <div class="tip-item">
+         <h4>
+          📐 Rise &amp; Run Formula
+         </h4>
+         <p>
+          Ideal ratio: 2 x Rise + Run = 24-25 inches. Common comfortable ratio is 7" rise with 11" run.
+         </p>
+        </div>
+        <div class="tip-item">
+         <h4>
+          📏 Consistent Dimensions
+         </h4>
+         <p>
+          All rises should be identical within 3/8". Variation can cause tripping hazards.
+         </p>
+        </div>
+        <div class="tip-item">
+         <h4>
+          🛠️ Stringer Placement
+         </h4>
+         <p>
+          Use 2x12 lumber for stringers. Space stringers max 16" on center for 5/4" treads.
+         </p>
+        </div>
+        <div class="tip-item">
+         <h4>
+          🔧 Secure Attachment
+         </h4>
+         <p>
+          Attach stringers with joist hangers or ledger board. Use appropriate fasteners for load.
+         </p>
+        </div>
+        <div class="tip-item">
+         <h4>
+          🚪 Headroom Check
+         </h4>
+         <p>
+          Minimum 6'8" headroom throughout stair run. Check local codes for requirements.
+         </p>
+        </div>
+        <div class="tip-item">
+         <h4>
+          🛡️ Safety Features
+         </h4>
+         <p>
+          Install handrails 34-38" high. Guardrails required for stairs over 30" high.
+         </p>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+  </main>
+  <footer class="footer">
+   <div class="container">
+    <div class="footer-content">
+     <div class="footer-section">
+      <h4>
+       Financial Calculators
+      </h4>
+      <ul>
+       <li>
+        <a href="mortgage-calculator.html">
+         Mortgage Calculator
+        </a>
+       </li>
+       <li>
+        <a href="loan-calculator.html">
+         Loan Calculator
+        </a>
+       </li>
+       <li>
+        <a href="auto-loan-calculator.html">
+         Auto Loan Calculator
+        </a>
+       </li>
+       <li>
+        <a href="interest-calculator.html">
+         Interest Calculator
+        </a>
+       </li>
+       <li>
+        <a href="investment-calculator.html">
+         Investment Calculator
+        </a>
+       </li>
+       <li>
+        <a href="compound-interest-calculator.html">
+         Compound Interest Calculator
+        </a>
+       </li>
+       <li>
+        <a href="retirement-calculator.html">
+         Retirement Calculator
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="footer-section">
+      <h4>
+       Health &amp; Fitness
+      </h4>
+      <ul>
+       <li>
+        <a href="bmi-calculator.html">
+         BMI Calculator
+        </a>
+       </li>
+       <li>
+        <a href="calorie-calculator.html">
+         Calorie Calculator
+        </a>
+       </li>
+       <li>
+        <a href="body-fat-calculator.html">
+         Body Fat Calculator
+        </a>
+       </li>
+       <li>
+        <a href="bmr-calculator.html">
+         BMR Calculator
+        </a>
+       </li>
+       <li>
+        <a href="pregnancy-calculator.html">
+         Pregnancy Calculator
+        </a>
+       </li>
+       <li>
+        <a href="water-calculator.html">
+         Water Calculator
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="footer-section">
+      <h4>
+       Math Calculators
+      </h4>
+      <ul>
+       <li>
+        <a href="scientific-calculator.html">
+         Scientific Calculator
+        </a>
+       </li>
+       <li>
+        <a href="basic-calculator.html">
+         Basic Calculator
+        </a>
+       </li>
+       <li>
+        <a href="area-calculator.html">
+         Area Calculator
+        </a>
+       </li>
+       <li>
+        <a href="volume-calculator.html">
+         Volume Calculator
+        </a>
+       </li>
+       <li>
+        <a href="average-calculator.html">
+         Average Calculator
+        </a>
+       </li>
+       <li>
+        <a href="fraction-calculator.html">
+         Fraction Calculator
+        </a>
+       </li>
+       <li>
+        <a href="percentage-calculator.html">
+         Percentage Calculator
+        </a>
+       </li>
+       <li>
+        <a href="triangle-calculator.html">
+         Triangle Calculator
+        </a>
+       </li>
+       <li>
+        <a href="random-number-generator.html">
+         Random Number Generator
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="footer-section">
+      <h4>
+       Other Tools
+      </h4>
+      <ul>
+       <li>
+        <a href="age-calculator.html">
+         Age Calculator
+        </a>
+       </li>
+       <li>
+        <a href="date-calculator.html">
+         Date Calculator
+        </a>
+       </li>
+       <li>
+        <a href="time-calculator.html">
+         Time Calculator
+        </a>
+       </li>
+       <li>
+        <a href="gpa-calculator.html">
+         GPA Calculator
+        </a>
+       </li>
+       <li>
+        <a href="grade-calculator.html">
+         Grade Calculator
+        </a>
+       </li>
+       <li>
+        <a href="hours-calculator.html">
+         Hours Calculator
+        </a>
+       </li>
+       <li>
+        <a href="password-generator.html">
+         Password Generator
+        </a>
+       </li>
+       <li>
+        <a href="tip-calculator.html">
+         Tip Calculator
+        </a>
+       </li>
+       <li>
+        <a href="unit-converter.html">
+         Unit Converter
+        </a>
+       </li>
+       <li>
+        <a href="stair-calculator.html">
+         Stair Calculator
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="footer-bottom">
+     <p>
+      © 2024 CalculatorFree.Online. All rights reserved.
+     </p>
+    </div>
+   </div>
+  </footer>
+  <script>
+   function calculateStairs() {
             const totalRise = parseFloat(document.getElementById('total-rise').value) || 0;
             const totalRun = parseFloat(document.getElementById('total-run').value) || 0;
             let stepCount = parseInt(document.getElementById('step-count').value) || 0;
@@ -723,6 +976,6 @@
             // Initial calculation
             setTimeout(calculateStairs, 100);
         });
-    </script>
-</body>
-</html> 
+  </script>
+ </body>
+</html>

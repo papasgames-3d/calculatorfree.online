@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tile Calculator - Calculate Tiles Needed & Installation Costs | CalculatorFree.Online</title>
-    <meta name="description" content="Calculate how many tiles you need for floors, walls, and backsplashes. Include grout, adhesive, and installation costs.">
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        .tile-calculator {
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="index, follow" name="robots"/>
+  <link href="https://calculatorfree.online/tile-calculator.html" rel="canonical"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Tile Calculator - Calculate Tiles Needed &amp; Installation Costs | CalculatorFree.Online
+  </title>
+  <meta content="Calculate how many tiles you need for floors, walls, and backsplashes. Include grout, adhesive, and installation costs." name="description"/>
+  <link href="styles.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+  <style>
+   .tile-calculator {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             border-radius: 20px;
@@ -225,362 +229,756 @@
                 grid-template-columns: 1fr;
             }
         }
-    </style>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZTVJQRZ1L2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-ZTVJQRZ1L2">
+  </script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'G-ZTVJQRZ1L2');
-</script>
-
-</head>
-<body>
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <i class="fas fa-calculator"></i>
-                <span>CalculatorFree.Online</span>
-            </div>
-            <nav class="nav-menu">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="index.html#financial" class="nav-link">Financial</a>
-                <a href="index.html#health" class="nav-link">Health & Fitness</a>
-                <a href="index.html#math" class="nav-link">Math</a>
-                <a href="index.html#other" class="nav-link active">Other Tools</a>
-            </nav>
-            <div class="mobile-menu-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
+  </script>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://cdnjs.cloudflare.com" rel="preconnect"/>
+  <script type="application/ld+json">
+   {"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Tile Calculator", "applicationCategory": "CalculatorApplication", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "operatingSystem": "All", "description": "Free online tile calculator with step-by-step calculations and detailed results."}
+  </script>
+  <script type="application/ld+json">
+   {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calculatorfree.online/"}, {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://calculatorfree.online/#calculators"}, {"@type": "ListItem", "position": 3, "name": "Tile Calculator", "item": "https://calculatorfree.online/tile-calculator.html"}]}
+  </script>
+ </head>
+ <body>
+  <header class="header">
+   <div class="container">
+    <div class="logo">
+     <i class="fas fa-calculator">
+     </i>
+     <span>
+      CalculatorFree.Online
+     </span>
+    </div>
+    <nav class="nav-menu">
+     <a class="nav-link" href="index.html">
+      Home
+     </a>
+     <a class="nav-link" href="index.html#financial">
+      Financial
+     </a>
+     <a class="nav-link" href="index.html#health">
+      Health &amp; Fitness
+     </a>
+     <a class="nav-link" href="index.html#math">
+      Math
+     </a>
+     <a class="nav-link active" href="index.html#other">
+      Other Tools
+     </a>
+    </nav>
+    <div class="mobile-menu-toggle">
+     <i class="fas fa-bars">
+     </i>
+    </div>
+   </div>
+  </header>
+  <main class="main">
+   <section class="hero">
+    <div class="container">
+     <div class="hero-content">
+      <h1>
+       <i class="fas fa-th">
+       </i>
+       Tile Calculator
+      </h1>
+      <p>
+       Calculate tiles needed for floors, walls, backsplashes, and tiling projects
+      </p>
+     </div>
+    </div>
+   </section>
+   <section>
+    <div class="container">
+     <div class="tile-calculator">
+      <div class="calculator-grid">
+       <div class="input-panel">
+        <h3 class="panel-title">
+         <i class="fas fa-ruler">
+         </i>
+         Area &amp; Tile Specifications
+        </h3>
+        <div class="input-group">
+         <label>
+          Area to Tile
+         </label>
+         <div class="dimension-grid">
+          <input class="input-field" id="area-length" min="0" placeholder="Length (ft)" step="0.1" type="number"/>
+          <input class="input-field" id="area-width" min="0" placeholder="Width (ft)" step="0.1" type="number"/>
+         </div>
         </div>
-    </header>
-
-    <main class="main">
-        <section class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1><i class="fas fa-th"></i> Tile Calculator</h1>
-                    <p>Calculate tiles needed for floors, walls, backsplashes, and tiling projects</p>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <div class="container">
-                <div class="tile-calculator">
-                    <div class="calculator-grid">
-                        <div class="input-panel">
-                            <h3 class="panel-title"><i class="fas fa-ruler"></i> Area & Tile Specifications</h3>
-                            
-                            <div class="input-group">
-                                <label>Area to Tile</label>
-                                <div class="dimension-grid">
-                                    <input type="number" id="area-length" class="input-field" placeholder="Length (ft)" min="0" step="0.1">
-                                    <input type="number" id="area-width" class="input-field" placeholder="Width (ft)" min="0" step="0.1">
-                                </div>
-                            </div>
-
-                            <div class="input-group">
-                                <label>Tile Size</label>
-                                <div class="tile-size-grid">
-                                    <input type="number" id="tile-length" class="input-field" placeholder="Length (in)" min="0" step="0.125">
-                                    <input type="number" id="tile-width" class="input-field" placeholder="Width (in)" min="0" step="0.125">
-                                </div>
-                                <p style="font-size: 0.9rem; color: #6c757d; margin-top: 0.5rem;">
-                                    Common sizes: 12"×12", 18"×18", 24"×24", 6"×36"
-                                </p>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="grout-width">Grout Joint Width</label>
-                                <select id="grout-width" class="input-field">
-                                    <option value="0.0625">1/16 inch (tight joint)</option>
-                                    <option value="0.125" selected>1/8 inch (standard)</option>
-                                    <option value="0.1875">3/16 inch</option>
-                                    <option value="0.25">1/4 inch (wide joint)</option>
-                                    <option value="0.375">3/8 inch (rustic look)</option>
-                                </select>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="waste-factor">Waste Factor</label>
-                                <select id="waste-factor" class="input-field">
-                                    <option value="0.05">5% - Straight layout, no cuts</option>
-                                    <option value="0.10" selected>10% - Standard allowance</option>
-                                    <option value="0.15">15% - Diagonal or pattern layout</option>
-                                    <option value="0.20">20% - Complex cuts/patterns</option>
-                                    <option value="0.25">25% - First-time installer</option>
-                                </select>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="tile-cost">Tile Cost per Square Foot</label>
-                                <div class="currency-input">
-                                    <span class="currency-symbol">$</span>
-                                    <input type="number" id="tile-cost" class="input-field" placeholder="5.00" min="0" step="0.01">
-                                </div>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="installation-cost">Installation Cost per Sq Ft</label>
-                                <div class="currency-input">
-                                    <span class="currency-symbol">$</span>
-                                    <input type="number" id="installation-cost" class="input-field" placeholder="8.00" min="0" step="0.01">
-                                </div>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="adhesive-cost">Adhesive Cost (per gallon)</label>
-                                <div class="currency-input">
-                                    <span class="currency-symbol">$</span>
-                                    <input type="number" id="adhesive-cost" class="input-field" placeholder="25.00" min="0" step="0.01">
-                                </div>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="grout-cost">Grout Cost (per 25 lb bag)</label>
-                                <div class="currency-input">
-                                    <span class="currency-symbol">$</span>
-                                    <input type="number" id="grout-cost" class="input-field" placeholder="15.00" min="0" step="0.01">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="result-panel">
-                            <h3 class="panel-title"><i class="fas fa-calculator"></i> Tile Requirements</h3>
-                            
-                            <div class="input-group">
-                                <label for="total-area">Total Area</label>
-                                <input type="text" id="total-area" class="input-field result-field" placeholder="0 sq ft" readonly>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="tiles-needed">Tiles Needed</label>
-                                <input type="text" id="tiles-needed" class="input-field result-field" placeholder="0 tiles" readonly>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="tiles-with-waste">With Waste Factor</label>
-                                <input type="text" id="tiles-with-waste" class="input-field result-field" placeholder="0 tiles" readonly>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="adhesive-needed">Adhesive Needed</label>
-                                <input type="text" id="adhesive-needed" class="input-field result-field" placeholder="0 gallons" readonly>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="grout-needed">Grout Needed</label>
-                                <input type="text" id="grout-needed" class="input-field result-field" placeholder="0 bags" readonly>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="material-total">Material Cost</label>
-                                <div class="currency-input">
-                                    <span class="currency-symbol">$</span>
-                                    <input type="text" id="material-total" class="input-field result-field" placeholder="0" readonly>
-                                </div>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="installation-total">Installation Cost</label>
-                                <div class="currency-input">
-                                    <span class="currency-symbol">$</span>
-                                    <input type="text" id="installation-total" class="input-field result-field" placeholder="0" readonly>
-                                </div>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="project-total">Total Project Cost</label>
-                                <div class="currency-input">
-                                    <span class="currency-symbol">$</span>
-                                    <input type="text" id="project-total" class="input-field result-field" placeholder="0" readonly>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tile-types">
-                        <h3><i class="fas fa-th"></i> Tile Types & Typical Costs</h3>
-                        <div class="types-grid">
-                            <div class="type-card">
-                                <div class="type-name">🏺 Ceramic Tile</div>
-                                <div class="type-price">$1-8/sq ft</div>
-                                <div class="type-details">
-                                    <strong>Best for:</strong> Walls, light traffic floors<br>
-                                    <strong>Water resistance:</strong> Good<br>
-                                    <strong>Installation:</strong> Easy to cut
-                                </div>
-                            </div>
-                            <div class="type-card">
-                                <div class="type-name">🪨 Porcelain Tile</div>
-                                <div class="type-price">$3-15/sq ft</div>
-                                <div class="type-details">
-                                    <strong>Best for:</strong> High traffic, wet areas<br>
-                                    <strong>Water resistance:</strong> Excellent<br>
-                                    <strong>Durability:</strong> Very high
-                                </div>
-                            </div>
-                            <div class="type-card">
-                                <div class="type-name">🗿 Natural Stone</div>
-                                <div class="type-price">$5-25/sq ft</div>
-                                <div class="type-details">
-                                    <strong>Best for:</strong> Luxury applications<br>
-                                    <strong>Maintenance:</strong> Requires sealing<br>
-                                    <strong>Appearance:</strong> Unique patterns
-                                </div>
-                            </div>
-                            <div class="type-card">
-                                <div class="type-name">🌿 Mosaic Tile</div>
-                                <div class="type-price">$2-20/sq ft</div>
-                                <div class="type-details">
-                                    <strong>Best for:</strong> Backsplashes, accents<br>
-                                    <strong>Installation:</strong> More complex<br>
-                                    <strong>Design:</strong> Endless patterns
-                                </div>
-                            </div>
-                            <div class="type-card">
-                                <div class="type-name">🪵 Wood-Look Tile</div>
-                                <div class="type-price">$3-12/sq ft</div>
-                                <div class="type-details">
-                                    <strong>Best for:</strong> Wet areas wanting wood look<br>
-                                    <strong>Maintenance:</strong> Low<br>
-                                    <strong>Sizes:</strong> Plank formats available
-                                </div>
-                            </div>
-                            <div class="type-card">
-                                <div class="type-name">🔲 Subway Tile</div>
-                                <div class="type-price">$1-10/sq ft</div>
-                                <div class="type-details">
-                                    <strong>Best for:</strong> Classic backsplashes<br>
-                                    <strong>Size:</strong> Typically 3"×6"<br>
-                                    <strong>Style:</strong> Timeless appeal
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="cost-breakdown-section" class="cost-breakdown" style="display: none;">
-                        <h3><i class="fas fa-chart-bar"></i> Project Cost Breakdown</h3>
-                        <div class="breakdown-grid" id="breakdown-grid">
-                            <!-- Cost breakdown items will be generated here -->
-                        </div>
-                    </div>
-
-                    <div class="tips-section">
-                        <h3><i class="fas fa-graduation-cap"></i> Tile Installation Tips</h3>
-                        <div class="tips-grid">
-                            <div class="tip-item">
-                                <h4>📏 Plan Your Layout</h4>
-                                <p>Start from the center and work outward. Use chalk lines to mark your starting point and maintain straight rows.</p>
-                            </div>
-                            <div class="tip-item">
-                                <h4>🔧 Prepare the Surface</h4>
-                                <p>Ensure surface is clean, level, and dry. Use primer if needed. Fix any cracks or uneven areas before tiling.</p>
-                            </div>
-                            <div class="tip-item">
-                                <h4>💧 Waterproofing</h4>
-                                <p>Use waterproof membrane in wet areas like showers. Proper waterproofing prevents costly damage later.</p>
-                            </div>
-                            <div class="tip-item">
-                                <h4>⏰ Work in Sections</h4>
-                                <p>Work in small sections to prevent adhesive from drying out. Have all tools ready before starting each section.</p>
-                            </div>
-                            <div class="tip-item">
-                                <h4>🎯 Use Tile Spacers</h4>
-                                <p>Consistent spacing creates professional results. Remove spacers before grout sets completely.</p>
-                            </div>
-                            <div class="tip-item">
-                                <h4>🧽 Clean as You Go</h4>
-                                <p>Clean excess adhesive and grout immediately. Use damp sponge and change water frequently during grouting.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Financial Calculators</h4>
-                    <ul>
-                        <li><a href="mortgage-calculator.html">Mortgage Calculator</a></li>
-                        <li><a href="loan-calculator.html">Loan Calculator</a></li>
-                        <li><a href="auto-loan-calculator.html">Auto Loan Calculator</a></li>
-                        <li><a href="interest-calculator.html">Interest Calculator</a></li>
-                        <li><a href="investment-calculator.html">Investment Calculator</a></li>
-                        <li><a href="compound-interest-calculator.html">Compound Interest Calculator</a></li>
-                        <li><a href="tax-calculator.html">Tax Calculator</a></li>
-                        <li><a href="salary-calculator.html">Salary Calculator</a></li>
-                        <li><a href="credit-card-calculator.html">Credit Card Calculator</a></li>
-                        <li><a href="debt-calculator.html">Debt Calculator</a></li>
-                        <li><a href="retirement-calculator.html">Retirement Calculator</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Health & Fitness</h4>
-                    <ul>
-                        <li><a href="bmi-calculator.html">BMI Calculator</a></li>
-                        <li><a href="calorie-calculator.html">Calorie Calculator</a></li>
-                        <li><a href="macro-calculator.html">Macro Calculator</a></li>
-                        <li><a href="pace-calculator.html">Pace Calculator</a></li>
-                        <li><a href="body-fat-calculator.html">Body Fat Calculator</a></li>
-                        <li><a href="bmr-calculator.html">BMR Calculator</a></li>
-                        <li><a href="pregnancy-calculator.html">Pregnancy Calculator</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Math Calculators</h4>
-                    <ul>
-                        <li><a href="scientific-calculator.html">Scientific Calculator</a></li>
-                        <li><a href="basic-calculator.html">Basic Calculator</a></li>
-                        <li><a href="binary-calculator.html">Binary Calculator</a></li>
-                        <li><a href="area-calculator.html">Area Calculator</a></li>
-                        <li><a href="volume-calculator.html">Volume Calculator</a></li>
-                        <li><a href="average-calculator.html">Average Calculator</a></li>
-                        <li><a href="fraction-calculator.html">Fraction Calculator</a></li>
-                        <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
-                        <li><a href="triangle-calculator.html">Triangle Calculator</a></li>
-                        <li><a href="random-number-generator.html">Random Number Generator</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Other Tools</h4>
-                    <ul>
-                        <li><a href="age-calculator.html">Age Calculator</a></li>
-                        <li><a href="date-calculator.html">Date Calculator</a></li>
-                        <li><a href="time-calculator.html">Time Calculator</a></li>
-                        <li><a href="hours-calculator.html">Hours Calculator</a></li>
-                        <li><a href="gpa-calculator.html">GPA Calculator</a></li>
-                        <li><a href="grade-calculator.html">Grade Calculator</a></li>
-                        <li><a href="password-generator.html">Password Generator</a></li>
-                        <li><a href="tip-calculator.html">Tip Calculator</a></li>
-                        <li><a href="unit-converter.html">Unit Converter</a></li>
-                        <li><a href="fuel-calculator.html">Fuel Calculator</a></li>
-                        <li><a href="concrete-calculator.html">Concrete Calculator</a></li>
-                        <li><a href="paint-calculator.html">Paint Calculator</a></li>
-                        <li><a href="flooring-calculator.html">Flooring Calculator</a></li>
-                        <li><a href="square-footage-calculator.html">Square Footage Calculator</a></li>
-                        <li><a href="roof-calculator.html">Roof Calculator</a></li>
-                        <li><a href="brick-calculator.html">Brick Calculator</a></li>
-                        <li><a href="tile-calculator.html">Tile Calculator</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 CalculatorFree.Online. All rights reserved.</p>
-            </div>
+        <div class="input-group">
+         <label>
+          Tile Size
+         </label>
+         <div class="tile-size-grid">
+          <input class="input-field" id="tile-length" min="0" placeholder="Length (in)" step="0.125" type="number"/>
+          <input class="input-field" id="tile-width" min="0" placeholder="Width (in)" step="0.125" type="number"/>
+         </div>
+         <p style="font-size: 0.9rem; color: #6c757d; margin-top: 0.5rem;">
+          Common sizes: 12"×12", 18"×18", 24"×24", 6"×36"
+         </p>
         </div>
-    </footer>
-
-    <script>
-        function calculateTiles() {
+        <div class="input-group">
+         <label for="grout-width">
+          Grout Joint Width
+         </label>
+         <select class="input-field" id="grout-width">
+          <option value="0.0625">
+           1/16 inch (tight joint)
+          </option>
+          <option selected="" value="0.125">
+           1/8 inch (standard)
+          </option>
+          <option value="0.1875">
+           3/16 inch
+          </option>
+          <option value="0.25">
+           1/4 inch (wide joint)
+          </option>
+          <option value="0.375">
+           3/8 inch (rustic look)
+          </option>
+         </select>
+        </div>
+        <div class="input-group">
+         <label for="waste-factor">
+          Waste Factor
+         </label>
+         <select class="input-field" id="waste-factor">
+          <option value="0.05">
+           5% - Straight layout, no cuts
+          </option>
+          <option selected="" value="0.10">
+           10% - Standard allowance
+          </option>
+          <option value="0.15">
+           15% - Diagonal or pattern layout
+          </option>
+          <option value="0.20">
+           20% - Complex cuts/patterns
+          </option>
+          <option value="0.25">
+           25% - First-time installer
+          </option>
+         </select>
+        </div>
+        <div class="input-group">
+         <label for="tile-cost">
+          Tile Cost per Square Foot
+         </label>
+         <div class="currency-input">
+          <span class="currency-symbol">
+           $
+          </span>
+          <input class="input-field" id="tile-cost" min="0" placeholder="5.00" step="0.01" type="number"/>
+         </div>
+        </div>
+        <div class="input-group">
+         <label for="installation-cost">
+          Installation Cost per Sq Ft
+         </label>
+         <div class="currency-input">
+          <span class="currency-symbol">
+           $
+          </span>
+          <input class="input-field" id="installation-cost" min="0" placeholder="8.00" step="0.01" type="number"/>
+         </div>
+        </div>
+        <div class="input-group">
+         <label for="adhesive-cost">
+          Adhesive Cost (per gallon)
+         </label>
+         <div class="currency-input">
+          <span class="currency-symbol">
+           $
+          </span>
+          <input class="input-field" id="adhesive-cost" min="0" placeholder="25.00" step="0.01" type="number"/>
+         </div>
+        </div>
+        <div class="input-group">
+         <label for="grout-cost">
+          Grout Cost (per 25 lb bag)
+         </label>
+         <div class="currency-input">
+          <span class="currency-symbol">
+           $
+          </span>
+          <input class="input-field" id="grout-cost" min="0" placeholder="15.00" step="0.01" type="number"/>
+         </div>
+        </div>
+       </div>
+       <div class="result-panel">
+        <h3 class="panel-title">
+         <i class="fas fa-calculator">
+         </i>
+         Tile Requirements
+        </h3>
+        <div class="input-group">
+         <label for="total-area">
+          Total Area
+         </label>
+         <input class="input-field result-field" id="total-area" placeholder="0 sq ft" readonly="" type="text"/>
+        </div>
+        <div class="input-group">
+         <label for="tiles-needed">
+          Tiles Needed
+         </label>
+         <input class="input-field result-field" id="tiles-needed" placeholder="0 tiles" readonly="" type="text"/>
+        </div>
+        <div class="input-group">
+         <label for="tiles-with-waste">
+          With Waste Factor
+         </label>
+         <input class="input-field result-field" id="tiles-with-waste" placeholder="0 tiles" readonly="" type="text"/>
+        </div>
+        <div class="input-group">
+         <label for="adhesive-needed">
+          Adhesive Needed
+         </label>
+         <input class="input-field result-field" id="adhesive-needed" placeholder="0 gallons" readonly="" type="text"/>
+        </div>
+        <div class="input-group">
+         <label for="grout-needed">
+          Grout Needed
+         </label>
+         <input class="input-field result-field" id="grout-needed" placeholder="0 bags" readonly="" type="text"/>
+        </div>
+        <div class="input-group">
+         <label for="material-total">
+          Material Cost
+         </label>
+         <div class="currency-input">
+          <span class="currency-symbol">
+           $
+          </span>
+          <input class="input-field result-field" id="material-total" placeholder="0" readonly="" type="text"/>
+         </div>
+        </div>
+        <div class="input-group">
+         <label for="installation-total">
+          Installation Cost
+         </label>
+         <div class="currency-input">
+          <span class="currency-symbol">
+           $
+          </span>
+          <input class="input-field result-field" id="installation-total" placeholder="0" readonly="" type="text"/>
+         </div>
+        </div>
+        <div class="input-group">
+         <label for="project-total">
+          Total Project Cost
+         </label>
+         <div class="currency-input">
+          <span class="currency-symbol">
+           $
+          </span>
+          <input class="input-field result-field" id="project-total" placeholder="0" readonly="" type="text"/>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="tile-types">
+       <h3>
+        <i class="fas fa-th">
+        </i>
+        Tile Types &amp; Typical Costs
+       </h3>
+       <div class="types-grid">
+        <div class="type-card">
+         <div class="type-name">
+          🏺 Ceramic Tile
+         </div>
+         <div class="type-price">
+          $1-8/sq ft
+         </div>
+         <div class="type-details">
+          <strong>
+           Best for:
+          </strong>
+          Walls, light traffic floors
+          <br/>
+          <strong>
+           Water resistance:
+          </strong>
+          Good
+          <br/>
+          <strong>
+           Installation:
+          </strong>
+          Easy to cut
+         </div>
+        </div>
+        <div class="type-card">
+         <div class="type-name">
+          🪨 Porcelain Tile
+         </div>
+         <div class="type-price">
+          $3-15/sq ft
+         </div>
+         <div class="type-details">
+          <strong>
+           Best for:
+          </strong>
+          High traffic, wet areas
+          <br/>
+          <strong>
+           Water resistance:
+          </strong>
+          Excellent
+          <br/>
+          <strong>
+           Durability:
+          </strong>
+          Very high
+         </div>
+        </div>
+        <div class="type-card">
+         <div class="type-name">
+          🗿 Natural Stone
+         </div>
+         <div class="type-price">
+          $5-25/sq ft
+         </div>
+         <div class="type-details">
+          <strong>
+           Best for:
+          </strong>
+          Luxury applications
+          <br/>
+          <strong>
+           Maintenance:
+          </strong>
+          Requires sealing
+          <br/>
+          <strong>
+           Appearance:
+          </strong>
+          Unique patterns
+         </div>
+        </div>
+        <div class="type-card">
+         <div class="type-name">
+          🌿 Mosaic Tile
+         </div>
+         <div class="type-price">
+          $2-20/sq ft
+         </div>
+         <div class="type-details">
+          <strong>
+           Best for:
+          </strong>
+          Backsplashes, accents
+          <br/>
+          <strong>
+           Installation:
+          </strong>
+          More complex
+          <br/>
+          <strong>
+           Design:
+          </strong>
+          Endless patterns
+         </div>
+        </div>
+        <div class="type-card">
+         <div class="type-name">
+          🪵 Wood-Look Tile
+         </div>
+         <div class="type-price">
+          $3-12/sq ft
+         </div>
+         <div class="type-details">
+          <strong>
+           Best for:
+          </strong>
+          Wet areas wanting wood look
+          <br/>
+          <strong>
+           Maintenance:
+          </strong>
+          Low
+          <br/>
+          <strong>
+           Sizes:
+          </strong>
+          Plank formats available
+         </div>
+        </div>
+        <div class="type-card">
+         <div class="type-name">
+          🔲 Subway Tile
+         </div>
+         <div class="type-price">
+          $1-10/sq ft
+         </div>
+         <div class="type-details">
+          <strong>
+           Best for:
+          </strong>
+          Classic backsplashes
+          <br/>
+          <strong>
+           Size:
+          </strong>
+          Typically 3"×6"
+          <br/>
+          <strong>
+           Style:
+          </strong>
+          Timeless appeal
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="cost-breakdown" id="cost-breakdown-section" style="display: none;">
+       <h3>
+        <i class="fas fa-chart-bar">
+        </i>
+        Project Cost Breakdown
+       </h3>
+       <div class="breakdown-grid" id="breakdown-grid">
+        <!-- Cost breakdown items will be generated here -->
+       </div>
+      </div>
+      <div class="tips-section">
+       <h3>
+        <i class="fas fa-graduation-cap">
+        </i>
+        Tile Installation Tips
+       </h3>
+       <div class="tips-grid">
+        <div class="tip-item">
+         <h4>
+          📏 Plan Your Layout
+         </h4>
+         <p>
+          Start from the center and work outward. Use chalk lines to mark your starting point and maintain straight rows.
+         </p>
+        </div>
+        <div class="tip-item">
+         <h4>
+          🔧 Prepare the Surface
+         </h4>
+         <p>
+          Ensure surface is clean, level, and dry. Use primer if needed. Fix any cracks or uneven areas before tiling.
+         </p>
+        </div>
+        <div class="tip-item">
+         <h4>
+          💧 Waterproofing
+         </h4>
+         <p>
+          Use waterproof membrane in wet areas like showers. Proper waterproofing prevents costly damage later.
+         </p>
+        </div>
+        <div class="tip-item">
+         <h4>
+          ⏰ Work in Sections
+         </h4>
+         <p>
+          Work in small sections to prevent adhesive from drying out. Have all tools ready before starting each section.
+         </p>
+        </div>
+        <div class="tip-item">
+         <h4>
+          🎯 Use Tile Spacers
+         </h4>
+         <p>
+          Consistent spacing creates professional results. Remove spacers before grout sets completely.
+         </p>
+        </div>
+        <div class="tip-item">
+         <h4>
+          🧽 Clean as You Go
+         </h4>
+         <p>
+          Clean excess adhesive and grout immediately. Use damp sponge and change water frequently during grouting.
+         </p>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+  </main>
+  <footer class="footer">
+   <div class="container">
+    <div class="footer-content">
+     <div class="footer-section">
+      <h4>
+       Financial Calculators
+      </h4>
+      <ul>
+       <li>
+        <a href="mortgage-calculator.html">
+         Mortgage Calculator
+        </a>
+       </li>
+       <li>
+        <a href="loan-calculator.html">
+         Loan Calculator
+        </a>
+       </li>
+       <li>
+        <a href="auto-loan-calculator.html">
+         Auto Loan Calculator
+        </a>
+       </li>
+       <li>
+        <a href="interest-calculator.html">
+         Interest Calculator
+        </a>
+       </li>
+       <li>
+        <a href="investment-calculator.html">
+         Investment Calculator
+        </a>
+       </li>
+       <li>
+        <a href="compound-interest-calculator.html">
+         Compound Interest Calculator
+        </a>
+       </li>
+       <li>
+        <a href="tax-calculator.html">
+         Tax Calculator
+        </a>
+       </li>
+       <li>
+        <a href="salary-calculator.html">
+         Salary Calculator
+        </a>
+       </li>
+       <li>
+        <a href="credit-card-calculator.html">
+         Credit Card Calculator
+        </a>
+       </li>
+       <li>
+        <a href="debt-calculator.html">
+         Debt Calculator
+        </a>
+       </li>
+       <li>
+        <a href="retirement-calculator.html">
+         Retirement Calculator
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="footer-section">
+      <h4>
+       Health &amp; Fitness
+      </h4>
+      <ul>
+       <li>
+        <a href="bmi-calculator.html">
+         BMI Calculator
+        </a>
+       </li>
+       <li>
+        <a href="calorie-calculator.html">
+         Calorie Calculator
+        </a>
+       </li>
+       <li>
+        <a href="macro-calculator.html">
+         Macro Calculator
+        </a>
+       </li>
+       <li>
+        <a href="pace-calculator.html">
+         Pace Calculator
+        </a>
+       </li>
+       <li>
+        <a href="body-fat-calculator.html">
+         Body Fat Calculator
+        </a>
+       </li>
+       <li>
+        <a href="bmr-calculator.html">
+         BMR Calculator
+        </a>
+       </li>
+       <li>
+        <a href="pregnancy-calculator.html">
+         Pregnancy Calculator
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="footer-section">
+      <h4>
+       Math Calculators
+      </h4>
+      <ul>
+       <li>
+        <a href="scientific-calculator.html">
+         Scientific Calculator
+        </a>
+       </li>
+       <li>
+        <a href="basic-calculator.html">
+         Basic Calculator
+        </a>
+       </li>
+       <li>
+        <a href="binary-calculator.html">
+         Binary Calculator
+        </a>
+       </li>
+       <li>
+        <a href="area-calculator.html">
+         Area Calculator
+        </a>
+       </li>
+       <li>
+        <a href="volume-calculator.html">
+         Volume Calculator
+        </a>
+       </li>
+       <li>
+        <a href="average-calculator.html">
+         Average Calculator
+        </a>
+       </li>
+       <li>
+        <a href="fraction-calculator.html">
+         Fraction Calculator
+        </a>
+       </li>
+       <li>
+        <a href="percentage-calculator.html">
+         Percentage Calculator
+        </a>
+       </li>
+       <li>
+        <a href="triangle-calculator.html">
+         Triangle Calculator
+        </a>
+       </li>
+       <li>
+        <a href="random-number-generator.html">
+         Random Number Generator
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="footer-section">
+      <h4>
+       Other Tools
+      </h4>
+      <ul>
+       <li>
+        <a href="age-calculator.html">
+         Age Calculator
+        </a>
+       </li>
+       <li>
+        <a href="date-calculator.html">
+         Date Calculator
+        </a>
+       </li>
+       <li>
+        <a href="time-calculator.html">
+         Time Calculator
+        </a>
+       </li>
+       <li>
+        <a href="hours-calculator.html">
+         Hours Calculator
+        </a>
+       </li>
+       <li>
+        <a href="gpa-calculator.html">
+         GPA Calculator
+        </a>
+       </li>
+       <li>
+        <a href="grade-calculator.html">
+         Grade Calculator
+        </a>
+       </li>
+       <li>
+        <a href="password-generator.html">
+         Password Generator
+        </a>
+       </li>
+       <li>
+        <a href="tip-calculator.html">
+         Tip Calculator
+        </a>
+       </li>
+       <li>
+        <a href="unit-converter.html">
+         Unit Converter
+        </a>
+       </li>
+       <li>
+        <a href="fuel-calculator.html">
+         Fuel Calculator
+        </a>
+       </li>
+       <li>
+        <a href="concrete-calculator.html">
+         Concrete Calculator
+        </a>
+       </li>
+       <li>
+        <a href="paint-calculator.html">
+         Paint Calculator
+        </a>
+       </li>
+       <li>
+        <a href="flooring-calculator.html">
+         Flooring Calculator
+        </a>
+       </li>
+       <li>
+        <a href="square-footage-calculator.html">
+         Square Footage Calculator
+        </a>
+       </li>
+       <li>
+        <a href="roof-calculator.html">
+         Roof Calculator
+        </a>
+       </li>
+       <li>
+        <a href="brick-calculator.html">
+         Brick Calculator
+        </a>
+       </li>
+       <li>
+        <a href="tile-calculator.html">
+         Tile Calculator
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="footer-bottom">
+     <p>
+      © 2024 CalculatorFree.Online. All rights reserved.
+     </p>
+    </div>
+   </div>
+  </footer>
+  <script>
+   function calculateTiles() {
             const areaLength = parseFloat(document.getElementById('area-length').value) || 0;
             const areaWidth = parseFloat(document.getElementById('area-width').value) || 0;
             const tileLength = parseFloat(document.getElementById('tile-length').value) || 12;
@@ -707,6 +1105,6 @@
             document.getElementById('adhesive-cost').value = 25.00;
             document.getElementById('grout-cost').value = 15.00;
         });
-    </script>
-</body>
-</html> 
+  </script>
+ </body>
+</html>

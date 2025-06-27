@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Volume Calculator - Calculate Volume of 3D Shapes | CalculatorFree.Online</title>
-    <meta name="description" content="Calculate volume of various 3D shapes including cube, sphere, cylinder, cone, pyramid and more geometric solids with formulas and examples.">
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        .volume-calculator {
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="index, follow" name="robots"/>
+  <link href="https://calculatorfree.online/volume-calculator.html" rel="canonical"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Volume Calculator - Calculate Volume of 3D Shapes | CalculatorFree.Online
+  </title>
+  <meta content="Calculate volume of various 3D shapes including cube, sphere, cylinder, cone, pyramid and more geometric solids with formulas and examples." name="description"/>
+  <link href="styles.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+  <style>
+   .volume-calculator {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             border-radius: 20px;
@@ -446,418 +450,786 @@
                 font-size: 3rem;
             }
         }
-    </style>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZTVJQRZ1L2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-ZTVJQRZ1L2">
+  </script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'G-ZTVJQRZ1L2');
-</script>
-
-</head>
-<body>
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <i class="fas fa-calculator"></i>
-                <span>CalculatorFree.Online</span>
-            </div>
-            <nav class="nav-menu">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="index.html#financial" class="nav-link">Financial</a>
-                <a href="index.html#health" class="nav-link">Health & Fitness</a>
-                <a href="index.html#math" class="nav-link active">Math</a>
-                <a href="index.html#other" class="nav-link">Other Tools</a>
-            </nav>
-            <div class="mobile-menu-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
+  </script>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://cdnjs.cloudflare.com" rel="preconnect"/>
+  <script type="application/ld+json">
+   {"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Volume Calculator", "applicationCategory": "CalculatorApplication", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "operatingSystem": "All", "description": "Free online volume calculator with step-by-step calculations and detailed results."}
+  </script>
+  <script type="application/ld+json">
+   {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calculatorfree.online/"}, {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://calculatorfree.online/#calculators"}, {"@type": "ListItem", "position": 3, "name": "Volume Calculator", "item": "https://calculatorfree.online/volume-calculator.html"}]}
+  </script>
+ </head>
+ <body>
+  <header class="header">
+   <div class="container">
+    <div class="logo">
+     <i class="fas fa-calculator">
+     </i>
+     <span>
+      CalculatorFree.Online
+     </span>
+    </div>
+    <nav class="nav-menu">
+     <a class="nav-link" href="index.html">
+      Home
+     </a>
+     <a class="nav-link" href="index.html#financial">
+      Financial
+     </a>
+     <a class="nav-link" href="index.html#health">
+      Health &amp; Fitness
+     </a>
+     <a class="nav-link active" href="index.html#math">
+      Math
+     </a>
+     <a class="nav-link" href="index.html#other">
+      Other Tools
+     </a>
+    </nav>
+    <div class="mobile-menu-toggle">
+     <i class="fas fa-bars">
+     </i>
+    </div>
+   </div>
+  </header>
+  <main class="main">
+   <section class="hero">
+    <div class="container">
+     <div class="hero-content">
+      <h1>
+       <i class="fas fa-cube">
+       </i>
+       Volume Calculator
+      </h1>
+      <p>
+       Calculate the volume of various 3D geometric shapes and solids
+      </p>
+     </div>
+    </div>
+   </section>
+   <section>
+    <div class="container">
+     <div class="volume-calculator">
+      <h2>
+       Select a 3D Shape
+      </h2>
+      <div class="shapes-grid">
+       <div class="shape-card active" data-shape="cube">
+        <div class="shape-icon">
+         🧊
         </div>
-    </header>
-
-    <main class="main">
-        <section class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1><i class="fas fa-cube"></i> Volume Calculator</h1>
-                    <p>Calculate the volume of various 3D geometric shapes and solids</p>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <div class="container">
-                <div class="volume-calculator">
-                    <h2>Select a 3D Shape</h2>
-                    <div class="shapes-grid">
-                        <div class="shape-card active" data-shape="cube">
-                            <div class="shape-icon">🧊</div>
-                            <div class="shape-name">Cube</div>
-                            <div class="shape-formula">V = s³</div>
-                        </div>
-                        <div class="shape-card" data-shape="rectangular">
-                            <div class="shape-icon">📦</div>
-                            <div class="shape-name">Rectangular Prism</div>
-                            <div class="shape-formula">V = l × w × h</div>
-                        </div>
-                        <div class="shape-card" data-shape="sphere">
-                            <div class="shape-icon">⚽</div>
-                            <div class="shape-name">Sphere</div>
-                            <div class="shape-formula">V = (4/3)πr³</div>
-                        </div>
-                        <div class="shape-card" data-shape="cylinder">
-                            <div class="shape-icon">🥫</div>
-                            <div class="shape-name">Cylinder</div>
-                            <div class="shape-formula">V = πr²h</div>
-                        </div>
-                        <div class="shape-card" data-shape="cone">
-                            <div class="shape-icon">🍦</div>
-                            <div class="shape-name">Cone</div>
-                            <div class="shape-formula">V = (1/3)πr²h</div>
-                        </div>
-                        <div class="shape-card" data-shape="pyramid">
-                            <div class="shape-icon">🔺</div>
-                            <div class="shape-name">Pyramid</div>
-                            <div class="shape-formula">V = (1/3) × base × h</div>
-                        </div>
-                    </div>
-
-                    <!-- Cube Calculator -->
-                    <div id="cube" class="calculator-section active">
-                        <div class="calculator-header">
-                            <h3><i class="fas fa-cube"></i> Cube Volume Calculator</h3>
-                            <div class="formula-display">
-                                Volume = side³ = s × s × s
-                            </div>
-                        </div>
-
-                        <div class="visualization-section">
-                            <div class="shape-diagram">🧊</div>
-                            <p>A cube has 6 equal square faces. All edges are the same length.</p>
-                            <div class="dimension-labels">
-                                <div class="dimension-label">Side = s</div>
-                                <div class="dimension-label">All edges equal</div>
-                                <div class="dimension-label">6 square faces</div>
-                            </div>
-                        </div>
-
-                        <div class="input-grid">
-                            <div class="input-group" data-icon="📏">
-                                <label for="cube-side">Side Length</label>
-                                <input type="number" id="cube-side" class="input-field" placeholder="Enter side length" min="0" step="0.01">
-                                <div class="unit-selector">
-                                    <select id="cube-unit">
-                                        <option value="m">Meters (m)</option>
-                                        <option value="cm">Centimeters (cm)</option>
-                                        <option value="mm">Millimeters (mm)</option>
-                                        <option value="in">Inches (in)</option>
-                                        <option value="ft">Feet (ft)</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-
-                        <button class="calculate-btn" onclick="calculateCube()">
-                            <i class="fas fa-calculator"></i> Calculate Cube Volume
-                        </button>
-
-                        <div id="cube-result" class="result-section" style="display: none;">
-                            <div class="result-content">
-                                <h3>Cube Volume Result</h3>
-                                <div class="result-value" id="cube-volume">0</div>
-                                <div class="result-unit">cubic units</div>
-                                
-                                <div class="conversion-grid" id="cube-conversions">
-                                    <!-- Conversions will be populated here -->
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="examples-section">
-                            <h3><i class="fas fa-lightbulb"></i> Cube Examples</h3>
-                            <div class="example-grid">
-                                <div class="example-item">
-                                    <div class="example-title">
-                                        <span>🎲</span> Dice
-                                    </div>
-                                    <p>Side: 1.5 cm</p>
-                                    <div class="example-calculation">Volume = 1.5³ = 3.375 cm³</div>
-                                </div>
-                                <div class="example-item">
-                                    <div class="example-title">
-                                        <span>📦</span> Storage Box
-                                    </div>
-                                    <p>Side: 50 cm</p>
-                                    <div class="example-calculation">Volume = 50³ = 125,000 cm³ = 125 L</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Sphere Calculator -->
-                    <div id="sphere" class="calculator-section">
-                        <div class="calculator-header">
-                            <h3><i class="fas fa-circle"></i> Sphere Volume Calculator</h3>
-                            <div class="formula-display">
-                                Volume = (4/3) × π × radius³ ≈ 4.189 × r³
-                            </div>
-                        </div>
-
-                        <div class="visualization-section">
-                            <div class="shape-diagram">⚽</div>
-                            <p>A sphere is a perfectly round 3D shape. Every point on the surface is equidistant from the center.</p>
-                            <div class="dimension-labels">
-                                <div class="dimension-label">Radius = r</div>
-                                <div class="dimension-label">Diameter = 2r</div>
-                                <div class="dimension-label">Curved surface</div>
-                            </div>
-                        </div>
-
-                        <div class="input-grid">
-                            <div class="input-group" data-icon="📐">
-                                <label for="sphere-radius">Radius</label>
-                                <input type="number" id="sphere-radius" class="input-field" placeholder="Enter radius" min="0" step="0.01">
-                                <div class="unit-selector">
-                                    <select id="sphere-unit">
-                                        <option value="m">Meters (m)</option>
-                                        <option value="cm">Centimeters (cm)</option>
-                                        <option value="mm">Millimeters (mm)</option>
-                                        <option value="in">Inches (in)</option>
-                                        <option value="ft">Feet (ft)</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="input-group" data-icon="⚖️">
-                                <label for="sphere-diameter">Or Enter Diameter</label>
-                                <input type="number" id="sphere-diameter" class="input-field" placeholder="Enter diameter" min="0" step="0.01">
-                                <p style="font-size: 0.9rem; color: #6c757d; margin-top: 0.5rem;">
-                                    Radius = Diameter ÷ 2
-                                </p>
-                            </div>
-                        </div>
-
-                        <button class="calculate-btn" onclick="calculateSphere()">
-                            <i class="fas fa-calculator"></i> Calculate Sphere Volume
-                        </button>
-
-                        <div id="sphere-result" class="result-section" style="display: none;">
-                            <div class="result-content">
-                                <h3>Sphere Volume Result</h3>
-                                <div class="result-value" id="sphere-volume">0</div>
-                                <div class="result-unit">cubic units</div>
-                                
-                                <div class="conversion-grid" id="sphere-conversions">
-                                    <!-- Conversions will be populated here -->
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="examples-section">
-                            <h3><i class="fas fa-lightbulb"></i> Sphere Examples</h3>
-                            <div class="example-grid">
-                                <div class="example-item">
-                                    <div class="example-title">
-                                        <span>🏀</span> Basketball
-                                    </div>
-                                    <p>Radius: 12 cm</p>
-                                    <div class="example-calculation">Volume = (4/3)π × 12³ = 7,238 cm³</div>
-                                </div>
-                                <div class="example-item">
-                                    <div class="example-title">
-                                        <span>🌍</span> Earth (scaled)
-                                    </div>
-                                    <p>Radius: 6.371 million km</p>
-                                    <div class="example-calculation">Volume ≈ 1.083 × 10²¹ m³</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Cylinder Calculator -->
-                    <div id="cylinder" class="calculator-section">
-                        <div class="calculator-header">
-                            <h3><i class="fas fa-database"></i> Cylinder Volume Calculator</h3>
-                            <div class="formula-display">
-                                Volume = π × radius² × height ≈ 3.14159 × r² × h
-                            </div>
-                        </div>
-
-                        <div class="visualization-section">
-                            <div class="shape-diagram">🥫</div>
-                            <p>A cylinder has two parallel circular bases connected by a curved surface.</p>
-                            <div class="dimension-labels">
-                                <div class="dimension-label">Radius = r</div>
-                                <div class="dimension-label">Height = h</div>
-                                <div class="dimension-label">2 circular bases</div>
-                            </div>
-                        </div>
-
-                        <div class="input-grid">
-                            <div class="input-group" data-icon="⭕">
-                                <label for="cylinder-radius">Radius</label>
-                                <input type="number" id="cylinder-radius" class="input-field" placeholder="Enter radius" min="0" step="0.01">
-                                <div class="unit-selector">
-                                    <select id="cylinder-radius-unit">
-                                        <option value="m">Meters (m)</option>
-                                        <option value="cm">Centimeters (cm)</option>
-                                        <option value="mm">Millimeters (mm)</option>
-                                        <option value="in">Inches (in)</option>
-                                        <option value="ft">Feet (ft)</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="input-group" data-icon="📏">
-                                <label for="cylinder-height">Height</label>
-                                <input type="number" id="cylinder-height" class="input-field" placeholder="Enter height" min="0" step="0.01">
-                                <div class="unit-selector">
-                                    <select id="cylinder-height-unit">
-                                        <option value="m">Meters (m)</option>
-                                        <option value="cm">Centimeters (cm)</option>
-                                        <option value="mm">Millimeters (mm)</option>
-                                        <option value="in">Inches (in)</option>
-                                        <option value="ft">Feet (ft)</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-
-                        <button class="calculate-btn" onclick="calculateCylinder()">
-                            <i class="fas fa-calculator"></i> Calculate Cylinder Volume
-                        </button>
-
-                        <div id="cylinder-result" class="result-section" style="display: none;">
-                            <div class="result-content">
-                                <h3>Cylinder Volume Result</h3>
-                                <div class="result-value" id="cylinder-volume">0</div>
-                                <div class="result-unit">cubic units</div>
-                                
-                                <div class="conversion-grid" id="cylinder-conversions">
-                                    <!-- Conversions will be populated here -->
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="examples-section">
-                            <h3><i class="fas fa-lightbulb"></i> Cylinder Examples</h3>
-                            <div class="example-grid">
-                                <div class="example-item">
-                                    <div class="example-title">
-                                        <span>🥤</span> Soda Can
-                                    </div>
-                                    <p>Radius: 3.3 cm, Height: 12 cm</p>
-                                    <div class="example-calculation">Volume = π × 3.3² × 12 = 410 cm³</div>
-                                </div>
-                                <div class="example-item">
-                                    <div class="example-title">
-                                        <span>🛢️</span> Oil Drum
-                                    </div>
-                                    <p>Radius: 30 cm, Height: 90 cm</p>
-                                    <div class="example-calculation">Volume = π × 30² × 90 = 254,469 cm³ = 254 L</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tips-section">
-                        <h3><i class="fas fa-graduation-cap"></i> Volume Calculation Tips</h3>
-                        <div class="tips-grid">
-                            <div class="tip-item">
-                                <div class="tip-title">📏 Unit Consistency</div>
-                                <p>Always use the same units for all measurements. The result will be in cubic units (e.g., m³ for meters).</p>
-                            </div>
-                            <div class="tip-item">
-                                <div class="tip-title">🔢 Pi Precision</div>
-                                <p>For precise calculations involving π, use more decimal places (π ≈ 3.14159265359). Calculators typically use high precision.</p>
-                            </div>
-                            <div class="tip-item">
-                                <div class="tip-title">📊 Real Applications</div>
-                                <p>Volume calculations are useful for liquid capacity, material estimation, shipping, and storage planning.</p>
-                            </div>
-                            <div class="tip-item">
-                                <div class="tip-title">🔄 Unit Conversions</div>
-                                <p>Remember: 1 m³ = 1,000 L, 1 ft³ ≈ 28.3 L, 1 in³ ≈ 16.4 mL. Use conversion tables for accuracy.</p>
-                            </div>
-                            <div class="tip-item">
-                                <div class="tip-title">🧮 Complex Shapes</div>
-                                <p>For irregular shapes, break them into simpler forms or use water displacement method for physical objects.</p>
-                            </div>
-                            <div class="tip-item">
-                                <div class="tip-title">⚖️ Density Relations</div>
-                                <p>Volume × Density = Mass. Use this relationship to calculate weight when you know volume and material density.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Financial Calculators</h4>
-                    <ul>
-                        <li><a href="mortgage-calculator.html">Mortgage Calculator</a></li>
-                        <li><a href="loan-calculator.html">Loan Calculator</a></li>
-                        <li><a href="auto-loan-calculator.html">Auto Loan Calculator</a></li>
-                        <li><a href="interest-calculator.html">Interest Calculator</a></li>
-                        <li><a href="investment-calculator.html">Investment Calculator</a></li>
-                        <li><a href="compound-interest-calculator.html">Compound Interest Calculator</a></li>
-                        <li><a href="retirement-calculator.html">Retirement Calculator</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Health & Fitness</h4>
-                    <ul>
-                        <li><a href="bmi-calculator.html">BMI Calculator</a></li>
-                        <li><a href="calorie-calculator.html">Calorie Calculator</a></li>
-                        <li><a href="body-fat-calculator.html">Body Fat Calculator</a></li>
-                        <li><a href="bmr-calculator.html">BMR Calculator</a></li>
-                        <li><a href="pregnancy-calculator.html">Pregnancy Calculator</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Math Calculators</h4>
-                    <ul>
-                        <li><a href="scientific-calculator.html">Scientific Calculator</a></li>
-                        <li><a href="basic-calculator.html">Basic Calculator</a></li>
-                        <li><a href="area-calculator.html">Area Calculator</a></li>
-                        <li><a href="volume-calculator.html">Volume Calculator</a></li>
-                        <li><a href="average-calculator.html">Average Calculator</a></li>
-                        <li><a href="fraction-calculator.html">Fraction Calculator</a></li>
-                        <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
-                        <li><a href="triangle-calculator.html">Triangle Calculator</a></li>
-                        <li><a href="random-number-generator.html">Random Number Generator</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Other Tools</h4>
-                    <ul>
-                        <li><a href="age-calculator.html">Age Calculator</a></li>
-                        <li><a href="date-calculator.html">Date Calculator</a></li>
-                        <li><a href="time-calculator.html">Time Calculator</a></li>
-                        <li><a href="hours-calculator.html">Hours Calculator</a></li>
-                        <li><a href="gpa-calculator.html">GPA Calculator</a></li>
-                        <li><a href="grade-calculator.html">Grade Calculator</a></li>
-                        <li><a href="password-generator.html">Password Generator</a></li>
-                        <li><a href="tip-calculator.html">Tip Calculator</a></li>
-                        <li><a href="unit-converter.html">Unit Converter</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 CalculatorFree.Online. All rights reserved.</p>
-            </div>
+        <div class="shape-name">
+         Cube
         </div>
-    </footer>
-
-    <script>
-        const conversionFactors = {
+        <div class="shape-formula">
+         V = s³
+        </div>
+       </div>
+       <div class="shape-card" data-shape="rectangular">
+        <div class="shape-icon">
+         📦
+        </div>
+        <div class="shape-name">
+         Rectangular Prism
+        </div>
+        <div class="shape-formula">
+         V = l × w × h
+        </div>
+       </div>
+       <div class="shape-card" data-shape="sphere">
+        <div class="shape-icon">
+         ⚽
+        </div>
+        <div class="shape-name">
+         Sphere
+        </div>
+        <div class="shape-formula">
+         V = (4/3)πr³
+        </div>
+       </div>
+       <div class="shape-card" data-shape="cylinder">
+        <div class="shape-icon">
+         🥫
+        </div>
+        <div class="shape-name">
+         Cylinder
+        </div>
+        <div class="shape-formula">
+         V = πr²h
+        </div>
+       </div>
+       <div class="shape-card" data-shape="cone">
+        <div class="shape-icon">
+         🍦
+        </div>
+        <div class="shape-name">
+         Cone
+        </div>
+        <div class="shape-formula">
+         V = (1/3)πr²h
+        </div>
+       </div>
+       <div class="shape-card" data-shape="pyramid">
+        <div class="shape-icon">
+         🔺
+        </div>
+        <div class="shape-name">
+         Pyramid
+        </div>
+        <div class="shape-formula">
+         V = (1/3) × base × h
+        </div>
+       </div>
+      </div>
+      <!-- Cube Calculator -->
+      <div class="calculator-section active" id="cube">
+       <div class="calculator-header">
+        <h3>
+         <i class="fas fa-cube">
+         </i>
+         Cube Volume Calculator
+        </h3>
+        <div class="formula-display">
+         Volume = side³ = s × s × s
+        </div>
+       </div>
+       <div class="visualization-section">
+        <div class="shape-diagram">
+         🧊
+        </div>
+        <p>
+         A cube has 6 equal square faces. All edges are the same length.
+        </p>
+        <div class="dimension-labels">
+         <div class="dimension-label">
+          Side = s
+         </div>
+         <div class="dimension-label">
+          All edges equal
+         </div>
+         <div class="dimension-label">
+          6 square faces
+         </div>
+        </div>
+       </div>
+       <div class="input-grid">
+        <div class="input-group" data-icon="📏">
+         <label for="cube-side">
+          Side Length
+         </label>
+         <input class="input-field" id="cube-side" min="0" placeholder="Enter side length" step="0.01" type="number"/>
+         <div class="unit-selector">
+          <select id="cube-unit">
+           <option value="m">
+            Meters (m)
+           </option>
+           <option value="cm">
+            Centimeters (cm)
+           </option>
+           <option value="mm">
+            Millimeters (mm)
+           </option>
+           <option value="in">
+            Inches (in)
+           </option>
+           <option value="ft">
+            Feet (ft)
+           </option>
+          </select>
+         </div>
+        </div>
+       </div>
+       <button class="calculate-btn" onclick="calculateCube()">
+        <i class="fas fa-calculator">
+        </i>
+        Calculate Cube Volume
+       </button>
+       <div class="result-section" id="cube-result" style="display: none;">
+        <div class="result-content">
+         <h3>
+          Cube Volume Result
+         </h3>
+         <div class="result-value" id="cube-volume">
+          0
+         </div>
+         <div class="result-unit">
+          cubic units
+         </div>
+         <div class="conversion-grid" id="cube-conversions">
+          <!-- Conversions will be populated here -->
+         </div>
+        </div>
+       </div>
+       <div class="examples-section">
+        <h3>
+         <i class="fas fa-lightbulb">
+         </i>
+         Cube Examples
+        </h3>
+        <div class="example-grid">
+         <div class="example-item">
+          <div class="example-title">
+           <span>
+            🎲
+           </span>
+           Dice
+          </div>
+          <p>
+           Side: 1.5 cm
+          </p>
+          <div class="example-calculation">
+           Volume = 1.5³ = 3.375 cm³
+          </div>
+         </div>
+         <div class="example-item">
+          <div class="example-title">
+           <span>
+            📦
+           </span>
+           Storage Box
+          </div>
+          <p>
+           Side: 50 cm
+          </p>
+          <div class="example-calculation">
+           Volume = 50³ = 125,000 cm³ = 125 L
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <!-- Sphere Calculator -->
+      <div class="calculator-section" id="sphere">
+       <div class="calculator-header">
+        <h3>
+         <i class="fas fa-circle">
+         </i>
+         Sphere Volume Calculator
+        </h3>
+        <div class="formula-display">
+         Volume = (4/3) × π × radius³ ≈ 4.189 × r³
+        </div>
+       </div>
+       <div class="visualization-section">
+        <div class="shape-diagram">
+         ⚽
+        </div>
+        <p>
+         A sphere is a perfectly round 3D shape. Every point on the surface is equidistant from the center.
+        </p>
+        <div class="dimension-labels">
+         <div class="dimension-label">
+          Radius = r
+         </div>
+         <div class="dimension-label">
+          Diameter = 2r
+         </div>
+         <div class="dimension-label">
+          Curved surface
+         </div>
+        </div>
+       </div>
+       <div class="input-grid">
+        <div class="input-group" data-icon="📐">
+         <label for="sphere-radius">
+          Radius
+         </label>
+         <input class="input-field" id="sphere-radius" min="0" placeholder="Enter radius" step="0.01" type="number"/>
+         <div class="unit-selector">
+          <select id="sphere-unit">
+           <option value="m">
+            Meters (m)
+           </option>
+           <option value="cm">
+            Centimeters (cm)
+           </option>
+           <option value="mm">
+            Millimeters (mm)
+           </option>
+           <option value="in">
+            Inches (in)
+           </option>
+           <option value="ft">
+            Feet (ft)
+           </option>
+          </select>
+         </div>
+        </div>
+        <div class="input-group" data-icon="⚖️">
+         <label for="sphere-diameter">
+          Or Enter Diameter
+         </label>
+         <input class="input-field" id="sphere-diameter" min="0" placeholder="Enter diameter" step="0.01" type="number"/>
+         <p style="font-size: 0.9rem; color: #6c757d; margin-top: 0.5rem;">
+          Radius = Diameter ÷ 2
+         </p>
+        </div>
+       </div>
+       <button class="calculate-btn" onclick="calculateSphere()">
+        <i class="fas fa-calculator">
+        </i>
+        Calculate Sphere Volume
+       </button>
+       <div class="result-section" id="sphere-result" style="display: none;">
+        <div class="result-content">
+         <h3>
+          Sphere Volume Result
+         </h3>
+         <div class="result-value" id="sphere-volume">
+          0
+         </div>
+         <div class="result-unit">
+          cubic units
+         </div>
+         <div class="conversion-grid" id="sphere-conversions">
+          <!-- Conversions will be populated here -->
+         </div>
+        </div>
+       </div>
+       <div class="examples-section">
+        <h3>
+         <i class="fas fa-lightbulb">
+         </i>
+         Sphere Examples
+        </h3>
+        <div class="example-grid">
+         <div class="example-item">
+          <div class="example-title">
+           <span>
+            🏀
+           </span>
+           Basketball
+          </div>
+          <p>
+           Radius: 12 cm
+          </p>
+          <div class="example-calculation">
+           Volume = (4/3)π × 12³ = 7,238 cm³
+          </div>
+         </div>
+         <div class="example-item">
+          <div class="example-title">
+           <span>
+            🌍
+           </span>
+           Earth (scaled)
+          </div>
+          <p>
+           Radius: 6.371 million km
+          </p>
+          <div class="example-calculation">
+           Volume ≈ 1.083 × 10²¹ m³
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <!-- Cylinder Calculator -->
+      <div class="calculator-section" id="cylinder">
+       <div class="calculator-header">
+        <h3>
+         <i class="fas fa-database">
+         </i>
+         Cylinder Volume Calculator
+        </h3>
+        <div class="formula-display">
+         Volume = π × radius² × height ≈ 3.14159 × r² × h
+        </div>
+       </div>
+       <div class="visualization-section">
+        <div class="shape-diagram">
+         🥫
+        </div>
+        <p>
+         A cylinder has two parallel circular bases connected by a curved surface.
+        </p>
+        <div class="dimension-labels">
+         <div class="dimension-label">
+          Radius = r
+         </div>
+         <div class="dimension-label">
+          Height = h
+         </div>
+         <div class="dimension-label">
+          2 circular bases
+         </div>
+        </div>
+       </div>
+       <div class="input-grid">
+        <div class="input-group" data-icon="⭕">
+         <label for="cylinder-radius">
+          Radius
+         </label>
+         <input class="input-field" id="cylinder-radius" min="0" placeholder="Enter radius" step="0.01" type="number"/>
+         <div class="unit-selector">
+          <select id="cylinder-radius-unit">
+           <option value="m">
+            Meters (m)
+           </option>
+           <option value="cm">
+            Centimeters (cm)
+           </option>
+           <option value="mm">
+            Millimeters (mm)
+           </option>
+           <option value="in">
+            Inches (in)
+           </option>
+           <option value="ft">
+            Feet (ft)
+           </option>
+          </select>
+         </div>
+        </div>
+        <div class="input-group" data-icon="📏">
+         <label for="cylinder-height">
+          Height
+         </label>
+         <input class="input-field" id="cylinder-height" min="0" placeholder="Enter height" step="0.01" type="number"/>
+         <div class="unit-selector">
+          <select id="cylinder-height-unit">
+           <option value="m">
+            Meters (m)
+           </option>
+           <option value="cm">
+            Centimeters (cm)
+           </option>
+           <option value="mm">
+            Millimeters (mm)
+           </option>
+           <option value="in">
+            Inches (in)
+           </option>
+           <option value="ft">
+            Feet (ft)
+           </option>
+          </select>
+         </div>
+        </div>
+       </div>
+       <button class="calculate-btn" onclick="calculateCylinder()">
+        <i class="fas fa-calculator">
+        </i>
+        Calculate Cylinder Volume
+       </button>
+       <div class="result-section" id="cylinder-result" style="display: none;">
+        <div class="result-content">
+         <h3>
+          Cylinder Volume Result
+         </h3>
+         <div class="result-value" id="cylinder-volume">
+          0
+         </div>
+         <div class="result-unit">
+          cubic units
+         </div>
+         <div class="conversion-grid" id="cylinder-conversions">
+          <!-- Conversions will be populated here -->
+         </div>
+        </div>
+       </div>
+       <div class="examples-section">
+        <h3>
+         <i class="fas fa-lightbulb">
+         </i>
+         Cylinder Examples
+        </h3>
+        <div class="example-grid">
+         <div class="example-item">
+          <div class="example-title">
+           <span>
+            🥤
+           </span>
+           Soda Can
+          </div>
+          <p>
+           Radius: 3.3 cm, Height: 12 cm
+          </p>
+          <div class="example-calculation">
+           Volume = π × 3.3² × 12 = 410 cm³
+          </div>
+         </div>
+         <div class="example-item">
+          <div class="example-title">
+           <span>
+            🛢️
+           </span>
+           Oil Drum
+          </div>
+          <p>
+           Radius: 30 cm, Height: 90 cm
+          </p>
+          <div class="example-calculation">
+           Volume = π × 30² × 90 = 254,469 cm³ = 254 L
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="tips-section">
+       <h3>
+        <i class="fas fa-graduation-cap">
+        </i>
+        Volume Calculation Tips
+       </h3>
+       <div class="tips-grid">
+        <div class="tip-item">
+         <div class="tip-title">
+          📏 Unit Consistency
+         </div>
+         <p>
+          Always use the same units for all measurements. The result will be in cubic units (e.g., m³ for meters).
+         </p>
+        </div>
+        <div class="tip-item">
+         <div class="tip-title">
+          🔢 Pi Precision
+         </div>
+         <p>
+          For precise calculations involving π, use more decimal places (π ≈ 3.14159265359). Calculators typically use high precision.
+         </p>
+        </div>
+        <div class="tip-item">
+         <div class="tip-title">
+          📊 Real Applications
+         </div>
+         <p>
+          Volume calculations are useful for liquid capacity, material estimation, shipping, and storage planning.
+         </p>
+        </div>
+        <div class="tip-item">
+         <div class="tip-title">
+          🔄 Unit Conversions
+         </div>
+         <p>
+          Remember: 1 m³ = 1,000 L, 1 ft³ ≈ 28.3 L, 1 in³ ≈ 16.4 mL. Use conversion tables for accuracy.
+         </p>
+        </div>
+        <div class="tip-item">
+         <div class="tip-title">
+          🧮 Complex Shapes
+         </div>
+         <p>
+          For irregular shapes, break them into simpler forms or use water displacement method for physical objects.
+         </p>
+        </div>
+        <div class="tip-item">
+         <div class="tip-title">
+          ⚖️ Density Relations
+         </div>
+         <p>
+          Volume × Density = Mass. Use this relationship to calculate weight when you know volume and material density.
+         </p>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+  </main>
+  <footer class="footer">
+   <div class="container">
+    <div class="footer-content">
+     <div class="footer-section">
+      <h4>
+       Financial Calculators
+      </h4>
+      <ul>
+       <li>
+        <a href="mortgage-calculator.html">
+         Mortgage Calculator
+        </a>
+       </li>
+       <li>
+        <a href="loan-calculator.html">
+         Loan Calculator
+        </a>
+       </li>
+       <li>
+        <a href="auto-loan-calculator.html">
+         Auto Loan Calculator
+        </a>
+       </li>
+       <li>
+        <a href="interest-calculator.html">
+         Interest Calculator
+        </a>
+       </li>
+       <li>
+        <a href="investment-calculator.html">
+         Investment Calculator
+        </a>
+       </li>
+       <li>
+        <a href="compound-interest-calculator.html">
+         Compound Interest Calculator
+        </a>
+       </li>
+       <li>
+        <a href="retirement-calculator.html">
+         Retirement Calculator
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="footer-section">
+      <h4>
+       Health &amp; Fitness
+      </h4>
+      <ul>
+       <li>
+        <a href="bmi-calculator.html">
+         BMI Calculator
+        </a>
+       </li>
+       <li>
+        <a href="calorie-calculator.html">
+         Calorie Calculator
+        </a>
+       </li>
+       <li>
+        <a href="body-fat-calculator.html">
+         Body Fat Calculator
+        </a>
+       </li>
+       <li>
+        <a href="bmr-calculator.html">
+         BMR Calculator
+        </a>
+       </li>
+       <li>
+        <a href="pregnancy-calculator.html">
+         Pregnancy Calculator
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="footer-section">
+      <h4>
+       Math Calculators
+      </h4>
+      <ul>
+       <li>
+        <a href="scientific-calculator.html">
+         Scientific Calculator
+        </a>
+       </li>
+       <li>
+        <a href="basic-calculator.html">
+         Basic Calculator
+        </a>
+       </li>
+       <li>
+        <a href="area-calculator.html">
+         Area Calculator
+        </a>
+       </li>
+       <li>
+        <a href="volume-calculator.html">
+         Volume Calculator
+        </a>
+       </li>
+       <li>
+        <a href="average-calculator.html">
+         Average Calculator
+        </a>
+       </li>
+       <li>
+        <a href="fraction-calculator.html">
+         Fraction Calculator
+        </a>
+       </li>
+       <li>
+        <a href="percentage-calculator.html">
+         Percentage Calculator
+        </a>
+       </li>
+       <li>
+        <a href="triangle-calculator.html">
+         Triangle Calculator
+        </a>
+       </li>
+       <li>
+        <a href="random-number-generator.html">
+         Random Number Generator
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="footer-section">
+      <h4>
+       Other Tools
+      </h4>
+      <ul>
+       <li>
+        <a href="age-calculator.html">
+         Age Calculator
+        </a>
+       </li>
+       <li>
+        <a href="date-calculator.html">
+         Date Calculator
+        </a>
+       </li>
+       <li>
+        <a href="time-calculator.html">
+         Time Calculator
+        </a>
+       </li>
+       <li>
+        <a href="hours-calculator.html">
+         Hours Calculator
+        </a>
+       </li>
+       <li>
+        <a href="gpa-calculator.html">
+         GPA Calculator
+        </a>
+       </li>
+       <li>
+        <a href="grade-calculator.html">
+         Grade Calculator
+        </a>
+       </li>
+       <li>
+        <a href="password-generator.html">
+         Password Generator
+        </a>
+       </li>
+       <li>
+        <a href="tip-calculator.html">
+         Tip Calculator
+        </a>
+       </li>
+       <li>
+        <a href="unit-converter.html">
+         Unit Converter
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="footer-bottom">
+     <p>
+      © 2024 CalculatorFree.Online. All rights reserved.
+     </p>
+    </div>
+   </div>
+  </footer>
+  <script>
+   const conversionFactors = {
             'm': 1,
             'cm': 0.01,
             'mm': 0.001,
@@ -1026,6 +1398,6 @@
                 });
             });
         });
-    </script>
-</body>
-</html> 
+  </script>
+ </body>
+</html>

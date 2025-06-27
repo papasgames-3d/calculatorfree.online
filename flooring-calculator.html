@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flooring Calculator - Calculate Flooring Materials & Costs | CalculatorFree.Online</title>
-    <meta name="description" content="Calculate flooring square footage, materials needed, and installation costs for hardwood, tile, laminate, carpet, and vinyl flooring.">
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        .flooring-calculator {
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="index, follow" name="robots"/>
+  <link href="https://calculatorfree.online/flooring-calculator.html" rel="canonical"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Flooring Calculator - Calculate Flooring Materials &amp; Costs | CalculatorFree.Online
+  </title>
+  <meta content="Calculate flooring square footage, materials needed, and installation costs for hardwood, tile, laminate, carpet, and vinyl flooring." name="description"/>
+  <link href="styles.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+  <style>
+   .flooring-calculator {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             border-radius: 20px;
@@ -249,346 +253,723 @@
                 grid-template-columns: 1fr;
             }
         }
-    </style>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZTVJQRZ1L2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-ZTVJQRZ1L2">
+  </script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'G-ZTVJQRZ1L2');
-</script>
-
-</head>
-<body>
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <i class="fas fa-calculator"></i>
-                <span>CalculatorFree.Online</span>
-            </div>
-            <nav class="nav-menu">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="index.html#financial" class="nav-link">Financial</a>
-                <a href="index.html#health" class="nav-link">Health & Fitness</a>
-                <a href="index.html#math" class="nav-link">Math</a>
-                <a href="index.html#other" class="nav-link active">Other Tools</a>
-            </nav>
-            <div class="mobile-menu-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
+  </script>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://cdnjs.cloudflare.com" rel="preconnect"/>
+  <script type="application/ld+json">
+   {"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Flooring Calculator", "applicationCategory": "CalculatorApplication", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "operatingSystem": "All", "description": "Free online flooring calculator with step-by-step calculations and detailed results."}
+  </script>
+  <script type="application/ld+json">
+   {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calculatorfree.online/"}, {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://calculatorfree.online/#calculators"}, {"@type": "ListItem", "position": 3, "name": "Flooring Calculator", "item": "https://calculatorfree.online/flooring-calculator.html"}]}
+  </script>
+ </head>
+ <body>
+  <header class="header">
+   <div class="container">
+    <div class="logo">
+     <i class="fas fa-calculator">
+     </i>
+     <span>
+      CalculatorFree.Online
+     </span>
+    </div>
+    <nav class="nav-menu">
+     <a class="nav-link" href="index.html">
+      Home
+     </a>
+     <a class="nav-link" href="index.html#financial">
+      Financial
+     </a>
+     <a class="nav-link" href="index.html#health">
+      Health &amp; Fitness
+     </a>
+     <a class="nav-link" href="index.html#math">
+      Math
+     </a>
+     <a class="nav-link active" href="index.html#other">
+      Other Tools
+     </a>
+    </nav>
+    <div class="mobile-menu-toggle">
+     <i class="fas fa-bars">
+     </i>
+    </div>
+   </div>
+  </header>
+  <main class="main">
+   <section class="hero">
+    <div class="container">
+     <div class="hero-content">
+      <h1>
+       <i class="fas fa-home">
+       </i>
+       Flooring Calculator
+      </h1>
+      <p>
+       Calculate flooring materials, square footage, and installation costs for your home project
+      </p>
+     </div>
+    </div>
+   </section>
+   <section>
+    <div class="container">
+     <div class="flooring-calculator">
+      <div class="flooring-tabs">
+       <button class="tab-button active" onclick="setFlooringType('hardwood')">
+        <i class="fas fa-tree">
+        </i>
+        Hardwood
+       </button>
+       <button class="tab-button" onclick="setFlooringType('laminate')">
+        <i class="fas fa-layer-group">
+        </i>
+        Laminate
+       </button>
+       <button class="tab-button" onclick="setFlooringType('tile')">
+        <i class="fas fa-th">
+        </i>
+        Tile
+       </button>
+       <button class="tab-button" onclick="setFlooringType('carpet')">
+        <i class="fas fa-square">
+        </i>
+        Carpet
+       </button>
+       <button class="tab-button" onclick="setFlooringType('vinyl')">
+        <i class="fas fa-grip-horizontal">
+        </i>
+        Vinyl
+       </button>
+      </div>
+      <div class="calculator-grid">
+       <div class="input-panel">
+        <h3 class="panel-title">
+         <i class="fas fa-ruler">
+         </i>
+         Room Measurements
+        </h3>
+        <div class="input-group">
+         <label>
+          Room Dimensions
+         </label>
+         <div class="room-layout">
+          <div>
+           <input class="input-field" id="room-length" min="0" placeholder="Length (ft)" step="0.1" type="number"/>
+          </div>
+          <div>
+           <input class="input-field" id="room-width" min="0" placeholder="Width (ft)" step="0.1" type="number"/>
+          </div>
+         </div>
         </div>
-    </header>
-
-    <main class="main">
-        <section class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1><i class="fas fa-home"></i> Flooring Calculator</h1>
-                    <p>Calculate flooring materials, square footage, and installation costs for your home project</p>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <div class="container">
-                <div class="flooring-calculator">
-                    <div class="flooring-tabs">
-                        <button class="tab-button active" onclick="setFlooringType('hardwood')">
-                            <i class="fas fa-tree"></i> Hardwood
-                        </button>
-                        <button class="tab-button" onclick="setFlooringType('laminate')">
-                            <i class="fas fa-layer-group"></i> Laminate
-                        </button>
-                        <button class="tab-button" onclick="setFlooringType('tile')">
-                            <i class="fas fa-th"></i> Tile
-                        </button>
-                        <button class="tab-button" onclick="setFlooringType('carpet')">
-                            <i class="fas fa-square"></i> Carpet
-                        </button>
-                        <button class="tab-button" onclick="setFlooringType('vinyl')">
-                            <i class="fas fa-grip-horizontal"></i> Vinyl
-                        </button>
-                    </div>
-
-                    <div class="calculator-grid">
-                        <div class="input-panel">
-                            <h3 class="panel-title"><i class="fas fa-ruler"></i> Room Measurements</h3>
-                            
-                            <div class="input-group">
-                                <label>Room Dimensions</label>
-                                <div class="room-layout">
-                                    <div>
-                                        <input type="number" id="room-length" class="input-field" placeholder="Length (ft)" min="0" step="0.1">
-                                    </div>
-                                    <div>
-                                        <input type="number" id="room-width" class="input-field" placeholder="Width (ft)" min="0" step="0.1">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="waste-factor">Waste Factor</label>
-                                <select id="waste-factor" class="input-field">
-                                    <option value="0.05">5% - Simple rectangular room</option>
-                                    <option value="0.10" selected>10% - Standard waste allowance</option>
-                                    <option value="0.15">15% - Complex layout/diagonal install</option>
-                                    <option value="0.20">20% - Very complex/pattern matching</option>
-                                </select>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="material-cost" id="material-label">Material Cost per Sq Ft</label>
-                                <div class="currency-input">
-                                    <span class="currency-symbol">$</span>
-                                    <input type="number" id="material-cost" class="input-field" placeholder="6.50" min="0" step="0.01">
-                                </div>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="installation-cost">Installation Cost per Sq Ft</label>
-                                <div class="currency-input">
-                                    <span class="currency-symbol">$</span>
-                                    <input type="number" id="installation-cost" class="input-field" placeholder="3.50" min="0" step="0.01">
-                                </div>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="room-shape">Room Shape</label>
-                                <select id="room-shape" class="input-field">
-                                    <option value="rectangle" selected>Rectangle</option>
-                                    <option value="square">Square</option>
-                                    <option value="l-shape">L-Shape</option>
-                                    <option value="irregular">Irregular</option>
-                                </select>
-                            </div>
-
-                            <div id="additional-areas" style="display: none;">
-                                <div class="input-group">
-                                    <label>Additional Area (for L-shape/irregular)</label>
-                                    <div class="room-layout">
-                                        <input type="number" id="additional-length" class="input-field" placeholder="Length (ft)" min="0" step="0.1">
-                                        <input type="number" id="additional-width" class="input-field" placeholder="Width (ft)" min="0" step="0.1">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="result-panel">
-                            <h3 class="panel-title"><i class="fas fa-calculator"></i> <span id="flooring-type-title">Hardwood</span> Results</h3>
-                            
-                            <div class="input-group">
-                                <label for="total-sqft">Total Square Footage</label>
-                                <input type="text" id="total-sqft" class="input-field result-field" placeholder="0 sq ft" readonly>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="material-needed">Material Needed (with waste)</label>
-                                <input type="text" id="material-needed" class="input-field result-field" placeholder="0 sq ft" readonly>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="material-total">Material Cost</label>
-                                <div class="currency-input">
-                                    <span class="currency-symbol">$</span>
-                                    <input type="text" id="material-total" class="input-field result-field" placeholder="0.00" readonly>
-                                </div>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="installation-total">Installation Cost</label>
-                                <div class="currency-input">
-                                    <span class="currency-symbol">$</span>
-                                    <input type="text" id="installation-total" class="input-field result-field" placeholder="0.00" readonly>
-                                </div>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="project-total">Total Project Cost</label>
-                                <div class="currency-input">
-                                    <span class="currency-symbol">$</span>
-                                    <input type="text" id="project-total" class="input-field result-field" placeholder="0.00" readonly>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="flooring-types">
-                        <h3><i class="fas fa-swatchbook"></i> Flooring Types & Average Costs</h3>
-                        <div class="types-grid">
-                            <div class="type-card">
-                                <div class="type-name">🌳 Hardwood</div>
-                                <div class="type-price">$6-15</div>
-                                <div class="type-details">
-                                    <strong>Installation:</strong> $3-8/sq ft<br>
-                                    <strong>Best for:</strong> Living rooms, bedrooms<br>
-                                    <strong>Durability:</strong> 25-100+ years
-                                </div>
-                            </div>
-                            <div class="type-card">
-                                <div class="type-name">📏 Laminate</div>
-                                <div class="type-price">$2-8</div>
-                                <div class="type-details">
-                                    <strong>Installation:</strong> $1-3/sq ft<br>
-                                    <strong>Best for:</strong> High traffic areas<br>
-                                    <strong>Durability:</strong> 15-25 years
-                                </div>
-                            </div>
-                            <div class="type-card">
-                                <div class="type-name">🏺 Ceramic Tile</div>
-                                <div class="type-price">$1-15</div>
-                                <div class="type-details">
-                                    <strong>Installation:</strong> $5-10/sq ft<br>
-                                    <strong>Best for:</strong> Bathrooms, kitchens<br>
-                                    <strong>Durability:</strong> 75-100+ years
-                                </div>
-                            </div>
-                            <div class="type-card">
-                                <div class="type-name">🧶 Carpet</div>
-                                <div class="type-price">$2-12</div>
-                                <div class="type-details">
-                                    <strong>Installation:</strong> $1-4/sq ft<br>
-                                    <strong>Best for:</strong> Bedrooms, family rooms<br>
-                                    <strong>Durability:</strong> 5-15 years
-                                </div>
-                            </div>
-                            <div class="type-card">
-                                <div class="type-name">📱 Luxury Vinyl</div>
-                                <div class="type-price">$2-7</div>
-                                <div class="type-details">
-                                    <strong>Installation:</strong> $1-5/sq ft<br>
-                                    <strong>Best for:</strong> Kitchens, bathrooms<br>
-                                    <strong>Durability:</strong> 10-20 years
-                                </div>
-                            </div>
-                            <div class="type-card">
-                                <div class="type-name">🏠 Engineered Wood</div>
-                                <div class="type-price">$4-12</div>
-                                <div class="type-details">
-                                    <strong>Installation:</strong> $3-8/sq ft<br>
-                                    <strong>Best for:</strong> Whole house applications<br>
-                                    <strong>Durability:</strong> 20-40 years
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="cost-breakdown-section" class="cost-breakdown" style="display: none;">
-                        <h3><i class="fas fa-chart-bar"></i> Cost Breakdown</h3>
-                        <div class="breakdown-grid" id="breakdown-grid">
-                            <!-- Cost breakdown items will be generated here -->
-                        </div>
-                    </div>
-
-                    <div class="tips-section">
-                        <h3><i class="fas fa-graduation-cap"></i> Flooring Installation Tips</h3>
-                        <div class="tips-grid">
-                            <div class="tip-item">
-                                <h4>📏 Accurate Measurements</h4>
-                                <p>Measure each room carefully. For irregular shapes, break into rectangles and add together. Always add 5-20% waste factor.</p>
-                            </div>
-                            <div class="tip-item">
-                                <h4>🏠 Consider Your Lifestyle</h4>
-                                <p>High-traffic areas need durable flooring. Pets and children may require waterproof or scratch-resistant options.</p>
-                            </div>
-                            <div class="tip-item">
-                                <h4>💧 Moisture Considerations</h4>
-                                <p>Avoid hardwood in bathrooms and basements. Use tile, luxury vinyl, or engineered wood in moisture-prone areas.</p>
-                            </div>
-                            <div class="tip-item">
-                                <h4>📦 Order Extra Material</h4>
-                                <p>Keep 5-10% extra flooring for future repairs. Dye lots can vary, so having matching material is important.</p>
-                            </div>
-                            <div class="tip-item">
-                                <h4>🔧 Professional vs DIY</h4>
-                                <p>Laminate and vinyl are DIY-friendly. Hardwood and tile often require professional installation for best results.</p>
-                            </div>
-                            <div class="tip-item">
-                                <h4>💰 Budget Planning</h4>
-                                <p>Remember to include underlayment, trim, transitions, and removal of old flooring in your budget calculations.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Financial Calculators</h4>
-                    <ul>
-                        <li><a href="mortgage-calculator.html">Mortgage Calculator</a></li>
-                        <li><a href="loan-calculator.html">Loan Calculator</a></li>
-                        <li><a href="auto-loan-calculator.html">Auto Loan Calculator</a></li>
-                        <li><a href="interest-calculator.html">Interest Calculator</a></li>
-                        <li><a href="investment-calculator.html">Investment Calculator</a></li>
-                        <li><a href="compound-interest-calculator.html">Compound Interest Calculator</a></li>
-                        <li><a href="tax-calculator.html">Tax Calculator</a></li>
-                        <li><a href="salary-calculator.html">Salary Calculator</a></li>
-                        <li><a href="credit-card-calculator.html">Credit Card Calculator</a></li>
-                        <li><a href="debt-calculator.html">Debt Calculator</a></li>
-                        <li><a href="retirement-calculator.html">Retirement Calculator</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Health & Fitness</h4>
-                    <ul>
-                        <li><a href="bmi-calculator.html">BMI Calculator</a></li>
-                        <li><a href="calorie-calculator.html">Calorie Calculator</a></li>
-                        <li><a href="macro-calculator.html">Macro Calculator</a></li>
-                        <li><a href="pace-calculator.html">Pace Calculator</a></li>
-                        <li><a href="body-fat-calculator.html">Body Fat Calculator</a></li>
-                        <li><a href="bmr-calculator.html">BMR Calculator</a></li>
-                        <li><a href="pregnancy-calculator.html">Pregnancy Calculator</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Math Calculators</h4>
-                    <ul>
-                        <li><a href="scientific-calculator.html">Scientific Calculator</a></li>
-                        <li><a href="basic-calculator.html">Basic Calculator</a></li>
-                        <li><a href="binary-calculator.html">Binary Calculator</a></li>
-                        <li><a href="area-calculator.html">Area Calculator</a></li>
-                        <li><a href="volume-calculator.html">Volume Calculator</a></li>
-                        <li><a href="average-calculator.html">Average Calculator</a></li>
-                        <li><a href="fraction-calculator.html">Fraction Calculator</a></li>
-                        <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
-                        <li><a href="triangle-calculator.html">Triangle Calculator</a></li>
-                        <li><a href="random-number-generator.html">Random Number Generator</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Other Tools</h4>
-                    <ul>
-                        <li><a href="age-calculator.html">Age Calculator</a></li>
-                        <li><a href="date-calculator.html">Date Calculator</a></li>
-                        <li><a href="time-calculator.html">Time Calculator</a></li>
-                        <li><a href="hours-calculator.html">Hours Calculator</a></li>
-                        <li><a href="gpa-calculator.html">GPA Calculator</a></li>
-                        <li><a href="grade-calculator.html">Grade Calculator</a></li>
-                        <li><a href="password-generator.html">Password Generator</a></li>
-                        <li><a href="tip-calculator.html">Tip Calculator</a></li>
-                        <li><a href="unit-converter.html">Unit Converter</a></li>
-                        <li><a href="fuel-calculator.html">Fuel Calculator</a></li>
-                        <li><a href="concrete-calculator.html">Concrete Calculator</a></li>
-                        <li><a href="paint-calculator.html">Paint Calculator</a></li>
-                        <li><a href="flooring-calculator.html">Flooring Calculator</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 CalculatorFree.Online. All rights reserved.</p>
-            </div>
+        <div class="input-group">
+         <label for="waste-factor">
+          Waste Factor
+         </label>
+         <select class="input-field" id="waste-factor">
+          <option value="0.05">
+           5% - Simple rectangular room
+          </option>
+          <option selected="" value="0.10">
+           10% - Standard waste allowance
+          </option>
+          <option value="0.15">
+           15% - Complex layout/diagonal install
+          </option>
+          <option value="0.20">
+           20% - Very complex/pattern matching
+          </option>
+         </select>
         </div>
-    </footer>
-
-    <script>
-        let currentFlooringType = 'hardwood';
+        <div class="input-group">
+         <label for="material-cost" id="material-label">
+          Material Cost per Sq Ft
+         </label>
+         <div class="currency-input">
+          <span class="currency-symbol">
+           $
+          </span>
+          <input class="input-field" id="material-cost" min="0" placeholder="6.50" step="0.01" type="number"/>
+         </div>
+        </div>
+        <div class="input-group">
+         <label for="installation-cost">
+          Installation Cost per Sq Ft
+         </label>
+         <div class="currency-input">
+          <span class="currency-symbol">
+           $
+          </span>
+          <input class="input-field" id="installation-cost" min="0" placeholder="3.50" step="0.01" type="number"/>
+         </div>
+        </div>
+        <div class="input-group">
+         <label for="room-shape">
+          Room Shape
+         </label>
+         <select class="input-field" id="room-shape">
+          <option selected="" value="rectangle">
+           Rectangle
+          </option>
+          <option value="square">
+           Square
+          </option>
+          <option value="l-shape">
+           L-Shape
+          </option>
+          <option value="irregular">
+           Irregular
+          </option>
+         </select>
+        </div>
+        <div id="additional-areas" style="display: none;">
+         <div class="input-group">
+          <label>
+           Additional Area (for L-shape/irregular)
+          </label>
+          <div class="room-layout">
+           <input class="input-field" id="additional-length" min="0" placeholder="Length (ft)" step="0.1" type="number"/>
+           <input class="input-field" id="additional-width" min="0" placeholder="Width (ft)" step="0.1" type="number"/>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="result-panel">
+        <h3 class="panel-title">
+         <i class="fas fa-calculator">
+         </i>
+         <span id="flooring-type-title">
+          Hardwood
+         </span>
+         Results
+        </h3>
+        <div class="input-group">
+         <label for="total-sqft">
+          Total Square Footage
+         </label>
+         <input class="input-field result-field" id="total-sqft" placeholder="0 sq ft" readonly="" type="text"/>
+        </div>
+        <div class="input-group">
+         <label for="material-needed">
+          Material Needed (with waste)
+         </label>
+         <input class="input-field result-field" id="material-needed" placeholder="0 sq ft" readonly="" type="text"/>
+        </div>
+        <div class="input-group">
+         <label for="material-total">
+          Material Cost
+         </label>
+         <div class="currency-input">
+          <span class="currency-symbol">
+           $
+          </span>
+          <input class="input-field result-field" id="material-total" placeholder="0.00" readonly="" type="text"/>
+         </div>
+        </div>
+        <div class="input-group">
+         <label for="installation-total">
+          Installation Cost
+         </label>
+         <div class="currency-input">
+          <span class="currency-symbol">
+           $
+          </span>
+          <input class="input-field result-field" id="installation-total" placeholder="0.00" readonly="" type="text"/>
+         </div>
+        </div>
+        <div class="input-group">
+         <label for="project-total">
+          Total Project Cost
+         </label>
+         <div class="currency-input">
+          <span class="currency-symbol">
+           $
+          </span>
+          <input class="input-field result-field" id="project-total" placeholder="0.00" readonly="" type="text"/>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="flooring-types">
+       <h3>
+        <i class="fas fa-swatchbook">
+        </i>
+        Flooring Types &amp; Average Costs
+       </h3>
+       <div class="types-grid">
+        <div class="type-card">
+         <div class="type-name">
+          🌳 Hardwood
+         </div>
+         <div class="type-price">
+          $6-15
+         </div>
+         <div class="type-details">
+          <strong>
+           Installation:
+          </strong>
+          $3-8/sq ft
+          <br/>
+          <strong>
+           Best for:
+          </strong>
+          Living rooms, bedrooms
+          <br/>
+          <strong>
+           Durability:
+          </strong>
+          25-100+ years
+         </div>
+        </div>
+        <div class="type-card">
+         <div class="type-name">
+          📏 Laminate
+         </div>
+         <div class="type-price">
+          $2-8
+         </div>
+         <div class="type-details">
+          <strong>
+           Installation:
+          </strong>
+          $1-3/sq ft
+          <br/>
+          <strong>
+           Best for:
+          </strong>
+          High traffic areas
+          <br/>
+          <strong>
+           Durability:
+          </strong>
+          15-25 years
+         </div>
+        </div>
+        <div class="type-card">
+         <div class="type-name">
+          🏺 Ceramic Tile
+         </div>
+         <div class="type-price">
+          $1-15
+         </div>
+         <div class="type-details">
+          <strong>
+           Installation:
+          </strong>
+          $5-10/sq ft
+          <br/>
+          <strong>
+           Best for:
+          </strong>
+          Bathrooms, kitchens
+          <br/>
+          <strong>
+           Durability:
+          </strong>
+          75-100+ years
+         </div>
+        </div>
+        <div class="type-card">
+         <div class="type-name">
+          🧶 Carpet
+         </div>
+         <div class="type-price">
+          $2-12
+         </div>
+         <div class="type-details">
+          <strong>
+           Installation:
+          </strong>
+          $1-4/sq ft
+          <br/>
+          <strong>
+           Best for:
+          </strong>
+          Bedrooms, family rooms
+          <br/>
+          <strong>
+           Durability:
+          </strong>
+          5-15 years
+         </div>
+        </div>
+        <div class="type-card">
+         <div class="type-name">
+          📱 Luxury Vinyl
+         </div>
+         <div class="type-price">
+          $2-7
+         </div>
+         <div class="type-details">
+          <strong>
+           Installation:
+          </strong>
+          $1-5/sq ft
+          <br/>
+          <strong>
+           Best for:
+          </strong>
+          Kitchens, bathrooms
+          <br/>
+          <strong>
+           Durability:
+          </strong>
+          10-20 years
+         </div>
+        </div>
+        <div class="type-card">
+         <div class="type-name">
+          🏠 Engineered Wood
+         </div>
+         <div class="type-price">
+          $4-12
+         </div>
+         <div class="type-details">
+          <strong>
+           Installation:
+          </strong>
+          $3-8/sq ft
+          <br/>
+          <strong>
+           Best for:
+          </strong>
+          Whole house applications
+          <br/>
+          <strong>
+           Durability:
+          </strong>
+          20-40 years
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="cost-breakdown" id="cost-breakdown-section" style="display: none;">
+       <h3>
+        <i class="fas fa-chart-bar">
+        </i>
+        Cost Breakdown
+       </h3>
+       <div class="breakdown-grid" id="breakdown-grid">
+        <!-- Cost breakdown items will be generated here -->
+       </div>
+      </div>
+      <div class="tips-section">
+       <h3>
+        <i class="fas fa-graduation-cap">
+        </i>
+        Flooring Installation Tips
+       </h3>
+       <div class="tips-grid">
+        <div class="tip-item">
+         <h4>
+          📏 Accurate Measurements
+         </h4>
+         <p>
+          Measure each room carefully. For irregular shapes, break into rectangles and add together. Always add 5-20% waste factor.
+         </p>
+        </div>
+        <div class="tip-item">
+         <h4>
+          🏠 Consider Your Lifestyle
+         </h4>
+         <p>
+          High-traffic areas need durable flooring. Pets and children may require waterproof or scratch-resistant options.
+         </p>
+        </div>
+        <div class="tip-item">
+         <h4>
+          💧 Moisture Considerations
+         </h4>
+         <p>
+          Avoid hardwood in bathrooms and basements. Use tile, luxury vinyl, or engineered wood in moisture-prone areas.
+         </p>
+        </div>
+        <div class="tip-item">
+         <h4>
+          📦 Order Extra Material
+         </h4>
+         <p>
+          Keep 5-10% extra flooring for future repairs. Dye lots can vary, so having matching material is important.
+         </p>
+        </div>
+        <div class="tip-item">
+         <h4>
+          🔧 Professional vs DIY
+         </h4>
+         <p>
+          Laminate and vinyl are DIY-friendly. Hardwood and tile often require professional installation for best results.
+         </p>
+        </div>
+        <div class="tip-item">
+         <h4>
+          💰 Budget Planning
+         </h4>
+         <p>
+          Remember to include underlayment, trim, transitions, and removal of old flooring in your budget calculations.
+         </p>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+  </main>
+  <footer class="footer">
+   <div class="container">
+    <div class="footer-content">
+     <div class="footer-section">
+      <h4>
+       Financial Calculators
+      </h4>
+      <ul>
+       <li>
+        <a href="mortgage-calculator.html">
+         Mortgage Calculator
+        </a>
+       </li>
+       <li>
+        <a href="loan-calculator.html">
+         Loan Calculator
+        </a>
+       </li>
+       <li>
+        <a href="auto-loan-calculator.html">
+         Auto Loan Calculator
+        </a>
+       </li>
+       <li>
+        <a href="interest-calculator.html">
+         Interest Calculator
+        </a>
+       </li>
+       <li>
+        <a href="investment-calculator.html">
+         Investment Calculator
+        </a>
+       </li>
+       <li>
+        <a href="compound-interest-calculator.html">
+         Compound Interest Calculator
+        </a>
+       </li>
+       <li>
+        <a href="tax-calculator.html">
+         Tax Calculator
+        </a>
+       </li>
+       <li>
+        <a href="salary-calculator.html">
+         Salary Calculator
+        </a>
+       </li>
+       <li>
+        <a href="credit-card-calculator.html">
+         Credit Card Calculator
+        </a>
+       </li>
+       <li>
+        <a href="debt-calculator.html">
+         Debt Calculator
+        </a>
+       </li>
+       <li>
+        <a href="retirement-calculator.html">
+         Retirement Calculator
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="footer-section">
+      <h4>
+       Health &amp; Fitness
+      </h4>
+      <ul>
+       <li>
+        <a href="bmi-calculator.html">
+         BMI Calculator
+        </a>
+       </li>
+       <li>
+        <a href="calorie-calculator.html">
+         Calorie Calculator
+        </a>
+       </li>
+       <li>
+        <a href="macro-calculator.html">
+         Macro Calculator
+        </a>
+       </li>
+       <li>
+        <a href="pace-calculator.html">
+         Pace Calculator
+        </a>
+       </li>
+       <li>
+        <a href="body-fat-calculator.html">
+         Body Fat Calculator
+        </a>
+       </li>
+       <li>
+        <a href="bmr-calculator.html">
+         BMR Calculator
+        </a>
+       </li>
+       <li>
+        <a href="pregnancy-calculator.html">
+         Pregnancy Calculator
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="footer-section">
+      <h4>
+       Math Calculators
+      </h4>
+      <ul>
+       <li>
+        <a href="scientific-calculator.html">
+         Scientific Calculator
+        </a>
+       </li>
+       <li>
+        <a href="basic-calculator.html">
+         Basic Calculator
+        </a>
+       </li>
+       <li>
+        <a href="binary-calculator.html">
+         Binary Calculator
+        </a>
+       </li>
+       <li>
+        <a href="area-calculator.html">
+         Area Calculator
+        </a>
+       </li>
+       <li>
+        <a href="volume-calculator.html">
+         Volume Calculator
+        </a>
+       </li>
+       <li>
+        <a href="average-calculator.html">
+         Average Calculator
+        </a>
+       </li>
+       <li>
+        <a href="fraction-calculator.html">
+         Fraction Calculator
+        </a>
+       </li>
+       <li>
+        <a href="percentage-calculator.html">
+         Percentage Calculator
+        </a>
+       </li>
+       <li>
+        <a href="triangle-calculator.html">
+         Triangle Calculator
+        </a>
+       </li>
+       <li>
+        <a href="random-number-generator.html">
+         Random Number Generator
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="footer-section">
+      <h4>
+       Other Tools
+      </h4>
+      <ul>
+       <li>
+        <a href="age-calculator.html">
+         Age Calculator
+        </a>
+       </li>
+       <li>
+        <a href="date-calculator.html">
+         Date Calculator
+        </a>
+       </li>
+       <li>
+        <a href="time-calculator.html">
+         Time Calculator
+        </a>
+       </li>
+       <li>
+        <a href="hours-calculator.html">
+         Hours Calculator
+        </a>
+       </li>
+       <li>
+        <a href="gpa-calculator.html">
+         GPA Calculator
+        </a>
+       </li>
+       <li>
+        <a href="grade-calculator.html">
+         Grade Calculator
+        </a>
+       </li>
+       <li>
+        <a href="password-generator.html">
+         Password Generator
+        </a>
+       </li>
+       <li>
+        <a href="tip-calculator.html">
+         Tip Calculator
+        </a>
+       </li>
+       <li>
+        <a href="unit-converter.html">
+         Unit Converter
+        </a>
+       </li>
+       <li>
+        <a href="fuel-calculator.html">
+         Fuel Calculator
+        </a>
+       </li>
+       <li>
+        <a href="concrete-calculator.html">
+         Concrete Calculator
+        </a>
+       </li>
+       <li>
+        <a href="paint-calculator.html">
+         Paint Calculator
+        </a>
+       </li>
+       <li>
+        <a href="flooring-calculator.html">
+         Flooring Calculator
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="footer-bottom">
+     <p>
+      © 2024 CalculatorFree.Online. All rights reserved.
+     </p>
+    </div>
+   </div>
+  </footer>
+  <script>
+   let currentFlooringType = 'hardwood';
 
         const flooringDefaults = {
             hardwood: { material: 8.50, installation: 5.50, label: 'Hardwood Cost per Sq Ft' },
@@ -728,6 +1109,6 @@
             document.getElementById('material-cost').value = flooringDefaults.hardwood.material;
             document.getElementById('installation-cost').value = flooringDefaults.hardwood.installation;
         });
-    </script>
-</body>
-</html> 
+  </script>
+ </body>
+</html>

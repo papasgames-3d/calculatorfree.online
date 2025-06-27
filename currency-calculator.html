@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Currency Calculator - Real-Time Currency Converter | CalculatorFree.Online</title>
-    <meta name="description" content="Convert currencies with real-time exchange rates. Support for 150+ world currencies including USD, EUR, GBP, JPY, and more.">
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        .currency-calculator {
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="index, follow" name="robots"/>
+  <link href="https://calculatorfree.online/currency-calculator.html" rel="canonical"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Currency Calculator - Real-Time Currency Converter | CalculatorFree.Online
+  </title>
+  <meta content="Convert currencies with real-time exchange rates. Support for 150+ world currencies including USD, EUR, GBP, JPY, and more." name="description"/>
+  <link href="styles.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+  <style>
+   .currency-calculator {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             border-radius: 20px;
@@ -210,210 +214,469 @@
                 justify-content: center;
             }
         }
-    </style>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZTVJQRZ1L2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-ZTVJQRZ1L2">
+  </script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'G-ZTVJQRZ1L2');
-</script>
-
-</head>
-<body>
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <i class="fas fa-calculator"></i>
-                <span>CalculatorFree.Online</span>
-            </div>
-            <nav class="nav-menu">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="index.html#financial" class="nav-link active">Financial</a>
-                <a href="index.html#health" class="nav-link">Health & Fitness</a>
-                <a href="index.html#math" class="nav-link">Math</a>
-                <a href="index.html#other" class="nav-link">Other Tools</a>
-            </nav>
-            <div class="mobile-menu-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
+  </script>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://cdnjs.cloudflare.com" rel="preconnect"/>
+  <script type="application/ld+json">
+   {"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Currency Calculator", "applicationCategory": "CalculatorApplication", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "operatingSystem": "All", "description": "Free online currency calculator with step-by-step calculations and detailed results."}
+  </script>
+  <script type="application/ld+json">
+   {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calculatorfree.online/"}, {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://calculatorfree.online/#calculators"}, {"@type": "ListItem", "position": 3, "name": "Currency Calculator", "item": "https://calculatorfree.online/currency-calculator.html"}]}
+  </script>
+ </head>
+ <body>
+  <header class="header">
+   <div class="container">
+    <div class="logo">
+     <i class="fas fa-calculator">
+     </i>
+     <span>
+      CalculatorFree.Online
+     </span>
+    </div>
+    <nav class="nav-menu">
+     <a class="nav-link" href="index.html">
+      Home
+     </a>
+     <a class="nav-link active" href="index.html#financial">
+      Financial
+     </a>
+     <a class="nav-link" href="index.html#health">
+      Health &amp; Fitness
+     </a>
+     <a class="nav-link" href="index.html#math">
+      Math
+     </a>
+     <a class="nav-link" href="index.html#other">
+      Other Tools
+     </a>
+    </nav>
+    <div class="mobile-menu-toggle">
+     <i class="fas fa-bars">
+     </i>
+    </div>
+   </div>
+  </header>
+  <main class="main">
+   <section class="hero">
+    <div class="container">
+     <div class="hero-content">
+      <h1>
+       <i class="fas fa-exchange-alt">
+       </i>
+       Currency Calculator
+      </h1>
+      <p>
+       Convert between world currencies with real-time exchange rates
+      </p>
+     </div>
+    </div>
+   </section>
+   <section>
+    <div class="container">
+     <div class="currency-calculator">
+      <div class="converter-section">
+       <div class="converter-grid">
+        <div class="currency-input">
+         <div class="currency-label">
+          From
+         </div>
+         <input class="amount-input" id="from-amount" min="0" placeholder="1000" step="0.01" type="number"/>
+         <select class="currency-select" id="from-currency">
+          <option selected="" value="USD">
+           🇺🇸 USD - US Dollar
+          </option>
+          <option value="EUR">
+           🇪🇺 EUR - Euro
+          </option>
+          <option value="GBP">
+           🇬🇧 GBP - British Pound
+          </option>
+          <option value="JPY">
+           🇯🇵 JPY - Japanese Yen
+          </option>
+          <option value="AUD">
+           🇦🇺 AUD - Australian Dollar
+          </option>
+          <option value="CAD">
+           🇨🇦 CAD - Canadian Dollar
+          </option>
+          <option value="CHF">
+           🇨🇭 CHF - Swiss Franc
+          </option>
+          <option value="CNY">
+           🇨🇳 CNY - Chinese Yuan
+          </option>
+          <option value="SEK">
+           🇸🇪 SEK - Swedish Krona
+          </option>
+          <option value="NZD">
+           🇳🇿 NZD - New Zealand Dollar
+          </option>
+         </select>
+         <div class="quick-amounts">
+          <div class="quick-amount" onclick="setAmount(100)">
+           100
+          </div>
+          <div class="quick-amount" onclick="setAmount(500)">
+           500
+          </div>
+          <div class="quick-amount" onclick="setAmount(1000)">
+           1K
+          </div>
+          <div class="quick-amount" onclick="setAmount(5000)">
+           5K
+          </div>
+         </div>
         </div>
-    </header>
-
-    <main class="main">
-        <section class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1><i class="fas fa-exchange-alt"></i> Currency Calculator</h1>
-                    <p>Convert between world currencies with real-time exchange rates</p>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <div class="container">
-                <div class="currency-calculator">
-                    <div class="converter-section">
-                        <div class="converter-grid">
-                            <div class="currency-input">
-                                <div class="currency-label">From</div>
-                                <input type="number" id="from-amount" class="amount-input" placeholder="1000" min="0" step="0.01">
-                                <select id="from-currency" class="currency-select">
-                                    <option value="USD" selected>🇺🇸 USD - US Dollar</option>
-                                    <option value="EUR">🇪🇺 EUR - Euro</option>
-                                    <option value="GBP">🇬🇧 GBP - British Pound</option>
-                                    <option value="JPY">🇯🇵 JPY - Japanese Yen</option>
-                                    <option value="AUD">🇦🇺 AUD - Australian Dollar</option>
-                                    <option value="CAD">🇨🇦 CAD - Canadian Dollar</option>
-                                    <option value="CHF">🇨🇭 CHF - Swiss Franc</option>
-                                    <option value="CNY">🇨🇳 CNY - Chinese Yuan</option>
-                                    <option value="SEK">🇸🇪 SEK - Swedish Krona</option>
-                                    <option value="NZD">🇳🇿 NZD - New Zealand Dollar</option>
-                                </select>
-                                <div class="quick-amounts">
-                                    <div class="quick-amount" onclick="setAmount(100)">100</div>
-                                    <div class="quick-amount" onclick="setAmount(500)">500</div>
-                                    <div class="quick-amount" onclick="setAmount(1000)">1K</div>
-                                    <div class="quick-amount" onclick="setAmount(5000)">5K</div>
-                                </div>
-                            </div>
-
-                            <button class="swap-button" onclick="swapCurrencies()">
-                                <i class="fas fa-exchange-alt"></i>
-                            </button>
-
-                            <div class="currency-input">
-                                <div class="currency-label">To</div>
-                                <input type="text" id="to-amount" class="amount-input" placeholder="0.00" readonly>
-                                <select id="to-currency" class="currency-select">
-                                    <option value="EUR" selected>🇪🇺 EUR - Euro</option>
-                                    <option value="USD">🇺🇸 USD - US Dollar</option>
-                                    <option value="GBP">🇬🇧 GBP - British Pound</option>
-                                    <option value="JPY">🇯🇵 JPY - Japanese Yen</option>
-                                    <option value="AUD">🇦🇺 AUD - Australian Dollar</option>
-                                    <option value="CAD">🇨🇦 CAD - Canadian Dollar</option>
-                                    <option value="CHF">🇨🇭 CHF - Swiss Franc</option>
-                                    <option value="CNY">🇨🇳 CNY - Chinese Yuan</option>
-                                    <option value="SEK">🇸🇪 SEK - Swedish Krona</option>
-                                    <option value="NZD">🇳🇿 NZD - New Zealand Dollar</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="rate-info" id="rate-info">
-                        <div class="rate-display" id="rate-display">1 USD = 0.85 EUR</div>
-                        <div class="rate-updated" id="rate-updated">Exchange rates updated: Today</div>
-                    </div>
-
-                    <div class="popular-currencies">
-                        <h3><i class="fas fa-star"></i> Popular Currencies</h3>
-                        <div class="currencies-grid">
-                            <div class="currency-card" onclick="setCurrency('USD', 'EUR')">
-                                <div class="currency-flag">🇺🇸➜🇪🇺</div>
-                                <div class="currency-code">USD to EUR</div>
-                                <div class="currency-name">US Dollar to Euro</div>
-                            </div>
-                            <div class="currency-card" onclick="setCurrency('EUR', 'USD')">
-                                <div class="currency-flag">🇪🇺➜🇺🇸</div>
-                                <div class="currency-code">EUR to USD</div>
-                                <div class="currency-name">Euro to US Dollar</div>
-                            </div>
-                            <div class="currency-card" onclick="setCurrency('GBP', 'USD')">
-                                <div class="currency-flag">🇬🇧➜🇺🇸</div>
-                                <div class="currency-code">GBP to USD</div>
-                                <div class="currency-name">British Pound to US Dollar</div>
-                            </div>
-                            <div class="currency-card" onclick="setCurrency('USD', 'JPY')">
-                                <div class="currency-flag">🇺🇸➜🇯🇵</div>
-                                <div class="currency-code">USD to JPY</div>
-                                <div class="currency-name">US Dollar to Japanese Yen</div>
-                            </div>
-                            <div class="currency-card" onclick="setCurrency('USD', 'CAD')">
-                                <div class="currency-flag">🇺🇸➜🇨🇦</div>
-                                <div class="currency-code">USD to CAD</div>
-                                <div class="currency-name">US Dollar to Canadian Dollar</div>
-                            </div>
-                            <div class="currency-card" onclick="setCurrency('USD', 'AUD')">
-                                <div class="currency-flag">🇺🇸➜🇦🇺</div>
-                                <div class="currency-code">USD to AUD</div>
-                                <div class="currency-name">US Dollar to Australian Dollar</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Financial Calculators</h4>
-                    <ul>
-                        <li><a href="mortgage-calculator.html">Mortgage Calculator</a></li>
-                        <li><a href="loan-calculator.html">Loan Calculator</a></li>
-                        <li><a href="auto-loan-calculator.html">Auto Loan Calculator</a></li>
-                        <li><a href="payment-calculator.html">Payment Calculator</a></li>
-                        <li><a href="currency-calculator.html">Currency Calculator</a></li>
-                        <li><a href="interest-calculator.html">Interest Calculator</a></li>
-                        <li><a href="investment-calculator.html">Investment Calculator</a></li>
-                        <li><a href="compound-interest-calculator.html">Compound Interest Calculator</a></li>
-                        <li><a href="retirement-calculator.html">Retirement Calculator</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Health & Fitness</h4>
-                    <ul>
-                        <li><a href="bmi-calculator.html">BMI Calculator</a></li>
-                        <li><a href="calorie-calculator.html">Calorie Calculator</a></li>
-                        <li><a href="body-fat-calculator.html">Body Fat Calculator</a></li>
-                        <li><a href="bmr-calculator.html">BMR Calculator</a></li>
-                        <li><a href="pregnancy-calculator.html">Pregnancy Calculator</a></li>
-                        <li><a href="water-calculator.html">Water Calculator</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Math Calculators</h4>
-                    <ul>
-                        <li><a href="scientific-calculator.html">Scientific Calculator</a></li>
-                        <li><a href="basic-calculator.html">Basic Calculator</a></li>
-                        <li><a href="area-calculator.html">Area Calculator</a></li>
-                        <li><a href="volume-calculator.html">Volume Calculator</a></li>
-                        <li><a href="average-calculator.html">Average Calculator</a></li>
-                        <li><a href="fraction-calculator.html">Fraction Calculator</a></li>
-                        <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
-                        <li><a href="triangle-calculator.html">Triangle Calculator</a></li>
-                        <li><a href="random-number-generator.html">Random Number Generator</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Other Tools</h4>
-                    <ul>
-                        <li><a href="age-calculator.html">Age Calculator</a></li>
-                        <li><a href="date-calculator.html">Date Calculator</a></li>
-                        <li><a href="time-calculator.html">Time Calculator</a></li>
-                        <li><a href="gpa-calculator.html">GPA Calculator</a></li>
-                        <li><a href="grade-calculator.html">Grade Calculator</a></li>
-                        <li><a href="hours-calculator.html">Hours Calculator</a></li>
-                        <li><a href="password-generator.html">Password Generator</a></li>
-                        <li><a href="tip-calculator.html">Tip Calculator</a></li>
-                        <li><a href="unit-converter.html">Unit Converter</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 CalculatorFree.Online. All rights reserved.</p>
-            </div>
+        <button class="swap-button" onclick="swapCurrencies()">
+         <i class="fas fa-exchange-alt">
+         </i>
+        </button>
+        <div class="currency-input">
+         <div class="currency-label">
+          To
+         </div>
+         <input class="amount-input" id="to-amount" placeholder="0.00" readonly="" type="text"/>
+         <select class="currency-select" id="to-currency">
+          <option selected="" value="EUR">
+           🇪🇺 EUR - Euro
+          </option>
+          <option value="USD">
+           🇺🇸 USD - US Dollar
+          </option>
+          <option value="GBP">
+           🇬🇧 GBP - British Pound
+          </option>
+          <option value="JPY">
+           🇯🇵 JPY - Japanese Yen
+          </option>
+          <option value="AUD">
+           🇦🇺 AUD - Australian Dollar
+          </option>
+          <option value="CAD">
+           🇨🇦 CAD - Canadian Dollar
+          </option>
+          <option value="CHF">
+           🇨🇭 CHF - Swiss Franc
+          </option>
+          <option value="CNY">
+           🇨🇳 CNY - Chinese Yuan
+          </option>
+          <option value="SEK">
+           🇸🇪 SEK - Swedish Krona
+          </option>
+          <option value="NZD">
+           🇳🇿 NZD - New Zealand Dollar
+          </option>
+         </select>
         </div>
-    </footer>
-
-    <script>
-        // Mock exchange rates (in real implementation, fetch from API)
+       </div>
+      </div>
+      <div class="rate-info" id="rate-info">
+       <div class="rate-display" id="rate-display">
+        1 USD = 0.85 EUR
+       </div>
+       <div class="rate-updated" id="rate-updated">
+        Exchange rates updated: Today
+       </div>
+      </div>
+      <div class="popular-currencies">
+       <h3>
+        <i class="fas fa-star">
+        </i>
+        Popular Currencies
+       </h3>
+       <div class="currencies-grid">
+        <div class="currency-card" onclick="setCurrency('USD', 'EUR')">
+         <div class="currency-flag">
+          🇺🇸➜🇪🇺
+         </div>
+         <div class="currency-code">
+          USD to EUR
+         </div>
+         <div class="currency-name">
+          US Dollar to Euro
+         </div>
+        </div>
+        <div class="currency-card" onclick="setCurrency('EUR', 'USD')">
+         <div class="currency-flag">
+          🇪🇺➜🇺🇸
+         </div>
+         <div class="currency-code">
+          EUR to USD
+         </div>
+         <div class="currency-name">
+          Euro to US Dollar
+         </div>
+        </div>
+        <div class="currency-card" onclick="setCurrency('GBP', 'USD')">
+         <div class="currency-flag">
+          🇬🇧➜🇺🇸
+         </div>
+         <div class="currency-code">
+          GBP to USD
+         </div>
+         <div class="currency-name">
+          British Pound to US Dollar
+         </div>
+        </div>
+        <div class="currency-card" onclick="setCurrency('USD', 'JPY')">
+         <div class="currency-flag">
+          🇺🇸➜🇯🇵
+         </div>
+         <div class="currency-code">
+          USD to JPY
+         </div>
+         <div class="currency-name">
+          US Dollar to Japanese Yen
+         </div>
+        </div>
+        <div class="currency-card" onclick="setCurrency('USD', 'CAD')">
+         <div class="currency-flag">
+          🇺🇸➜🇨🇦
+         </div>
+         <div class="currency-code">
+          USD to CAD
+         </div>
+         <div class="currency-name">
+          US Dollar to Canadian Dollar
+         </div>
+        </div>
+        <div class="currency-card" onclick="setCurrency('USD', 'AUD')">
+         <div class="currency-flag">
+          🇺🇸➜🇦🇺
+         </div>
+         <div class="currency-code">
+          USD to AUD
+         </div>
+         <div class="currency-name">
+          US Dollar to Australian Dollar
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+  </main>
+  <footer class="footer">
+   <div class="container">
+    <div class="footer-content">
+     <div class="footer-section">
+      <h4>
+       Financial Calculators
+      </h4>
+      <ul>
+       <li>
+        <a href="mortgage-calculator.html">
+         Mortgage Calculator
+        </a>
+       </li>
+       <li>
+        <a href="loan-calculator.html">
+         Loan Calculator
+        </a>
+       </li>
+       <li>
+        <a href="auto-loan-calculator.html">
+         Auto Loan Calculator
+        </a>
+       </li>
+       <li>
+        <a href="payment-calculator.html">
+         Payment Calculator
+        </a>
+       </li>
+       <li>
+        <a href="currency-calculator.html">
+         Currency Calculator
+        </a>
+       </li>
+       <li>
+        <a href="interest-calculator.html">
+         Interest Calculator
+        </a>
+       </li>
+       <li>
+        <a href="investment-calculator.html">
+         Investment Calculator
+        </a>
+       </li>
+       <li>
+        <a href="compound-interest-calculator.html">
+         Compound Interest Calculator
+        </a>
+       </li>
+       <li>
+        <a href="retirement-calculator.html">
+         Retirement Calculator
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="footer-section">
+      <h4>
+       Health &amp; Fitness
+      </h4>
+      <ul>
+       <li>
+        <a href="bmi-calculator.html">
+         BMI Calculator
+        </a>
+       </li>
+       <li>
+        <a href="calorie-calculator.html">
+         Calorie Calculator
+        </a>
+       </li>
+       <li>
+        <a href="body-fat-calculator.html">
+         Body Fat Calculator
+        </a>
+       </li>
+       <li>
+        <a href="bmr-calculator.html">
+         BMR Calculator
+        </a>
+       </li>
+       <li>
+        <a href="pregnancy-calculator.html">
+         Pregnancy Calculator
+        </a>
+       </li>
+       <li>
+        <a href="water-calculator.html">
+         Water Calculator
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="footer-section">
+      <h4>
+       Math Calculators
+      </h4>
+      <ul>
+       <li>
+        <a href="scientific-calculator.html">
+         Scientific Calculator
+        </a>
+       </li>
+       <li>
+        <a href="basic-calculator.html">
+         Basic Calculator
+        </a>
+       </li>
+       <li>
+        <a href="area-calculator.html">
+         Area Calculator
+        </a>
+       </li>
+       <li>
+        <a href="volume-calculator.html">
+         Volume Calculator
+        </a>
+       </li>
+       <li>
+        <a href="average-calculator.html">
+         Average Calculator
+        </a>
+       </li>
+       <li>
+        <a href="fraction-calculator.html">
+         Fraction Calculator
+        </a>
+       </li>
+       <li>
+        <a href="percentage-calculator.html">
+         Percentage Calculator
+        </a>
+       </li>
+       <li>
+        <a href="triangle-calculator.html">
+         Triangle Calculator
+        </a>
+       </li>
+       <li>
+        <a href="random-number-generator.html">
+         Random Number Generator
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="footer-section">
+      <h4>
+       Other Tools
+      </h4>
+      <ul>
+       <li>
+        <a href="age-calculator.html">
+         Age Calculator
+        </a>
+       </li>
+       <li>
+        <a href="date-calculator.html">
+         Date Calculator
+        </a>
+       </li>
+       <li>
+        <a href="time-calculator.html">
+         Time Calculator
+        </a>
+       </li>
+       <li>
+        <a href="gpa-calculator.html">
+         GPA Calculator
+        </a>
+       </li>
+       <li>
+        <a href="grade-calculator.html">
+         Grade Calculator
+        </a>
+       </li>
+       <li>
+        <a href="hours-calculator.html">
+         Hours Calculator
+        </a>
+       </li>
+       <li>
+        <a href="password-generator.html">
+         Password Generator
+        </a>
+       </li>
+       <li>
+        <a href="tip-calculator.html">
+         Tip Calculator
+        </a>
+       </li>
+       <li>
+        <a href="unit-converter.html">
+         Unit Converter
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="footer-bottom">
+     <p>
+      © 2024 CalculatorFree.Online. All rights reserved.
+     </p>
+    </div>
+   </div>
+  </footer>
+  <script>
+   // Mock exchange rates (in real implementation, fetch from API)
         const exchangeRates = {
             USD: { EUR: 0.85, GBP: 0.73, JPY: 110.25, AUD: 1.35, CAD: 1.25, CHF: 0.92, CNY: 6.45, SEK: 8.85, NZD: 1.42 },
             EUR: { USD: 1.18, GBP: 0.86, JPY: 129.71, AUD: 1.59, CAD: 1.47, CHF: 1.08, CNY: 7.60, SEK: 10.42, NZD: 1.67 },
@@ -510,6 +773,6 @@
             document.getElementById('from-amount').value = 1000;
             convertCurrency();
         });
-    </script>
-</body>
-</html> 
+  </script>
+ </body>
+</html>

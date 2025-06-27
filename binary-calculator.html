@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Binary Calculator - Binary Decimal Hex Converter | CalculatorFree.Online</title>
-    <meta name="description" content="Convert between Binary, Decimal, Octal, and Hexadecimal number systems. Perform binary arithmetic operations with step-by-step explanations.">
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        .binary-calculator {
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="index, follow" name="robots"/>
+  <link href="https://calculatorfree.online/binary-calculator.html" rel="canonical"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Binary Calculator - Binary Decimal Hex Converter | CalculatorFree.Online
+  </title>
+  <meta content="Convert between Binary, Decimal, Octal, and Hexadecimal number systems. Perform binary arithmetic operations with step-by-step explanations." name="description"/>
+  <link href="styles.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+  <style>
+   .binary-calculator {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             border-radius: 20px;
@@ -297,280 +301,552 @@
                 flex-direction: column;
             }
         }
-    </style>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZTVJQRZ1L2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-ZTVJQRZ1L2">
+  </script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'G-ZTVJQRZ1L2');
-</script>
-
-</head>
-<body>
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <i class="fas fa-calculator"></i>
-                <span>CalculatorFree.Online</span>
-            </div>
-            <nav class="nav-menu">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="index.html#financial" class="nav-link">Financial</a>
-                <a href="index.html#health" class="nav-link">Health & Fitness</a>
-                <a href="index.html#math" class="nav-link active">Math</a>
-                <a href="index.html#other" class="nav-link">Other Tools</a>
-            </nav>
-            <div class="mobile-menu-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
+  </script>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://cdnjs.cloudflare.com" rel="preconnect"/>
+  <script type="application/ld+json">
+   {"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Binary Calculator", "applicationCategory": "CalculatorApplication", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "operatingSystem": "All", "description": "Free online binary calculator with step-by-step calculations and detailed results."}
+  </script>
+  <script type="application/ld+json">
+   {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calculatorfree.online/"}, {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://calculatorfree.online/#calculators"}, {"@type": "ListItem", "position": 3, "name": "Binary Calculator", "item": "https://calculatorfree.online/binary-calculator.html"}]}
+  </script>
+ </head>
+ <body>
+  <header class="header">
+   <div class="container">
+    <div class="logo">
+     <i class="fas fa-calculator">
+     </i>
+     <span>
+      CalculatorFree.Online
+     </span>
+    </div>
+    <nav class="nav-menu">
+     <a class="nav-link" href="index.html">
+      Home
+     </a>
+     <a class="nav-link" href="index.html#financial">
+      Financial
+     </a>
+     <a class="nav-link" href="index.html#health">
+      Health &amp; Fitness
+     </a>
+     <a class="nav-link active" href="index.html#math">
+      Math
+     </a>
+     <a class="nav-link" href="index.html#other">
+      Other Tools
+     </a>
+    </nav>
+    <div class="mobile-menu-toggle">
+     <i class="fas fa-bars">
+     </i>
+    </div>
+   </div>
+  </header>
+  <main class="main">
+   <section class="hero">
+    <div class="container">
+     <div class="hero-content">
+      <h1>
+       <i class="fas fa-code">
+       </i>
+       Binary Calculator
+      </h1>
+      <p>
+       Convert between number systems and perform binary arithmetic operations
+      </p>
+     </div>
+    </div>
+   </section>
+   <section>
+    <div class="container">
+     <div class="binary-calculator">
+      <div class="calculator-tabs">
+       <button class="tab-button active" onclick="switchTab('converter')">
+        <i class="fas fa-exchange-alt">
+        </i>
+        Number Converter
+       </button>
+       <button class="tab-button" onclick="switchTab('arithmetic')">
+        <i class="fas fa-calculator">
+        </i>
+        Binary Arithmetic
+       </button>
+       <button class="tab-button" onclick="switchTab('reference')">
+        <i class="fas fa-table">
+        </i>
+        Reference Tables
+       </button>
+      </div>
+      <!-- Number Converter Tab -->
+      <div class="tab-content active" id="converter">
+       <div class="converter-section">
+        <div class="number-system">
+         <h3 class="system-title binary-title">
+          Binary (Base 2)
+         </h3>
+         <input class="number-input binary-input" id="binary-input" pattern="[01]*" placeholder="1010101" type="text"/>
+         <div class="base-label">
+          Only 0 and 1
+         </div>
         </div>
-    </header>
-
-    <main class="main">
-        <section class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1><i class="fas fa-code"></i> Binary Calculator</h1>
-                    <p>Convert between number systems and perform binary arithmetic operations</p>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <div class="container">
-                <div class="binary-calculator">
-                    <div class="calculator-tabs">
-                        <button class="tab-button active" onclick="switchTab('converter')">
-                            <i class="fas fa-exchange-alt"></i> Number Converter
-                        </button>
-                        <button class="tab-button" onclick="switchTab('arithmetic')">
-                            <i class="fas fa-calculator"></i> Binary Arithmetic
-                        </button>
-                        <button class="tab-button" onclick="switchTab('reference')">
-                            <i class="fas fa-table"></i> Reference Tables
-                        </button>
-                    </div>
-
-                    <!-- Number Converter Tab -->
-                    <div id="converter" class="tab-content active">
-                        <div class="converter-section">
-                            <div class="number-system">
-                                <h3 class="system-title binary-title">Binary (Base 2)</h3>
-                                <input type="text" id="binary-input" class="number-input binary-input" placeholder="1010101" pattern="[01]*">
-                                <div class="base-label">Only 0 and 1</div>
-                            </div>
-
-                            <div class="number-system">
-                                <h3 class="system-title decimal-title">Decimal (Base 10)</h3>
-                                <input type="number" id="decimal-input" class="number-input decimal-input" placeholder="85" min="0">
-                                <div class="base-label">0-9</div>
-                            </div>
-
-                            <div class="number-system">
-                                <h3 class="system-title octal-title">Octal (Base 8)</h3>
-                                <input type="text" id="octal-input" class="number-input octal-input" placeholder="125" pattern="[0-7]*">
-                                <div class="base-label">0-7</div>
-                            </div>
-
-                            <div class="number-system">
-                                <h3 class="system-title hex-title">Hexadecimal (Base 16)</h3>
-                                <input type="text" id="hex-input" class="number-input hex-input" placeholder="55" pattern="[0-9A-Fa-f]*">
-                                <div class="base-label">0-9, A-F</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Binary Arithmetic Tab -->
-                    <div id="arithmetic" class="tab-content">
-                        <div class="binary-arithmetic">
-                            <h3><i class="fas fa-calculator"></i> Binary Arithmetic Calculator</h3>
-                            
-                            <div class="arithmetic-inputs">
-                                <input type="text" id="binary-a" class="binary-input-field" placeholder="1010" pattern="[01]*">
-                                <select id="operation" class="operation-select">
-                                    <option value="add">+</option>
-                                    <option value="subtract">-</option>
-                                    <option value="multiply">×</option>
-                                    <option value="divide">÷</option>
-                                    <option value="and">AND</option>
-                                    <option value="or">OR</option>
-                                    <option value="xor">XOR</option>
-                                </select>
-                                <input type="text" id="binary-b" class="binary-input-field" placeholder="0110" pattern="[01]*">
-                                <span class="equals-sign">=</span>
-                                <div id="arithmetic-result" class="binary-input-field" style="background: #f0f8ff; font-weight: bold;">Result</div>
-                            </div>
-
-                            <div id="result-display" class="result-display" style="display: none;">
-                                <div>Binary Result</div>
-                                <div class="result-value" id="binary-result">0</div>
-                                <div class="result-conversions">
-                                    <div class="conversion-item">
-                                        <div class="conversion-label">Decimal</div>
-                                        <div class="conversion-value" id="decimal-result">0</div>
-                                    </div>
-                                    <div class="conversion-item">
-                                        <div class="conversion-label">Octal</div>
-                                        <div class="conversion-value" id="octal-result">0</div>
-                                    </div>
-                                    <div class="conversion-item">
-                                        <div class="conversion-label">Hexadecimal</div>
-                                        <div class="conversion-value" id="hex-result">0</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="bitwise-operations" id="bitwise-section" style="display: none;">
-                            <h3><i class="fas fa-cogs"></i> Bitwise Operations</h3>
-                            <div class="bitwise-grid" id="bitwise-grid">
-                                <!-- Bitwise operations will be generated here -->
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Reference Tables Tab -->
-                    <div id="reference" class="tab-content">
-                        <div class="reference-tables">
-                            <div class="reference-table">
-                                <h3 class="table-title">Number System Conversions (0-15)</h3>
-                                <table class="conversion-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Decimal</th>
-                                            <th>Binary</th>
-                                            <th>Octal</th>
-                                            <th>Hex</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="conversion-table-body">
-                                        <!-- Table rows will be generated -->
-                                    </tbody>
-                                </table>
-                            </div>
-
-                            <div class="reference-table">
-                                <h3 class="table-title">Powers of 2</h3>
-                                <table class="conversion-table">
-                                    <thead>
-                                        <tr>
-                                            <th>2<sup>n</sup></th>
-                                            <th>Binary</th>
-                                            <th>Decimal</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="powers-table-body">
-                                        <!-- Powers table will be generated -->
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tips-section">
-                        <h3><i class="fas fa-graduation-cap"></i> Binary & Number Systems Tips</h3>
-                        <div class="tips-grid">
-                            <div class="tip-item">
-                                <h4>🔢 Binary Basics</h4>
-                                <p>Binary uses only 0 and 1. Each position represents a power of 2: 1, 2, 4, 8, 16, 32, 64, 128...</p>
-                            </div>
-                            <div class="tip-item">
-                                <h4>📊 Quick Conversion</h4>
-                                <p>To convert decimal to binary, divide by 2 repeatedly and read remainders bottom-up.</p>
-                            </div>
-                            <div class="tip-item">
-                                <h4>🎯 Hex Shorthand</h4>
-                                <p>Hexadecimal is often used as shorthand for binary. Each hex digit = 4 binary digits.</p>
-                            </div>
-                            <div class="tip-item">
-                                <h4>⚡ Bitwise Operations</h4>
-                                <p>AND (&): both bits 1. OR (|): at least one bit 1. XOR (^): exactly one bit 1.</p>
-                            </div>
-                            <div class="tip-item">
-                                <h4>💻 Programming Use</h4>
-                                <p>Binary operations are fundamental in programming, especially for flags, masks, and bit manipulation.</p>
-                            </div>
-                            <div class="tip-item">
-                                <h4>🧮 Memory Units</h4>
-                                <p>Computer memory: 1 byte = 8 bits, 1 KB = 1024 bytes, 1 MB = 1024 KB, etc.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Financial Calculators</h4>
-                    <ul>
-                        <li><a href="mortgage-calculator.html">Mortgage Calculator</a></li>
-                        <li><a href="loan-calculator.html">Loan Calculator</a></li>
-                        <li><a href="auto-loan-calculator.html">Auto Loan Calculator</a></li>
-                        <li><a href="interest-calculator.html">Interest Calculator</a></li>
-                        <li><a href="investment-calculator.html">Investment Calculator</a></li>
-                        <li><a href="compound-interest-calculator.html">Compound Interest Calculator</a></li>
-                        <li><a href="tax-calculator.html">Tax Calculator</a></li>
-                        <li><a href="salary-calculator.html">Salary Calculator</a></li>
-                        <li><a href="retirement-calculator.html">Retirement Calculator</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Health & Fitness</h4>
-                    <ul>
-                        <li><a href="bmi-calculator.html">BMI Calculator</a></li>
-                        <li><a href="calorie-calculator.html">Calorie Calculator</a></li>
-                        <li><a href="macro-calculator.html">Macro Calculator</a></li>
-                        <li><a href="body-fat-calculator.html">Body Fat Calculator</a></li>
-                        <li><a href="bmr-calculator.html">BMR Calculator</a></li>
-                        <li><a href="pregnancy-calculator.html">Pregnancy Calculator</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Math Calculators</h4>
-                    <ul>
-                        <li><a href="scientific-calculator.html">Scientific Calculator</a></li>
-                        <li><a href="basic-calculator.html">Basic Calculator</a></li>
-                        <li><a href="binary-calculator.html">Binary Calculator</a></li>
-                        <li><a href="area-calculator.html">Area Calculator</a></li>
-                        <li><a href="volume-calculator.html">Volume Calculator</a></li>
-                        <li><a href="average-calculator.html">Average Calculator</a></li>
-                        <li><a href="fraction-calculator.html">Fraction Calculator</a></li>
-                        <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
-                        <li><a href="triangle-calculator.html">Triangle Calculator</a></li>
-                        <li><a href="random-number-generator.html">Random Number Generator</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Other Tools</h4>
-                    <ul>
-                        <li><a href="age-calculator.html">Age Calculator</a></li>
-                        <li><a href="date-calculator.html">Date Calculator</a></li>
-                        <li><a href="time-calculator.html">Time Calculator</a></li>
-                        <li><a href="hours-calculator.html">Hours Calculator</a></li>
-                        <li><a href="gpa-calculator.html">GPA Calculator</a></li>
-                        <li><a href="grade-calculator.html">Grade Calculator</a></li>
-                        <li><a href="password-generator.html">Password Generator</a></li>
-                        <li><a href="tip-calculator.html">Tip Calculator</a></li>
-                        <li><a href="unit-converter.html">Unit Converter</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 CalculatorFree.Online. All rights reserved.</p>
-            </div>
+        <div class="number-system">
+         <h3 class="system-title decimal-title">
+          Decimal (Base 10)
+         </h3>
+         <input class="number-input decimal-input" id="decimal-input" min="0" placeholder="85" type="number"/>
+         <div class="base-label">
+          0-9
+         </div>
         </div>
-    </footer>
-
-    <script>
-        let currentTab = 'converter';
+        <div class="number-system">
+         <h3 class="system-title octal-title">
+          Octal (Base 8)
+         </h3>
+         <input class="number-input octal-input" id="octal-input" pattern="[0-7]*" placeholder="125" type="text"/>
+         <div class="base-label">
+          0-7
+         </div>
+        </div>
+        <div class="number-system">
+         <h3 class="system-title hex-title">
+          Hexadecimal (Base 16)
+         </h3>
+         <input class="number-input hex-input" id="hex-input" pattern="[0-9A-Fa-f]*" placeholder="55" type="text"/>
+         <div class="base-label">
+          0-9, A-F
+         </div>
+        </div>
+       </div>
+      </div>
+      <!-- Binary Arithmetic Tab -->
+      <div class="tab-content" id="arithmetic">
+       <div class="binary-arithmetic">
+        <h3>
+         <i class="fas fa-calculator">
+         </i>
+         Binary Arithmetic Calculator
+        </h3>
+        <div class="arithmetic-inputs">
+         <input class="binary-input-field" id="binary-a" pattern="[01]*" placeholder="1010" type="text"/>
+         <select class="operation-select" id="operation">
+          <option value="add">
+           +
+          </option>
+          <option value="subtract">
+           -
+          </option>
+          <option value="multiply">
+           ×
+          </option>
+          <option value="divide">
+           ÷
+          </option>
+          <option value="and">
+           AND
+          </option>
+          <option value="or">
+           OR
+          </option>
+          <option value="xor">
+           XOR
+          </option>
+         </select>
+         <input class="binary-input-field" id="binary-b" pattern="[01]*" placeholder="0110" type="text"/>
+         <span class="equals-sign">
+          =
+         </span>
+         <div class="binary-input-field" id="arithmetic-result" style="background: #f0f8ff; font-weight: bold;">
+          Result
+         </div>
+        </div>
+        <div class="result-display" id="result-display" style="display: none;">
+         <div>
+          Binary Result
+         </div>
+         <div class="result-value" id="binary-result">
+          0
+         </div>
+         <div class="result-conversions">
+          <div class="conversion-item">
+           <div class="conversion-label">
+            Decimal
+           </div>
+           <div class="conversion-value" id="decimal-result">
+            0
+           </div>
+          </div>
+          <div class="conversion-item">
+           <div class="conversion-label">
+            Octal
+           </div>
+           <div class="conversion-value" id="octal-result">
+            0
+           </div>
+          </div>
+          <div class="conversion-item">
+           <div class="conversion-label">
+            Hexadecimal
+           </div>
+           <div class="conversion-value" id="hex-result">
+            0
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="bitwise-operations" id="bitwise-section" style="display: none;">
+        <h3>
+         <i class="fas fa-cogs">
+         </i>
+         Bitwise Operations
+        </h3>
+        <div class="bitwise-grid" id="bitwise-grid">
+         <!-- Bitwise operations will be generated here -->
+        </div>
+       </div>
+      </div>
+      <!-- Reference Tables Tab -->
+      <div class="tab-content" id="reference">
+       <div class="reference-tables">
+        <div class="reference-table">
+         <h3 class="table-title">
+          Number System Conversions (0-15)
+         </h3>
+         <table class="conversion-table">
+          <thead>
+           <tr>
+            <th>
+             Decimal
+            </th>
+            <th>
+             Binary
+            </th>
+            <th>
+             Octal
+            </th>
+            <th>
+             Hex
+            </th>
+           </tr>
+          </thead>
+          <tbody id="conversion-table-body">
+           <!-- Table rows will be generated -->
+          </tbody>
+         </table>
+        </div>
+        <div class="reference-table">
+         <h3 class="table-title">
+          Powers of 2
+         </h3>
+         <table class="conversion-table">
+          <thead>
+           <tr>
+            <th>
+             2
+             <sup>
+              n
+             </sup>
+            </th>
+            <th>
+             Binary
+            </th>
+            <th>
+             Decimal
+            </th>
+           </tr>
+          </thead>
+          <tbody id="powers-table-body">
+           <!-- Powers table will be generated -->
+          </tbody>
+         </table>
+        </div>
+       </div>
+      </div>
+      <div class="tips-section">
+       <h3>
+        <i class="fas fa-graduation-cap">
+        </i>
+        Binary &amp; Number Systems Tips
+       </h3>
+       <div class="tips-grid">
+        <div class="tip-item">
+         <h4>
+          🔢 Binary Basics
+         </h4>
+         <p>
+          Binary uses only 0 and 1. Each position represents a power of 2: 1, 2, 4, 8, 16, 32, 64, 128...
+         </p>
+        </div>
+        <div class="tip-item">
+         <h4>
+          📊 Quick Conversion
+         </h4>
+         <p>
+          To convert decimal to binary, divide by 2 repeatedly and read remainders bottom-up.
+         </p>
+        </div>
+        <div class="tip-item">
+         <h4>
+          🎯 Hex Shorthand
+         </h4>
+         <p>
+          Hexadecimal is often used as shorthand for binary. Each hex digit = 4 binary digits.
+         </p>
+        </div>
+        <div class="tip-item">
+         <h4>
+          ⚡ Bitwise Operations
+         </h4>
+         <p>
+          AND (&amp;): both bits 1. OR (|): at least one bit 1. XOR (^): exactly one bit 1.
+         </p>
+        </div>
+        <div class="tip-item">
+         <h4>
+          💻 Programming Use
+         </h4>
+         <p>
+          Binary operations are fundamental in programming, especially for flags, masks, and bit manipulation.
+         </p>
+        </div>
+        <div class="tip-item">
+         <h4>
+          🧮 Memory Units
+         </h4>
+         <p>
+          Computer memory: 1 byte = 8 bits, 1 KB = 1024 bytes, 1 MB = 1024 KB, etc.
+         </p>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+  </main>
+  <footer class="footer">
+   <div class="container">
+    <div class="footer-content">
+     <div class="footer-section">
+      <h4>
+       Financial Calculators
+      </h4>
+      <ul>
+       <li>
+        <a href="mortgage-calculator.html">
+         Mortgage Calculator
+        </a>
+       </li>
+       <li>
+        <a href="loan-calculator.html">
+         Loan Calculator
+        </a>
+       </li>
+       <li>
+        <a href="auto-loan-calculator.html">
+         Auto Loan Calculator
+        </a>
+       </li>
+       <li>
+        <a href="interest-calculator.html">
+         Interest Calculator
+        </a>
+       </li>
+       <li>
+        <a href="investment-calculator.html">
+         Investment Calculator
+        </a>
+       </li>
+       <li>
+        <a href="compound-interest-calculator.html">
+         Compound Interest Calculator
+        </a>
+       </li>
+       <li>
+        <a href="tax-calculator.html">
+         Tax Calculator
+        </a>
+       </li>
+       <li>
+        <a href="salary-calculator.html">
+         Salary Calculator
+        </a>
+       </li>
+       <li>
+        <a href="retirement-calculator.html">
+         Retirement Calculator
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="footer-section">
+      <h4>
+       Health &amp; Fitness
+      </h4>
+      <ul>
+       <li>
+        <a href="bmi-calculator.html">
+         BMI Calculator
+        </a>
+       </li>
+       <li>
+        <a href="calorie-calculator.html">
+         Calorie Calculator
+        </a>
+       </li>
+       <li>
+        <a href="macro-calculator.html">
+         Macro Calculator
+        </a>
+       </li>
+       <li>
+        <a href="body-fat-calculator.html">
+         Body Fat Calculator
+        </a>
+       </li>
+       <li>
+        <a href="bmr-calculator.html">
+         BMR Calculator
+        </a>
+       </li>
+       <li>
+        <a href="pregnancy-calculator.html">
+         Pregnancy Calculator
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="footer-section">
+      <h4>
+       Math Calculators
+      </h4>
+      <ul>
+       <li>
+        <a href="scientific-calculator.html">
+         Scientific Calculator
+        </a>
+       </li>
+       <li>
+        <a href="basic-calculator.html">
+         Basic Calculator
+        </a>
+       </li>
+       <li>
+        <a href="binary-calculator.html">
+         Binary Calculator
+        </a>
+       </li>
+       <li>
+        <a href="area-calculator.html">
+         Area Calculator
+        </a>
+       </li>
+       <li>
+        <a href="volume-calculator.html">
+         Volume Calculator
+        </a>
+       </li>
+       <li>
+        <a href="average-calculator.html">
+         Average Calculator
+        </a>
+       </li>
+       <li>
+        <a href="fraction-calculator.html">
+         Fraction Calculator
+        </a>
+       </li>
+       <li>
+        <a href="percentage-calculator.html">
+         Percentage Calculator
+        </a>
+       </li>
+       <li>
+        <a href="triangle-calculator.html">
+         Triangle Calculator
+        </a>
+       </li>
+       <li>
+        <a href="random-number-generator.html">
+         Random Number Generator
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="footer-section">
+      <h4>
+       Other Tools
+      </h4>
+      <ul>
+       <li>
+        <a href="age-calculator.html">
+         Age Calculator
+        </a>
+       </li>
+       <li>
+        <a href="date-calculator.html">
+         Date Calculator
+        </a>
+       </li>
+       <li>
+        <a href="time-calculator.html">
+         Time Calculator
+        </a>
+       </li>
+       <li>
+        <a href="hours-calculator.html">
+         Hours Calculator
+        </a>
+       </li>
+       <li>
+        <a href="gpa-calculator.html">
+         GPA Calculator
+        </a>
+       </li>
+       <li>
+        <a href="grade-calculator.html">
+         Grade Calculator
+        </a>
+       </li>
+       <li>
+        <a href="password-generator.html">
+         Password Generator
+        </a>
+       </li>
+       <li>
+        <a href="tip-calculator.html">
+         Tip Calculator
+        </a>
+       </li>
+       <li>
+        <a href="unit-converter.html">
+         Unit Converter
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="footer-bottom">
+     <p>
+      © 2024 CalculatorFree.Online. All rights reserved.
+     </p>
+    </div>
+   </div>
+  </footer>
+  <script>
+   let currentTab = 'converter';
 
         function switchTab(tabName) {
             document.querySelectorAll('.tab-content').forEach(tab => {
@@ -874,6 +1150,6 @@
                 });
             }
         });
-    </script>
-</body>
-</html> 
+  </script>
+ </body>
+</html>
