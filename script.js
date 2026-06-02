@@ -210,7 +210,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (mobileMenuToggle && navMenu) {
         mobileMenuToggle.addEventListener('click', function() {
-            navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+            const isOpen = navMenu.style.display === 'flex';
+            navMenu.style.display = isOpen ? 'none' : 'flex';
             navMenu.style.position = 'absolute';
             navMenu.style.top = '100%';
             navMenu.style.left = '0';
@@ -220,6 +221,7 @@ document.addEventListener('DOMContentLoaded', function() {
             navMenu.style.padding = '1rem';
             navMenu.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
             navMenu.style.borderRadius = '0 0 10px 10px';
+            mobileMenuToggle.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
         });
     }
     
@@ -233,6 +235,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     behavior: 'smooth',
                     block: 'start'
                 });
+            }
+            if (mobileMenuToggle && navMenu && window.innerWidth <= 768) {
+                navMenu.style.display = 'none';
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
             }
         });
     });

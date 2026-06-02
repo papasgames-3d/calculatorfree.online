@@ -1,5 +1,5 @@
-const CACHE_NAME = 'calculatorfree-v1.0.0';
-const STATIC_CACHE_NAME = 'calculatorfree-static-v1.0.0';
+const CACHE_NAME = 'calculatorfree-v1.0.1';
+const STATIC_CACHE_NAME = 'calculatorfree-static-v1.0.1';
 
 // Core files to cache for offline functionality
 const CORE_CACHE_FILES = [
@@ -120,8 +120,8 @@ self.addEventListener('fetch', event => {
       
       // Not in cache, fetch from network
       return fetch(request).then(response => {
-        // Don't cache non-successful responses
-        if (!response || response.status !== 200 || response.type !== 'basic') {
+        // Cache successful same-origin and opaque (cross-origin no-cors) responses.
+        if (!isCacheableResponse(response)) {
           return response;
         }
         
@@ -154,13 +154,23 @@ self.addEventListener('fetch', event => {
 async function updateCache(request) {
   try {
     const response = await fetch(request);
-    if (response && response.status === 200) {
+    if (isCacheableResponse(response)) {
       const cache = await caches.open(CACHE_NAME);
       cache.put(request, response);
     }
   } catch (error) {
     console.log('Background cache update failed:', error);
   }
+}
+
+function isCacheableResponse(response) {
+  if (!response) {
+    return false;
+  }
+  if (response.type === 'opaque') {
+    return true;
+  }
+  return response.status === 200;
 }
 
 // Handle push notifications (future feature)

@@ -76,6 +76,8 @@ body {
     font-size: 1.5rem;
     cursor: pointer;
     color: #667eea;
+    background: none;
+    border: none;
     padding: 0.5rem;
     border-radius: 8px;
     transition: all 0.3s ease;
@@ -105,6 +107,11 @@ body {
     opacity: 0.9;
     max-width: 600px;
     margin: 0 auto;
+}
+
+.hero-highlight {
+    font-weight: 500;
+    color: #ff01fc;
 }
 
 /* Calculator Section - IMPROVED WITH FACEBOOK COMMENTS SUPPORT */
@@ -422,6 +429,35 @@ body {
     padding: 1rem;
 }
 
+.comments-load-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.5rem auto 1rem;
+    width: max-content;
+    padding: 0.7rem 1.2rem;
+    border: none;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #4267b2, #365899);
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.comments-load-btn:hover {
+    transform: translateY(-1px);
+}
+
+.comments-load-btn:disabled {
+    opacity: 0.75;
+    cursor: wait;
+}
+
+.fb-comments-pending {
+    min-height: 180px;
+}
+
 /* Categories Section */
 .categories {
     background: rgba(255, 255, 255, 0.95);
@@ -504,6 +540,45 @@ body {
 .category-list a:hover {
     color: #764ba2;
     text-decoration: underline;
+}
+
+.view-all-link {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.view-all-link:hover {
+    color: #0056b3;
+    transform: translateX(3px);
+}
+
+.view-all-link::after {
+    content: "→";
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.view-all-link:hover::after {
+    transform: translateX(3px);
+}
+
+.category-list .view-all-link {
+    font-style: italic;
+    border: 1px solid #007bff;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    background: rgba(0, 123, 255, 0.1);
+    font-size: 0.9rem;
+}
+
+.category-list .view-all-link:hover {
+    background: rgba(0, 123, 255, 0.2);
+    border-color: #0056b3;
 }
 
 /* Footer */

@@ -8,7 +8,6 @@
     <title>Free Online Calculator Tools - 75+ Financial, Math, Health Calculators | CalculatorFree.Online</title>
     <meta name="title" content="Free Online Calculator Tools - 75+ Financial, Math, Health Calculators | CalculatorFree.Online">
     <meta name="description" content="Free online calculators for mortgage, BMI, scientific calculations, loan payments, tax, investment returns and 75+ more tools. Fast, accurate, mobile-friendly calculators.">
-    <meta name="keywords" content="free calculator, online calculator, mortgage calculator, BMI calculator, loan calculator, investment calculator, scientific calculator, financial calculator">
     <meta name="robots" content="index, follow">
     <meta name="language" content="English">
     <meta name="author" content="CalculatorFree.Online">
@@ -22,11 +21,11 @@
     <meta property="og:site_name" content="CalculatorFree.Online">
     
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://calculatorfree.online/">
-    <meta property="twitter:title" content="Free Online Calculator Tools - 75+ Financial, Math, Health Calculators">
-    <meta property="twitter:description" content="Free online calculators for mortgage, BMI, scientific calculations, loan payments, tax, investment returns and 75+ more tools. Fast, accurate, mobile-friendly calculators.">
-    <meta property="twitter:image" content="https://calculatorfree.online/calculator-preview.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://calculatorfree.online/">
+    <meta name="twitter:title" content="Free Online Calculator Tools - 75+ Financial, Math, Health Calculators">
+    <meta name="twitter:description" content="Free online calculators for mortgage, BMI, scientific calculations, loan payments, tax, investment returns and 75+ more tools. Fast, accurate, mobile-friendly calculators.">
+    <meta name="twitter:image" content="https://calculatorfree.online/calculator-preview.jpg">
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://calculatorfree.online/">
@@ -59,11 +58,6 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="icons/icon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="icons/icon-16x16.png">
-    
-    <!-- Preconnect for performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -114,47 +108,6 @@
       ]
     }
     </script>
-    <style>
-        .view-all-link {
-            color: #007bff;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .view-all-link:hover {
-            color: #0056b3;
-            transform: translateX(3px);
-        }
-
-        .view-all-link::after {
-            content: "→";
-            font-weight: bold;
-            transition: transform 0.3s ease;
-        }
-
-        .view-all-link:hover::after {
-            transform: translateX(3px);
-        }
-
-        .category-list .view-all-link {
-            font-style: italic;
-            border: 1px solid #007bff;
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            background: rgba(0, 123, 255, 0.1);
-            font-size: 0.9rem;
-        }
-
-        .category-list .view-all-link:hover {
-            background: rgba(0, 123, 255, 0.2);
-            border-color: #0056b3;
-        }
-    </style>
-
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZTVJQRZ1L2"></script>
 <script>
@@ -169,11 +122,11 @@
 <body>
     <header class="header">
         <div class="container">
-            <div class="logo">
+            <a class="logo" href="/">
                 <i class="fas fa-calculator"></i>
                 <span>CalculatorFree.Online</span>
-            </div>
-            <nav class="nav-menu">
+            </a>
+            <nav class="nav-menu" id="mainNavigation">
                 <a href="#" class="nav-link active">Home</a>
                 <a href="#financial" class="nav-link">Financial</a>
                 <a href="#health" class="nav-link">Health & Fitness</a>
@@ -181,9 +134,9 @@
                 <a href="#time" class="nav-link">Time & Date</a>
                 <a href="#other" class="nav-link">Other Tools</a>
             </nav>
-            <div class="mobile-menu-toggle">
+            <button class="mobile-menu-toggle" aria-label="Toggle main navigation" aria-expanded="false" aria-controls="mainNavigation" type="button">
                 <i class="fas fa-bars"></i>
-            </div>
+            </button>
         </div>
     </header>
 
@@ -191,7 +144,7 @@
         <section class="hero">
             <div class="container">
                 <div class="hero-content">
-                    <h1>Free Online Calculator Tools<br><span style="font-weight: 500; color: #FF01FC;">Financial, Math, Health & More</span></h1>
+                    <h1>Free Online Calculator Tools<br><span class="hero-highlight">Financial, Math, Health & More</span></h1>
                     <p>Access <strong>75+ professional-grade calculators</strong> for mortgage payments, BMI calculations, scientific computing, tax planning, and investment analysis. All tools are <em>free, fast, and mobile-optimized</em> with step-by-step explanations.</p>
                 </div>
             </div>
@@ -247,15 +200,13 @@
                     </div>
                 </div>
                 <!-- Facebook Comments Section -->
-                <div class="comments-section">
+                <div class="comments-section" id="commentsSection">
                     <div id="fb-root"></div>
-                    <script async defer crossorigin="anonymous" 
-                        src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v12.0&appId=2017521198991078" 
-                        nonce="YOUR_NONCE"></script>
+                    <button id="load-comments-btn" class="comments-load-btn" type="button">Load Facebook comments</button>
 
-                    <div class="fb-comments" 
+                    <div class="fb-comments fb-comments-pending" id="fbComments"
                         data-href="https://calculatorfree.online/" 
-                        data-width="" 
+                        data-width="100%" 
                         data-numposts="5">
                     </div>
                 </div>
@@ -421,210 +372,6 @@
     </footer>
 
     <script src="script.js"></script>
-    
-    <!-- PWA Installation Script -->
-    <script>
-        // PWA Installation
-        let deferredPrompt;
-        let installButton;
-
-        // Create install button
-        function createInstallButton() {
-            if (document.getElementById('pwa-install-btn')) return;
-            
-            const installBtn = document.createElement('button');
-            installBtn.id = 'pwa-install-btn';
-            installBtn.innerHTML = '<i class="fas fa-download"></i> Install App';
-            installBtn.style.cssText = `
-                position: fixed;
-                bottom: 20px;
-                right: 20px;
-                background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
-                color: white;
-                border: none;
-                padding: 12px 20px;
-                border-radius: 25px;
-                font-weight: 600;
-                box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
-                cursor: pointer;
-                z-index: 1000;
-                display: flex;
-                align-items: center;
-                gap: 8px;
-                transition: all 0.3s ease;
-                font-size: 14px;
-            `;
-            
-            installBtn.addEventListener('mouseenter', () => {
-                installBtn.style.transform = 'translateY(-2px)';
-                installBtn.style.boxShadow = '0 6px 20px rgba(0, 123, 255, 0.4)';
-            });
-            
-            installBtn.addEventListener('mouseleave', () => {
-                installBtn.style.transform = 'translateY(0)';
-                installBtn.style.boxShadow = '0 4px 15px rgba(0, 123, 255, 0.3)';
-            });
-            
-            installBtn.addEventListener('click', installPWA);
-            document.body.appendChild(installBtn);
-            installButton = installBtn;
-            
-            // Auto hide after 10 seconds
-            setTimeout(() => {
-                if (installButton && installButton.parentNode) {
-                    installButton.style.opacity = '0.7';
-                }
-            }, 10000);
-        }
-
-        // Handle PWA installation
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            deferredPrompt = e;
-            createInstallButton();
-        });
-
-        async function installPWA() {
-            if (!deferredPrompt) return;
-            
-            deferredPrompt.prompt();
-            const { outcome } = await deferredPrompt.userChoice;
-            
-            if (outcome === 'accepted') {
-                console.log('PWA installed');
-                if (installButton) {
-                    installButton.style.display = 'none';
-                }
-            }
-            
-            deferredPrompt = null;
-        }
-
-        // Handle successful installation
-        window.addEventListener('appinstalled', () => {
-            console.log('PWA was installed');
-            if (installButton) {
-                installButton.style.display = 'none';
-            }
-            deferredPrompt = null;
-        });
-
-        // Service Worker Registration
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
-                    .then(registration => {
-                        console.log('SW registered: ', registration);
-                        
-                        // Check for updates
-                        registration.addEventListener('updatefound', () => {
-                            const newWorker = registration.installing;
-                            newWorker.addEventListener('statechange', () => {
-                                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                                    showUpdateNotification();
-                                }
-                            });
-                        });
-                    })
-                    .catch(registrationError => {
-                        console.log('SW registration failed: ', registrationError);
-                    });
-            });
-        }
-
-        // Show update notification
-        function showUpdateNotification() {
-            const notification = document.createElement('div');
-            notification.innerHTML = `
-                <div style="
-                    position: fixed;
-                    top: 20px;
-                    right: 20px;
-                    background: #28a745;
-                    color: white;
-                    padding: 15px 20px;
-                    border-radius: 10px;
-                    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
-                    z-index: 1001;
-                    max-width: 300px;
-                    font-size: 14px;
-                ">
-                    <strong>App Updated!</strong><br>
-                    New features available. Refresh to apply.
-                    <button onclick="window.location.reload()" style="
-                        background: white;
-                        color: #28a745;
-                        border: none;
-                        padding: 5px 15px;
-                        border-radius: 5px;
-                        margin-left: 10px;
-                        cursor: pointer;
-                        font-weight: 600;
-                    ">Refresh</button>
-                </div>
-            `;
-            document.body.appendChild(notification);
-            
-            setTimeout(() => {
-                if (notification.parentNode) {
-                    notification.remove();
-                }
-            }, 10000);
-        }
-
-        // Add to home screen prompt for iOS
-        function showIOSInstallPrompt() {
-            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-            const isStandalone = window.navigator.standalone;
-            
-            if (isIOS && !isStandalone) {
-                const prompt = document.createElement('div');
-                prompt.innerHTML = `
-                    <div style="
-                        position: fixed;
-                        bottom: 0;
-                        left: 0;
-                        right: 0;
-                        background: #007bff;
-                        color: white;
-                        padding: 15px;
-                        text-align: center;
-                        z-index: 1000;
-                        font-size: 14px;
-                    ">
-                        <strong>Install CalculatorFree App</strong><br>
-                        Tap <i class="fas fa-share"></i> and then "Add to Home Screen"
-                        <button onclick="this.parentNode.parentNode.remove()" style="
-                            position: absolute;
-                            right: 15px;
-                            top: 50%;
-                            transform: translateY(-50%);
-                            background: none;
-                            border: none;
-                            color: white;
-                            font-size: 20px;
-                            cursor: pointer;
-                        ">&times;</button>
-                    </div>
-                `;
-                document.body.appendChild(prompt);
-                
-                setTimeout(() => {
-                    if (prompt.parentNode) {
-                        prompt.remove();
-                    }
-                }, 15000);
-            }
-        }
-
-        // Show iOS install prompt after 3 seconds
-        setTimeout(showIOSInstallPrompt, 3000);
-
-        // Track PWA usage
-        if (window.navigator.standalone || window.matchMedia('(display-mode: standalone)').matches) {
-            console.log('Running as PWA');
-            document.body.classList.add('pwa-mode');
-        }
-    </script>
+    <script src="pwa.js"></script>
 </body>
 </html> 

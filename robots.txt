@@ -18,7 +18,6 @@ Allow: /investment-calculator.html
 # Disallow system and temporary files
 Disallow: /.git/
 Disallow: /node_modules/
-Disallow: /*.json$
 Disallow: /*.md$
 Disallow: /*.txt$
 Disallow: /*.py$
@@ -28,6 +27,7 @@ Allow: /styles.css
 Allow: /script.js
 Allow: /favicon.ico
 Allow: /manifest.json
+Allow: /*_content.json$
 Allow: /*.html$
 
 # Sitemap locations
