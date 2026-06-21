@@ -73,10 +73,9 @@ class Calculator {
             default:
                 return;
         }
-        
-        // Add to history
+
         this.addToHistory(calculation, computation);
-        
+
         this.currentOperand = computation;
         this.operation = undefined;
         this.previousOperand = '';
@@ -95,9 +94,8 @@ class Calculator {
         }
         if (decimalDigits != null) {
             return `${integerDisplay}.${decimalDigits}`;
-        } else {
-            return integerDisplay;
         }
+        return integerDisplay;
     }
 
     updateDisplay() {
@@ -106,40 +104,40 @@ class Calculator {
         } else {
             this.currentOperandTextElement.innerText = this.getDisplayNumber(this.currentOperand);
         }
-        
+
         if (this.operation != null) {
-            this.previousOperandTextElement.innerText = 
+            this.previousOperandTextElement.innerText =
                 `${this.getDisplayNumber(this.previousOperand)} ${this.operation}`;
         } else {
             this.previousOperandTextElement.innerText = '';
         }
     }
-    
+
     addToHistory(calculation, result) {
         const historyItem = {
             calculation: calculation,
             result: this.getDisplayNumber(result),
             time: new Date().toLocaleTimeString()
         };
-        
+
         this.history.unshift(historyItem);
-        
-        // Keep only last 50 calculations
+
         if (this.history.length > 50) {
             this.history = this.history.slice(0, 50);
         }
-        
+
         this.updateHistoryDisplay();
     }
-    
+
     updateHistoryDisplay() {
         const historyList = document.getElementById('historyList');
-        
+        if (!historyList) return;
+
         if (this.history.length === 0) {
             historyList.innerHTML = '<div class="history-empty">No calculations yet</div>';
             return;
         }
-        
+
         let historyHTML = '';
         this.history.forEach((item, index) => {
             historyHTML += `
@@ -150,10 +148,10 @@ class Calculator {
                 </div>
             `;
         });
-        
+
         historyList.innerHTML = historyHTML;
     }
-    
+
     loadFromHistory(index) {
         const item = this.history[index];
         this.currentOperand = item.result.replace(/,/g, '');
@@ -161,123 +159,84 @@ class Calculator {
         this.operation = undefined;
         this.updateDisplay();
     }
-    
+
     clearHistory() {
         this.history = [];
         this.updateHistoryDisplay();
     }
 }
 
-// Initialize calculator
 const previousOperandTextElement = document.getElementById('previousOperand');
 const currentOperandTextElement = document.getElementById('currentOperand');
 
-const calculator = new Calculator(previousOperandTextElement, currentOperandTextElement);
+let calculator;
 
-// Keyboard support
-document.addEventListener('keydown', function(event) {
-    const key = event.key;
-    
-    if (key >= '0' && key <= '9') {
-        calculator.appendNumber(key);
-    } else if (key === '.') {
-        calculator.appendNumber('.');
-    } else if (key === '+') {
-        calculator.chooseOperation('+');
-    } else if (key === '-') {
-        calculator.chooseOperation('-');
-    } else if (key === '*') {
-        calculator.chooseOperation('×');
-    } else if (key === '/') {
-        event.preventDefault();
-        calculator.chooseOperation('÷');
-    } else if (key === '%') {
-        calculator.chooseOperation('%');
-    } else if (key === 'Enter' || key === '=') {
-        event.preventDefault();
-        calculator.compute();
-    } else if (key === 'Escape' || key === 'c' || key === 'C') {
-        calculator.clear();
-    } else if (key === 'Backspace') {
-        calculator.delete();
-    }
-});
+if (previousOperandTextElement && currentOperandTextElement) {
+    calculator = new Calculator(previousOperandTextElement, currentOperandTextElement);
 
-// Mobile menu toggle
-document.addEventListener('DOMContentLoaded', function() {
-    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-    const navMenu = document.querySelector('.nav-menu');
-    
-    if (mobileMenuToggle && navMenu) {
-        mobileMenuToggle.addEventListener('click', function() {
-            navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
-            navMenu.style.position = 'absolute';
-            navMenu.style.top = '100%';
-            navMenu.style.left = '0';
-            navMenu.style.right = '0';
-            navMenu.style.background = 'white';
-            navMenu.style.flexDirection = 'column';
-            navMenu.style.padding = '1rem';
-            navMenu.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
-            navMenu.style.borderRadius = '0 0 10px 10px';
-        });
-    }
-    
-    // Smooth scrolling for navigation links (only for same-page anchors)
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            // Only prevent default for same-page anchor links
-            if (this.getAttribute('href').length > 1) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+    document.addEventListener('keydown', function (event) {
+        const key = event.key;
+
+        if (key >= '0' && key <= '9') {
+            calculator.appendNumber(key);
+        } else if (key === '.') {
+            calculator.appendNumber('.');
+        } else if (key === '+') {
+            calculator.chooseOperation('+');
+        } else if (key === '-') {
+            calculator.chooseOperation('-');
+        } else if (key === '*') {
+            calculator.chooseOperation('×');
+        } else if (key === '/') {
+            event.preventDefault();
+            calculator.chooseOperation('÷');
+        } else if (key === '%') {
+            calculator.chooseOperation('%');
+        } else if (key === 'Enter' || key === '=') {
+            event.preventDefault();
+            calculator.compute();
+        } else if (key === 'Escape' || key === 'c' || key === 'C') {
+            calculator.clear();
+        } else if (key === 'Backspace') {
+            calculator.delete();
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.category-list a').forEach(function (link) {
+        link.addEventListener('click', function () {
+            this.style.opacity = '0.7';
+            this.innerHTML += ' <i class="fas fa-spinner fa-spin"></i>';
+
+            setTimeout(() => {
+                this.style.opacity = '1';
+                const spinner = this.querySelector('.fa-spinner');
+                if (spinner) {
+                    spinner.remove();
                 }
-            }
+            }, 1000);
         });
     });
-    
-    // Add loading animation for category links (only for external navigation)
-    document.querySelectorAll('.category-list a:not([href^="#"])').forEach(link => {
-        link.addEventListener('click', function(e) {
-            // Only add loading state for links that navigate to other pages
-            if (!this.href.includes('#')) {
-                // Add a loading state
-                this.style.opacity = '0.7';
-                const originalHTML = this.innerHTML;
-                this.innerHTML += ' <i class="fas fa-spinner fa-spin"></i>';
-                
-                // Allow normal navigation to proceed
-                // The spinner will be removed when the page loads
-            }
-        });
-    });
-});
 
-// Add some interactive effects
-document.addEventListener('DOMContentLoaded', function() {
-    // Animate category cards on scroll
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     };
-    
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
+
+    const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
             if (entry.isIntersecting) {
                 entry.target.style.opacity = '1';
                 entry.target.style.transform = 'translateY(0)';
             }
         });
     }, observerOptions);
-    
-    document.querySelectorAll('.category-card').forEach(card => {
+
+    document.querySelectorAll('.category-card').forEach(function (card) {
         card.style.opacity = '0';
         card.style.transform = 'translateY(20px)';
         card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(card);
     });
-}); 
+});

@@ -3,6 +3,8 @@ from datetime import datetime
 import xml.etree.ElementTree as ET
 from xml.dom import minidom
 
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 def get_priority(filename):
     """Define priority based on calculator type"""
     high_priority = ['index', 'mortgage-calculator', 'bmi-calculator', 'loan-calculator']
@@ -35,7 +37,7 @@ def create_sitemap():
     urlset.set('xmlns', 'http://www.sitemaps.org/schemas/sitemap/0.9')
     
     # Get all HTML files
-    html_files = [f for f in os.listdir('.') if f.endswith('.html')]
+    html_files = [f for f in os.listdir(ROOT) if f.endswith('.html')]
     current_date = datetime.now().strftime('%Y-%m-%d')
     
     # Add homepage first
@@ -67,7 +69,7 @@ def create_sitemap():
     xml_str = minidom.parseString(ET.tostring(urlset)).toprettyxml(indent='  ')
     
     # Save to file
-    with open('sitemap.xml', 'w', encoding='utf-8') as f:
+    with open(os.path.join(ROOT, 'sitemap.xml'), 'w', encoding='utf-8') as f:
         f.write(xml_str)
     
     print(f"Generated sitemap.xml with {len(html_files)} URLs")

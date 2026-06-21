@@ -112,7 +112,7 @@ Hướng dẫn này giúp duy trì tính nhất quán cho header và footer trê
 
 ### Trong `<head>` section:
 ```html
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="assets/css/styles.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <link rel="icon" type="image/x-icon" href="favicon.ico">

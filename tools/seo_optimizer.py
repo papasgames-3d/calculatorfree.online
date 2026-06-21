@@ -2,6 +2,8 @@ import os
 import re
 from bs4 import BeautifulSoup
 
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 def read_file_with_encoding(file_path):
     encodings = ['utf-8', 'utf-16', 'latin1', 'cp1252']
     
@@ -129,11 +131,14 @@ def add_seo_tags(html_file):
 
 def main():
     # Get all HTML files in current directory
-    html_files = [f for f in os.listdir('.') if f.endswith('.html') and f != 'index.html']
-    
+    html_files = [
+        f for f in os.listdir(ROOT)
+        if f.endswith('.html') and f != 'index.html'
+    ]
+
     for html_file in html_files:
         print(f"Processing {html_file}...")
-        add_seo_tags(html_file)
+        add_seo_tags(os.path.join(ROOT, html_file))
 
 if __name__ == "__main__":
     main() 

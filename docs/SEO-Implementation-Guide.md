@@ -164,8 +164,8 @@
 <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
 <!-- Resource preloading -->
-<link rel="preload" href="styles.css" as="style">
-<link rel="preload" href="script.js" as="script">
+<link rel="preload" href="assets/css/styles.css" as="style">
+<link rel="preload" href="assets/js/script.js" as="script">
 ```
 
 ### **Phase 5: Accessibility & SEO Improvements**
@@ -477,8 +477,8 @@
 <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
 <!-- Resource preloading -->
-<link rel="preload" href="styles.css" as="style">
-<link rel="preload" href="script.js" as="script">
+<link rel="preload" href="assets/css/styles.css" as="style">
+<link rel="preload" href="assets/js/script.js" as="script">
 ```
 
 ### **Phase 5: Accessibility & SEO Improvements**

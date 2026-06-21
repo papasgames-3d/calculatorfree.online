@@ -8,6 +8,7 @@ import os
 import re
 from pathlib import Path
 
+ROOT = Path(__file__).resolve().parent.parent
 # SEO Templates
 SEO_TEMPLATES = {
     "finance-calculator": {
@@ -196,9 +197,9 @@ def main():
     # Get all HTML files
     html_files = []
     for file_name in SEO_TEMPLATES.keys():
-        file_path = f"{file_name}.html"
-        if os.path.exists(file_path):
-            html_files.append(file_path)
+        file_path = ROOT / f"{file_name}.html"
+        if file_path.exists():
+            html_files.append(str(file_path))
     
     if not html_files:
         print("No HTML files found to optimize.")
@@ -421,9 +422,9 @@ def main():
     # Get all HTML files
     html_files = []
     for file_name in SEO_TEMPLATES.keys():
-        file_path = f"{file_name}.html"
-        if os.path.exists(file_path):
-            html_files.append(file_path)
+        file_path = ROOT / f"{file_name}.html"
+        if file_path.exists():
+            html_files.append(str(file_path))
     
     if not html_files:
         print("No HTML files found to optimize.")

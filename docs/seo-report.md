@@ -105,8 +105,8 @@
 <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
 <!-- CSS Optimization -->
-<link rel="preload" href="styles.css" as="style">
-<link rel="preload" href="script.js" as="script">
+<link rel="preload" href="assets/css/styles.css" as="style">
+<link rel="preload" href="assets/js/script.js" as="script">
 ```
 
 ---

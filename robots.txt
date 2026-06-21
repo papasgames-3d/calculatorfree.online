@@ -21,13 +21,16 @@ Disallow: /node_modules/
 Disallow: /*.md$
 Disallow: /*.txt$
 Disallow: /*.py$
+Disallow: /tools/
+Disallow: /content/
+Disallow: /docs/
 
 # Allow static resources
-Allow: /styles.css
-Allow: /script.js
+Allow: /assets/css/styles.css
+Allow: /assets/js/script.js
 Allow: /favicon.ico
 Allow: /manifest.json
-Allow: /*_content.json$
+Allow: /assets/
 Allow: /*.html$
 
 # Sitemap locations

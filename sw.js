@@ -5,8 +5,16 @@ const STATIC_CACHE_NAME = 'calculatorfree-static-v1.0.1';
 const CORE_CACHE_FILES = [
   '/',
   '/index.html',
-  '/styles.css',
-  '/script.js',
+  '/assets/css/styles.css',
+  '/assets/css/page.css',
+  '/assets/css/home.css',
+  '/assets/js/script.js',
+  '/assets/js/nav.js',
+  '/assets/css/scientific-calculator.css',
+  '/assets/js/scientific-calculator.js',
+  '/assets/js/search-index.js',
+  '/assets/js/search.js',
+  '/assets/js/pwa-lite.js',
   '/manifest.json',
   '/favicon.ico'
 ];
@@ -180,20 +188,20 @@ self.addEventListener('push', event => {
   const data = event.data.json();
   const options = {
     body: data.body,
-    icon: '/icons/icon-192x192.png',
-    badge: '/icons/icon-72x72.png',
+    icon: '/assets/icons/icon-192x192.png',
+    badge: '/assets/icons/icon-72x72.png',
     vibrate: [100, 50, 100],
     data: data.data,
     actions: [
       {
         action: 'open',
         title: 'Open Calculator',
-        icon: '/icons/icon-72x72.png'
+        icon: '/assets/icons/icon-72x72.png'
       },
       {
         action: 'close',
         title: 'Close',
-        icon: '/icons/icon-72x72.png'
+        icon: '/assets/icons/icon-72x72.png'
       }
     ]
   };

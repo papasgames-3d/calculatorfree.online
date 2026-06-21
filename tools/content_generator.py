@@ -2,9 +2,13 @@ import os
 from datetime import datetime
 import json
 
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+CONTENT_DIR = os.path.join(ROOT, 'content')
+
+
 def generate_calculator_content(calculator_type, base_description):
     current_month = datetime.now().strftime("%B %Y")
-    
+
     content = {
         "title": f"{calculator_type} - Free Online Calculator | Updated {current_month}",
         "meta_description": f"Free online {calculator_type.lower()} with step-by-step calculations. {base_description} Updated for {current_month}.",
@@ -28,8 +32,9 @@ Updated for {current_month}, this calculator helps you {base_description.lower()
         "example_calculations": generate_examples(calculator_type),
         "last_updated": datetime.now().strftime("%Y-%m-%d")
     }
-    
+
     return content
+
 
 def generate_examples(calculator_type):
     examples = {
@@ -46,46 +51,47 @@ def generate_examples(calculator_type):
              "result": "BMI: 22.8 (Normal weight)"}
         ]
     }
-    
+
     return examples.get(calculator_type, [
         {"inputs": {"value1": "Example input 1", "value2": "Example input 2"},
          "result": "Example result"}
     ])
 
+
 def update_calculator_content(html_file):
-    # Extract calculator type from filename
     calculator_type = " ".join(html_file.replace('.html', '').split('-')).title()
-    
-    # Basic descriptions for different calculator types
+
     descriptions = {
         "Mortgage Calculator": "Calculate monthly mortgage payments, interest, and amortization schedule.",
         "BMI Calculator": "Calculate your Body Mass Index and check your weight category.",
         "Loan Calculator": "Calculate loan payments, interest, and total cost of borrowing.",
         "Investment Calculator": "Calculate investment returns, compound interest, and growth projections."
     }
-    
+
     base_description = descriptions.get(calculator_type, "Calculate accurate results quickly and easily.")
-    
-    # Generate fresh content
     content = generate_calculator_content(calculator_type, base_description)
-    
-    # Save content to JSON for reference
-    json_file = html_file.replace('.html', '_content.json')
+
+    os.makedirs(CONTENT_DIR, exist_ok=True)
+    json_file = os.path.join(CONTENT_DIR, html_file.replace('.html', '_content.json'))
     with open(json_file, 'w', encoding='utf-8') as f:
         json.dump(content, f, indent=2)
-    
+
     print(f"Generated fresh content for {html_file}")
     print(f"Content saved to {json_file}")
     return content
 
+
 def main():
-    # Get all calculator HTML files
-    html_files = [f for f in os.listdir('.') if f.endswith('.html') and 'calculator' in f]
-    
+    html_files = [
+        f for f in os.listdir(ROOT)
+        if f.endswith('.html') and 'calculator' in f
+    ]
+
     for html_file in html_files:
         print(f"\nProcessing {html_file}...")
-        content = update_calculator_content(html_file)
+        update_calculator_content(html_file)
         print("Content updated successfully!")
 
+
 if __name__ == "__main__":
-    main() 
+    main()

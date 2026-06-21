@@ -1,0 +1,50 @@
+{
+  "financial": [
+    {"href": "mortgage-calculator.html", "label": "Mortgage Calculator"},
+    {"href": "loan-calculator.html", "label": "Loan Calculator"},
+    {"href": "investment-calculator.html", "label": "Investment Calculator"},
+    {"href": "compound-interest-calculator.html", "label": "Compound Interest"},
+    {"href": "finance-calculator.html", "label": "Finance (All-in-One)"}
+  ],
+  "health": [
+    {"href": "bmi-calculator.html", "label": "BMI Calculator"},
+    {"href": "calorie-calculator.html", "label": "Calorie Calculator"},
+    {"href": "body-fat-calculator.html", "label": "Body Fat Calculator"},
+    {"href": "bmr-calculator.html", "label": "BMR Calculator"},
+    {"href": "pregnancy-calculator.html", "label": "Pregnancy Calculator"}
+  ],
+  "math": [
+    {"href": "scientific-calculator.html", "label": "Scientific Calculator"},
+    {"href": "percentage-calculator.html", "label": "Percentage Calculator"},
+    {"href": "fraction-calculator.html", "label": "Fraction Calculator"},
+    {"href": "standard-deviation-calculator.html", "label": "Standard Deviation"},
+    {"href": "average-calculator.html", "label": "Average Calculator"}
+  ],
+  "time": [
+    {"href": "age-calculator.html", "label": "Age Calculator"},
+    {"href": "date-calculator.html", "label": "Date Calculator"},
+    {"href": "time-calculator.html", "label": "Time Calculator"},
+    {"href": "timer-calculator.html", "label": "Timer"},
+    {"href": "world-clock.html", "label": "World Clock"}
+  ],
+  "construction": [
+    {"href": "concrete-calculator.html", "label": "Concrete Calculator"},
+    {"href": "paint-calculator.html", "label": "Paint Calculator"},
+    {"href": "roof-calculator.html", "label": "Roof Calculator"},
+    {"href": "square-footage-calculator.html", "label": "Square Footage"},
+    {"href": "flooring-calculator.html", "label": "Flooring Calculator"}
+  ],
+  "utilities": [
+    {"href": "conversion-calculator.html", "label": "Unit Conversion"},
+    {"href": "tip-calculator.html", "label": "Tip Calculator"},
+    {"href": "password-generator.html", "label": "Password Generator"},
+    {"href": "ip-subnet-calculator.html", "label": "IP Subnet"},
+    {"href": "random-number-generator.html", "label": "Random Number"}
+  ],
+  "site": [
+    {"href": "sitemap.html", "label": "All Calculators"},
+    {"href": "mortgage-calculator.html", "label": "Mortgage Calculator"},
+    {"href": "bmi-calculator.html", "label": "BMI Calculator"},
+    {"href": "scientific-calculator.html", "label": "Scientific Calculator"}
+  ]
+}
