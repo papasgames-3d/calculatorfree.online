@@ -3,58 +3,289 @@
 <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>Flip Clock Timer — Study &amp; Pomodoro Countdowns 🌸 | CalculatorFree.Online</title>
-  <meta content="FlipBloom flip-clock countdown timers — soft pink aesthetic, gentle beeps. YouTube timers from 5 seconds to 7 days plus pomodoro. Free interactive timer tool included." name="description"/>
-  <meta content="flip clock timer, flip clock countdown, aesthetic study timer, pomodoro timer, pink timer, FlipBloom, countdown timer youtube" name="keywords"/>
+  <title>Flip Clock Timer — Study &amp; Pomodoro | CalculatorFree.Online</title>
+  <meta content="FlipBloom flip-clock countdown timers for study and pomodoro. Watch aesthetic pink timers on YouTube or use our free custom online timer." name="description"/>
+  <meta content="flip clock timer, study timer, pomodoro timer, aesthetic timer, FlipBloom" name="keywords"/>
   <meta content="index, follow" name="robots"/>
   <link href="https://calculatorfree.online/flip-clock-timer.html" rel="canonical"/>
   <meta content="website" property="og:type"/>
   <meta content="https://calculatorfree.online/flip-clock-timer.html" property="og:url"/>
-  <meta content="Flip Clock Timer — FlipBloom Study Timers 🌸" property="og:title"/>
-  <meta content="Soft pink flip-clock countdown timers for study, pomodoro &amp; focus." property="og:description"/>
+  <meta content="Flip Clock Timer — FlipBloom" property="og:title"/>
+  <meta content="Soft pink flip-clock countdown timers for study, pomodoro and focus." property="og:description"/>
   <meta content="https://calculatorfree.online/flipbloom-logo.png" property="og:image"/>
   <link href="assets/css/page.css" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Flip Clock Timer — FlipBloom","url":"https://calculatorfree.online/flip-clock-timer.html","isPartOf":{"@type":"WebSite","name":"CalculatorFree.Online","url":"https://calculatorfree.online/"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Flip Clock Timer — FlipBloom","url":"https://calculatorfree.online/flip-clock-timer.html"}</script>
   <style>
-    :root { --fb-bg:#fdf2f8; --fb-card:#fff; --fb-shadow:#f9a8d4; --fb-digit:#9d174d; --fb-accent:#ec4899; --fb-muted:#be185d; }
-    .fb-wrap { max-width: 1100px; margin: 0 auto; }
-    .fb-intro { text-align: center; padding: 1rem 0 2rem; }
-    .fb-logo { width: 88px; height: 88px; border-radius: 20px; box-shadow: 0 8px 24px rgba(236,72,153,.25); margin-bottom: 1rem; }
-    .fb-badges { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; margin: 1rem 0 1.5rem; }
-    .fb-badge { background: var(--fb-card); border: 1px solid #fbcfe8; color: var(--fb-digit); padding: .35rem .85rem; border-radius: 999px; font-size: .85rem; font-weight: 500; }
-    .fb-clock { display: flex; justify-content: center; align-items: center; gap: .35rem; font-family: 'Libre Baskerville', Georgia, serif; font-size: clamp(2.5rem, 8vw, 3.5rem); color: var(--fb-digit); margin: 1rem 0 2rem; }
-    .fb-digit { background: var(--fb-card); min-width: 1.1em; padding: .15em .25em; border-radius: 10px; box-shadow: 0 6px 0 var(--fb-shadow), 0 10px 20px rgba(157,23,77,.12); }
-    .fb-colon { color: var(--fb-accent); font-weight: 700; }
-    .fb-actions { display: flex; flex-wrap: wrap; gap: .75rem; justify-content: center; margin-bottom: 2.5rem; }
-    .fb-btn { display: inline-flex; align-items: center; gap: .5rem; padding: .85rem 1.35rem; border-radius: 12px; font-weight: 600; text-decoration: none; transition: transform .15s; }
-    .fb-btn:hover { transform: translateY(-2px); }
-    .fb-btn-yt { background: #ff0000; color: #fff; }
-    .fb-btn-tool { background: var(--fb-card); color: var(--fb-digit); border: 2px solid var(--fb-accent); }
-    .fb-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
-    .fb-card { background: linear-gradient(135deg,#fff,#fdf2f8); border-radius: 16px; padding: 1.25rem; border: 1px solid #fce7f3; box-shadow: 0 4px 16px rgba(236,72,153,.08); }
-    .fb-card h3 { color: var(--fb-digit); font-size: 1rem; margin-bottom: .4rem; }
-    .fb-card p { color: var(--fb-muted); font-size: .9rem; line-height: 1.5; margin-bottom: .75rem; }
-    .fb-card a { color: var(--fb-accent); font-weight: 600; text-decoration: none; font-size: .9rem; }
-    .fb-card a:hover { text-decoration: underline; }
-    .fb-popular { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; margin: 1rem 0; }
-    .fb-chip { background: var(--fb-bg); color: var(--fb-digit); padding: .45rem .9rem; border-radius: 8px; text-decoration: none; font-size: .875rem; font-weight: 500; border: 1px solid #fbcfe8; }
-    .fb-chip:hover { background: #fbcfe8; }
-    .fb-note { max-width: 720px; margin: 1.5rem auto 0; padding: 1rem 1.25rem; background: var(--fb-card); border-radius: 12px; border-left: 4px solid var(--fb-accent); color: var(--fb-muted); font-size: .925rem; line-height: 1.6; }
-    .fb-note strong { color: var(--fb-digit); }
-    .fb-section-title { text-align: center; color: var(--fb-digit); font-size: 1.25rem; margin: 2rem 0 1rem; }
+    /* FlipBloom accent — harmonized with page.css, not a separate pink theme */
+    .page-flipbloom {
+      --pg-accent: #db2777;
+      --pg-primary-soft: #fdf2f8;
+    }
+    .page-flipbloom .page-hero {
+      background: radial-gradient(ellipse 80% 60% at 50% -20%, rgba(219, 39, 119, 0.07), transparent), var(--pg-bg);
+    }
+
+    .fb-hub-card {
+      background: var(--pg-surface);
+      border: 1px solid var(--pg-border);
+      border-radius: var(--pg-radius);
+      box-shadow: var(--pg-shadow);
+      overflow: hidden;
+      margin-bottom: 2rem;
+    }
+
+    .fb-hub-top {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    @media (max-width: 768px) {
+      .fb-hub-top { grid-template-columns: 1fr; }
+    }
+
+    .fb-preview-pane {
+      background: linear-gradient(160deg, #fce7f3 0%, #fdf2f8 45%, #fff 100%);
+      padding: 2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 260px;
+      border-right: 1px solid var(--pg-border);
+    }
+
+    @media (max-width: 768px) {
+      .fb-preview-pane { border-right: none; border-bottom: 1px solid var(--pg-border); }
+    }
+
+    .fb-wordmark {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #be185d;
+      margin-bottom: 1.25rem;
+    }
+
+    .fb-clock {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .fb-digit-pair {
+      display: flex;
+      gap: 0.35rem;
+    }
+
+    .fb-digit {
+      width: 2.65rem;
+      height: 3.4rem;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 0 #f9a8d4, 0 8px 20px rgba(157, 23, 77, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'JetBrains Mono', 'Courier New', monospace;
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: #9d174d;
+      position: relative;
+    }
+
+    .fb-digit::after {
+      content: '';
+      position: absolute;
+      left: 6%;
+      right: 6%;
+      top: 50%;
+      height: 1px;
+      background: rgba(249, 168, 212, 0.65);
+    }
+
+    .fb-colon {
+      color: #ec4899;
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1;
+      padding-bottom: 0.15rem;
+    }
+
+    .fb-preview-caption {
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      color: #be185d;
+      opacity: 0.85;
+    }
+
+    .fb-info-pane {
+      padding: 2rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .fb-info-pane h2 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--pg-text);
+      margin: 0;
+      line-height: 1.3;
+    }
+
+    .fb-info-pane p {
+      margin: 0;
+      color: var(--pg-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .fb-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .fb-tag {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      background: var(--pg-primary-soft);
+      color: #9d174d;
+      border: 1px solid #fbcfe8;
+    }
+
+    .fb-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-top: 0.25rem;
+    }
+
+    .fb-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.65rem 1.1rem;
+      border-radius: 10px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+
+    .fb-btn:hover { transform: translateY(-1px); }
+
+    .fb-btn-yt {
+      background: #ff0000;
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(255, 0, 0, 0.22);
+    }
+
+    .fb-btn-yt:hover { box-shadow: 0 6px 18px rgba(255, 0, 0, 0.28); }
+
+    .fb-btn-secondary {
+      background: var(--pg-surface);
+      color: var(--pg-text);
+      border: 1px solid var(--pg-border);
+    }
+
+    .fb-btn-secondary:hover {
+      border-color: var(--pg-accent);
+      color: var(--pg-accent);
+      background: var(--pg-primary-soft);
+    }
+
+    .fb-section-head {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--pg-muted);
+      margin: 0 0 0.85rem;
+    }
+
+    .fb-playlist-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .fb-playlist-card {
+      background: var(--pg-surface);
+      border: 1px solid var(--pg-border);
+      border-radius: 12px;
+      padding: 1rem 1.1rem;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+
+    .fb-playlist-card:hover {
+      border-color: #f9a8d4;
+      box-shadow: 0 4px 16px rgba(219, 39, 119, 0.08);
+    }
+
+    .fb-playlist-card h3 {
+      font-size: 0.925rem;
+      font-weight: 700;
+      color: var(--pg-text);
+      margin: 0 0 0.35rem;
+      line-height: 1.35;
+    }
+
+    .fb-playlist-card p {
+      font-size: 0.8rem;
+      color: var(--pg-muted);
+      margin: 0 0 0.65rem;
+      line-height: 1.45;
+    }
+
+    .fb-playlist-card a {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--pg-accent);
+      text-decoration: none;
+    }
+
+    .fb-playlist-card a:hover { text-decoration: underline; }
+
+    .fb-callout {
+      background: var(--pg-primary-soft);
+      border: 1px solid #fbcfe8;
+      border-radius: 12px;
+      padding: 1rem 1.15rem;
+      font-size: 0.9rem;
+      color: var(--pg-muted);
+      line-height: 1.6;
+      margin-top: 0.5rem;
+    }
+
+    .fb-callout strong { color: var(--pg-text); }
+    .fb-callout a { color: var(--pg-accent); font-weight: 600; }
   </style>
 </head>
-<body class="page-calculator page-calculator--time">
+<body class="page-calculator page-calculator--time page-flipbloom">
   <header class="header">
     <div class="container">
-      <a class="logo" href="index.html"><span class="logo-icon"><i class="fas fa-calculator"></i></span><span>Calculator<span class="logo-domain">Free</span>.Online</span></a>
+      <a class="logo" href="index.html">
+        <span class="logo-icon"><i class="fas fa-calculator"></i></span>
+        <span>Calculator<span class="logo-domain">Free</span>.Online</span>
+      </a>
       <nav class="nav-menu" id="mainNavigation">
         <a class="nav-link" href="index.html">Home</a>
-        <a class="nav-link" href="timer-calculator.html">Online Timer</a>
-        <a class="nav-link active" href="flip-clock-timer.html">Flip Clock</a>
-        <a class="nav-link" href="index.html#time">Time</a>
+        <a class="nav-link" href="index.html#financial">Financial</a>
+        <a class="nav-link" href="index.html#health">Health</a>
+        <a class="nav-link" href="index.html#math">Math</a>
+        <a class="nav-link active" href="index.html#time">Time</a>
+        <a class="nav-link" href="index.html#construction">Construction</a>
+        <a class="nav-link" href="index.html#utilities">Utilities</a>
       </nav>
       <div class="header-actions">
         <a href="sitemap.html" class="btn-browse"><i class="fas fa-th-large"></i> <span>Browse all</span></a>
@@ -62,78 +293,164 @@
       </div>
     </div>
   </header>
+
   <main class="main">
     <section class="page-hero">
       <div class="container">
         <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="index.html">Home</a><span class="sep">/</span>
-          <a href="index.html#time">Time &amp; Date</a><span class="sep">/</span>
+          <a href="index.html">Home</a>
+          <span class="sep">/</span>
+          <a href="index.html#time">Time &amp; Date</a>
+          <span class="sep">/</span>
           <span class="current">Flip Clock Timer</span>
         </nav>
-        <h1>Flip Clock Timer 🌸 — FlipBloom</h1>
-        <p>Soft pink flip-clock countdown timers with gentle beeps — study, pomodoro &amp; focus on YouTube. Part of CalculatorFree.Online.</p>
+        <h1>Flip Clock Timer</h1>
+        <p>FlipBloom — soft flip-clock countdowns for study, pomodoro and focus. Watch on YouTube or set any time with our online timer.</p>
       </div>
     </section>
+
     <section class="calculator-section">
-      <div class="container fb-wrap">
-        <div class="fb-intro">
-          <img src="flipbloom-logo.png" alt="FlipBloom logo" class="fb-logo" width="88" height="88"/>
-          <div class="fb-badges">
-            <span class="fb-badge"><i class="fas fa-clock"></i> Real-time countdown</span>
-            <span class="fb-badge"><i class="fas fa-volume-up"></i> Gentle beeps</span>
-            <span class="fb-badge"><i class="fas fa-book"></i> Study &amp; pomodoro</span>
-          </div>
-          <div class="fb-clock" aria-hidden="true">
-            <span class="fb-digit" id="d1">0</span><span class="fb-digit" id="d2">5</span>
-            <span class="fb-colon">:</span>
-            <span class="fb-digit" id="d3">0</span><span class="fb-digit" id="d4">0</span>
-          </div>
-          <div class="fb-actions">
-            <a class="fb-btn fb-btn-yt" href="https://www.youtube.com/@FlipBloomTimer" target="_blank" rel="noopener"><i class="fab fa-youtube"></i> Watch on YouTube</a>
-            <a class="fb-btn fb-btn-tool" href="timer-calculator.html"><i class="fas fa-stopwatch"></i> Custom Online Timer</a>
-          </div>
-        </div>
-        <h2 class="fb-section-title">YouTube Playlists</h2>
-        <div class="fb-grid">
-          <article class="fb-card"><h3>⏱ Minutes (1–120 min)</h3><p>5 min, 25 min pomodoro &amp; more.</p><a href="https://www.youtube.com/playlist?list=PLww9Il1JMe8dCfzbZ9E0ar541HulSRtQ6" target="_blank" rel="noopener">Open playlist →</a></article>
-          <article class="fb-card"><h3>🕐 Hours (1–24 h)</h3><p>Deep work &amp; sleep prep.</p><a href="https://www.youtube.com/playlist?list=PLww9Il1JMe8djFoN1_BGCtvYDAgpoUtOI" target="_blank" rel="noopener">Open playlist →</a></article>
-          <article class="fb-card"><h3>📅 Full days (1–7 days)</h3><p>Multi-day flip-clock countdowns.</p><a href="https://www.youtube.com/playlist?list=PLww9Il1JMe8dqb7nqboW_WB8nBwAVkkpk" target="_blank" rel="noopener">Open playlist →</a></article>
-          <article class="fb-card"><h3>⚡ Quick (under 1 min)</h3><p>5s to 60s transitions.</p><a href="https://www.youtube.com/playlist?list=PLww9Il1JMe8fIvtBKfhxHUqe7GG8e1LId" target="_blank" rel="noopener">Open playlist →</a></article>
-          <article class="fb-card"><h3>🍅 Pomodoro 25/5</h3><p>25 min focus, 5 min break.</p><a href="https://www.youtube.com/playlist?list=PLww9Il1JMe8cX61dqyw8qayv9J73Mn009" target="_blank" rel="noopener">Open playlist →</a></article>
-          <article class="fb-card"><h3>🍅 Pomodoro 50/10 &amp; ADHD</h3><p>Long sessions &amp; 15/5 cycles.</p>
-            <a href="https://www.youtube.com/playlist?list=PLww9Il1JMe8fTWAfBIVfpWoR685VeGnYg" target="_blank" rel="noopener">50/10 →</a>
-            · <a href="https://www.youtube.com/playlist?list=PLww9Il1JMe8dhjPgEC--oBGQs-oT-PL--" target="_blank" rel="noopener">15/5 &amp; 20/5 →</a></article>
-        </div>
-        <h2 class="fb-section-title">Popular Timers</h2>
-        <div class="fb-popular">
-          <a class="fb-chip" href="https://www.youtube.com/watch?v=zlPq-15iBaA" target="_blank" rel="noopener">5 min</a>
-          <a class="fb-chip" href="https://www.youtube.com/watch?v=h4zsyOJ2QKk" target="_blank" rel="noopener">25 min</a>
-          <a class="fb-chip" href="https://www.youtube.com/watch?v=j1ScJ_JIKmk" target="_blank" rel="noopener">1 hour</a>
-          <a class="fb-chip" href="https://www.youtube.com/watch?v=MeZ0m5SA6G4" target="_blank" rel="noopener">2 hours</a>
-          <a class="fb-chip" href="https://www.youtube.com/watch?v=QDKhjaV3kqc" target="_blank" rel="noopener">Pomodoro 25/5</a>
-          <a class="fb-chip" href="https://www.youtube.com/watch?v=pVcN68L1zrw" target="_blank" rel="noopener">Pomodoro 15/5</a>
-        </div>
-        <div class="fb-note"><strong>Two ways to timer:</strong> YouTube videos are real-time flip-clock countdowns (video length = timer length). For a custom time, use our <a href="timer-calculator.html">free online timer calculator</a>.</div>
-      </div>
-    </section>
-    <section class="related-section">
       <div class="container">
-        <h2>Related Tools</h2>
-        <div class="related-grid">
-          <a class="related-link" href="timer-calculator.html"><i class="fas fa-arrow-right"></i> Timer Calculator</a>
-          <a class="related-link" href="stopwatch-calculator.html"><i class="fas fa-arrow-right"></i> Stopwatch</a>
-          <a class="related-link" href="online-clock.html"><i class="fas fa-arrow-right"></i> Online Clock</a>
+        <article class="fb-hub-card">
+          <div class="fb-hub-top">
+            <div class="fb-preview-pane">
+              <div class="fb-wordmark">FlipBloom</div>
+              <div class="fb-clock" aria-label="Flip clock preview">
+                <div class="fb-digit-pair">
+                  <span class="fb-digit" id="d1">0</span>
+                  <span class="fb-digit" id="d2">5</span>
+                </div>
+                <span class="fb-colon" aria-hidden="true">:</span>
+                <div class="fb-digit-pair">
+                  <span class="fb-digit" id="d3">0</span>
+                  <span class="fb-digit" id="d4">0</span>
+                </div>
+              </div>
+              <p class="fb-preview-caption">Preview — real timers on YouTube match video length</p>
+            </div>
+            <div class="fb-info-pane">
+              <h2>Study timers with flip-clock style</h2>
+              <p>Gentle beeps, no background music. From 5 seconds to 7 days — plus pomodoro sessions with YouTube chapters.</p>
+              <div class="fb-tags">
+                <span class="fb-tag">Real-time countdown</span>
+                <span class="fb-tag">Pomodoro 25/5</span>
+                <span class="fb-tag">No music</span>
+              </div>
+              <div class="fb-actions">
+                <a class="fb-btn fb-btn-yt" href="https://www.youtube.com/@FlipBloomTimer" target="_blank" rel="noopener">
+                  <i class="fab fa-youtube"></i> FlipBloomTimer on YouTube
+                </a>
+                <a class="fb-btn fb-btn-secondary" href="timer-calculator.html">
+                  <i class="fas fa-stopwatch"></i> Custom online timer
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <h2 class="fb-section-head">YouTube playlists</h2>
+        <div class="fb-playlist-grid">
+          <article class="fb-playlist-card">
+            <h3>Minutes (1–120 min)</h3>
+            <p>5 min, 25 min, 45 min and more.</p>
+            <a href="https://www.youtube.com/playlist?list=PLww9Il1JMe8dCfzbZ9E0ar541HulSRtQ6" target="_blank" rel="noopener">Open playlist</a>
+          </article>
+          <article class="fb-playlist-card">
+            <h3>Hours (1–24 h)</h3>
+            <p>Deep work and long focus blocks.</p>
+            <a href="https://www.youtube.com/playlist?list=PLww9Il1JMe8djFoN1_BGCtvYDAgpoUtOI" target="_blank" rel="noopener">Open playlist</a>
+          </article>
+          <article class="fb-playlist-card">
+            <h3>Full days (1–7 days)</h3>
+            <p>Multi-day countdown timers.</p>
+            <a href="https://www.youtube.com/playlist?list=PLww9Il1JMe8dqb7nqboW_WB8nBwAVkkpk" target="_blank" rel="noopener">Open playlist</a>
+          </article>
+          <article class="fb-playlist-card">
+            <h3>Quick (under 1 min)</h3>
+            <p>5s–60s for transitions.</p>
+            <a href="https://www.youtube.com/playlist?list=PLww9Il1JMe8fIvtBKfhxHUqe7GG8e1LId" target="_blank" rel="noopener">Open playlist</a>
+          </article>
+          <article class="fb-playlist-card">
+            <h3>Pomodoro 25/5</h3>
+            <p>Classic study intervals.</p>
+            <a href="https://www.youtube.com/playlist?list=PLww9Il1JMe8cX61dqyw8qayv9J73Mn009" target="_blank" rel="noopener">Open playlist</a>
+          </article>
+          <article class="fb-playlist-card">
+            <h3>Pomodoro 50/10 &amp; 15/5</h3>
+            <p>Long sessions and ADHD-friendly cycles.</p>
+            <a href="https://www.youtube.com/playlist?list=PLww9Il1JMe8fTWAfBIVfpWoR685VeGnYg" target="_blank" rel="noopener">50/10</a>
+            ·
+            <a href="https://www.youtube.com/playlist?list=PLww9Il1JMe8dhjPgEC--oBGQs-oT-PL--" target="_blank" rel="noopener">15/5 &amp; 20/5</a>
+          </article>
+        </div>
+
+        <h2 class="fb-section-head">Popular timers</h2>
+        <div class="related-links" style="margin-bottom:1.5rem">
+          <a class="related-link" href="https://www.youtube.com/watch?v=zlPq-15iBaA" target="_blank" rel="noopener">5 min</a>
+          <a class="related-link" href="https://www.youtube.com/watch?v=h4zsyOJ2QKk" target="_blank" rel="noopener">25 min</a>
+          <a class="related-link" href="https://www.youtube.com/watch?v=j1ScJ_JIKmk" target="_blank" rel="noopener">1 hour</a>
+          <a class="related-link" href="https://www.youtube.com/watch?v=MeZ0m5SA6G4" target="_blank" rel="noopener">2 hours</a>
+          <a class="related-link" href="https://www.youtube.com/watch?v=QDKhjaV3kqc" target="_blank" rel="noopener">Pomodoro 25/5</a>
+          <a class="related-link" href="https://www.youtube.com/watch?v=pVcN68L1zrw" target="_blank" rel="noopener">Pomodoro 15/5</a>
+        </div>
+
+        <div class="fb-callout">
+          <strong>Two ways to timer:</strong> YouTube videos run in real time (video length = timer length). For a custom duration, use the
+          <a href="timer-calculator.html">online timer calculator</a> on this site.
         </div>
       </div>
     </section>
   </main>
+
+  <section class="related-tools">
+    <div class="container">
+      <h2>Related calculators</h2>
+      <div class="related-links">
+        <a class="related-link" href="timer-calculator.html"><i class="fas fa-arrow-right"></i> Timer Calculator</a>
+        <a class="related-link" href="stopwatch-calculator.html"><i class="fas fa-arrow-right"></i> Stopwatch</a>
+        <a class="related-link" href="online-clock.html"><i class="fas fa-arrow-right"></i> Online Clock</a>
+        <a class="related-link" href="time-calculator.html"><i class="fas fa-arrow-right"></i> Time Calculator</a>
+      </div>
+    </div>
+  </section>
+
   <footer class="footer">
     <div class="container">
-      <div class="footer-bottom"><p>&copy; 2026 CalculatorFree.Online · FlipBloom flip-clock timers</p></div>
+      <div class="footer-brand">
+        <div>
+          <a class="logo" href="index.html">
+            <span class="logo-icon"><i class="fas fa-calculator"></i></span>
+            <span>Calculator<span class="logo-domain">Free</span>.Online</span>
+          </a>
+          <p class="footer-tagline">Free professional calculators — fast, accurate, no signup required.</p>
+        </div>
+        <div class="footer-quick">
+          <a href="sitemap.html">All Calculators</a>
+          <a href="index.html">Home</a>
+          <a href="flip-clock-timer.html">Flip Clock</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 CalculatorFree.Online · FlipBloom flip-clock timers</p>
+      </div>
     </div>
   </footer>
+
   <script>
-    (function(){var s=300;function pad(n){return n<10?'0'+n:''+n;}function tick(){var m=Math.floor(s/60),sec=s%60,str=pad(m)+pad(sec);document.getElementById('d1').textContent=str[0];document.getElementById('d2').textContent=str[1];document.getElementById('d3').textContent=str[2];document.getElementById('d4').textContent=str[3];s=s>0?s-1:300;}tick();setInterval(tick,1000);})();
+    (function () {
+      var s = 300;
+      function pad(n) { return n < 10 ? '0' + n : '' + n; }
+      function tick() {
+        var m = Math.floor(s / 60), sec = s % 60, str = pad(m) + pad(sec);
+        document.getElementById('d1').textContent = str[0];
+        document.getElementById('d2').textContent = str[1];
+        document.getElementById('d3').textContent = str[2];
+        document.getElementById('d4').textContent = str[3];
+        s = s > 0 ? s - 1 : 300;
+      }
+      tick();
+      setInterval(tick, 1000);
+    })();
   </script>
   <script src="assets/js/nav.js"></script>
 </body>
