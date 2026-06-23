@@ -1039,7 +1039,7 @@
             bindEvents() {
                 // Tab navigation
                 document.querySelectorAll('.tab-btn').forEach(btn => {
-                    btn.addEventListener('click', (e) => this.switchTab(e.target.dataset.tab));
+                    btn.addEventListener('click', (e) => this.switchTab(e.currentTarget.dataset.tab));
                 });
 
                 // Countdown controls
@@ -1443,7 +1443,7 @@
         }
 
         // Initialize app
-        const app = new TimerApp(););
+        const app = new TimerApp();
   </script>
    <script src="assets/js/pwa-lite.js"></script>
   <script src="assets/js/nav.js"></script>
